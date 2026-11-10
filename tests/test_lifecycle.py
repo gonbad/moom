@@ -12,6 +12,7 @@ import zipfile
 from pathlib import Path
 
 SOURCE = Path(__file__).resolve().parents[1]
+TEMPLATE_VERSION = (SOURCE / "VERSION").read_text(encoding="utf-8").strip()
 spec = importlib.util.spec_from_file_location(
     "moom_test_core", SOURCE / ".moom/core/moom.py"
 )
@@ -341,7 +342,7 @@ class Lifecycle(unittest.TestCase):
         upstream = self.next_release()
         plan = self.call("update", "--source", str(upstream))
         self.assertTrue(plan["catalog_skipped"])
-        self.assertEqual((self.root / "VERSION").read_text().strip(), "0.2.0")
+        self.assertEqual((self.root / "VERSION").read_text().strip(), TEMPLATE_VERSION)
         self.call("update", "--source", str(upstream), "--apply")
         self.assertEqual((self.root / "VERSION").read_text().strip(), "0.3.0")
         self.assertEqual(local.read_bytes(), before)
@@ -363,7 +364,7 @@ class Lifecycle(unittest.TestCase):
         self.assertIn("README.md", [item["file"] for item in plan["conflicts"]])
         self.call("update", "--source", str(upstream), "--apply", fail=True)
         self.assertEqual(local.read_bytes(), original)
-        self.assertEqual((self.root / "VERSION").read_text().strip(), "0.2.0")
+        self.assertEqual((self.root / "VERSION").read_text().strip(), TEMPLATE_VERSION)
         resolution = self.base / "resolved"
         resolution.mkdir()
         (resolution / "README.md").write_bytes(
@@ -390,7 +391,7 @@ class Lifecycle(unittest.TestCase):
         self.assertEqual(core.files(self.root / ".moom/core"), original)
         self.assertEqual((self.root / "README.md").read_bytes(), readme)
         self.assertEqual((self.root / "workspace.json").read_bytes(), state)
-        self.assertEqual((self.root / "VERSION").read_text().strip(), "0.2.0")
+        self.assertEqual((self.root / "VERSION").read_text().strip(), TEMPLATE_VERSION)
         checkpoints = list(
             (self.root / ".moom/local/updates").glob("*/checkpoint.json")
         )
@@ -477,14 +478,16 @@ class Lifecycle(unittest.TestCase):
             ".env.example",
         ]
         result = subprocess.run(
-            ["git", "check-ignore", "--stdin"],
+            ["git", "check-ignore", "--stdin", "-z"],
             cwd=self.root,
-            input="\n".join(names) + "\n",
-            text=True,
+            input=("\0".join(names) + "\0").encode("utf-8"),
             capture_output=True,
             check=False,
         )
-        self.assertEqual(set(result.stdout.splitlines()), set(names[:-1]))
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(
+            set(result.stdout.decode("utf-8").split("\0")) - {""}, set(names[:-1])
+        )
 
 
 if __name__ == "__main__":

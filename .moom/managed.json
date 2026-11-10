@@ -1,10 +1,10 @@
 {
   "schema": 1,
   "workspace_schema": 1,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "repository": "https://github.com/gonbad/moom",
   "engine": {
-    "VERSION": "1f930dd1f133c1f97a94fe3acb8db34372cf4c01ffdb2b3ff4ca72f9494121e9",
+    "VERSION": "71015c979ccb0fc8a0be7ca0ae83046ab045cdc2c8faa09fb2f0f7e440f9b4a6",
     "moom.py": "f17085e26d1a38be076dc4d48097b746cf29d9078d07429f90b6f14850d7793d",
     "AGENTS.md": "b210759eb3638a9821dabf05f264bb024b5e0a3a1fcb8614c2a4fab3cdc20ef4",
     "CLAUDE.md": "e247daf3e0c3f4e2e3a3008fca2ebacde5c84c3e8ac6aceb984293df38bbdd12",
