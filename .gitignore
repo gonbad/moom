@@ -1,0 +1,27 @@
+# Credentials, at every depth. Keep documentation templates trackable.
+.env
+.env.*
+!.env.example
+**/docs/**/secrets/**
+**/docs/secrets/**
+secrets/
+*.pem
+*.key
+
+# Local environments and generated deliverables
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+dist/
+exports/
+.pytest_cache/
+.ruff_cache/
+.coverage
+.DS_Store
+Thumbs.db
+*.log
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.moom/local/

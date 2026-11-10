@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "jobs": [
+    {
+      "name": "presentation-maker",
+      "description": "Build an offline HTML presentation from real source material, with outline, small content reviews and a final complete-artifact check.",
+      "version": "0.1.0",
+      "origin": "https://github.com/gonbad/moom/tree/main/registry/presentation-maker",
+      "license": "MIT"
+    }
+  ]
+}

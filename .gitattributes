@@ -1,0 +1,6 @@
+# Release hashes and generated adapters use the same bytes on every platform.
+* text=auto eol=lf
+*.zip binary
+*.png binary
+*.jpg binary
+*.woff2 binary
