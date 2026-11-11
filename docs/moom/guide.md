@@ -13,6 +13,15 @@ are generated views. A living explanation can describe the current result or met
 version folders preserve requests, questions and decisions. Neither replaces executable
 instructions under .moom/core/ or job/NAME/.
 
+Moom defines four distinct document classes:
+1. Constitutions: Inviolable workspace invariants and boundaries. Read at start.
+2. Living Docs: Current state of truth (docs/**/living/). Updated in-place with every release.
+3. Version Docs: Historical immutable decision records (docs/**/versions/). Governed by the
+   Historical Version Isolation Invariant: AI assistants must NEVER inspect historical version
+   folders unless explicitly requested by the human creator or working on the active open version.
+4. Code-Like Docs: Machine-executable SOPs, Agent Skills, and commands (job/<name>/, .moom/core/),
+   kept outside the Obsidian human vault.
+
 Projects keep inputs/, src/ and dist/ beneath projects/ID/. Shared integration and
 deployment code belongs under shared/; discuss it under docs/workspace/. Keep shared
 account facts under the workspace profile and credentials in ignored local files.

@@ -68,7 +68,11 @@ class Lifecycle(unittest.TestCase):
         if finish:
             self.call("finish-job")
 
-    def next_release(self, number="0.3.0", broken=False):
+    def next_release(self, number=None, broken=False):
+        if number is None:
+            parts = [int(p) for p in TEMPLATE_VERSION.split(".")]
+            parts[1] += 1
+            number = ".".join(str(p) for p in parts)
         target = self.base / "upstream"
         self.copy_template(target)
         (target / "VERSION").write_text(number + "\n")
@@ -344,7 +348,10 @@ class Lifecycle(unittest.TestCase):
         self.assertTrue(plan["catalog_skipped"])
         self.assertEqual((self.root / "VERSION").read_text().strip(), TEMPLATE_VERSION)
         self.call("update", "--source", str(upstream), "--apply")
-        self.assertEqual((self.root / "VERSION").read_text().strip(), "0.3.0")
+        self.assertEqual(
+            (self.root / "VERSION").read_text().strip(),
+            (upstream / "VERSION").read_text().strip(),
+        )
         self.assertEqual(local.read_bytes(), before)
         self.assertEqual((self.root / "workspace.json").read_bytes(), state)
         self.assertEqual(

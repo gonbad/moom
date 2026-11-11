@@ -16,6 +16,15 @@ Human requests, answers, reviews and living explanations belong in docs/; execut
 instructions belong in .moom/core/ or job/; actual artifacts belong in projects/.
 Open docs/ as the Obsidian vault. Shared integration code belongs in shared/.
 
+Moom defines four distinct document classes:
+- Constitutions (docs/constitution/, CONSTITUTION.md): Inviolable invariants; read on start.
+- Living Docs (docs/**/living/, docs/index.md): Mutated in-place; authoritative CURRENT truth.
+- Version Docs (docs/**/versions/V*/): Historical immutable decision records. Invariant: AI
+  assistants MUST NEVER inspect historical version folders unless explicitly instructed by the
+  user or when actively authoring the designated open version.
+- Code-Like Docs (job/<name>/, .moom/core/): Executable SOPs, Agent Skills, and commands kept
+  outside the Obsidian knowledge vault.
+
 Before creating a question file, resolve its owning entity. If unknown, ask in chat or
 through the host question tool. If the owner also cannot locate it, use
 docs/workspace/intake/ and route it after diagnosis. Once scoped, use numbered
