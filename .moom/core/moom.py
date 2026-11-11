@@ -92,6 +92,22 @@ def config(root):
     return value
 
 
+def validate_state(state):
+    """Reject incomplete imports before checks or state-changing operations."""
+    if not isinstance(state.get("projects"), dict) or not isinstance(state.get("profile"), dict):
+        raise ValueError("Workspace needs profile and projects objects; migrate the complete state")
+    job = state.get("job")
+    if job and (job.get("status") not in ("initializing", "ready") or not job.get("version")):
+        raise ValueError("Job state needs its status and version; complete the workspace migration")
+    for identifier, item in state["projects"].items():
+        if (item.get("id") != identifier or not isinstance(item.get("milestones"), dict)
+                or not item.get("job_observed") or not item.get("docs") or not item.get("version")):
+            raise ValueError(f"Incomplete Project state: {identifier}; migrate id, milestones, job_observed, docs and version")
+    for key in ("active_project", "first_project"):
+        if state.get(key) is not None and state[key] not in state["projects"]:
+            raise ValueError(f"Unknown {key} in workspace state")
+
+
 def slug(value):
     if len(value) > 64 or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", value):
         raise ValueError(
@@ -339,6 +355,7 @@ def dashboard(root, state):
 
 
 def save(root, state):
+    validate_state(state)
     write(root / "workspace.json", state)
     dashboard(root, state)
 
@@ -951,6 +968,7 @@ def update(root, source, apply=False, resolutions=None):
 
 def check(root):
     state = config(root)
+    validate_state(state)
     sync(root, check=True)
     stale = []
     if state.get("job"):

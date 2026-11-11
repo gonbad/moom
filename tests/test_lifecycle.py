@@ -97,6 +97,21 @@ class Lifecycle(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stderr)
         return target
 
+    def test_incomplete_import_is_rejected_before_saving(self):
+        self.setup_job()
+        original = (self.root / "workspace.json").read_bytes()
+        malformed = self.state()
+        malformed["job"].pop("status")
+        with self.assertRaises(ValueError):
+            core.save(self.root, malformed)
+        self.assertEqual((self.root / "workspace.json").read_bytes(), original)
+        core.write(self.root / "workspace.json", malformed)
+        self.assertIn("migration", self.call("check", fail=True).stderr)
+        malformed = json.loads(original)
+        malformed["projects"][malformed["active_project"]].pop("id")
+        core.write(self.root / "workspace.json", malformed)
+        self.assertIn("Incomplete Project", self.call("check", fail=True).stderr)
+
     def test_setup_adaptation_cleanup_resume_and_current_job_dispatch(self):
         self.setup_job(finish=False)
         recipe = self.root / "job/presentation-maker/references/quality.md"
@@ -203,30 +218,33 @@ class Lifecycle(unittest.TestCase):
         self.call("issue", "Unknown scope", fail=True)
         self.assertEqual(before, core.files(self.root / "docs"))
         self.call("install", "presentation-maker")
+        initial_version = self.state()["job"]["version"]
+        major, minor, *_ = map(int, initial_version.split("."))
+        revised_version = f"{major}.{minor + 1}.0"
         report = self.call(
             "issue", "Recipe defect before any Project", "--target", "job"
         )
-        self.assertIn("docs/job/versions/V0/V0.1/", report["file"])
+        self.assertIn(f"docs/job/versions/V{major}/V{major}.{minor}/", report["file"])
         self.assertFalse(self.state()["projects"])
         draft = self.call(
             "iterate",
             "--target",
             "job",
             "--version",
-            "0.2.0",
+            revised_version,
             "--note",
             "Improve the method",
         )
-        self.assertEqual(draft["version"], "0.2.0")
-        self.assertEqual(self.state()["job"]["version"], "0.1.0")
+        self.assertEqual(draft["version"], revised_version)
+        self.assertEqual(self.state()["job"]["version"], initial_version)
         skill = self.root / "job/presentation-maker/SKILL.md"
         skill.write_text(
-            skill.read_text().replace('version: "0.1.0"', 'version: "0.2.0"')
+            skill.read_text().replace(f'version: "{initial_version}"', f'version: "{revised_version}"')
         )
         self.call("job-revision", "--note", "Not verified", fail=True)
         self.call("verify-job", "--smoke", "scripts/check.py")
         self.call("job-revision", "--note", "Verified revised recipe")
-        self.assertEqual(self.state()["job"]["version"], "0.2.0")
+        self.assertEqual(self.state()["job"]["version"], revised_version)
         shared = self.call("issue", "Shared code defect", "--target", "workspace")
         self.assertIn("docs/workspace/versions/V0/V0.1/", shared["file"])
 

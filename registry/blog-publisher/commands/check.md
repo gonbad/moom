@@ -1,7 +1,7 @@
-# Check: verify links, rendering, and offline isolation
+# Check the actual output
 
-Inspect the built post in a browser:
-1. Verify responsiveness and layout fidelity.
-2. Confirm all internal links and media resolve locally.
-3. Validate zero remote network calls (`http://` or `https://` in assets).
-4. Run `python3 moom.py run scripts/check.py`.
+Run `python3 moom.py run scripts/check.py`. Missing output, missing references,
+remote HTML/CSS dependencies, bad package hashes, and untracked release files fail.
+Then inspect the selected post in a browser at desktop/phone sizes and open its extracted
+ZIP through file://. Verify its actual interactions and source fidelity. Record the
+real report file; do not record human acceptance without approval of this revision.

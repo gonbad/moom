@@ -1,4 +1,7 @@
-# Package: create standalone offline ZIP
+# Verify standalone delivery
 
-Generate a standalone, self-verifying offline ZIP archive of the post under `dist/`.
-Ensure the package opens directly via `file://index.html` without requiring a local web server.
+The build generates each post's downloads/ ZIP and offline-manifest.json inside it.
+Run `python3 moom.py run scripts/check.py` to verify actual ZIP contents and hashes.
+Extract the selected archive into a fresh directory and open index.html with networking
+disabled. Check the real interactions, fonts and declared participant downloads.
+Record the archive as ready only after those checks.

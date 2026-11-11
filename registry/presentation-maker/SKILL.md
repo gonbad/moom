@@ -3,7 +3,7 @@ name: presentation-maker
 description: Create an offline HTML slide presentation from source material. Use for a bounded presentation project with reviewable outline, content chunks and final delivery.
 license: MIT
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   author: gonbad
   origin: https://github.com/gonbad/moom
 ---
@@ -23,3 +23,6 @@ Apply [the quality criteria](references/quality.md) to small content reviews AND
 whole deck. Distinguish source fidelity, working navigation/rendering and human
 acceptance. Real corrections can improve these procedures or helpers; preferences
 for one presentation stay with that Project unless deliberately generalized.
+
+For independent slide markup and local asset packaging, read
+[HTML slides](references/html-slides.md). Plain text bodies remain escaped.

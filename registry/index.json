@@ -4,14 +4,14 @@
     {
       "name": "presentation-maker",
       "description": "Build an offline 16:9 horizontal HTML slide presentation from real source material, with outline, draft, overview grid, speaker notes, and complete-artifact check.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "origin": "https://github.com/gonbad/moom/tree/main/registry/presentation-maker",
       "license": "MIT"
     },
     {
       "name": "blog-publisher",
       "description": "Publish an independent multi-post journal or publication site with an index, heterogeneous post layouts, offline ZIP bundles, and static deployment.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "origin": "https://github.com/gonbad/moom/tree/main/registry/blog-publisher",
       "license": "MIT"
     }

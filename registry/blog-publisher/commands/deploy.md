@@ -1,5 +1,8 @@
-# Deploy: sync static distribution to VPS
+# Deploy the verified release
 
-Transfer the minimized `dist/` tree to the configured static hosting origin.
-Only transfer compiled assets; keep working documents, git history, and secrets local.
-Verify public HTTPS accessibility and checksum integrity after sync.
+Use the workspace origin and hosting adapter described in ../references/distribution.md.
+Run `python3 moom.py run scripts/deploy.py --dry-run` to validate the actual release
+and adapter. With the user's existing authorization for that concrete origin, run the
+same command without --dry-run. Transfer only compiled dist/ through the workspace
+adapter; retain rollback capability. Verify the public index, every published post,
+archives, and release hashes, and record the deployment receipt separately from acceptance.

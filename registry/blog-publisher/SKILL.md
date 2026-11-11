@@ -3,7 +3,7 @@ name: blog-publisher
 description: Publish an independent multi-post journal or publication site with an index, heterogeneous post layouts, offline ZIP bundles, and static deployment.
 license: MIT
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   author: gonbad
   origin: https://github.com/gonbad/moom
 ---
@@ -29,3 +29,7 @@ The eight-step production chain:
 
 Apply [the quality criteria](references/quality.md) across each stage. Distinguish source
 fidelity, functional rendering, and human acceptance.
+
+For new publication metadata, build boundaries, draft handling, and hosting adapters,
+read [the distribution contract](references/distribution.md). Use scripts/smoke.py for
+isolated Job verification; scripts/check.py always checks actual built output.

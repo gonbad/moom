@@ -5,7 +5,9 @@ import argparse
 import html
 import json
 import re
+import shutil
 from pathlib import Path
+from offline import validate_offline
 
 
 def render(value):
@@ -34,6 +36,9 @@ def render(value):
             raise TypeError("Each slide must be an object")
         stitle = str(slide.get("title", f"Slide {number}"))
         sbody = str(slide.get("body", ""))
+        authored_html = slide.get("html")
+        if authored_html is not None and not isinstance(authored_html, str):
+            raise TypeError("Authored slide html must be a string")
         snote = str(slide.get("speaker_notes") or slide.get("source_note") or "")
 
         esc_title = html.escape(stitle)
@@ -44,10 +49,10 @@ def render(value):
         slide_sections.append(
             f'<section class="slide" id="slide-{number}" data-index="{number - 1}"{note_attr} tabindex="0">'
             f'<header class="slide-header"><span class="slide-num">{number} / {len(slides)}</span></header>'
-            f'<div class="slide-content">'
-            f'<h1>{esc_title}</h1>'
-            f'<div class="slide-body">{esc_body}</div>'
-            f'</div>'
+            f'<div class="slide-content" tabindex="0" aria-label="Slide content">'
+            + (f'<div class="slide-body rich-content">{authored_html}</div>' if authored_html is not None
+               else f'<h1>{esc_title}</h1><div class="slide-body">{esc_body}</div>')
+            + f'</div>'
             f'</section>'
         )
 
@@ -126,6 +131,7 @@ html, body {{
   to {{ opacity: 1; transform: scale(1); }}
 }}
 .slide-header {{
+  flex-shrink: 0;
   display: flex;
   justify-content: flex-end;
   font-size: clamp(12px, 1.4vmin, 16px);
@@ -134,12 +140,17 @@ html, body {{
 }}
 .slide-content {{
   flex: 1;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding-top: 2vmin;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2vmin;
 }}
 .slide-content h1 {{
+  flex-shrink: 0;
   font-size: clamp(24px, 4.2vmin, 52px);
   line-height: 1.25;
   color: var(--accent);
@@ -147,12 +158,19 @@ html, body {{
   max-width: 25ch;
 }}
 .slide-body {{
+  flex-shrink: 0;
+  user-select: text;
   font-size: clamp(16px, 2.4vmin, 28px);
   line-height: 1.6;
   color: var(--text-main);
   white-space: pre-wrap;
   max-width: 55ch;
 }}
+.rich-content {{ white-space: normal; max-width: 100%; width: 100%; }}
+.rich-content img, .rich-content video, .rich-content svg {{ max-width: 100%; height: auto; }}
+.rich-content pre {{ overflow: auto; white-space: pre; }}
+.rich-content p, .rich-content ul, .rich-content pre {{ margin-block: 0.6em; }}
+.rich-content ul {{ padding-inline-start: 1.3em; }}
 .deck-controls {{
   position: fixed;
   bottom: 1.5vmin;
@@ -288,9 +306,9 @@ html, body {{
   <button type="button" class="btn" id="btn-notes" title="Speaker Notes (N)">✎ N</button>
   <button type="button" class="btn" id="btn-fs" title="Fullscreen (F)">⛶ F</button>
 </nav>
-<div id="overview-modal" class="modal hidden">
+<div id="overview-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="overview-title">
   <div class="modal-header">
-    <span class="modal-title">Slide Overview / فهرست اسلایدها</span>
+    <span class="modal-title" id="overview-title">Slide Overview / فهرست اسلایدها</span>
     <button type="button" class="btn" id="btn-close-grid">✕ Close</button>
   </div>
   <div class="grid-container">
@@ -316,8 +334,11 @@ html, body {{
   const notesModal = document.getElementById('notes-modal');
   const notesContent = document.getElementById('notes-content');
   const gridCards = Array.from(document.querySelectorAll('.grid-card'));
+  const canvas = document.querySelector('.deck-canvas');
+  const controls = document.querySelector('.deck-controls');
+  let overviewFocus = null;
 
-  function showSlide(index) {{
+  function showSlide(index, updateHash = true) {{
     if (index < 0) index = 0;
     if (index >= total) index = total - 1;
     currentIndex = index;
@@ -335,17 +356,24 @@ html, body {{
     const curSlide = slides[currentIndex];
     const notes = curSlide.getAttribute('data-notes') || 'No notes for this slide.';
     notesContent.textContent = notes;
-    window.location.hash = 'slide-' + (currentIndex + 1);
+    const hash = '#slide-' + (currentIndex + 1);
+    if (updateHash && window.location.hash !== hash) history.pushState(null, '', hash);
   }}
 
   function next() {{ showSlide(currentIndex + 1); }}
   function prev() {{ showSlide(currentIndex - 1); }}
 
   function toggleGrid() {{
-    overviewModal.classList.toggle('hidden');
-    if (!overviewModal.classList.contains('hidden')) {{
+    const opening = overviewModal.classList.contains('hidden');
+    if (opening) overviewFocus = document.activeElement;
+    overviewModal.classList.toggle('hidden', !opening);
+    canvas.inert = opening;
+    controls.inert = opening;
+    if (opening) {{
       const curCard = gridCards[currentIndex];
-      if (curCard) curCard.scrollIntoView({{ block: 'nearest' }});
+      if (curCard) {{ curCard.focus({{preventScroll: true}}); curCard.scrollIntoView({{ block: 'nearest' }}); }}
+    }} else if (overviewFocus) {{
+      overviewFocus.focus({{preventScroll: true}});
     }}
   }}
 
@@ -355,7 +383,7 @@ html, body {{
 
   function toggleFullscreen() {{
     if (!document.fullscreenElement) {{
-      document.documentElement.requestFullscreen().catch(() => {{}});
+      document.documentElement.requestFullscreen?.().catch(() => {{}});
     }} else {{
       document.exitFullscreen().catch(() => {{}});
     }}
@@ -378,16 +406,33 @@ html, body {{
   }});
 
   document.addEventListener('keydown', (e) => {{
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.altKey || e.ctrlKey || e.metaKey || e.target.closest('input, textarea, select, [contenteditable="true"]')) return;
 
     if (e.key === 'Escape') {{
-      overviewModal.classList.add('hidden');
+      if (!overviewModal.classList.contains('hidden')) toggleGrid();
       notesModal.classList.add('hidden');
       return;
     }}
     if (e.key === 'g' || e.key === 'G') {{
       e.preventDefault();
       toggleGrid();
+      return;
+    }}
+    if (!overviewModal.classList.contains('hidden')) {{
+      const buttons = Array.from(overviewModal.querySelectorAll('button'));
+      const position = buttons.indexOf(document.activeElement);
+      if (e.key === 'Tab') {{
+        e.preventDefault();
+        buttons[(position + (e.shiftKey ? -1 : 1) + buttons.length) % buttons.length].focus();
+      }} else if (['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(e.key)) {{
+        e.preventDefault();
+        const columns = getComputedStyle(document.querySelector('.grid-container')).gridTemplateColumns.trim().split(' ').filter(Boolean).length;
+        const cardIndex = gridCards.indexOf(document.activeElement);
+        const delta = e.key === 'ArrowUp' ? -columns : e.key === 'ArrowDown' ? columns : (e.key === 'ArrowRight') !== isRtl ? 1 : -1;
+        const target = e.key === 'Home' ? 0 : e.key === 'End' ? total - 1 : Math.max(0, Math.min(total - 1, cardIndex < 0 ? 0 : cardIndex + delta));
+        gridCards[target].focus();
+        gridCards[target].scrollIntoView({{block: 'nearest'}});
+      }}
       return;
     }}
     if (e.key === 'n' || e.key === 'N') {{
@@ -401,6 +446,7 @@ html, body {{
       return;
     }}
 
+    if ((e.key === ' ' || e.key === 'Enter') && e.target.closest('button, a, [role="button"]')) return;
     // Spatial navigation honoring direction
     if (isRtl) {{
       if (e.key === 'ArrowLeft' || e.key === 'PageDown' || e.key === ' ') {{
@@ -418,29 +464,33 @@ html, body {{
   }});
 
   // Touch Swipe Support
-  let touchStartX = 0;
+  let touchStartX = 0, touchStartY = 0;
   document.addEventListener('touchstart', (e) => {{
     touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
   }}, {{ passive: true }});
 
   document.addEventListener('touchend', (e) => {{
     const diff = e.changedTouches[0].screenX - touchStartX;
-    if (Math.abs(diff) > 40) {{
+    const vertical = e.changedTouches[0].screenY - touchStartY;
+    if (!overviewModal.classList.contains('hidden') || e.target.closest('button, input, textarea, select, a')) return;
+    if (Math.abs(diff) > 40 && Math.abs(diff) > Math.abs(vertical) * 1.5) {{
       if (isRtl) {{
-        if (diff > 0) prev(); else next();
+        if (diff > 0) next(); else prev();
       }} else {{
         if (diff < 0) next(); else prev();
       }}
     }}
   }}, {{ passive: true }});
 
-  // Hash jump on load
-  const match = window.location.hash.match(/^#slide-(\\d+)$/);
-  if (match) {{
-    showSlide(parseInt(match[1], 10) - 1);
-  }} else {{
-    showSlide(0);
+  function readHash() {{
+    const match = window.location.hash.match(/^#slide-(\\d+)$/);
+    showSlide(match ? parseInt(match[1], 10) - 1 : 0, false);
   }}
+  window.addEventListener('hashchange', readHash);
+  window.addEventListener('popstate', readHash);
+  readHash();
+  history.replaceState(null, '', '#slide-' + (currentIndex + 1));
 }})();
 </script>
 </body>
@@ -450,7 +500,15 @@ html, body {{
 def parse_input(path):
     text = path.read_text(encoding="utf-8").strip()
     if path.suffix == ".json" or text.startswith("{"):
-        return json.loads(text)
+        data = json.loads(text)
+        for slide in data.get("slides", []):
+            if "file" in slide:
+                source = (path.parent / slide["file"]).resolve()
+                if not source.is_relative_to(path.parent.resolve()) or not source.is_file():
+                    raise ValueError("Slide HTML file must be inside the input directory")
+                from offline import load_fragment
+                slide["html"] = load_fragment(source, path.parent.resolve())
+        return data
     # Parse markdown slides separated by ---
     slides = []
     lines = text.splitlines()
@@ -502,11 +560,27 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--assets", type=Path, help="Local asset folder, normally src/assets/")
     args = parser.parse_args()
     data = parse_input(args.input)
     output = render(data)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(output, encoding="utf-8")
+    asset_dir = args.assets or (args.input.parent / data.get("assets", "assets"))
+    if asset_dir.exists():
+        if not asset_dir.resolve().is_relative_to(args.input.parent.resolve()) or asset_dir.is_symlink():
+            raise ValueError("Presentation assets must be inside the input directory")
+        for item in asset_dir.rglob("*"):
+            if item.is_symlink() or any(p in {"secrets", "inputs", ".git", ".env"} or p.startswith(".env.") for p in item.relative_to(asset_dir).parts):
+                raise ValueError("Only public local assets belong in the presentation")
+        target = args.output.parent / asset_dir.resolve().relative_to(args.input.parent.resolve())
+        if target.resolve() != asset_dir.resolve():
+            if target.resolve().is_relative_to(asset_dir.resolve()) or asset_dir.resolve().is_relative_to(target.resolve()):
+                raise ValueError("Asset source and destination cannot overlap")
+            if target.exists():
+                shutil.rmtree(target)
+            shutil.copytree(asset_dir, target)
+    validate_offline(args.output.parent)
     print(
         json.dumps({"artifact": str(args.output), "bytes": args.output.stat().st_size})
     )
