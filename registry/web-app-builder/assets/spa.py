@@ -16,12 +16,15 @@ class SPAStaticFiles(StaticFiles):
         self.reserved = frozenset(reserved)
 
     def navigation(self, path, scope):
-        parts = PurePosixPath(path).parts
+        # Starlette normalizes this filesystem path using the host OS. Keep URL
+        # policy checks consistent when Windows supplies backslash separators.
+        logical = PurePosixPath(path.replace("\\", "/").lstrip("/"))
+        parts = logical.parts
         return (
             scope["method"] in {"GET", "HEAD"}
             and "text/html" in Headers(scope=scope).get("accept", "").lower()
             and (not parts or parts[0] not in self.reserved)
-            and not PurePosixPath(path).suffix
+            and not logical.suffix
             and ".." not in parts
         )
 

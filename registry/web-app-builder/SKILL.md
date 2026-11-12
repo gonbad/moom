@@ -3,7 +3,7 @@ name: web-app-builder
 description: Build and deploy a document-driven FastAPI and React web app from a core idea and optional existing product. Use external HTML designs, preserve their appearance, and deploy to the participant's VPS with HTTPS.
 license: MIT
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
   author: gonbad
   origin: https://github.com/gonbad/moom
 ---

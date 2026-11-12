@@ -9,6 +9,7 @@ import tempfile
 import unittest
 import zipfile
 from pathlib import Path
+from unittest.mock import patch
 
 SOURCE = Path(__file__).resolve().parents[1]
 JOBS = ('web-app-builder', 'bot-builder', 'agentic-chatbot')
@@ -139,7 +140,8 @@ class SoftwareJobs(unittest.TestCase):
         from starlette.testclient import TestClient
         static = module(SOURCE / 'registry/web-app-builder/assets/spa.py', 'spa_test')
         (self.base / 'index.html').write_text('<html>React shell</html>')
-        app = Starlette(routes=[Mount('/', app=static.SPAStaticFiles(directory=self.base, html=True))])
+        files = static.SPAStaticFiles(directory=self.base, html=True)
+        app = Starlette(routes=[Mount('/', app=files)])
         with TestClient(app) as client:
             for path in ('/', '/dashboard', '/settings/profile'):
                 response = client.get(path, headers={'accept': 'text/html'})
@@ -154,3 +156,11 @@ class SoftwareJobs(unittest.TestCase):
             response = client.head('/dashboard', headers={'accept': 'text/html'})
             self.assertEqual(response.status_code, 200)
             self.assertEqual(response.content, b'')
+            # Exercise Starlette's Windows-normalized filesystem paths on every OS.
+            for route, normalized, expected in [
+                ('/api/missing', r'api\missing', 404),
+                ('/assets/missing', r'assets\missing', 404),
+                ('/settings/profile', r'settings\profile', 200),
+            ]:
+                with self.subTest(normalized=normalized), patch.object(files, 'get_path', return_value=normalized):
+                    self.assertEqual(client.get(route, headers={'accept': 'text/html'}).status_code, expected)
