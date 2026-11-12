@@ -3,7 +3,7 @@ name: blog-publisher
 description: Publish an independent multi-post journal or publication site with an index, heterogeneous post layouts, offline ZIP bundles, and static deployment.
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.2.1"
   author: gonbad
   origin: https://github.com/gonbad/moom
 ---

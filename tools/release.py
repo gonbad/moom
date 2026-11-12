@@ -65,6 +65,31 @@ def manifest():
     }
 
 
+def validate_catalog(root):
+    """Every distributed starter must be indexed, complete, and independently usable."""
+    folder = root / "registry"
+    catalog = core.read(folder / "index.json")
+    entries = catalog["jobs"]
+    names = [entry["name"] for entry in entries]
+    if len(names) != len(set(names)):
+        raise ValueError("Duplicate Job in catalog")
+    actual = {path.name for path in folder.iterdir() if path.is_dir()}
+    if actual != set(names):
+        raise ValueError(
+            f"Catalog directories disagree: unindexed={sorted(actual - set(names))}, "
+            f"missing={sorted(set(names) - actual)}"
+        )
+    for entry in entries:
+        package = core.within(folder, entry["name"])
+        info = core.validate_package(package)
+        if info["version"] != entry["version"]:
+            raise ValueError("Catalog and recipe versions disagree")
+        helper = core.within(package, entry.get("smoke", "scripts/check.py"))
+        if not helper.is_file() or helper.suffix != ".py" or not helper.is_relative_to(package / "scripts"):
+            raise ValueError(f"Missing representative smoke operation: {entry['name']}")
+    return catalog
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
@@ -84,11 +109,7 @@ def main():
         raise ValueError(
             "Public template must not contain installed Jobs or Project data"
         )
-    catalog = core.read(ROOT / "registry/index.json")
-    for entry in catalog["jobs"]:
-        info = core.validate_package(ROOT / "registry" / entry["name"])
-        if info["version"] != entry["version"]:
-            raise ValueError("Catalog and recipe versions disagree")
+    validate_catalog(ROOT)
     core.sync(ROOT, check=args.check)
     value = manifest()
     if any(checksum is None for checksum in value["engine"].values()):

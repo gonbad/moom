@@ -31,6 +31,15 @@
 | به‌روزرسانی خود موم | `moom-update` |
 | آماده‌کردن جاب برای اشتراک | `moom-export`، `moom-publish` |
 
+## Starter jobs
+
+The initial catalog includes presentation-maker, blog-publisher, web-app-builder,
+bot-builder and agentic-chatbot. The software jobs use Project-owned specifications,
+server PostgreSQL/Redis via Compose and native SSH forwarding. Web apps preserve
+approved external HTML designs; deterministic bots use explicit state; the advanced
+agent job adds reviewed tool authority and usage budgets. Choose the simplest fitting
+job and adapt it through a real first Project.
+
 ## Repository layout
 
 ```text

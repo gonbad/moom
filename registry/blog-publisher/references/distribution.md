@@ -41,7 +41,10 @@ and release/package hashes. Browser checks are still required for dynamically bu
 URLs and interactions. Missing output fails. `scripts/smoke.py` instead exercises an
 isolated build for verify-job; it is never publication acceptance evidence.
 
-Hosting credentials and server-specific code belong to the workspace. Configure
+For work that will be deployed, gather missing hosting facts during brief/setup,
+reusing the known workspace configuration. Verify the intended SSH identity and DNS
+control early; do not defer first server onboarding until deploy. Local-only work
+needs no server. Hosting credentials and server-specific code belong to the workspace. Configure
 `deployment: {"adapter":"shared/deploy.py"}` in publication.json, implement that
 adapter for the actual host, and use scripts/deploy.py --dry-run to validate the target.
 Deploy only with the user's authorization, then verify public URLs/downloads and hashes.
