@@ -1,33 +1,31 @@
-# Inherit shared infrastructure
+# Product runtime, PostgreSQL and native SSH
 
-Read `docs/kandoo/living/server.md` and the infrastructure/secrets Constitution before
-connecting. Inherit its verified SSH identity, server, domain or `nip.io` hostname, TLS
-and authenticated HTTP forward proxy; do not gather them anew for each Project.
-A missing needed server routes to `kandoo-server`; local-only tasks remain valid.
-Record only Project allocations and explicit overrides in Project infrastructure docs.
+Inherit shared SSH/DNS/TLS/proxy facts from `docs/kandoo/living/server.md`; request only
+Project overrides. Inventory ports before allocation. Record a unique Compose project,
+DB/cache volumes, loopback ports, service user and public route in the shared ledger.
+Keep PostgreSQL/Redis on the VPS using Compose. Laptop development uses native OpenSSH,
+including Windows OpenSSH; Docker Desktop, WSL and SQLite are not prerequisites.
 
-Inventory services and allocate a unique deployment ID, host loopback ports and volumes
-in the shared ledger. Never assume 5432, 6379 or 8000 is free or reuse another Project's
-Compose identity. Generate actual Project Compose/configuration when needed. Keep
-PostgreSQL/Redis on the participant's VPS and use native OpenSSH local forwarding from
-Windows/macOS/Linux; Docker Desktop and WSL are not prerequisites. Preserve volumes,
-reuse secrets on resume and test backup/restore. Use isolated test DBs for destructive
-checks. No replacement of PostgreSQL with SQLite to conceal connectivity failures.
+Illustrative forwarding, with actual aliases/ports selected from the ledger:
 
-For application containers, DB/cache hosts are service names inside the Compose network;
-laptop processes use allocated forwarded localhost ports; VPS host processes use VPS
-loopback ports. Keep schema, migrations, dispatch and API contracts identical while
-using runtime-appropriate addresses. Prove authenticated DB access from the actual
-runtime. Keep long-running tunnels alive and detect forwarding failure.
+```sh
+ssh -N -o ExitOnForwardFailure=yes -L 15432:127.0.0.1:25432 project-vps
+```
 
-For local webhooks use a loopback reverse SSH forwarding endpoint behind the shared
-public HTTPS route. Polling is an alternative only if the current platform supports
-it. Use one normalized dispatcher, deduplicate updates, and prove a single active
-consumer. During production cutover drain local delivery, switch the route to the
-production runtime and verify a live round trip and restart. Preserve unrelated sites.
+A laptop process uses its forwarded localhost address; a VPS host process uses the
+published loopback port; a container uses the Compose service DNS name. Keep schemas,
+migrations and handlers the same. Restrict DB/cache listeners and reuse credentials
+on resume; editing an env file does not rotate an existing PostgreSQL role.
 
-Use the shared forward proxy per process for package/API access when necessary, via
-its protected credentials and tunnel; never print credential-bearing environment
-variables. Check current official service documentation instead of guessing API behavior.
-Project code stays in `projects/ID/`; genuinely shared helpers may be generated in
-root `kandoo/`. There are no executable starter assets to copy.
+Example backend separation is `app/main.py` (startup/router registration),
+`app/routers/` (HTTP schemas/auth), `app/services/` (business transactions),
+`app/db/` (sessions/models), and `migrations/`. FastAPI `APIRouter` and dependency
+injection can express this seam; adapt to the chosen stack. Keep resource ownership
+checks in the mutation, not only the UI. See
+[FastAPI larger applications](https://fastapi.tiangolo.com/tutorial/bigger-applications/).
+
+Build production frontend assets locally, configure deep-link fallback, and route API
+requests deliberately. Prove DB auth from the actual runtime and stop if a tunnel
+fails. Run migrations/backups against isolated test data first; test restore, restart
+and rollback without deleting volumes. Use the existing scoped proxy for blocked
+package downloads and verify public HTTPS from the participant's network.

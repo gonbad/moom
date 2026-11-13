@@ -7,18 +7,20 @@ The coding assistant reads the procedures and works with your computer's native 
 
 1. Fork [the template](https://github.com/gonbad/moom), clone your fork into a fresh
    folder, or extract the workshop ZIP and choose your own repository during setup.
-   A participant-owned, verified Git remote is required, even for local-only work.
+   A participant-owned Git remote is recommended; offline/local-only work can start
+   with local Git and pending backup. You can explicitly skip any setup step.
 2. Open that folder in Claude Code, OpenCode, Codex or Antigravity. Open its `docs/`
    subfolder as an Obsidian vault; [the vault home](docs/README.md) explains the layout.
-3. Run `/moom-start` (Codex: `$moom-start`, or choose the skill). Ordinary language
+3. Run `/moom-start` (Codex CLI: `$moom-start`; desktop slash/dollar picker;
+   Antigravity: select or mention the skill). Ordinary language
    also works. The assistant collects languages, checks Git and backup, and asks
    about a server immediately. No server is a valid answer. With one, setup verifies
    SSH, a domain or free `nip.io` hostname, public HTTPS and an authenticated proxy.
 4. Run `/moom-job`. Describe your repeated work in the provided file, save it, then
    say `done` / `نوشتم`. Use, adapt or replace any [starter](registry/README.md).
    Question rounds distinguish your confirmed choices from provisional delegation.
-5. The assistant installs your Job, removes the catalog and bootstrap material,
-   creates Project 1 from what you already shared, and replaces this README with
+5. The assistant installs your Job, creates and verifies Project 1 from your input,
+   removes the catalog and canonical bootstrap documents, and replaces this README with
    your Kandoo's guide. Close and reopen the AI host, then run its first `job-*` step.
 
 Claude Code and OpenCode read `.claude/commands/NAME.md` and
@@ -26,7 +28,10 @@ Claude Code and OpenCode read `.claude/commands/NAME.md` and
 `.agents/skills/NAME/SKILL.md`. These are identical copies of canonical Markdown,
 including `name` and `description` frontmatter. The five `kandoo-*` workspace commands
 are pre-synced too, and become usable when setup is complete. Job commands are installed
-at finalization. Codex invokes skills as `$NAME`; the other hosts use `/NAME`.
+at finalization. Codex CLI uses `$NAME`, and Codex desktop accepts slash/dollar selection.
+Claude Code/OpenCode use `/NAME`. Antigravity uses skill selection or mentions, with
+`/NAME` where its UI exposes the skill. Retained bootstrap host entries become local
+recovery handoffs and never reinstall the catalog.
 
 Later, `/kandoo-new-project` creates and selects the next independent Project;
 `/kandoo-switch` resumes one; `/kandoo-iterate` opens a planned version;

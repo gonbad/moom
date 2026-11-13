@@ -8,7 +8,9 @@ description: Define an adaptable Job from file intake, install commands and deta
 Read `AGENTS.md`, all of `docs/constitution/` and the living profile, server, status
 and Job. Use workspace-root paths and the universal review/certainty/progress rules.
 If configured, continue the current Job; never repeat setup or restore a catalog.
-If start is pending, preserve any supplied intake and complete its missing prerequisite.
+If finalizing, resume its saved checklist before intake or catalog reading. If start
+is pending, preserve intake and resolve or explicitly defer its missing checks; honor
+the user's instruction to skip any setup step without claiming it was verified.
 
 ## Intake and review
 
@@ -52,31 +54,12 @@ submitted blank. Once the specification choices are resolved, finalize these out
    `.agents/skills/NAME/SKILL.md` (shared by Codex and Antigravity). Do the same for
    the five permanent `kandoo-*` commands in `docs/kandoo/commands/`. Detect collisions
    and preserve unrelated user procedures. Check all copies for equality.
-3. **Remove bootstrap and detach completely.** First verify the installed Job,
-   commands and references are self-contained; if interrupted, resume from status
-   and do not delete the only remaining input. Before removing these instructions,
-   persist lifecycle `finalizing` and a restart-safe checklist in shared status:
-   installed command equality, remote/reference cleanup, Project 1 paths and prefilled
-   input, configured-state verification, host restart and the actual first Job command.
-   Use permanent Kandoo names there; update each item as it completes so an interrupted
-   session can finish using status without fetching any bootstrap source.
-   Then delete `registry/` completely.
-   Remove `moom-start` and `moom-job` from all host locations **and** their canonical
-   sources in `docs/kandoo/commands/` (read this procedure fully before removing it).
-   Remove any old `moom-*` command/update/publish leftovers. Rewrite root `README.md`
-   for this Kandoo, its Job, paths and commands. Update status and any retained
-   onboarding text to the new identity. Remove all remotes/fetch/push URLs targeting
-   `gonbad/moom`, including SSH and HTTPS variants, retaining the verified participant
-   remote. A participant fork remains valid even if its repository name contains the
-   original template name; use a neutral local remote alias and no upstream dependency.
-   Inspect every remaining working file, command name and local path for Moom
-   references, stale registry paths, template URLs or relative source dependencies;
-   resolve them before declaring detachment. Keep the license and participant inputs,
-   answers, decisions and project facts; do not erase work to make a scan pass.
-   Git object history is retained, not rewritten. Nothing at runtime reads/fetches
-   upstream or uses feedback as input. Root `kandoo/` is created later only if shared
-   code is needed; do not create it as a bootstrap scaffold.
-4. **Project 1.** Allocate `001-<slug>` across both Project trees without overwriting
+3. **Project 1, before cleanup.** Persist lifecycle `finalizing` and a restart-safe
+   checklist in shared status: installed Job/references, command equality, Project 1
+   paths and prefilled input, local reference/remote cleanup, final consistency check,
+   canonical bootstrap removal, host restart and actual first Job command. Update
+   each item as it completes. Retain the registry and all command files at this stage.
+   Allocate `001-<slug>` across both Project trees without overwriting
    anything. If resuming interrupted finalization reuse the already-created first
    Project instead of allocating a duplicate. Create `docs/projects/ID/living/`,
    `docs/projects/ID/versions/0.1/` and `projects/ID/`. Prefill
@@ -87,12 +70,33 @@ submitted blank. Once the specification choices are resolved, finalize these out
    current first step, pending review, readiness/acceptance/deployment evidence and
    one next action). Select this Project in shared status automatically. No separate
    new-project command is needed. Append a sanitized feedback note if useful.
-5. **Restart and first step.** Recheck the participant remote, absence of registry and
-   bootstrap commands/references, installed command equality, Constitution pointers,
-   Project 1 paths/idea facts and saved status. Mark lifecycle `configured`, record
-   the installed Job revision and actual evidence; preserve participant Git backup.
+4. **Verify, then detach.** First verify Project 1 paths, prefilled facts, selected
+   status, Constitution pointers and byte equality of every installed Job/permanent
+   command. Verify that Job references are local and self-contained. Rewrite the
+   README and living onboarding for this Kandoo. Remove template upstream remotes
+   (SSH/HTTPS/fetch/push variants), preserving participant remotes, branches and work;
+   pending or user-skipped remote backup is allowed. Keep Git history and license.
+   Resolve active upstream paths/URLs and stale references; retain historical inputs
+   and answers as records rather than erasing work to pass a scan.
+   Only after these checks pass, replace installed `moom-start` and `moom-job` host
+   copies with small, host-only **recovery procedures**, preserving their names and
+   frontmatter. Those procedures read `AGENTS.md` and living status directly: configured
+   means hand off to its saved next action; finalizing means resume the saved checklist;
+   never fetch a template or read a deleted canonical source. Keep these files in
+   `.claude/commands/`, `.opencode/commands/` and `.agents/skills/`; do not delete the
+   executing command or require its canonical source for recovery.
+   As the final cleanup remove `registry/` and the two canonical bootstrap sources
+   from `docs/kandoo/commands/`. Record each cleanup independently so interruption
+   between them is recoverable. Remove only other owned obsolete bootstrap commands,
+   preserving unrelated host commands. Root `kandoo/` is created only for real shared
+   code needs. Nothing at runtime reads upstream or feedback as input.
+5. **Restart and first step.** Recheck configured paths, command equality (host-only
+   recovery copies compare to each other), the saved Project and completed checklist.
+   Mark lifecycle `configured`, recording the Job revision and actual evidence;
+   preserve backup evidence and pending/skipped checks separately.
    Tell the person to **close and reopen their AI host**, then invoke the actual first
-   Job command (usually `/job-idea`, Codex `$job-idea`). Do not assume hot discovery
+   Job command (usually `/job-idea`; Codex CLI `$job-idea`, desktop slash/dollar picker;
+   Antigravity select/mention the skill). Do not assume hot discovery
    or run the first step silently before the requested restart.
 
 If an interrupted run deleted the registry already, recover from the installed Job

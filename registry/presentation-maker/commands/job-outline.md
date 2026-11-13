@@ -1,26 +1,28 @@
 ---
 name: job-outline
-description: Outline for the active presentation-maker Project.
+description: Develop the argument, slide beats, examples and speaker timing.
 ---
 
 # /job-outline
 
-Resolve the workspace root, then read `AGENTS.md`, all of `docs/constitution/`,
-`docs/kandoo/living/profile.md`, `docs/kandoo/living/status.md`, the installed
-`docs/kandoo/living/job.md` and `docs/kandoo/living/server.md`. Read the active
-Project's living state and current open version; references are routed by the installed
-Job. Do not look for a starter source or run a bundled helper.
+Read `AGENTS.md`, the four `docs/constitution/` documents and the living profile,
+Job, server and status. Resolve the active Project/version from status; all paths here
+are workspace-root paths. Read only the installed references named below and current
+Project inputs/answers. Preserve earlier outputs and authorization.
 
-Develop the narrative, slide/section sequence, evidence and speaker needs using actual source materials. Surface uncertain claims and non-obvious editorial choices in a numbered round. Review the complete outline and carry confirmed/delegated choices forward.
+Read the current brief and installed slides/workflow references. Build an argument
+from recognizable problem through worked example, model, counterexample and audience
+action. Write `living/outline.md` with sections, beat/claim, source, visual treatment,
+notes and time budget; include exercises/questions in the budget. Identify claims
+needing verification instead of inventing evidence or silently dropping them.
 
-Apply numbered file questions/reviews to open questions and non-obvious AI decisions:
-context, concrete options, AI Recommendation, blank answer. Explicit submitted choices
-are Confirmed; submitted blanks apply the Provisional recommendation immediately;
-unsubmitted blanks stay pending. Assess updates to the Job, shared Kandoo docs/code,
-active Project and write-only feedback; freely evolve the method when actual work
-needs it, copying changed commands to every host.
+Review a representative section, then the whole arc for duplicated setup, missing
+transitions and unsupported conclusions. Record format or narrative choices in the
+current round. Make `living/design.md` explicit about typography, palette, diagram
+vocabulary and navigation. Keep audience-facing text distinct from speaker notes.
+Route to `job-build` once the current outline and pending review state are recorded.
 
-Persist owning living docs, Project progress/evidence and shared active status. End
-every reply with the conversation-language bottom progress bar from the installed
-pipeline and active state, including any pending review, and exactly one next file
-action or actual command. No human acceptance or deployment is inferred from tests.
+Apply the file-review/certainty protocol and assess updates to the Job, shared Kandoo,
+active Project and write-only creator feedback. Persist this step's outcome, pending
+review and next action in Project status and mirror shared status. Finish every reply
+with all ordered steps localized and one exact next action; never invent acceptance.

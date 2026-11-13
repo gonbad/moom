@@ -38,8 +38,17 @@ Check equality afterwards. Remove only owned obsolete command copies on a rename
 preserve unrelated user commands and resolve a collision before overwriting it.
 After installing, renaming or deleting commands, instruct the person to **close and
 reopen the AI host**. This is mandatory after Job definition. The `/NAME` notation
-labels the workflow commands; Codex uses `$NAME` or its skill picker. Give the exact
+labels the workflow commands. Codex CLI uses `$NAME` or its skill picker; Codex desktop
+supports slash/dollar selection. Claude Code/OpenCode use `/NAME`. Antigravity selects
+or mentions the shared skill (or `/NAME` when exposed by its UI). Give the exact
 invocation appropriate to the person's host when handing off.
+
+During setup, create Project 1 and verify its state before removing registry or any
+canonical bootstrap source under `docs/`. Retain the installed bootstrap host copies
+as recovery entry points; on a configured workspace they route to saved status without
+reading deleted canonical sources or reinstalling a catalog. Ordinary tasks use the
+five `kandoo-*` commands and the current `job-*` commands. Never delete the executing
+host command to clean up setup.
 
 Each Project starts with `living/` and `versions/0.1/00-idea-input.md` under
 `docs/projects/ID/`, plus `projects/ID/` for actual artifacts. IDs are `001-slug`,
@@ -71,6 +80,15 @@ The **last line** gives a single concrete next action (exact file to answer/revi
 exact command, or host close/reopen followed by the first command). Do not offer a
 menu of next tasks or put any prose after the block.
 
+Before sending **each** reply, including after interruptions and context compaction,
+read the saved pipeline/state and check the following mentally: all steps appear once
+in order; at most one is current; pending reviews and skips match actual evidence;
+all prose labels and state words use the conversation language; one final action ends
+the reply. Command names, paths and identifiers alone may keep their original spelling.
+Never copy an example's step names as state, omit the block on a short answer, use
+`[done]`/`[current]` inside a Persian bar, or append offers/sign-offs after the action.
+This is an instruction discipline, not a script or host-hook requirement.
+
 English example:
 
 ```text
@@ -83,4 +101,18 @@ Persian example:
 ```text
 پیشرفت: [انجام شد] ایده · [گام جاری: منتظر پاسخ فایل] برنامه · [مانده] ساخت
 گام بعد: پاسخ‌ها را در فایل مشخص‌شده بنویسید، ذخیره کنید و بگویید «نوشتم».
+```
+
+English completed example:
+
+```text
+Progress: [done] Idea · [done] Build · [skipped: local delivery] Deploy · Complete
+Next step: Open projects/001-demo/dist/index.html for the final reading.
+```
+
+Persian review example (English command identifiers remain unchanged):
+
+```text
+پیشرفت: [انجام شد] ایده · [گام جاری: منتظر بازبینی] ساخت · [مانده] تحویل
+گام بعد: فایل projects/001-demo/dist/index.html را بازبینی کنید و نتیجه را بنویسید.
 ```

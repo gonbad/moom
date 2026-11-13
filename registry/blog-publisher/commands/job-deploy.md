@@ -1,26 +1,29 @@
 ---
 name: job-deploy
-description: Publish or deliver for the active blog-publisher Project.
+description: Deliver locally or publish only the verified release inventory.
 ---
 
 # /job-deploy
 
-Resolve the workspace root, then read `AGENTS.md`, all of `docs/constitution/`,
-`docs/kandoo/living/profile.md`, `docs/kandoo/living/status.md`, the installed
-`docs/kandoo/living/job.md` and `docs/kandoo/living/server.md`. Read the active
-Project's living state and current open version; references are routed by the installed
-Job. Do not look for a starter source or run a bundled helper.
+Read `AGENTS.md`, the four `docs/constitution/` documents and the living profile,
+Job, server and status. Resolve the active Project/version from status; all paths here
+are workspace-root paths. Read only the installed references named below and current
+Project inputs/answers. Preserve earlier outputs and authorization.
 
-For local-only delivery mark hosting skipped and hand over the verified package. For authorized publication inherit shared server/proxy settings, deploy verified output with rollback, and test actual public routes, downloads and HTTPS. Record editorial acceptance separately from deployment evidence.
+Read installed distribution/infrastructure/quality references, current release hashes
+and shared server facts. If delivery is local, record hosting as not needed and hand
+over the tested artifact. For public hosting preserve prior authorization for the
+specific origin; the Job supplies no new destination permission. Reject preview-only
+builds and upload only verified compiled files, never the repository or private input.
 
-Apply numbered file questions/reviews to open questions and non-obvious AI decisions:
-context, concrete options, AI Recommendation, blank answer. Explicit submitted choices
-are Confirmed; submitted blanks apply the Provisional recommendation immediately;
-unsubmitted blanks stay pending. Assess updates to the Job, shared Kandoo docs/code,
-active Project and write-only feedback; freely evolve the method when actual work
-needs it, copying changed commands to every host.
+Compare uploaded hashes, activate atomically and verify public entry pages/downloads,
+HTTPS and the publication's configured health endpoint. Preserve other sites/routes;
+do not depend on organizer-private health services. Roll back if activation checks
+fail. Save an immutable receipt in the current shared dossier, preserving old receipts.
+Update the authored index only for selected public posts. Record deployment evidence
+and editorial acceptance separately, then give one actual viewing/delivery action.
 
-Persist owning living docs, Project progress/evidence and shared active status. End
-every reply with the conversation-language bottom progress bar from the installed
-pipeline and active state, including any pending review, and exactly one next file
-action or actual command. No human acceptance or deployment is inferred from tests.
+Apply the file-review/certainty protocol and assess updates to the Job, shared Kandoo,
+active Project and write-only creator feedback. Persist this step's outcome, pending
+review and next action in Project status and mirror shared status. Finish every reply
+with all ordered steps localized and one exact next action; never invent acceptance.

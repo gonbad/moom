@@ -1,36 +1,20 @@
-# Working with the current Project
+# Deterministic messaging product
 
-Resolve the workspace root and read `AGENTS.md`, all of `docs/constitution/`, the
-living profile, shared server, status and installed Job. Read the active Project's
-living documents and only its selected open version. Never infer selection from the
-current directory. Reuse earlier inputs and submitted answers; do not ask for them
-again. On version 0.1 use the full chosen pipeline; later versions select only affected
-steps and prerequisites, showing the rest as skipped with reasons.
+Choose a menu/dialog bot when flows and business rules are known. Optional inference
+can classify a phrase or summarize text; it does not choose arbitrary business tools.
+Keep platform transport, a normalized event model, the state machine and business
+services separate. Adding Bale beside Telegram should not duplicate registration or
+payment logic. Rubika capabilities require its own verified mapping.
 
-The pipeline is an initial base. Modify formats, steps, tools, style and outputs to
-match the participant's work, including mid-Project. A useful improvement may update
-the Job and its revision, shared Kandoo docs/code, this Project, and append-only inert
-feedback. Copy changed canonical commands to every host and reload discovery when
-needed. Other Projects retain their own outputs and need an adaptation check when
-resumed; never rebuild or publish them automatically.
+The combined workshop steps retain idea, PRD/scenarios, data model, dialog flow,
+implementation, real platform checks and deployment. Keep `prd.md`, `flows.md`,
+`data-model.md`, `platforms.md`, `payments.md` when needed, and `status.md` in Project
+living docs. For each user journey define valid transitions, cancellations, retries,
+timeouts and a support route before drawing keyboards.
 
-Put questions and non-obvious AI decisions in the next numbered file in the owner's
-open version, with context, alternatives, an explicit AI Recommendation and a blank
-answer. Ask the person to save and submit `done` / `نوشتم`. Explicit choices become
-Confirmed; submitted blanks immediately delegate a Provisional recommendation;
-unsubmitted blanks stay pending. Preserve answers and later corrections. Living docs
-retain the chosen outcome and its certainty. Delegation is not human acceptance or
-permission for an external action.
-
-Keep source and actual artifacts in `projects/ID/`, Project docs in `docs/projects/ID/`,
-and shared facts in `docs/kandoo/`. Existing product inputs are preserved and inventoried
-before adaptation. Generate code/config/assets only when the actual work needs them;
-there is no bundled script, universal manifest or fixed application scaffold to run.
-The assistant operates native tools; the person supplies inputs and product choices.
-
-Persist Project living status after each step (version, Job revision, all ordered step
-states, single current step, review, evidence and next action) and mirror active state
-in shared status. Every reply ends with the localized dynamic bottom progress bar
-plus exactly one file review/answer action or actual next `job-*` command, following
-the workflow constitution. Use the participant's host invocation syntax. Completion,
-technical checks, source fidelity, human acceptance and deployment are separate facts.
+Use synthetic identities and sandbox effects during development. A callback is input,
+not authorization: validate the caller, current state and business eligibility inside
+the transaction. Preserve old Projects, allocated bot identities and DB volumes.
+Later versions identify affected transitions/platforms and recheck regressions rather
+than replacing the whole application. Keep optional payment policy a participant
+choice; it does not become an unreviewed global rule for every bot.

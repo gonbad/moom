@@ -1,26 +1,28 @@
 ---
 name: job-content
-description: Story and content for the active blog-publisher Project.
+description: Write the faithful narrative, claims and examples.
 ---
 
 # /job-content
 
-Resolve the workspace root, then read `AGENTS.md`, all of `docs/constitution/`,
-`docs/kandoo/living/profile.md`, `docs/kandoo/living/status.md`, the installed
-`docs/kandoo/living/job.md` and `docs/kandoo/living/server.md`. Read the active
-Project's living state and current open version; references are routed by the installed
-Job. Do not look for a starter source or run a bundled helper.
+Read `AGENTS.md`, the four `docs/constitution/` documents and the living profile,
+Job, server and status. Resolve the active Project/version from status; all paths here
+are workspace-root paths. Read only the installed references named below and current
+Project inputs/answers. Preserve earlier outputs and authorization.
 
-Develop the story and complete content from the supplied material. Preserve source claims, distinguish inference, and resolve missing evidence/editorial decisions in numbered file rounds. Review the living draft in the actual desired language and structure.
+Read the brief, raw request and submitted current-version feedback, then the installed
+workflow/quality references. Draft the actual post, preserving who performs each action,
+its order and the requested language. Build a claim-to-source map; check primary sources
+for volatile facts and mark inference explicitly. Keep illustrative examples distinct
+from observed results. Avoid leaking private account details in snippets/screenshots.
 
-Apply numbered file questions/reviews to open questions and non-obvious AI decisions:
-context, concrete options, AI Recommendation, blank answer. Explicit submitted choices
-are Confirmed; submitted blanks apply the Provisional recommendation immediately;
-unsubmitted blanks stay pending. Assess updates to the Job, shared Kandoo docs/code,
-active Project and write-only feedback; freely evolve the method when actual work
-needs it, copying changed commands to every host.
+Review coherent sections followed by a complete reading. Reconcile omissions and
+contradictions across sections, not only spelling. Maintain `living/content.md` and
+source notes with links to the current output. A paper, handbook or presentation may
+need different structure; adapt the Job rather than flattening it into one article
+format. Persist editorial readiness/awaiting review separately and route to `job-layout`.
 
-Persist owning living docs, Project progress/evidence and shared active status. End
-every reply with the conversation-language bottom progress bar from the installed
-pipeline and active state, including any pending review, and exactly one next file
-action or actual command. No human acceptance or deployment is inferred from tests.
+Apply the file-review/certainty protocol and assess updates to the Job, shared Kandoo,
+active Project and write-only creator feedback. Persist this step's outcome, pending
+review and next action in Project status and mirror shared status. Finish every reply
+with all ordered steps localized and one exact next action; never invent acceptance.

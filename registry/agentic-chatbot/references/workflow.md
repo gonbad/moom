@@ -1,36 +1,22 @@
-# Working with the current Project
+# Use model-directed actions only where they add value
 
-Resolve the workspace root and read `AGENTS.md`, all of `docs/constitution/`, the
-living profile, shared server, status and installed Job. Read the active Project's
-living documents and only its selected open version. Never infer selection from the
-current directory. Reuse earlier inputs and submitted answers; do not ask for them
-again. On version 0.1 use the full chosen pipeline; later versions select only affected
-steps and prerequisites, showing the rest as skipped with reasons.
+Compare a deterministic bot or ordinary web app first. An agent is useful for variable
+intent, choosing among scoped tools or composing information; it adds model cost,
+latency, semantic mistakes and a larger review surface. Explain these tradeoffs before
+settling on it. The serving model must never inherit the coding assistant's shell,
+filesystem, credentials or deployment permissions.
 
-The pipeline is an initial base. Modify formats, steps, tools, style and outputs to
-match the participant's work, including mid-Project. A useful improvement may update
-the Job and its revision, shared Kandoo docs/code, this Project, and append-only inert
-feedback. Copy changed canonical commands to every host and reload discovery when
-needed. Other Projects retain their own outputs and need an adaptation check when
-resumed; never rebuild or publish them automatically.
+Retain the workshop specification work inside short steps: idea/suitability; PRD and
+scenarios; contracts (capabilities, SOPs, data, privacy, tools, prompts and edge cases);
+build; real provider/service wiring; boundary and dialogue testing; deployment.
+Project living files include `prd.md`, `tools.md`, `policies.md`, `data-model.md`,
+`prompts.md`, `services.md`, `budgets.md`, `connections.md` and `status.md` as needed.
+Do not require a chat UI for a scheduled task; its trusted run principal and bounded
+job context replace fictional conversations.
 
-Put questions and non-obvious AI decisions in the next numbered file in the owner's
-open version, with context, alternatives, an explicit AI Recommendation and a blank
-answer. Ask the person to save and submit `done` / `نوشتم`. Explicit choices become
-Confirmed; submitted blanks immediately delegate a Provisional recommendation;
-unsubmitted blanks stay pending. Preserve answers and later corrections. Living docs
-retain the chosen outcome and its certainty. Delegation is not human acceptance or
-permission for an external action.
-
-Keep source and actual artifacts in `projects/ID/`, Project docs in `docs/projects/ID/`,
-and shared facts in `docs/kandoo/`. Existing product inputs are preserved and inventoried
-before adaptation. Generate code/config/assets only when the actual work needs them;
-there is no bundled script, universal manifest or fixed application scaffold to run.
-The assistant operates native tools; the person supplies inputs and product choices.
-
-Persist Project living status after each step (version, Job revision, all ordered step
-states, single current step, review, evidence and next action) and mirror active state
-in shared status. Every reply ends with the localized dynamic bottom progress bar
-plus exactly one file review/answer action or actual next `job-*` command, following
-the workflow constitution. Use the participant's host invocation syntax. Completion,
-technical checks, source fidelity, human acceptance and deployment are separate facts.
+Specify tool-visible authority separately from service implementation. Build each
+owned backend/bridge as a usable service and connect through reviewed APIs. Keep
+question rounds small, then review the whole action surface and its failure behavior.
+For a later version identify changed policies, tools, data and prompts and invalidate
+only affected evidence. A model dialogue, structural security test and live service
+round trip establish different things; never count a scripted fixture as an AI rehearsal.

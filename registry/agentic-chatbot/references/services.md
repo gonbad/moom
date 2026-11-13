@@ -1,14 +1,40 @@
-# Complete business integrations
+# Independently usable services and complete runtime wiring
 
-Inventory existing APIs, owned business services and required bridges with owner,
-contract, authentication, caller mapping, supported UI and evidence. Reuse working
-business engines. If no usable service exists, implementing its backend or bridge is
-part of the Project, not an unexplained external prerequisite. Review new contracts
-before build and verify current authoritative contracts for existing APIs.
+Inventory every component in a Project-owned service table:
 
-The business service owns domain records, eligibility, settlement and transactions;
-the agent owns conversations, sanitized history, handles and pending proposals;
-bridges own connection/session state. Components can share a repository/VPS while
-retaining separate authority and state. Broad credentials plus a model-chosen user ID
-are not caller binding. Return structured sanitized outcomes; reconcile unknown
-mutations before retrying. Preserve owner-selected policies in every path.
+| Class | Responsibility | Required evidence |
+| --- | --- | --- |
+| existing API | Use its authoritative contract and scoped client | Authenticated operation and scope denial |
+| owned backend | Implement domain state, validation and API | Real service, persistence and API tests |
+| API bridge | Expose needed operations over a non-API system | Real integration, session restoration and supported controls |
+
+A placeholder URL or SDK stub is not a completed bridge. New services belong to the
+build, not a list of unexplained external prerequisites. Example Project structure:
+
+```text
+app/                  model loop, scoped tools, sanitized conversation state
+services/booking/     business API, migrations, capacity/payment transactions
+services/bridge/      optional connection/session state
+contracts/            reviewed service request/response/error specifications
+```
+
+The backend owns prices, availability, deadlines and settlement. The agent owns
+conversation/run state and pending proposals; a bridge owns login/session state.
+Call APIs through scoped clients instead of importing business engines or touching
+their domain tables. Service contracts describe auth, resource scope, idempotency,
+errors, timeouts and events, independently of attenuated model-visible tools.
+
+For a personal-account/browser bridge verify that the chosen interface supports the
+required operations. Use a dedicated account/profile; enter phone/OTP/password through
+protected local input, never chat/question files. Ignore session artifacts before
+creation, restrict permissions, reuse valid sessions and prove restart restoration.
+Record re-login/expiry behavior. A broadcast token or an open browser does not prove
+personal messaging or bot buttons.
+
+Choose and record runtime model/provider/account separately from the coding host and
+commercial plan. Use the application's actual provider/prompt/tool path for bounded
+checks; a standalone SDK demo does not prove integration. Date official provider facts.
+Record planned/configured/authenticated/callable/effect-verified separately for every
+model/service/transport, then repeat relevant checks from the deployment service user.
+Use read-only or explicitly permitted sandbox effects; never message real customers
+to prove connectivity without authorization.

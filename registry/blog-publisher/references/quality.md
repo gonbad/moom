@@ -1,17 +1,20 @@
-# Evidence and handoff
+# Editorial, visual and artifact checks
 
-Derive checks from the real inputs and agreed output. Test the actual artifact and
-its important interactions, error cases and operating environment, not merely folder
-existence. Preserve input-to-output fidelity separately from functional success.
-Keep test/review evidence in the current Project version without exposing private data.
+Map every required claim, action and creator correction to a section in the finished
+post. Verify quotations, dates, names, links and attribution against primary sources.
+Separate the author's experience from inference and avoid presenting a planned step
+as completed. A clean browser console cannot detect narrative drift.
 
-Show the complete result to the person. Record acceptance only when they explicitly
-accept that revision. If review is pending say so. A submitted question round or a
-successful automated check cannot manufacture acceptance.
+Review a content sample and its layout together before building the full post, then
+read the complete output for missing sections and cross-section contradictions.
+Exercise navigation, copy controls, persisted progress, reset, downloads and printing
+where the post provides them. Test narrow RTL layouts with long mixed-script strings.
+Capture screenshots and structured results in the owning Project's durable dossier;
+keep dependency versions and a reproducible command beside its browser verifier.
 
-For offline delivery, test from an extracted path containing spaces and non-Latin
-characters with networking disabled. Verify every runtime dependency is local, file
-links work, and private input/history/secrets are excluded from exports. For live
-delivery, verify the actual public URL, runtime restart, routing and relevant state
-recovery. Retain a working previous release and an applicable rollback method.
-Only publish with existing or explicit authorization for that actual target.
+Check the exact delivered ZIP after extraction without networking. Inventory hashes
+must match, runtime assets remain local, and private inputs/source history are absent.
+Check the authored index and compatibility links too. Preserve evidence for old live
+releases; a new successful build neither replaces that evidence nor grants acceptance.
+The owner reviews source fidelity and editorial meaning separately from technical
+verification. A local handoff is valid when no public hosting is desired.

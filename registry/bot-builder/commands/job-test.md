@@ -1,26 +1,26 @@
 ---
 name: job-test
-description: Test and live round trips for the active bot-builder Project.
+description: Verify transitions, duplicates and actual messenger round trips.
 ---
 
 # /job-test
 
-Resolve the workspace root, then read `AGENTS.md`, all of `docs/constitution/`,
-`docs/kandoo/living/profile.md`, `docs/kandoo/living/status.md`, the installed
-`docs/kandoo/living/job.md` and `docs/kandoo/living/server.md`. Read the active
-Project's living state and current open version; references are routed by the installed
-Job. Do not look for a starter source or run a bundled helper.
+Read `AGENTS.md`, the four `docs/constitution/` documents and the living profile,
+Job, server and status. Resolve the active Project/version from status; all paths here
+are workspace-root paths. Read only the installed references named below and current
+Project inputs/answers. Preserve earlier outputs and authorization.
 
-Test real dialog paths, duplicate/concurrent/stale updates, expiry, failed sends, retry and restart with isolated data. Verify live receive/send/button operation on each chosen platform and payment checks where selected. The owner walks complete journeys; simulated fixtures and technical success are not human acceptance.
+Read installed quality/messenger references and the transition/scenario tables. Exercise
+invalid/edit/back/cancel, duplicate and out-of-order updates, rapid taps, stale tokens,
+wrong-caller access, expiry and restart using isolated data. Assert one business effect
+and correct reply recovery after delivery failure. Check payment states if selected.
 
-Apply numbered file questions/reviews to open questions and non-obvious AI decisions:
-context, concrete options, AI Recommendation, blank answer. Explicit submitted choices
-are Confirmed; submitted blanks apply the Provisional recommendation immediately;
-unsubmitted blanks stay pending. Assess updates to the Job, shared Kandoo docs/code,
-active Project and write-only feedback; freely evolve the method when actual work
-needs it, copying changed commands to every host.
+Run an authorized live message/button/reply on each configured platform through the
+actual application adapter and public route or selected polling consumer. Keep fixture,
+live transport and human wording review evidence separate. Record skipped rehearsal
+honestly and keep unrelated work moving. Fix defects and route to `job-deploy`.
 
-Persist owning living docs, Project progress/evidence and shared active status. End
-every reply with the conversation-language bottom progress bar from the installed
-pipeline and active state, including any pending review, and exactly one next file
-action or actual command. No human acceptance or deployment is inferred from tests.
+Apply the file-review/certainty protocol and assess updates to the Job, shared Kandoo,
+active Project and write-only creator feedback. Persist this step's outcome, pending
+review and next action in Project status and mirror shared status. Finish every reply
+with all ordered steps localized and one exact next action; never invent acceptance.

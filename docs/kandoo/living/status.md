@@ -14,7 +14,7 @@
 - Technical readiness: unchecked
 - Human acceptance: unrequested
 - Deployment: none
-- Next action: run /moom-start (Codex: $moom-start)
+- Next action: run /moom-start (Codex CLI: $moom-start; desktop slash/dollar picker; Antigravity select/mention the skill)
 
 When configured, mirror the active Project's own living status here and retain shared
 scope/version separately. Persist changes before handoff so another session can resume.

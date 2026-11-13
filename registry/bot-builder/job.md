@@ -2,7 +2,7 @@
 
 Build deterministic Telegram, Bale or Rubika menu/button/dialog bots, with optional narrow AI helpers and owner-selected payment policies.
 
-Job revision: 0.1
+Job revision: 0.2
 
 This is an adaptable initial base. Change any step, format or style to fit the
 participant’s exact work, including while doing a real Project. No fixed schema,
@@ -32,3 +32,9 @@ and ends with dynamic localized progress plus one exact next action.
 - [payments](references/payments.md): Read only when payments are included.
 - [infrastructure](references/infrastructure.md): Read when connecting services or deploying.
 - [quality](references/quality.md): Read when defining acceptance, testing and delivering.
+
+## Retained workshop work
+
+Keep the full scenario, state/data, platform, payment, build, live-test and recovery
+work under the short commands. The flow table and adapter fixtures are deliverables,
+not optional prose summaries of an unimplemented messenger integration.

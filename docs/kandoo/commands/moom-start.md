@@ -32,24 +32,30 @@ bottom progress rules on every reply, including setup questions.
    proxy for later package/API commands. Record non-secret evidence in `server.md`.
 4. Inspect Git and remotes. ZIP extraction needs `git init`; missing identity needs
    repository-local `user.name` and `user.email` from the participant. Never change
-   global identity. Connect a **participant-owned remote mandatorily**, regardless of
+   global identity. Strongly recommend a **participant-owned remote**, regardless of
    server choice. A fork already cloned is valid after ownership/write verification;
    otherwise guide creating a participant repository, or an owned bare repo over SSH.
-   An upstream-only clone must acquire a participant remote. Remove/repoint template
+   When connected, help an upstream-only clone acquire a participant remote. Remove/repoint template
    upstream remotes without losing participant branches; never push to `gonbad/moom`.
    Avoid remote URLs containing credentials. Preserve nonempty remote history; inspect
    and reconcile without force-pushing or overwriting work. Ask only for unavoidable
-   account/OS consent. Verify a real authenticated first backup and its remote ref.
+   account/OS consent. When available, verify a real first backup and its remote ref.
+   Offline/local-only participants may continue with local Git and remote setup pending.
+   If Git or identity is unavailable, or the user insists on skipping any setup step
+   (including server verification), record the skip and consequence and continue.
 5. Before committing/backing up, verify `.gitignore` protects local secrets and inspect
    the staged files. Never add credentials, caches or logs. Store backup evidence in
    `profile.md`. Missing repository access remains pending; `ls-remote` alone is not
    write verification. Record questions/non-obvious setup choices in numbered files
    under `docs/kandoo/versions/0.1/`, applying submitted-blank delegation correctly.
-6. Mark bootstrap start done only when languages, Git identity, participant remote
-   backup and the chosen server branch (`none` or actually verified infrastructure)
-   are resolved. Pending account/network setup does not become a success claim.
+6. Mark bootstrap start done when the intended setup is resolved, including explicit
+   skips or offline deferrals. Record each actual check separately as verified,
+   pending, user-skipped or not needed; a pending backup never blocks Job definition.
+   Pending account/network setup does not become a success claim.
    Persist profile, server and status; the next active stage is Job definition.
 
-End with one exact action: invoke `/moom-job` (Codex `$moom-job`) if setup is ready;
-otherwise the single pending file/account action. Finish with the localized bootstrap
+End with one exact action: invoke `/moom-job` when setup can proceed (Codex CLI
+`$moom-job`; desktop slash/dollar picker; Antigravity select/mention the skill).
+If an unanswered essential preference remains, name its file; honor explicit skips.
+Finish with the localized bootstrap
 progress bar showing start, Job definition and first Project workflow.

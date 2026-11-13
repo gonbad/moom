@@ -1,20 +1,29 @@
-# Payments, receipt evidence and fulfillment
+# Payment authority, receipts and provisional fulfillment
 
-Ask whether payments are needed; skip this reference otherwise. For native Bale
-payments verify current invoice, checkout, inquiry and successful-payment contracts,
-currency/amount units (Rials versus Tomans), credentials and exact order correlation.
-An invoice or approved pre-checkout is not settlement. Trust authenticated provider
-data, enforce unique transaction IDs and idempotent fulfillment under duplicates.
+The business service owns order, amount/currency, reservation expiry, invoice identity
+and settlement. Messenger adapters normalize payment events; neither a screenshot nor
+an AI classification establishes payment. Retain server-side eligibility checks even
+when the dialog has already shown a confirmation button.
 
-For uploaded card-transfer receipts, distinguish claimed evidence from verified
-settlement. OCR/AI can extract and flag; it cannot prove money arrived. Explain and
-record the owner's policy: strict verification before fulfillment, or optimistic
-provisional access followed by authenticated admin review, rejection and revocation.
-Keep payment status separate from fulfillment status; provisional access is never
-represented as verified payment. Bound review actions to admin identity, order,
-current version and one-use decisions, preserving audit history.
+For native Bale payments verify current `sendInvoice`, pre-checkout and successful
+payment structures against its official documentation. Bind an opaque order reference
+to the caller and expected amount; verify the provider result and unique charge ID.
+Support timeouts, duplicated events, cancellation and reconciliation. A resend must
+reuse a valid invoice without extending its original expiry or creating another charge.
+Never copy Telegram field assumptions into Bale without a real verified fixture.
 
-A ban restricts owned product entitlements, not a person's ability to open a messenger
-chat. Test forged/reused receipts, wrong amount/unit/order, duplicates, unauthorized
-admins, repeated decisions, cancellation races and revocation. Preserve the selected
-policy in failures and restarts. The participant may revise the Job to fit their work.
+For transfer receipts, explain the tradeoff and let the owner choose:
+
+| Policy | Fulfillment | Settlement record |
+| --- | --- | --- |
+| strict | Wait for authenticated settlement or reviewed reconciliation | verified only after real evidence |
+| optimistic | Limited reversible provisional fulfillment after receipt intake | pending/unverified until reconciled |
+
+Record the choice, provisional limits, expiry, reviewer and reversal/support behavior.
+Store receipts privately with restricted retention; public logs show opaque references.
+Separate `receipt_received`, `provisional`, `settled`, `rejected` and `refunded` states.
+An optimistic acceptance must never write a settled flag. Use idempotency keys and a
+transaction for provider events and reservation release. Test amount/currency mismatch,
+wrong order/caller, duplicate settlement, expired invoice, late settlement and a failed
+reply after successful payment. Report real money effects only when explicitly authorized.
+Source: [Bale payment methods and objects](https://docs.bale.ai/).

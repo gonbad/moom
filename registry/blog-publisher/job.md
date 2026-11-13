@@ -2,7 +2,7 @@
 
 Create independently designed articles, guides, papers or presentations with verified offline packages and optional shared hosting.
 
-Job revision: 0.1
+Job revision: 0.2
 
 This is an adaptable initial base. Change any step, format or style to fit the
 participant’s exact work, including while doing a real Project. No fixed schema,
@@ -29,3 +29,9 @@ and ends with dynamic localized progress plus one exact next action.
 - [distribution](references/distribution.md): Read for public builds, packaging and publishing.
 - [infrastructure](references/infrastructure.md): Read when connecting services or deploying.
 - [quality](references/quality.md): Read when defining acceptance, testing and delivering.
+
+## Retained workshop work
+
+Brief/story/content become idea/content; layout remains post-specific; build/check/
+package are performed by job-build; deploy preserves explicit release selection and rollback.
+Project code and any browser verifier belong to that Project; shared publishers to kandoo/.

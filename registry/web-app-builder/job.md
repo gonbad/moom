@@ -2,7 +2,7 @@
 
 Build independent web products from reviewed requirements and approved external designs, then test and deploy them with HTTPS.
 
-Job revision: 0.1
+Job revision: 0.2
 
 This is an adaptable initial base. Change any step, format or style to fit the
 participant’s exact work, including while doing a real Project. No fixed schema,
@@ -30,3 +30,9 @@ and ends with dynamic localized progress plus one exact next action.
 - [design](references/design.md): Read for external design and prototype fidelity.
 - [infrastructure](references/infrastructure.md): Read when connecting services or deploying.
 - [quality](references/quality.md): Read when defining acceptance, testing and delivering.
+
+## Retained workshop work
+
+The earlier idea-core, PRD, data-model, UX and scenarios work remains in idea/PRD;
+design/prototype remain in design; plan/backend in build; journeys in test; activation
+in deploy. The three specification files and approved HTML remain real deliverables.

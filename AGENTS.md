@@ -26,3 +26,9 @@ Project code in `projects/ID/`. Secrets stay ignored and out of chat and public 
 Finish every reply with the language-appropriate progress block and one exact next
 action, using the current state rather than a fixed example. Keep technical evidence,
 source fidelity, human acceptance and deployment evidence separate.
+Before sending, mentally check that every ordered step and pending review is shown,
+there is at most one current step, and labels/states are all in the conversation
+language. Never omit the block on short replies or after resuming. Never use English
+state words in a Persian bar; command identifiers and paths may remain unchanged.
+Do not append any prose after the single next-action line. Use the examples in the
+workflow constitution; no progress validator or host hook is required.

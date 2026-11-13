@@ -2,7 +2,7 @@
 
 Build model-directed conversational tools only when a simpler bot is insufficient, with caller-scoped authority, explicit policies and enforced budgets.
 
-Job revision: 0.1
+Job revision: 0.2
 
 This is an adaptable initial base. Change any step, format or style to fit the
 participant’s exact work, including while doing a real Project. No fixed schema,
@@ -35,3 +35,9 @@ and ends with dynamic localized progress plus one exact next action.
 - [payments](references/payments.md): Read only when payments are included.
 - [infrastructure](references/infrastructure.md): Read when connecting services or deploying.
 - [quality](references/quality.md): Read when defining acceptance, testing and delivering.
+
+## Retained workshop work
+
+The earlier capabilities, SOPs, data-model, privacy, tools, prompts and edge-cases
+commands remain concrete work inside job-contracts. Planning and service construction
+belong to build, real provider/session integration to wire, and layered evidence to test.

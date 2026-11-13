@@ -6,13 +6,16 @@ Use native tools and shell quoting, installing dependencies only as actually nee
 Python, WSL, Docker Desktop and a local database are not universal prerequisites.
 Use repository-local Git identity; never change the participant's global identity.
 
-A participant-owned remote is required even without a server. It can be a participant
-fork, another hosted repository or an SSH bare repository they control. A ZIP extract
-needs `git init`, local identity, remote connection and a verified first backup. A clone
-may already have these; inspect before changing them. Verify ownership with the person
-and authenticated read/write access. Do not force-push, replace unrelated remote
-history or put credentials in URLs. Read access alone does not prove backup works.
-Pending access is recorded as pending. Preserve existing participant commits.
+A participant-owned remote is strongly recommended, including without a server. It
+can be a fork, another hosted repository or an owned SSH bare repository. Inspect a
+clone before changing it; for a ZIP, initialize local Git and identity when available.
+Verify ownership and authenticated read/write backup when connected. Never push to the
+template upstream, force-push, replace unrelated history or put credentials in URLs.
+Read access alone does not prove backup works. Offline or local-only work may proceed
+with local commits and remote backup pending. If identity/Git is unavailable or the user
+insists on skipping any setup step, record the skipped check and its concrete consequence,
+then continue with the work. Never turn a deferred check into a success claim or a
+bootstrap deadlock. Preserve existing commits; revisit pending setup when relevant.
 
 Ask about a server during initial setup. If the answer is no, record `none` for server,
 DNS, TLS and proxy and continue. Never require a server purchase for local-only work.
@@ -57,6 +60,10 @@ the exact pending work, keep unrelated tasks moving and never label a failed che
 verified. Do not substitute a self-signed certificate for a public one. Review current
 official DNS, TLS and proxy documentation before implementation; do not promise that
 a proxy changes provider eligibility or account access.
+
+The same deferral rule applies to server, proxy, DNS and TLS setup: honor an explicit
+skip and continue independent local work. Defer only an operation that actually needs
+the missing capability; do not claim a public deployment without its real evidence.
 
 Secret files, keys, tokens, account sessions and password-bearing URLs are ignored at
 every level using `**/secrets/`, `*.local.md`, `.env*` and key patterns. Apply owner-only

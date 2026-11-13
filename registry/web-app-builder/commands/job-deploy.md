@@ -1,26 +1,27 @@
 ---
 name: job-deploy
-description: Deploy for the active web-app-builder Project.
+description: Activate the product with HTTPS, persistence and rollback evidence.
 ---
 
 # /job-deploy
 
-Resolve the workspace root, then read `AGENTS.md`, all of `docs/constitution/`,
-`docs/kandoo/living/profile.md`, `docs/kandoo/living/status.md`, the installed
-`docs/kandoo/living/job.md` and `docs/kandoo/living/server.md`. Read the active
-Project's living state and current open version; references are routed by the installed
-Job. Do not look for a starter source or run a bundled helper.
+Read `AGENTS.md`, the four `docs/constitution/` documents and the living profile,
+Job, server and status. Resolve the active Project/version from status; all paths here
+are workspace-root paths. Read only the installed references named below and current
+Project inputs/answers. Preserve earlier outputs and authorization.
 
-Use the participant’s authorized shared server/domain or free nip.io hostname. Deploy with isolated identity/volumes and rollback; check public HTTPS/renewal, assets, API, SPA deep-link refresh, migration integrity, actual DB/cache addresses and restart. Do not claim deployment from a merely running container.
+Read installed infrastructure/quality references and shared server ledger. Reuse prior
+target authorization and allocate this Project's routes, service user, ports and volumes.
+Run production builds/migrations, back up data and retain the previous release. Do not
+replace unrelated sites or delete volumes to repair a failed startup.
 
-Apply numbered file questions/reviews to open questions and non-obvious AI decisions:
-context, concrete options, AI Recommendation, blank answer. Explicit submitted choices
-are Confirmed; submitted blanks apply the Provisional recommendation immediately;
-unsubmitted blanks stay pending. Assess updates to the Job, shared Kandoo docs/code,
-active Project and write-only feedback; freely evolve the method when actual work
-needs it, copying changed commands to every host.
+From the actual service identity verify DB/cache connectivity, public HTTPS, API routes,
+frontend deep links and one real permitted user journey. Test restart, backup restoration
+and rollback. Record revision/config identity, URL and safe evidence in the current
+dossier. If hosting is explicitly deferred, hand over locally and retain pending checks;
+never label skipped DNS/TLS or a local preview as deployed. Finish with one viewing action.
 
-Persist owning living docs, Project progress/evidence and shared active status. End
-every reply with the conversation-language bottom progress bar from the installed
-pipeline and active state, including any pending review, and exactly one next file
-action or actual command. No human acceptance or deployment is inferred from tests.
+Apply the file-review/certainty protocol and assess updates to the Job, shared Kandoo,
+active Project and write-only creator feedback. Persist this step's outcome, pending
+review and next action in Project status and mirror shared status. Finish every reply
+with all ordered steps localized and one exact next action; never invent acceptance.

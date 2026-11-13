@@ -1,17 +1,27 @@
-# Enforced budgets and deterministic fallback
+# Bounded model runs, concurrency and outage recovery
 
-Record owner-selected per-peer rate limits, one in-flight turn per peer, bounded
-model/tool requests per run, timeouts, output maxima, daily per-user tokens and a
-global daily token/cost breaker with explicit reset timezone and units. Enforce these
-in trusted runtime code before model calls and between tool iterations, not in prompts.
-Unknown or missing accounting never means unlimited usage.
+Define per-run tool calls, wall time, input/output tokens and retry limits, plus
+per-user and global daily spend/usage quotas. Enforce them outside the prompt with
+atomic reservation/accounting so concurrent callers cannot all pass a stale budget
+check. Include operational probes and scheduled jobs in the global budget. Release
+unused reservations; preserve actual usage after partial failure or restart.
 
-Use atomic counters/reservations shared by workers, reserving a conservative allowance
-and reconciling actual usage. Handle concurrent users, cancellations, provider failures,
-missing usage, process restart and day rollover. Consult actual provider/model pricing
-if cost accounting is selected; token and per-run caps remain an independent bound.
-Bound tool resources too. On quota or outage stop inference and use a reviewed
-deterministic menu/support path while preserving state, status/cancel operations and
-the chosen action approval policies. Recovery never auto-executes an unapproved proposal.
-Test concurrent reservations, mid-loop limits, global breaker, rollover, crash recovery,
-timeouts and useful fallback with all model calls disabled.
+Bound active runs per caller and globally. Persist run identity, cancellation and
+idempotency; stop on repeated tool failure and return a useful partial result. A retry
+never grants new authority or repeats an unknown-outcome mutation automatically.
+Tool errors should be typed and actionable without exposing private response bodies.
+
+Specify deterministic outage behavior: preserve state, explain unavailability, and
+provide retry/support or a verified menu/alternate interface when selected. That
+fallback invokes the same business service and respects the same scope and hard
+approval. It is not a secret unlimited bypass for blocked users.
+
+Recovery is proven by a bounded configured-provider check, not by elapsed time. Share
+one tool-free, customer-data-free probe with persisted backoff; do not notify idle
+customers automatically. At their next input preserve a pending wizard answer,
+contact, payment or confirmation event before switching modes. Provide authoritative
+current business/expiry state alongside sanitized history. Switch back to chat only
+after a usable model reply is delivered; failed inference/delivery keeps fallback state.
+Test provider timeout, quota exhaustion, parallel runs, duplicate scheduling, restart,
+probe storms and partial delivery. Record real dialogue behavior separately from these
+deterministic accounting and recovery checks.

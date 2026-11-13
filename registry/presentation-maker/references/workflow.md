@@ -1,36 +1,24 @@
-# Working with the current Project
+# From a real talk to a usable presentation
 
-Resolve the workspace root and read `AGENTS.md`, all of `docs/constitution/`, the
-living profile, shared server, status and installed Job. Read the active Project's
-living documents and only its selected open version. Never infer selection from the
-current directory. Reuse earlier inputs and submitted answers; do not ask for them
-again. On version 0.1 use the full chosen pipeline; later versions select only affected
-steps and prerequisites, showing the rest as skipped with reasons.
+Start with the actual audience, setting, duration and desired audience action. A deck
+for a live speaker, a document read alone and a workshop exercise need different pacing.
+Reuse supplied research and the speaker's phrasing; do not convert a request for an
+argument into a catalog of definitions. In Project living docs maintain:
 
-The pipeline is an initial base. Modify formats, steps, tools, style and outputs to
-match the participant's work, including mid-Project. A useful improvement may update
-the Job and its revision, shared Kandoo docs/code, this Project, and append-only inert
-feedback. Copy changed canonical commands to every host and reload discovery when
-needed. Other Projects retain their own outputs and need an adaptation check when
-resumed; never rebuild or publish them automatically.
+- `idea.md`: audience, one-sentence promise, format/orientation and delivery setting.
+- `outline.md`: section arc, slide beats, examples, timing and speaker notes.
+- `design.md`: typography, palette, diagram vocabulary and navigation behavior.
+- `status.md`: current version, pipeline, decisions and artifact/review evidence.
 
-Put questions and non-obvious AI decisions in the next numbered file in the owner's
-open version, with context, alternatives, an explicit AI Recommendation and a blank
-answer. Ask the person to save and submit `done` / `نوشتم`. Explicit choices become
-Confirmed; submitted blanks immediately delegate a Provisional recommendation;
-unsubmitted blanks stay pending. Preserve answers and later corrections. Living docs
-retain the chosen outcome and its certainty. Delegation is not human acceptance or
-permission for an external action.
+The outline should move from a recognizable problem to a worked example, a useful
+model, a counterexample and an action the audience can take. Budget time per section;
+reserve time for exercises/questions instead of dividing minutes equally by slides.
+Review the argument in a small section first, then inspect the whole narrative for
+repetition, missing transitions and unsupported claims. A submitted question file is
+not approval of a deck. Record speaker acceptance only for the revision they reviewed.
 
-Keep source and actual artifacts in `projects/ID/`, Project docs in `docs/projects/ID/`,
-and shared facts in `docs/kandoo/`. Existing product inputs are preserved and inventoried
-before adaptation. Generate code/config/assets only when the actual work needs them;
-there is no bundled script, universal manifest or fixed application scaffold to run.
-The assistant operates native tools; the person supplies inputs and product choices.
-
-Persist Project living status after each step (version, Job revision, all ordered step
-states, single current step, review, evidence and next action) and mirror active state
-in shared status. Every reply ends with the localized dynamic bottom progress bar
-plus exactly one file review/answer action or actual next `job-*` command, following
-the workflow constitution. Use the participant's host invocation syntax. Completion,
-technical checks, source fidelity, human acceptance and deployment are separate facts.
+For a later iteration identify whether the request changes the audience, claim,
+outline, visual system or export. Rebuild only affected artifacts while checking the
+whole navigation sequence. Preserve the previous delivered deck and editable source.
+A participant may replace slides with a portrait story, print handout or other format;
+change the Job, its commands and progress labels to match that real work.

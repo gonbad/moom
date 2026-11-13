@@ -1,26 +1,30 @@
 ---
 name: job-build
-description: Build and package for the active blog-publisher Project.
+description: Assemble public output, offline ZIPs and verified downloads.
 ---
 
 # /job-build
 
-Resolve the workspace root, then read `AGENTS.md`, all of `docs/constitution/`,
-`docs/kandoo/living/profile.md`, `docs/kandoo/living/status.md`, the installed
-`docs/kandoo/living/job.md` and `docs/kandoo/living/server.md`. Read the active
-Project's living state and current open version; references are routed by the installed
-Job. Do not look for a starter source or run a bundled helper.
+Read `AGENTS.md`, the four `docs/constitution/` documents and the living profile,
+Job, server and status. Resolve the active Project/version from status; all paths here
+are workspace-root paths. Read only the installed references named below and current
+Project inputs/answers. Preserve earlier outputs and authorization.
 
-Read distribution and quality references. Build actual artifacts and offline packages, generating suitable code only where needed. If a manifest is chosen, create it for this Project. Verify public inventory/hashes, source fidelity, local links and dynamic interactions; update index/discovery and preserve existing posts.
+Read installed distribution/quality references and the Project's explicit source and
+release selection. Use or generate only needed Kandoo/Project build helpers. Stage
+public files from their allowlisted source; exclude inputs, secrets, docs and history.
+An unfinished unrelated draft must not break a publication build. A preview can include
+the selected draft but must remain marked as preview-only and undeployable.
 
-Apply numbered file questions/reviews to open questions and non-obvious AI decisions:
-context, concrete options, AI Recommendation, blank answer. Explicit submitted choices
-are Confirmed; submitted blanks apply the Provisional recommendation immediately;
-unsubmitted blanks stay pending. Assess updates to the Job, shared Kandoo docs/code,
-active Project and write-only feedback; freely evolve the method when actual work
-needs it, copying changed commands to every host.
+Imported materials are local checksum-pinned artifacts. Never invoke sibling template
+sources, parent maintainer scripts or upstream updates during a post build. Produce
+compiled web output, standalone ZIPs, file hashes and an explicit release inventory.
+Verify references/archives and open exact offline artifacts with networking disabled.
+Run browser checks with Project-owned dependencies and durable evidence paths. Replace
+output after verification, preserve the previous release, and route to `job-deploy`
+with separate build, fidelity and acceptance evidence.
 
-Persist owning living docs, Project progress/evidence and shared active status. End
-every reply with the conversation-language bottom progress bar from the installed
-pipeline and active state, including any pending review, and exactly one next file
-action or actual command. No human acceptance or deployment is inferred from tests.
+Apply the file-review/certainty protocol and assess updates to the Job, shared Kandoo,
+active Project and write-only creator feedback. Persist this step's outcome, pending
+review and next action in Project status and mirror shared status. Finish every reply
+with all ordered steps localized and one exact next action; never invent acceptance.

@@ -1,17 +1,19 @@
-# Evidence and handoff
+# Product journeys and matched visual evidence
 
-Derive checks from the real inputs and agreed output. Test the actual artifact and
-its important interactions, error cases and operating environment, not merely folder
-existence. Preserve input-to-output fidelity separately from functional success.
-Keep test/review evidence in the current Project version without exposing private data.
+Derive tests from the PRD's user actions, not component implementation details.
+At minimum cover one end-to-end success, empty data, validation failure, unavailable
+backend, unauthenticated access and cross-user resource denial. Verify pagination/
+filtering and refresh/deep links where applicable. Test at the intended phone width,
+keyboard-only input, visible focus, labels and RTL mixed-script content.
 
-Show the complete result to the person. Record acceptance only when they explicitly
-accept that revision. If review is pending say so. A submitted question round or a
-successful automated check cannot manufacture acceptance.
+Compare approved HTML and the integrated product using matching viewport/data/state.
+A build passing does not excuse a changed layout. Record evidence alongside the
+source revision and reviewed design. Remove preview CDNs and inspect production
+requests for missing assets, secrets and dev endpoints. Contract tests exercise the
+real HTTP/schema boundary; migrations and rollback tests use isolated data.
 
-For offline delivery, test from an extracted path containing spaces and non-Latin
-characters with networking disabled. Verify every runtime dependency is local, file
-links work, and private input/history/secrets are excluded from exports. For live
-delivery, verify the actual public URL, runtime restart, routing and relevant state
-recovery. Retain a working previous release and an applicable rollback method.
-Only publish with existing or explicit authorization for that actual target.
+Before delivery run the production build, affected tests and actual user journeys.
+Verify deployment from the real runtime identity: HTTPS, routing, database access,
+service restart, backup restoration and a rollback. State which checks were skipped
+or unavailable. Keep owner acceptance and live release evidence separate from local
+browser success; do not force a test suite that simply mirrors trivial code.
