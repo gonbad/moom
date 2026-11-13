@@ -1,21 +1,14 @@
-# Bespoke FSM contract
+# Bespoke deterministic state machine
 
-The assistant generates a small FSM for this bot's reviewed dialog graph; there is no
-universal application runtime to adopt blindly. Specify `state`, normalized `event`,
-allowed `transitions`, caller-scoped `context_data`, guards and effects. Each transition
-names its expected current state, required inputs, next state, cancel/back/expiry paths,
-and visible response. Invalid or stale events leave state unchanged and return a
-useful deterministic explanation. Keep user state keyed by platform, bot identity and
-peer ID; do not merge same-number users across platforms.
+Specify the reviewed dialog's states, normalized events, guarded transitions,
+caller-scoped context, effects, visible replies and cancel/back/expiry paths. Invalid
+or stale events preserve state and explain the available next action. Key identity by
+platform, bot and peer; never merge same-number users across transports.
 
-For each incoming platform update, insert a unique inbox key, lock the relevant state
-row (or use a version-checked update), validate guards and commit the transition with
-outbound intent in one PostgreSQL transaction. Handle first-row creation races too.
-Do not hold a database lock while awaiting an external API/model. Use an outbox and
-stable idempotency keys for effects. If a remote timeout leaves an outcome unknown,
-reconcile status before retry; exactly-once HTTP delivery is not generally available.
-
-AI classifiers return a constrained intent or unknown; deterministic guards still
-control transitions. Bounded Q&A sees only permitted context and returns an answer,
-never an executable plan. Include tests of duplicate updates, parallel conflicting
-buttons, stale state/version, abort/timeout, restart, failed send and retry recovery.
+Use unique inbox keys, row locks or version checks, and a transaction covering the
+transition plus outbound intent. Handle first-row creation races. Do not hold a DB
+lock during a remote model/API call. Use an outbox and stable idempotency keys;
+reconcile an unknown remote outcome before retrying, rather than claiming exactly-once
+HTTP effects. Test duplicates, parallel buttons, stale events, cancel/expiry, restart,
+send failure and retry recovery. Narrow AI classification returns constrained intent
+or unknown; deterministic guards still choose the transition and effects.

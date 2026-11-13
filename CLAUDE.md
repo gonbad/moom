@@ -1,6 +1,6 @@
-# Moom
+# Claude Code entry point
 
-Read AGENTS.md. Moom commands use `/moom-start`, `/moom-job`, `/moom-project`,
-`/moom-iterate`, `/moom-issue` and `/moom-update`. Generated commands route to
-canonical procedures in .moom/core/commands/ and the one current job/NAME/.
-Use plain language if command discovery needs a session reload.
+Read and enforce [AGENTS.md](AGENTS.md) and every document in
+[docs/constitution/](docs/constitution/) before acting. Read the current profile,
+status and installed Job, apply the review/certainty protocol, and end each reply
+with the prescribed progress and next action. Commands use workspace-root paths.

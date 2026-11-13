@@ -1,22 +1,17 @@
-# Usage budgets and deterministic fallback
+# Enforced budgets and deterministic fallback
 
-Before exposing a public agent, specify per-peer rate limits, one in-flight model turn
-per peer, bounded model/tool requests per run, timeouts, maximum outputs, daily per-user
-token limits and an agent-wide daily token/cost circuit breaker. Record units, reset
-time zone and owner-selected values in LIVING/budgets.md. Limits are enforced in trusted
-code before model calls and before continuing multi-step reasoning; prompts cannot
-change them. Disabled/unknown accounting is not unlimited free usage.
+Record owner-selected per-peer rate limits, one in-flight turn per peer, bounded
+model/tool requests per run, timeouts, output maxima, daily per-user tokens and a
+global daily token/cost breaker with explicit reset timezone and units. Enforce these
+in trusted runtime code before model calls and between tool iterations, not in prompts.
+Unknown or missing accounting never means unlimited usage.
 
-Use atomic shared counters/reservations in PostgreSQL or Redis so concurrent users,
-workers and tool iterations cannot each spend the full remaining budget. Reserve a
-conservative allowance before execution and reconcile measured usage afterward;
-handle provider errors, cancellations, missing usage reports, restarts and day rollover.
-Track actual provider/model pricing only when cost accounting is selected; keep token
-caps and per-run maxima as an independent bound. A global breaker applies across all
-users, not just one conversation. Also bound external-tool resource consumption.
-
-On limits or provider outage, stop further inference and offer the reviewed deterministic
-menu/support path. Preserve pending state, let safe status/cancel operations work, and
-retain any selected approval policy. Recovery never automatically executes an unapproved
-proposal. Test concurrent reservations, a run crossing its limit mid-loop, global quota,
-reset boundary, crash/restart, provider timeout and fallback with model calls disabled.
+Use atomic counters/reservations shared by workers, reserving a conservative allowance
+and reconciling actual usage. Handle concurrent users, cancellations, provider failures,
+missing usage, process restart and day rollover. Consult actual provider/model pricing
+if cost accounting is selected; token and per-run caps remain an independent bound.
+Bound tool resources too. On quota or outage stop inference and use a reviewed
+deterministic menu/support path while preserving state, status/cancel operations and
+the chosen action approval policies. Recovery never auto-executes an unapproved proposal.
+Test concurrent reservations, mid-loop limits, global breaker, rollover, crash recovery,
+timeouts and useful fallback with all model calls disabled.

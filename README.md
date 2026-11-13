@@ -1,75 +1,45 @@
-# موم — Moom
+# Moom → your Kandoo
 
-موم قالبی آماده برای تبدیل کارهای تکراری به یک روشِ بهترشونده است. آن را در دستیار
-کدنویسی باز کنید و بگویید «شروع کنیم». دستیار کارهای فنی را انجام می‌دهد؛ شما ورودی
-واقعی، خواسته‌ها و بازخوردتان را می‌آورید.
+Moom is a Markdown template for turning repeated work into your own evolving Job.
+A configured workspace is a Kandoo: one current method, several independent Projects.
+There is no bundled runtime, Python CLI, script installer or machine-readable state.
+The coding assistant reads the procedures and works with your computer's native tools.
 
-در Claude Code، OpenCode و Antigravity از `/moom-start` استفاده کنید. در Codex،
-مهارت `$moom-start` را بخواهید. فرمان‌ها همراه مخزن آماده‌اند؛ برای دیدن فرمان‌های تازه
-ممکن است میزبان به بازخوانی نشست نیاز داشته باشد. درخواست به زبان عادی هم کار می‌کند.
+1. Fork [the template](https://github.com/gonbad/moom), clone your fork into a fresh
+   folder, or extract the workshop ZIP and choose your own repository during setup.
+   A participant-owned, verified Git remote is required, even for local-only work.
+2. Open that folder in Claude Code, OpenCode, Codex or Antigravity. Open its `docs/`
+   subfolder as an Obsidian vault; [the vault home](docs/README.md) explains the layout.
+3. Run `/moom-start` (Codex: `$moom-start`, or choose the skill). Ordinary language
+   also works. The assistant collects languages, checks Git and backup, and asks
+   about a server immediately. No server is a valid answer. With one, setup verifies
+   SSH, a domain or free `nip.io` hostname, public HTTPS and an authenticated proxy.
+4. Run `/moom-job`. Describe your repeated work in the provided file, save it, then
+   say `done` / `نوشتم`. Use, adapt or replace any [starter](registry/README.md).
+   Question rounds distinguish your confirmed choices from provisional delegation.
+5. The assistant installs your Job, removes the catalog and bootstrap material,
+   creates Project 1 from what you already shared, and replaces this README with
+   your Kandoo's guide. Close and reopen the AI host, then run its first `job-*` step.
 
-با `moom-job` کار تکراری و اولین نمونهٔ واقعی را مشخص می‌کنیم. یک روش از فهرست
-آغازین انتخاب و متناسب می‌شود، یا روش تازه‌ای می‌سازیم. پس از راه‌اندازی موفق، فهرست
-آغازین حذف می‌شود و فقط روش خودتان می‌ماند. نسخهٔ شکل‌گرفتهٔ موم را «کندو» می‌نامیم.
+Claude Code and OpenCode read `.claude/commands/NAME.md` and
+`.opencode/commands/NAME.md`. Codex and Antigravity share
+`.agents/skills/NAME/SKILL.md`. These are identical copies of canonical Markdown,
+including `name` and `description` frontmatter. The five `kandoo-*` workspace commands
+are pre-synced too, and become usable when setup is complete. Job commands are installed
+at finalization. Codex invokes skills as `$NAME`; the other hosts use `/NAME`.
 
-هر کندو **یک جابِ جاری** و چند پروژه دارد. اصلاح‌های پروژه‌ها می‌توانند جاب را هم بهتر
-کنند. پروژهٔ قبلی هنگام بازگشت از روش جاری استفاده می‌کند؛ خروجی قبلی خودبه‌خود
-بازسازی یا منتشر نمی‌شود.
+Later, `/kandoo-new-project` creates and selects the next independent Project;
+`/kandoo-switch` resumes one; `/kandoo-iterate` opens a planned version;
+`/kandoo-issue` handles a defect; `/kandoo-server` adds or changes shared infrastructure.
+The Job can evolve during real work. Every response has progress and one next action.
 
-پوشهٔ `docs/` را در Obsidian باز کنید. پرسش‌ها، پاسخ‌ها و تصمیم‌ها آنجا هستند؛
-فایل‌های واقعی و خروجی هر پروژه در `projects/` قرار دارند.
+This source contains only Markdown and a root `.gitignore`, apart from Git metadata.
+Maintainer tooling lives in the parent Workshop repository, outside the participant
+template. It validates and packages the source; participants never need that tooling.
+After setup there is no upstream update, publish or source-repository dependency.
 
-| درخواست | فرمان |
-| --- | --- |
-| شروع و تنظیم زبان | `moom-start` |
-| انتخاب کار و پروژهٔ اول | `moom-job` |
-| پروژهٔ بعدی | `moom-project` |
-| بازگشت به پروژه | `moom-switch` |
-| تغییر نسخهٔ پروژه، جاب یا کار مشترک | `moom-iterate` |
-| گزارش و رفع ایراد | `moom-issue` |
-| دیدن وضعیت و نسخه‌ها | `moom-status`، `moom-versions` |
-| به‌روزرسانی خود موم | `moom-update` |
-| آماده‌کردن جاب برای اشتراک | `moom-export`، `moom-publish` |
+Host discovery references: [Claude Code](https://code.claude.com/docs/en/slash-commands),
+[OpenCode](https://opencode.ai/docs/commands/), [Codex skills](https://learn.chatgpt.com/docs/build-skills),
+and [Antigravity skills](https://antigravity.google/docs/skills/).
 
-## Starter jobs
-
-The initial catalog includes presentation-maker, blog-publisher, web-app-builder,
-bot-builder and agentic-chatbot. The software jobs use Project-owned specifications,
-server PostgreSQL/Redis via Compose and native SSH forwarding. Web apps preserve
-approved external HTML designs; deterministic bots use explicit state; the advanced
-agent job adds reviewed tool authority and usage budgets. Choose the simplest fitting
-job and adapt it through a real first Project.
-
-## Repository layout
-
-```text
-docs/                 Human discussions, review history, living explanations
-  moom/               Guide and review contract
-  workspace/          Shared work and coordination
-  job/                Job discussions, independent of its executable package
-  projects/<id>/      Project living notes and nested version discussions
-job/<name>/           Exactly one installed Agent Skill, improving through use
-projects/<id>/        Actual inputs, editable sources and deliverables
-shared/               Integration or deployment code shared by Projects
-registry/             Bootstrap-only starter catalog; removed after successful setup
-.moom/core/           Bundled mechanics and canonical Moom procedures
-workspace.json        Authoritative selection, versions and review state
-```
-
-Moom is self-contained. Its helper uses Python 3.10+ and the standard library; the
-assistant provisions task-specific dependencies when needed. No pip-installed Moom
-application or separate registry server is required.
-
-This repository is a GitHub template. Create a repository from it, fork it, or download
-a release, then open your copy in your assistant. The template itself contains no
-installed Job or personal Projects. Moom releases and Job/Project versions are independent.
-
-Read the [guide](docs/moom/guide.md), [review contract](docs/moom/review.md),
-[update contract](docs/moom/updates.md), and [contribution instructions](CONTRIBUTING.md).
-Native adapter locations follow the [Agent Skills specification](https://agentskills.io/specification),
-[Claude Code docs](https://code.claude.com/docs/en/skills),
-[Codex skill docs](https://developers.openai.com/codex/skills/),
-[OpenCode command docs](https://opencode.ai/docs/commands/), and
-[Antigravity skill migration docs](https://antigravity.google/docs/migration/workflows-to-skills/).
-Automated tests verify generated files and dispatch; interactive host discovery must
-be checked in the host being used before claiming it has been verified.
+[License](LICENSE.md)

@@ -1,27 +1,32 @@
-# Credentials, at every depth. Keep documentation templates trackable.
-.env
-.env.*
-!.env.example
-**/docs/**/secrets/**
-**/docs/secrets/**
-secrets/
+# Local credentials, at every ownership level
+**/secrets/
+*.local.md
+.env*
+**/.env*
 *.pem
 *.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+**/known_hosts*
+**/credentials*
 
-# Local environments and generated deliverables
-.venv/
-venv/
-node_modules/
-__pycache__/
-*.py[cod]
-dist/
-exports/
-.pytest_cache/
-.ruff_cache/
-.coverage
+# Host/editor state and caches
 .DS_Store
 Thumbs.db
+.obsidian/
+.claude/settings.local.json
+.agents/.cache/
+.opencode/node_modules/
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+dist/
+build/
 *.log
-.obsidian/workspace.json
-.obsidian/workspace-mobile.json
-.moom/local/
+*.zip

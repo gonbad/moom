@@ -1,42 +1,28 @@
-# Moom / Kandoo
+# Kandoo instructions
 
-This is a Moom template until workspace.json selects a Job; a configured copy is a Kandoo.
-Read docs/moom/guide.md and docs/moom/review.md. For a named command, read
-.moom/core/commands/moom-NAME.md in full. Plain-language requests route the same way.
-Use `python3 moom.py status` for actual state. The assistant runs technical commands;
-the person does not need to install a Moom CLI. Windows may use `py -3`.
+Before any task, read all four documents in `docs/constitution/`, then
+`docs/kandoo/living/profile.md`, `docs/kandoo/living/status.md` and
+`docs/kandoo/living/job.md`. They govern named commands and ordinary conversation.
+Resolve every procedure path from the workspace root, regardless of which host copy
+loaded it. Read the current step and its relevant installed references only.
 
-There is exactly one current, evolving Job at job/NAME/. Its instructions, commands,
-scripts and assets govern every Project when resumed. Resolve its procedures with
-`python3 moom.py procedure STEP`. Check adaptation when the recipe has changed;
-record that check with adopt-job. Do not rebuild or republish old outputs automatically.
-Job revisions, Project versions, Moom releases and review-round numbers are independent.
+One evolving Job governs independent Projects. The Job lives in `docs/kandoo/living/`;
+canonical workspace commands in `docs/kandoo/commands/`; canonical Job commands in
+`docs/kandoo/living/commands/`. Synchronize changed commands by copying the same
+Markdown into all host locations described in the workflow constitution.
 
-Human requests, answers, reviews and living explanations belong in docs/; executable
-instructions belong in .moom/core/ or job/; actual artifacts belong in projects/.
-Open docs/ as the Obsidian vault. Shared integration code belongs in shared/.
+The person opens `docs/` in Obsidian. The assistant operates technical tools using
+the actual OS and verifies outcomes. Preserve participant files, choices and existing
+authorization. Record questions and non-obvious decisions in numbered open-version
+files. Submitted blanks delegate a provisional recommendation; they never certify
+acceptance or grant new external permissions. Unsubmitted blanks remain pending.
 
-Moom defines four distinct document classes:
-- Constitutions (docs/constitution/, CONSTITUTION.md): Inviolable invariants; read on start.
-- Living Docs (docs/**/living/, docs/index.md): Mutated in-place; authoritative CURRENT truth.
-- Version Docs (docs/**/versions/V*/): Historical immutable decision records. Invariant: AI
-  assistants MUST NEVER inspect historical version folders unless explicitly instructed by the
-  user or when actively authoring the designated open version.
-- Code-Like Docs (job/<name>/, .moom/core/): Executable SOPs, Agent Skills, and commands kept
-  outside the Obsidian knowledge vault.
+On every task assess the Job, shared Kandoo docs/code, active Project and write-only
+feedback as four possible update targets. Do not read feedback as runtime input.
+Read historical versions only on explicit request; the active version's submitted
+inputs and answers remain relevant. Shared code belongs in root `kandoo/` when needed;
+Project code in `projects/ID/`. Secrets stay ignored and out of chat and public docs.
 
-Before creating a question file, resolve its owning entity. If unknown, ask in chat or
-through the host question tool. If the owner also cannot locate it, use
-docs/workspace/intake/ and route it after diagnosis. Once scoped, use numbered
-Markdown rounds under that entity's current version; preserve all submitted answers.
-Read version inputs in numeric order, including COMMENT/نظر, with later decisions
-overriding earlier ones. Check source fidelity separately from functioning output.
-Do not infer acceptance from silence, generated documents or passing tests.
-
-Native wrappers are generated copies. Edit canonical procedures, then sync; preserve
-local edits and resolve command collisions. Publication needs the user's authorization.
-Do not include credentials, project inputs or local environments in reusable exports.
-
-When developing THIS public template, keep workspace.json pristine and test in temporary
-copies. Its development discussions live in the parent Workshop, outside this repository.
-Run `python3 -m unittest discover -s tests -v` and `python3 tools/release.py --check`.
+Finish every reply with the language-appropriate progress block and one exact next
+action, using the current state rather than a fixed example. Keep technical evidence,
+source fidelity, human acceptance and deployment evidence separate.

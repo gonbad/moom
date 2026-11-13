@@ -1,5 +1,6 @@
-# Moom
+# Antigravity entry point
 
-Read AGENTS.md. Antigravity discovers the generated .agents/skills/ packages;
-use `/moom-start` or ask to start in plain language. Those packages route to
-canonical Moom procedures and the current Job. Read the selected procedure fully.
+Read and enforce [AGENTS.md](AGENTS.md) and every document in
+[docs/constitution/](docs/constitution/) before acting. Read the current profile,
+status and installed Job, apply the review/certainty protocol, and end each reply
+with the prescribed progress and next action. Commands use workspace-root paths.

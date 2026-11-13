@@ -1,26 +1,21 @@
-# Messenger contract and platform verification
+# Platform boundaries and live verification
 
-Create a MessengerClient interface over normalized incoming events and outgoing
-operations: send/edit message, acknowledge callback, send/download file, register and
-inspect webhook, and poll updates if supported. Identify platform, bot identity,
-peer/sender, update ID, message ID, text, callback, attachment and payment event.
-Treat all IDs as opaque and preserve platform scope. Core handlers import this
-interface rather than issuing platform HTTP calls themselves.
+Normalize platform, bot identity, peer/sender, update/message ID, text, callback,
+attachment and payment events behind a transport interface. Treat IDs as opaque and
+platform-scoped. Implement only selected adapters from current official contracts;
+do not assume Bale or Rubika is Telegram with a different base URL.
 
-Implement only the selected TelegramAdapter, BaleAdapter and/or RubikaAdapter, using
-current official documents and actual account capabilities. The HTTP libraries can
-be conventional async clients; normalize retries, timeouts, formatting/keyboards,
-file identifiers and sanitized errors. Configure proxy/base URLs per platform when
-required by network access. Never put bot tokens or token-bearing URLs in diagnostics.
+- [Telegram Bot API](https://core.telegram.org/bots/api)
+- [Bale documentation](https://docs.bale.ai/)
+- [Rubika Bot API](https://rubika.ir/botapi)
 
-- [Telegram Bot API](https://core.telegram.org/bots/api): verify update/callback
-  shapes, webhook secret header, registration and delivery status.
-- [Bale bot documentation](https://docs.bale.ai/): verify its own methods, native
-  payments and amount units; compatibility does not imply identical behavior.
-- [Rubika bot documentation](https://rubika.ir/botapi): implement its documented
-  API and event schemas, including its webhook/endpoint registration and polling
-  cursor contract, rather than replacing the Telegram base URL.
+Verify send/edit/file operations, keyboard capabilities, callback acknowledgement,
+delivery registration, authenticated webhooks and polling/cursors where supported.
+Redact tokens from URLs/logs, normalize retries/timeouts and retain sanitized fixtures.
+Prove receive/send and a real button round trip for each selected platform. Simulated
+fixtures alone never establish that a live platform integration works.
 
-For every selected transport retain sanitized request/response fixtures and test
-normalization. Prove live receive/send and a button round trip before declaring that
-platform working. Polling and webhook inputs must reach the same normalized dispatcher.
+For personal-account integrations, verify supported login and UI capabilities separately
+from bot APIs. The person completes protected interactive login locally when needed.
+Protect ignored session artifacts and prove restart under the actual deployment identity.
+Never promise inline bot controls on a transport that lacks them.

@@ -1,23 +1,36 @@
-# Deterministic bot workflow
+# Working with the current Project
 
-Resolve this Project's paths and early VPS credentials. Record the actual idea and
-optional existing-product inventory in its V0.1 dossier. Specify what end users and
-administrators can do before choosing buttons and dialog state. Review the core idea,
-requirements, flow and data model with the owner in manageable chunks.
+Resolve the workspace root and read `AGENTS.md`, all of `docs/constitution/`, the
+living profile, shared server, status and installed Job. Read the active Project's
+living documents and only its selected open version. Never infer selection from the
+current directory. Reuse earlier inputs and submitted answers; do not ask for them
+again. On version 0.1 use the full chosen pipeline; later versions select only affected
+steps and prerequisites, showing the rest as skipped with reasons.
 
-Provision server PostgreSQL/Redis through Compose; local development uses native SSH
-forwards and the same public HTTPS webhook routed through a reverse forward. Polling
-is a fallback using the same dispatcher when supported, with one active consumer.
-Implement explicit platform adapters, never assuming all messenger payloads match.
+The pipeline is an initial base. Modify formats, steps, tools, style and outputs to
+match the participant's work, including mid-Project. A useful improvement may update
+the Job and its revision, shared Kandoo docs/code, this Project, and append-only inert
+feedback. Copy changed canonical commands to every host and reload discovery when
+needed. Other Projects retain their own outputs and need an adaptation check when
+resumed; never rebuild or publish them automatically.
 
-Generate a bespoke FSM using the supplied contract. Core business actions are chosen
-by deterministic code. Optional narrow inference cannot execute a dynamic tool loop.
-Payment requirements determine whether to implement Bale invoices, manual receipt
-review, or both. Explain strict and optimistic fulfillment and record the owner's
-choice, retaining settlement truth separately from provisional access.
+Put questions and non-obvious AI decisions in the next numbered file in the owner's
+open version, with context, alternatives, an explicit AI Recommendation and a blank
+answer. Ask the person to save and submit `done` / `نوشتم`. Explicit choices become
+Confirmed; submitted blanks immediately delegate a Provisional recommendation;
+unsubmitted blanks stay pending. Preserve answers and later corrections. Living docs
+retain the chosen outcome and its certainty. Delegation is not human acceptance or
+permission for an external action.
 
-Build handlers and real integrations, prove retry/concurrency/idempotency behavior,
-then walk the complete dialog with the owner on the selected messenger. Deploy the
-same handlers, switch the webhook proxy from the laptop tunnel to the VPS service,
-and verify delivery, trusted TLS, renewal and restart. Keep readiness and actual human
-acceptance separate. Later products are new Moom Projects with independent state.
+Keep source and actual artifacts in `projects/ID/`, Project docs in `docs/projects/ID/`,
+and shared facts in `docs/kandoo/`. Existing product inputs are preserved and inventoried
+before adaptation. Generate code/config/assets only when the actual work needs them;
+there is no bundled script, universal manifest or fixed application scaffold to run.
+The assistant operates native tools; the person supplies inputs and product choices.
+
+Persist Project living status after each step (version, Job revision, all ordered step
+states, single current step, review, evidence and next action) and mirror active state
+in shared status. Every reply ends with the localized dynamic bottom progress bar
+plus exactly one file review/answer action or actual next `job-*` command, following
+the workflow constitution. Use the participant's host invocation syntax. Completion,
+technical checks, source fidelity, human acceptance and deployment are separate facts.

@@ -1,18 +1,17 @@
-# Acceptance criteria
+# Evidence and handoff
 
-- Project ownership: a second Project preserves the first one's specs, source, designs,
-  credentials, database volumes and deployment. Resume uses workspace state.
-- Source fidelity: behavior traces to the current idea, PRD, schema, UX and scenarios.
-- Design fidelity: screenshot pairs for approved screens and states at matching
-  viewports demonstrate the React conversion's appearance. Explain any intentional
-  owner-approved difference; missing screenshots are an incomplete gate.
-- Production assets: compiled Tailwind, fonts, CSS, scripts and images are served by
-  the participant's server. No runtime design CDN is required.
-- Runtime: API authorization and validation, migrations, error behavior and meaningful
-  end-to-end scenarios pass. Testing must not mutate production data.
-- Serving: direct navigation/reload reaches each client route; missing assets and API
-  endpoints retain correct errors rather than receiving the React shell.
-- Deployment: public hostname and trusted HTTPS, redirect/renewal, DB/cache access
-  from the real service, restart and recovery are verified.
-- Human review: the person checks changed decisions, then the prototype and a complete
-  final user journey. Machine success is recorded separately from their acceptance.
+Derive checks from the real inputs and agreed output. Test the actual artifact and
+its important interactions, error cases and operating environment, not merely folder
+existence. Preserve input-to-output fidelity separately from functional success.
+Keep test/review evidence in the current Project version without exposing private data.
+
+Show the complete result to the person. Record acceptance only when they explicitly
+accept that revision. If review is pending say so. A submitted question round or a
+successful automated check cannot manufacture acceptance.
+
+For offline delivery, test from an extracted path containing spaces and non-Latin
+characters with networking disabled. Verify every runtime dependency is local, file
+links work, and private input/history/secrets are excluded from exports. For live
+delivery, verify the actual public URL, runtime restart, routing and relevant state
+recovery. Retain a working previous release and an applicable rollback method.
+Only publish with existing or explicit authorization for that actual target.
