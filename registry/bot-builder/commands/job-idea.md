@@ -1,25 +1,36 @@
 ---
 name: job-idea
-description: Choose a deterministic bot scope, platform and complete user journey.
+description: Scope deterministic messenger bot, target platforms, core flow and external services.
 ---
 
 # /job-idea
 
-Read `AGENTS.md`, the four `docs/constitution/` documents and the living profile,
-Job, server and status. Resolve the active Project/version from status; all paths here
-are workspace-root paths. Read only the installed references named below and current
-Project inputs/answers. Preserve earlier outputs and authorization.
+Read `AGENTS.md`, the four `docs/constitution/` documents and `docs/kandoo/living/profile.md`,
+`job.md`, `server.md` and `status.md`. Resolve the active Project `ID` and `VERSION` from
+status; all paths are workspace-root paths. Read only the installed reference
+`docs/kandoo/living/references/workflow.md`, the selected-version input recorded in `docs/projects/ID/living/status.md`,
+and submitted rounds in that version. Preserve earlier outputs and authorization.
 
-Read installed workflow/messenger references and the actual request. Define the user,
-problem, supported platforms and one end-to-end journey. Prefer explicit menus and
-dialog states when business rules are known; any optional AI helper remains narrow.
-Inventory existing bot identities/data without replacing them.
+Inspect `projects/ID/existing/` if the participant pasted an existing codebase (a
+permitted drop folder outside `docs/`). Clarify the product's core intent: a
+deterministic menu/button/dialog bot on Telegram, Bale or Rubika (not an autonomous
+agent loop). Identify actors, target platforms, whether payments are in scope or `not
+applicable`, and external dependencies (test/live bot tokens, optional payment gateways
+or notification sinks).
 
-Write `living/idea.md` with scope, example conversations, delivery needs and acceptance
-outcome. Record consequential platform/payment choices in the open version. Server
-setup may be pending while local flow design continues. Next is `job-prd`.
+Cut version `0.1` to one demonstrable journey and bank secondary commands or future
+features in `docs/projects/ID/living/roadmap.md`. Record ranked dependency fallbacks and
+non-secret credential variable names in `docs/projects/ID/living/external-services.md`
+(instructing the owner to store actual tokens only in gitignored
+`docs/projects/ID/secrets/credentials.md`).
 
-Apply the file-review/certainty protocol and assess updates to the Job, shared Kandoo,
-active Project and write-only creator feedback. Persist this step's outcome, pending
-review and next action in Project status and mirror shared status. Finish every reply
-with all ordered steps localized and one exact next action; never invent acceptance.
+Always write and maintain `docs/projects/ID/living/idea.md`—never substitute a
+version-only filename. Resolve open questions via
+`docs/projects/ID/versions/VERSION/NN-questions.md` in Obsidian; once submitted, hand
+off directly to `/job-prd`.
+
+Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
+to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what
+changed, evidence, pending review and next action in `docs/projects/ID/living/status.md`
+and mirror `docs/kandoo/living/status.md`. Finish every reply with the current Job's full ordered
+steps localized and one exact next action (`/job-prd` or the pending `.md` question file).

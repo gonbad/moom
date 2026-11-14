@@ -5,25 +5,33 @@ description: Deliver locally or publish only the verified release inventory.
 
 # /job-deploy
 
-Read `AGENTS.md`, the four `docs/constitution/` documents and the living profile,
-Job, server and status. Resolve the active Project/version from status; all paths here
-are workspace-root paths. Read only the installed references named below and current
-Project inputs/answers. Preserve earlier outputs and authorization.
+Read `AGENTS.md`, the four `docs/constitution/` documents and `docs/kandoo/living/profile.md`,
+`job.md`, `server.md` and `status.md`. Resolve the active Project `ID` and `VERSION` from
+status; all paths are workspace-root paths. Read only the installed references
+`docs/kandoo/living/references/workflow.md`, `distribution.md`, `infrastructure.md` and
+`quality.md`, plus `docs/projects/ID/living/status.md`, `publication.md` (when present)
+and `docs/kandoo/living/server.md`. Preserve earlier outputs and authorization.
 
-Read installed distribution/infrastructure/quality references, current release hashes
-and shared server facts. If delivery is local, record hosting as not needed and hand
-over the tested artifact. For public hosting preserve prior authorization for the
-specific origin; the Job supplies no new destination permission. Reject preview-only
-builds and upload only verified compiled files, never the repository or private input.
+Gate: Build verification is recorded in `docs/projects/ID/versions/VERSION/`. If local
+or private delivery is chosen (or server setup was skipped), mark server hosting as
+skipped/not needed, serve a local `http://127.0.0.1` preview when requested, and record
+the complete local/offline delivery summary in `docs/projects/ID/living/status.md` and
+`docs/projects/ID/versions/VERSION/deploy-notes.md`—never requiring a server or
+referring the participant to non-`.md` files outside `docs/`.
 
-Compare uploaded hashes, activate atomically and verify public entry pages/downloads,
-HTTPS and the publication's configured health endpoint. Preserve other sites/routes;
-do not depend on organizer-private health services. Roll back if activation checks
-fail. Save an immutable receipt in the current shared dossier, preserving old receipts.
-Update the authored index only for selected public posts. Record deployment evidence
-and editorial acceptance separately, then give one actual viewing/delivery action.
+For public hosting, require explicit owner acceptance and preserved authorization for the
+specific origin (`docs/kandoo/living/publication.md`); a Job revision supplies no new
+target permission. Reject preview-only builds and upload only verified compiled files,
+never source, secrets or `docs/`. Compare uploaded hashes, activate atomically, verify
+HTTPS entry pages, downloads and health checks, and roll back on failure. If SSH or
+network access fails, preserve the local release and record live deployment as blocked
+without claiming publication. Save an immutable Markdown deployment receipt in the
+current shared version (`docs/kandoo/versions/`) and `deploy-notes.md`, keeping live
+deployment evidence and human editorial acceptance distinct.
 
-Apply the file-review/certainty protocol and assess updates to the Job, shared Kandoo,
-active Project and write-only creator feedback. Persist this step's outcome, pending
-review and next action in Project status and mirror shared status. Finish every reply
-with all ordered steps localized and one exact next action; never invent acceptance.
+Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
+to the Job, shared Kandoo, active Project and write-only creator feedback. Persist final
+delivery state in `docs/projects/ID/living/status.md` and mirror
+`docs/kandoo/living/status.md`. Finish every reply with the current Job's full ordered steps localized
+and one exact final action (reading the `.md` delivery summary in `docs/` or visiting the
+verified `http://`/`https://` URL).

@@ -22,8 +22,9 @@ DNS, TLS and proxy and continue. Never require a server purchase for local-only 
 When a later Project needs one, use `kandoo-server`. With a server, perform this same
 sequence during initial setup and on infrastructure changes:
 
-1. Collect host, actual public IPv4, SSH user/port and initial access method. Put
-   credentials in `docs/kandoo/secrets/`, never in a question file or chat. Verify the
+1. Collect host, actual public IPv4, SSH user/port and initial access method. Have the
+   participant record credentials only in gitignored `docs/kandoo/secrets/credentials.md`,
+   never in a question file, logs or chat. Verify the
    host fingerprint through trusted provider information; do not disable host checking.
    Prove login, provision a dedicated local SSH key if needed, install only its public
    key, and test unattended login with that identity before retiring initial access.
@@ -67,19 +68,33 @@ the missing capability; do not claim a public deployment without its real eviden
 
 Secret files, keys, tokens, account sessions and password-bearing URLs are ignored at
 every level using `**/secrets/`, `*.local.md`, `.env*` and key patterns. Apply owner-only
-permissions or equivalent Windows ACLs. Living docs contain non-secret facts and
-references to ignored secret files, never their values. Verify `git check-ignore` and
-the staged diff before any backup/export. Protect private keys outside public source;
-never copy the participant's local state into reusable procedures or feedback.
+permissions or equivalent Windows ACLs. Participant-entered or participant-read secrets
+live in gitignored Markdown files inside `docs/`: `docs/kandoo/secrets/credentials.md`
+for shared infrastructure and `docs/projects/ID/secrets/credentials.md` for Project
+tokens, test identities and admin access notes (never unscoped `docs/secrets/`). The
+assistant generates runtime `.env` or key files inside `projects/ID/` as needed without
+referring the participant to non-`.md` files or paths outside `docs/`, and never prints
+secret values in chat, question files or logs. Living docs contain non-secret variable
+names and safe references to those ignored `docs/.../secrets/credentials.md` files,
+never their values. Verify `git check-ignore` and the staged diff before any backup or
+export. Protect private keys outside public source; never copy local state into reusable
+procedures or feedback.
 
 Shared helpers/configuration may be generated in root `kandoo/` only when needed.
-Project deployments and credentials remain under `projects/ID/`. Use the same DB
-schema, handlers and contracts in development/production, with runtime-appropriate
+Project deployments and runtime configuration remain under `projects/ID/`. Use the same
+DB schema, handlers and contracts in development/production, with runtime-appropriate
 addresses. Software Jobs default to PostgreSQL/Redis on the participant's VPS using
-Compose, native SSH forwarding for local development and reverse SSH for webhooks
-when supported; no SQLite substitution. Test with isolated data, preserve volumes,
-and document backup/restore. Reuse credentials on resume; changing an environment
-file alone does not rotate an existing DB role. Never overwrite another deployment.
+Compose (or local Docker on macOS/Linux when server setup is deferred), native SSH
+forwarding for local development and reverse SSH for webhooks when supported. Never
+offer SQLite on a production server or when PostgreSQL is available; **only when the
+participant brought no server (`none`/deferred) AND is on Windows** may `job-plan`
+offer project-scoped SQLite (`projects/ID/data/`) as an explicit last-resort local
+fallback, recording that PostgreSQL migration and live DB verification remain pending
+before any server deployment. When an external dependency fails (design chat, package
+download, SSH tunnel, model provider or messenger), preserve local work, state the local
+fallback and mark blocked external evidence honestly. Test with isolated synthetic data,
+preserve volumes, and document backup/restore. Reuse credentials on resume; changing an
+environment file alone does not rotate an existing DB role. Never overwrite another deployment.
 
 For Persian/RTL outputs, set language/direction deliberately, isolate code, paths and
 identifiers as LTR, preserve text shaping, and verify desktop/mobile behavior. Keep

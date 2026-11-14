@@ -13,16 +13,23 @@ and ask one selection question. Never choose whichever directory sorts last. Ver
 both the target dossier and artifact directory exist; diagnose a mismatch instead of
 creating a new Project to conceal it. Save the former Project's status first.
 
-Read the target's `living/idea.md` and `living/status.md`, then only its selected open
-version's inputs and submitted rounds needed for the resumed step. Restore that
-Project's version, progress, pending questions/review and next action into shared
-status. Do not scan historical versions, rebuild outputs, republish or reset progress.
+Read `docs/projects/ID/living/idea.md` and `docs/projects/ID/living/status.md`, then
+only its selected open version's inputs and submitted rounds needed for the resumed
+step. Restore that Project's version, progress, pending questions/review and next
+action into `docs/kandoo/living/status.md`, recording the current installed Job
+revision separately from the Job revision under which this Project last ran. Do not
+scan historical versions, rebuild outputs, republish or reset progress.
 
-Compare the Project's recorded Job revision with the current Job. Record the impact
-and adaptation check in its open version; use the review protocol for non-obvious
-changes. Preserve confirmed product decisions and accepted outputs. Evolving the Job
-is allowed, but a method change does not authorize a deployment. Assess the Job,
-shared docs/code, this Project and append-only feedback as appropriate.
+Compare the Project's recorded Job revision with the current `docs/kandoo/living/job.md`.
+When the Job has added or changed stages, inspect whether the Project's existing
+living docs, version rounds and artifacts already satisfy each stage: record `pending`,
+`satisfied by existing evidence` or `not applicable` with concrete reasons in the open
+version, and use the file-review protocol for non-obvious choices. Never
+retrospectively mark newly added stages human-accepted or automatically rebuild old
+posts or applications. Preserve confirmed product decisions and accepted outputs.
+Evolving the Job is allowed, but a method change does not authorize a deployment.
+Assess the Job, shared docs/code, this Project and append-only feedback as appropriate.
 
-End with the restored Project's localized progress and one exact pending file action
-or current `job-*` command. Switching alone does not require a host restart.
+End with the restored Project's localized progress and one exact pending `.md` file
+action inside `docs/` or current `job-*` command. Switching alone does not require a
+host restart.

@@ -1,27 +1,36 @@
-# Bot runtime and webhook cutover
+# Bot runtime, PostgreSQL policy and webhook cutover
 
-Reuse the shared SSH identity, server/DNS/TLS and authenticated forward proxy from
-`docs/kandoo/living/server.md`. Allocate distinct bot identity, Compose project,
-PostgreSQL/Redis volumes, public webhook path and loopback ports. Preserve other bots
-and sites. Run services on the VPS; laptop processes use native SSH forwarding rather
-than requiring Docker Desktop/WSL or substituting SQLite.
+Read `docs/kandoo/living/server.md`, `docs/kandoo/living/profile.md` and
+`docs/constitution/03-infrastructure-and-secrets.md`. Allocate distinct bot identity,
+Compose project name, PostgreSQL/Redis volumes, public webhook path and loopback ports
+in `docs/kandoo/living/server.md` without disturbing existing bots or sites.
 
-Example topology: platform HTTPS → reverse proxy → loopback webhook listener →
-normalized dispatcher → business service/PostgreSQL → durable outbound sender.
-For local development put the local listener behind a loopback reverse tunnel:
+## Coherent database and transport route
 
-```sh
-ssh -N -o ExitOnForwardFailure=yes -R 127.0.0.1:28080:127.0.0.1:8080 project-vps
-```
+1. **With a configured VPS (standard path):** Run PostgreSQL (and Redis when needed) on
+   the VPS via Docker Compose with persistent volumes and isolated test/production data.
+   Laptop processes connect over native OpenSSH local forwarding (`-L`), and local
+   webhook testing uses a loopback reverse tunnel behind the shared HTTPS proxy:
+   ```sh
+   ssh -N -o ExitOnForwardFailure=yes -R 127.0.0.1:28080:127.0.0.1:8080 project-vps
+   ```
+2. **Deferred server on macOS or Linux:** Use local Docker PostgreSQL if available, and
+   long-polling on platforms that support it while marking VPS webhook/DB verification
+   pending.
+3. **Last resort—no server AND Windows (`job-plan` only):** Only when `server.md` is
+   `none`/deferred **and** the participant is on Windows, `/job-plan` may offer
+   project-scoped SQLite under `projects/ID/data/` as an explicit last-resort local
+   fallback, recording that PostgreSQL migration and live VPS verification remain
+   pending; never deploy SQLite as a VPS production substitute.
 
-Choose real ports from the ledger. Route the public webhook to that loopback listener
-without exposing an unauthenticated tunnel endpoint directly. Keep inbound authentication,
-body limits and durable acknowledgment at the transport boundary. Polling is an option
-only on a selected platform that supports it; verify its actual API.
+Choose real ports from the shared ledger. Route public webhooks to loopback listeners
+with secret-token header verification, body limits and durable deduplication. Polling is
+an option only on selected platforms whose official API supports it. Store bot tokens
+and merchant keys only in gitignored `docs/projects/ID/secrets/credentials.md` (synced
+by the assistant into `projects/ID/.env`, never printed in chat or logs).
 
-At deployment drain/stop the local consumer, start the production runtime, switch the
-webhook route or polling ownership, inspect provider status and prove one inbound
-message/callback/reply. Test restart while a dialog is in progress, outbox recovery,
-DB backup/restore and rollback to the previous app revision. Containers use service DNS,
-host processes loopback ports and laptops forwarded ports. Reuse secrets safely and
-record pending live checks honestly if the user defers infrastructure.
+At production cutover, drain/stop the local consumer, start the VPS service, switch
+webhook route or polling ownership, verify `getWebhookInfo` (or platform equivalent),
+and test one inbound message, callback, reply and restart midway through a dialog. If
+network, messenger API or SSH access is blocked, preserve local harness verification and
+mark live transport checks pending rather than complete.

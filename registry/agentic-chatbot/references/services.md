@@ -1,40 +1,37 @@
-# Independently usable services and complete runtime wiring
+# Independently usable services, Project-scoped contracts and live wiring
 
-Inventory every component in a Project-owned service table:
+Inventory every integration in `docs/projects/ID/living/tools.md`:
 
 | Class | Responsibility | Required evidence |
 | --- | --- | --- |
-| existing API | Use its authoritative contract and scoped client | Authenticated operation and scope denial |
-| owned backend | Implement domain state, validation and API | Real service, persistence and API tests |
-| API bridge | Expose needed operations over a non-API system | Real integration, session restoration and supported controls |
+| `existing_api` | Authoritative third-party API via scoped client | Authenticated call and scope/error handling |
+| `owned_backend` | Project domain state, transactions and REST API | Real service, migrations and contract tests |
+| `api_bridge` | Scoped adapter over a non-API system | Real integration, session restore and supported controls |
 
-A placeholder URL or SDK stub is not a completed bridge. New services belong to the
-build, not a list of unexplained external prerequisites. Example Project structure:
+Generate all code and machine schemas inside the Project's artifact root `projects/ID/`
+(never unscoped `docs/contracts/`):
 
 ```text
-app/                  model loop, scoped tools, sanitized conversation state
-services/booking/     business API, migrations, capacity/payment transactions
-services/bridge/      optional connection/session state
-contracts/            reviewed service request/response/error specifications
+projects/ID/app/                  agent harness, reference monitor, handle vault
+projects/ID/services/<name>/      owned business API, migrations and transactions
+projects/ID/services/bridge/      optional bridge and restricted session state
+projects/ID/contracts/<name>/     generated openapi.yaml schemas matching living/tools.md
 ```
 
-The backend owns prices, availability, deadlines and settlement. The agent owns
-conversation/run state and pending proposals; a bridge owns login/session state.
-Call APIs through scoped clients instead of importing business engines or touching
-their domain tables. Service contracts describe auth, resource scope, idempotency,
-errors, timeouts and events, independently of attenuated model-visible tools.
+Keep human-reviewed tool and API specifications in `docs/projects/ID/living/tools.md`
+so everything the participant reads or edits stays Markdown inside `docs/`. The backend
+owns prices, capacity, deadlines and settlement; the agent harness owns session runs,
+handle vaults and pending proposals. Call services through scoped HTTP/client seams
+rather than importing domain tables directly into model loops.
 
-For a personal-account/browser bridge verify that the chosen interface supports the
-required operations. Use a dedicated account/profile; enter phone/OTP/password through
-protected local input, never chat/question files. Ignore session artifacts before
-creation, restrict permissions, reuse valid sessions and prove restart restoration.
-Record re-login/expiry behavior. A broadcast token or an open browser does not prove
-personal messaging or bot buttons.
+For personal-account or browser bridges, verify that the target interface supports the
+needed actions. Collect credentials only via gitignored
+`docs/projects/ID/secrets/credentials.md` or interactive local terminal login—never
+chat, logs or question files. Ignore session profiles before creation, restrict file
+permissions, and test restart restoration.
 
-Choose and record runtime model/provider/account separately from the coding host and
-commercial plan. Use the application's actual provider/prompt/tool path for bounded
-checks; a standalone SDK demo does not prove integration. Date official provider facts.
-Record planned/configured/authenticated/callable/effect-verified separately for every
-model/service/transport, then repeat relevant checks from the deployment service user.
-Use read-only or explicitly permitted sandbox effects; never message real customers
-to prove connectivity without authorization.
+Record the runtime inference provider/model/account separately from the coding host in
+`docs/projects/ID/living/tools.md` and `architecture.md`. Track each dependency honestly
+as `planned`, `configured`, `authenticated`, `callable` or `effect-verified` in
+`docs/projects/ID/versions/VERSION/wire-report.md`, using synthetic callers and
+authorized sandbox actions rather than messaging real customers.

@@ -1,19 +1,29 @@
-# Product journeys and matched visual evidence
+# Product journeys, synthetic test data and matched visual evidence
 
-Derive tests from the PRD's user actions, not component implementation details.
-At minimum cover one end-to-end success, empty data, validation failure, unavailable
-backend, unauthenticated access and cross-user resource denial. Verify pagination/
-filtering and refresh/deep links where applicable. Test at the intended phone width,
-keyboard-only input, visible focus, labels and RTL mixed-script content.
+Derive acceptance scenarios and automated tests from user goals in `prd.md` and `ux.md`,
+using **synthetic test identities and isolated test credentials**—never real personal
+phone numbers, real customer records or live passwords. Cover end-to-end happy paths,
+admin/operator flows, multi-actor state reflection, empty states, validation errors,
+upstream service timeouts/503s, double-submit idempotency, unauthenticated access,
+cross-user resource denial and session expiry recovery.
 
-Compare approved HTML and the integrated product using matching viewport/data/state.
-A build passing does not excuse a changed layout. Record evidence alongside the
-source revision and reviewed design. Remove preview CDNs and inspect production
-requests for missing assets, secrets and dev endpoints. Contract tests exercise the
-real HTTP/schema boundary; migrations and rollback tests use isolated data.
+## Concrete scenario mini-example
 
-Before delivery run the production build, affected tests and actual user journeys.
-Verify deployment from the real runtime identity: HTTPS, routing, database access,
-service restart, backup restoration and a rollback. State which checks were skipped
-or unavailable. Keep owner acceptance and live release evidence separate from local
-browser success; do not force a test suite that simply mirrors trivial code.
+- **Scenario S-03 (Double-tap booking with synthetic user):** Precondition: synthetic
+  account `09000000011` signed in; slot `SL-104` has capacity `1`. Action: rapid
+  double-click on «ثبت نوبت» at mobile width `390px`. Expected: button enters loading
+  state immediately, exactly one reservation row is committed in backend transaction,
+  second request returns idempotent confirmation without duplicate charge or 500 error,
+  and screen transitions to confirmation state matching `design-system.md`.
+
+Keep the **two visual comparisons** separate in `docs/projects/ID/versions/VERSION/`:
+1. **HTML vs React Prototype (`job-prototype`):** Verified at matching viewports, fonts
+   and empty/error/filled states before freezing `project/ID/prototype/VERSION`.
+2. **Frozen Prototype vs Integrated App (`job-test`):** Verified side-by-side by running
+   the frozen prototype copy on a free port alongside the full-stack app, confirming
+   layout parity and zero runtime CDN requests (`cdn.tailwindcss.com` absent).
+
+Contract and migration tests run against isolated test data. Before production sign-off,
+verify HTTPS, routing, PostgreSQL persistence across `docker compose restart`, backup
+restoration and rollback from the real runtime identity—stating any deferred checks
+explicitly and never printing secret values in chat, logs or `.md` review files.

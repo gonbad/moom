@@ -5,26 +5,33 @@ description: Build and verify the selected presentation with local assets.
 
 # /job-build
 
-Read `AGENTS.md`, the four `docs/constitution/` documents and the living profile,
-Job, server and status. Resolve the active Project/version from status; all paths here
-are workspace-root paths. Read only the installed references named below and current
-Project inputs/answers. Preserve earlier outputs and authorization.
+Read `AGENTS.md`, the four `docs/constitution/` documents and `docs/kandoo/living/profile.md`,
+`job.md`, `server.md` and `status.md`. Resolve the active Project `ID` and `VERSION` from
+status; all paths are workspace-root paths. Read only the installed references
+`docs/kandoo/living/references/workflow.md`, `slides.md` and `quality.md`, plus
+`docs/projects/ID/living/idea.md`, `outline.md`, `design.md` and submitted rounds in
+`docs/projects/ID/versions/VERSION/`. Preserve earlier outputs and authorization.
 
-Read the outline/design and installed slides/quality references. Generate source in
-this Project for the chosen format; author actual layouts and diagrams rather than
-forcing every beat into one text template. Keep fonts/media and licenses local.
-For HTML implement stable slide IDs, keyboard/touch navigation, focus restoration,
-overview/deep links and browser history as selected. Ignore navigation keys in inputs.
-Seeking directly must not mark skipped sections as visited.
+Gate: `docs/projects/ID/living/outline.md` and `design.md` exist with no unsubmitted
+question round pending. Generate editable source under `projects/ID/src/` and deliverable
+output under `projects/ID/dist/` for the chosen format; author genuine layouts and
+diagrams rather than forcing every beat into one bullet template. Bundle fonts, media
+and licenses locally under `projects/ID/` with zero runtime CDN dependency. If a font or
+package download is blocked, use the configured proxy or a clean local system fallback
+font and record the fallback honestly.
 
-Check mixed Persian/LTR text, reduced motion, desktop/mobile overflow, notes and print
-or PDF export as applicable. Open the actual output and exercise navigation, reload
-and back/forward. Package and open offline without networking if that is the delivery
-contract. Record artifact paths, technical checks and fidelity issues in the current
-version; show a representative dense slide and the complete deck for speaker review.
-Keep acceptance pending until given for this revision. Next is `job-deploy`.
+For HTML, implement stable slide IDs, keyboard/touch navigation, focus restoration,
+overview/deep links and browser history without marking skipped slides visited or
+trapping keys inside inputs. Check mixed Persian/LTR text, reduced motion, desktop/mobile
+overflow, notes, print/PDF export and network-disabled opening from a path with spaces.
+Serve a local `http://127.0.0.1` preview for the speaker and record technical check
+results, artifact hashes and review prompts in a `.md` file under
+`docs/projects/ID/versions/VERSION/`; never refer the participant to open or edit raw
+non-`.md` files outside `docs/`. Keep speaker acceptance pending until given for this
+revision, and route to `/job-deploy`.
 
-Apply the file-review/certainty protocol and assess updates to the Job, shared Kandoo,
-active Project and write-only creator feedback. Persist this step's outcome, pending
-review and next action in Project status and mirror shared status. Finish every reply
-with all ordered steps localized and one exact next action; never invent acceptance.
+Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
+to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what
+changed, evidence, pending review and next action in `docs/projects/ID/living/status.md`
+and mirror `docs/kandoo/living/status.md`. Finish every reply with the current Job's full ordered
+steps localized and one exact next action (`/job-deploy` or the `.md` review file in `docs/`).

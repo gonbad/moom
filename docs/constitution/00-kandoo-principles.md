@@ -30,15 +30,24 @@ Feedback is **write-only and inert**: do not read it for configuration, decision
 instructions, runtime history or task routing. It does not contact anyone. Include
 new Jobs, useful adaptations or bugs there when helpful, without private user data.
 
-The person opens `docs/` as the Obsidian vault. Living docs are the current truth and
-are edited in place. Version folders preserve inputs, submitted answers and decisions.
-Read only the selected open version unless the person explicitly requests history;
-switching Projects is not permission to scan their historical versions. Referenced
-evidence in the selected open version may be read as needed. Code and output belong
-in `projects/ID/`; shared code in root `kandoo/`, created only on demand.
+The person opens `docs/` as the Obsidian vault. Every file the participant is asked to
+open, read or edit must be a `.md` file inside `docs/`; never refer the participant to
+a non-`.md` file or to any file outside `docs/`, except when asking them to paste an
+existing product (`projects/ID/existing/`) or external design output (`projects/ID/design/`).
+Living docs are the current truth and are edited in place, always maintaining
+`docs/projects/ID/living/idea.md` and `docs/projects/ID/living/status.md`. Version
+folders (`docs/projects/ID/versions/VERSION/`) preserve raw inputs, submitted answers
+and decision rounds. Read only the selected open version unless the person explicitly
+requests history; switching Projects is not permission to scan their historical versions.
+Referenced evidence in the selected open version may be read as needed. Project code,
+executable contracts and outputs belong in `projects/ID/`; shared code in root `kandoo/`,
+created only on demand.
 
-Changing the Job does not rebuild or publish an old Project. On resuming a Project,
-compare its recorded Job revision with the current method, record an adaptation check,
-and apply relevant improvements with the review protocol. Preserve accepted output.
+Changing the Job does not rebuild or publish an old Project. Describe the current
+installed Job revision separately from the Job revision under which an older Project
+last ran. On deliberately resuming an older Project, inspect whether its existing
+evidence satisfies any newly added or changed steps and record `pending`, `satisfied by
+existing evidence` or `not applicable` with concrete reasons. Never retrospectively
+mark new steps accepted or rebuild old outputs automatically. Preserve accepted output.
 Job revisions, Project versions, shared Kandoo versions and question-round numbers are
 independent. Keep authorization, technical readiness and human acceptance separate.

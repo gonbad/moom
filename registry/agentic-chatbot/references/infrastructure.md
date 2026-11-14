@@ -1,25 +1,34 @@
-# Runtime identities, budgets and service deployment
+# Runtime identities, PostgreSQL policy and service deployment
 
-Inherit shared SSH/DNS/TLS/proxy facts; allocate Project-specific ports, Compose identity,
-volumes and service users without disturbing previous deployments. PostgreSQL/Redis
-run on the VPS; native OpenSSH forwarding supports laptop development. Container DB
-hosts are service names, host DB addresses are loopback, and laptop addresses are
-forwarded loopback ports. Test each from the actual runtime rather than copying URLs.
+Read `docs/kandoo/living/server.md`, `docs/kandoo/living/profile.md` and
+`docs/constitution/03-infrastructure-and-secrets.md`. Allocate Project-specific ports,
+Compose project name, PostgreSQL/Redis volumes and service users in
+`docs/kandoo/living/server.md` without disturbing existing Projects.
 
-Deploy agent, owned business backends and bridges together only after each component's
-API and state owner are recorded. Their process permissions and credentials differ.
-The inference worker has scoped business API access and no coding/deployment shell.
-Keep bridge browser profiles/session cookies in restricted ignored storage and verify
-restoration after restart. Do not ship development-machine sessions indiscriminately.
+## Coherent database route
 
-For webhook development use a selected loopback reverse SSH tunnel behind the shared
-HTTPS route; at cutover drain local runs/events and prove a single production consumer.
-Apply forward-proxy access per service when needed; do not expose credential-bearing
-URLs in telemetry. Verify actual provider/service connectivity from the service user,
-with bounded requests charged to the operational budget.
+1. **With a configured VPS (standard path):** Run PostgreSQL and Redis on the VPS via
+   Docker Compose with persistent volumes and isolated test/production data; laptop
+   development uses native OpenSSH local forwarding (`-L`) and optional loopback reverse
+   forwarding (`-R`) behind Caddy for webhooks.
+2. **Deferred server on macOS or Linux:** Run isolated PostgreSQL/Redis locally via
+   Docker when available, or mark live VPS persistence checks pending until configured
+   via `/kandoo-server`.
+3. **Last resort—no server AND Windows (`job-plan` only):** Only when `server.md` is
+   `none`/deferred **and** the participant is on Windows, `/job-plan` may offer
+   project-scoped SQLite under `projects/ID/data/` as an explicit last-resort local
+   fallback, recording that PostgreSQL migration and live VPS verification remain
+   pending; never substitute SQLite on a production VPS.
 
-Before activation back up domain and agent state; test migrations, restart, restored
-quota/cooldown/pending-proposal state, and rollback. Check that fallback and deployment
-retries cannot bypass selected hard approvals or duplicate a completed effect. Public
-HTTPS and health endpoints prove serving, not semantic dialogue quality or settlement.
-Keep skipped model/platform checks visible for later owner rehearsal.
+Deploy the agent worker, owned backends and optional bridges with separate scoped
+credentials; the inference worker never receives coding-host or SSH deployment keys.
+Read Project secrets from gitignored `docs/projects/ID/secrets/credentials.md` (synced
+by the assistant to `projects/ID/.env`, never printed in chat or telemetry). Apply the
+configured forward proxy per service when external model or messenger endpoints require
+it; if an upstream provider or tunnel is unreachable, preserve local harness verification
+and mark live checks blocked/pending honestly.
+
+Before production cutover, back up domain and agent state, drain local consumers, test
+migrations, service restart, restored quota/cooldown/pending-proposal state and
+rollback, and confirm retries/fallbacks cannot bypass `confirm + hard` gates or repeat
+mutations.

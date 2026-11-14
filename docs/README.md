@@ -1,8 +1,11 @@
 # Kandoo vault
 
 Open this `docs/` folder as an Obsidian vault; open its parent in the AI host.
-The assistant runs technical operations. You write inputs and answers, review real
-outputs, and make product choices. Save file edits, then say `done` / `نوشتم` in chat.
+The assistant runs technical operations. Everything you open, read or write is a `.md`
+file inside `docs/` (including gitignored `secrets/credentials.md` folders when needed;
+the only folder exception outside `docs/` is pasting an existing product into
+`projects/ID/existing/` or external design files into `projects/ID/design/`). Save file
+edits, then say `done` / `نوشتم` in chat.
 
 - [Current status and next action](kandoo/living/status.md)
 - [Profile and language preferences](kandoo/living/profile.md)

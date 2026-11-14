@@ -2,8 +2,8 @@
 
 ## Publication contract
 
-Keep an explicit Project-owned public source directory (`src/`, `site/` or an adapted
-path) separate from inputs, historical versions, secrets and private editorial notes.
+Keep an explicit Project-owned public source directory (`projects/ID/src/`,
+`projects/ID/site/` or an adapted path) separate from inputs, historical versions, secrets and private editorial notes.
 Record source, public URL path, version and release selection in living Markdown.
 A new Project is a draft by default and needs no `project.json` to exist or be edited.
 A builder can read a small documented release table; it must skip unfinished drafts
@@ -36,7 +36,8 @@ A publication may distribute a template as editorial material. Import a prebuilt
 reviewed ZIP into the owning Project, record its version/hash/provenance, and commit
 it or another durable offline copy. The build reads and verifies this local artifact;
 it does not look for sibling source/tool directories, use a template runtime, or
-silently fetch a moving branch. Keep compatibility download aliases byte-identical.
+silently fetch a moving branch. Keep current compatibility aliases byte-identical to their declared current kit.
+Retained versioned releases keep their original bytes and separate checksum pins.
 A maintainer export happens outside the Journal build. Missing or tampered material
 is an actionable build failure, not a reason to reattach the publication to upstream.
 

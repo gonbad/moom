@@ -2,7 +2,7 @@
 
 Create presentations in the participant’s chosen orientation, format and style, including rich interactive or offline outputs.
 
-Job revision: 0.2
+Job revision: 0.3
 
 This is an adaptable initial base. Change any step, format or style to fit the
 participant’s exact work, including while doing a real Project. No fixed schema,

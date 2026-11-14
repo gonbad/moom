@@ -23,13 +23,15 @@ bottom progress rules on every reply, including setup questions.
    them. Install missing necessary tools natively where authorized and feasible.
 3. Ask **upfront** whether the participant has a server; do not wait for Job selection.
    Record `none` cleanly for no server, DNS, TLS and proxy and continue without a
-   server purchase. With one, collect access securely and perform the complete shared
-   procedure in `docs/constitution/03-infrastructure-and-secrets.md`: verified SSH
-   fingerprint/login, dedicated key, existing-service inventory, domain question,
-   DNS A-record correction or free unique `nip.io` name, publicly trusted HTTPS and
-   renewal, and authenticated HTTP forward proxy with ignored credentials. Verify
-   authenticated HTTP/CONNECT downloads and anonymous denial. Reuse a tunnel-bound
-   proxy for later package/API commands. Record non-secret evidence in `server.md`.
+   server purchase. With one, have the participant write initial credentials only in
+   gitignored `docs/kandoo/secrets/credentials.md` (never chat or question files) and
+   perform the complete shared procedure in `docs/constitution/03-infrastructure-and-secrets.md`:
+   verified SSH fingerprint/login, dedicated key, existing-service inventory, domain
+   question, DNS A-record correction or free unique `nip.io` name, publicly trusted
+   HTTPS and renewal, and authenticated HTTP forward proxy with ignored credentials.
+   Verify authenticated HTTP/CONNECT downloads and anonymous denial. Reuse a tunnel-bound
+   proxy for later package/API commands. Record non-secret evidence in
+   `docs/kandoo/living/server.md`.
 4. Inspect Git and remotes. ZIP extraction needs `git init`; missing identity needs
    repository-local `user.name` and `user.email` from the participant. Never change
    global identity. Strongly recommend a **participant-owned remote**, regardless of
@@ -45,9 +47,10 @@ bottom progress rules on every reply, including setup questions.
    (including server verification), record the skip and consequence and continue.
 5. Before committing/backing up, verify `.gitignore` protects local secrets and inspect
    the staged files. Never add credentials, caches or logs. Store backup evidence in
-   `profile.md`. Missing repository access remains pending; `ls-remote` alone is not
-   write verification. Record questions/non-obvious setup choices in numbered files
-   under `docs/kandoo/versions/0.1/`, applying submitted-blank delegation correctly.
+   `docs/kandoo/living/profile.md`. Missing repository access remains pending; `ls-remote`
+   alone is not write verification. Record questions/non-obvious setup choices in
+   numbered `.md` files under `docs/kandoo/versions/0.1/`, applying submitted-blank
+   delegation correctly; never refer the participant to non-`.md` files or paths outside `docs/`.
 6. Mark bootstrap start done when the intended setup is resolved, including explicit
    skips or offline deferrals. Record each actual check separately as verified,
    pending, user-skipped or not needed; a pending backup never blocks Job definition.

@@ -47,37 +47,78 @@ During setup, create Project 1 and verify its state before removing registry or 
 canonical bootstrap source under `docs/`. Retain the installed bootstrap host copies
 as recovery entry points; on a configured workspace they route to saved status without
 reading deleted canonical sources or reinstalling a catalog. Ordinary tasks use the
-five `kandoo-*` commands and the current `job-*` commands. Never delete the executing
-host command to clean up setup.
+six `kandoo-*` commands (`kandoo-new-project`, `kandoo-switch`, `kandoo-add-idea`,
+`kandoo-iterate`, `kandoo-issue`, `kandoo-server`) and the current `job-*` commands.
+Never delete the executing host command to clean up setup.
 
-Each Project starts with `living/` and `versions/0.1/00-idea-input.md` under
-`docs/projects/ID/`, plus `projects/ID/` for actual artifacts. IDs are `001-slug`,
-`002-slug`, ... with a nonempty lowercase ASCII slug; allocate across both trees
-and never reuse or overwrite an ID. New Projects automatically become active.
-Switching restores the target's own version/progress; do not rebuild or republish.
+Expand three plain-language path aliases consistently for every active Project:
+- **Active artifact root** `projects/ID/`: Project code, frontend/backend apps, build
+  outputs, executable service contracts, local data, and pasted `existing/` or `design/`
+  bundles.
+- **Active document root** `docs/projects/ID/`: `living/` specifications (always
+  maintaining `living/idea.md` and `living/status.md`) plus gitignored
+  `secrets/credentials.md` when Project credentials are needed.
+- **Selected version dossier** `docs/projects/ID/versions/VERSION/`: raw inputs
+  (`00-idea-input.md` or `00-iteration-input.md`), numbered question/test/issue rounds,
+  and verification or deployment notes.
 
-`kandoo-iterate` opens a **planned new version** for a Project, the Job or shared
-Kandoo, preserving the previous version and output. First version `0.1` runs the full
-pipeline; later versions run an explicitly selected affected subset, showing untouched
-steps as skipped. `kandoo-issue` diagnoses a **concrete defect**, preserves a reproduction
-and expected/actual result, resolves its owner, then fixes and verifies only that scope.
-An issue may remain in an open version; a closed version is never edited to hide the
-defect. Both commands apply the four-domain check and the certainty protocol.
+Never write Project prompts, contracts, secrets or code into unscoped root paths such
+as `docs/prompts/`, `docs/contracts/`, `docs/secrets/`, `frontend/` or `backend/`.
+IDs are `001-slug`, `002-slug`, ... with a nonempty lowercase ASCII slug; allocate
+across both trees and never reuse or overwrite an ID. New Projects automatically become
+active. Switching restores the target's own version/progress; do not rebuild or republish.
 
-The final block of **every assistant reply**, including intermediate replies, is a
-progress block in the conversation language from `profile.md`. Translate step labels
-and state words; do not mix Persian and English prose. Paths and command identifiers
-retain their spelling. Show all steps in order with done, one current/next, skipped
-optional/unaffected steps and remaining states. Include waiting-for-questions or
-waiting-for-living-review on the current step when applicable. At completion mark all
-finished steps done and show the terminal state; do not invent a current step.
+Record the selected version's **Current input** path in its owning status. First
+Projects use `00-idea-input.md`; planned iterations use `00-iteration-input.md`; a new
+repair version may use its `NN-issue.md`. Job commands read that recorded input and
+the current living summaries, never require a first-version input file in a later
+version, and never scan closed versions to find one. Existing versions without this
+field resolve it from their selected dossier once and save the path. Follow only the
+affected steps selected for an iteration, preserving the current Job's full ordered
+progress display with reasons for unaffected steps.
+
+Qualify Git prototype and release tags by Project and version (for example
+`project/001-demo/prototype/0.1` and `project/001-demo/release/0.1`) and never replace
+an existing tag silently. When Git is unavailable or deferred during setup, record an
+immutable local snapshot path and SHA-256 identity in the open version dossier and mark
+Git tagging deferred rather than blocking the workflow. Run side-by-side comparisons
+from separate copies or worktrees on free ports instead of checking out over active work.
+For a prototype, record the exact current baseline tag or snapshot path and content
+hashes in Project status, with its acceptance evidence. If refinement creates a new
+baseline, update that record after acceptance; later comparisons resolve this record
+instead of constructing a tag from the Project version or using an earlier baseline.
+
+`kandoo-add-idea`, `kandoo-iterate` and `kandoo-issue` accept conversational intake in
+chat and resolve scope across Active Project, Kandoo/Job, or Both (creating linked
+items with distinct ownership when Both applies). `kandoo-add-idea` banks ideas into
+`roadmap.md` without changing the active step or implying implementation approval.
+`kandoo-iterate` opens a **planned new version**, preserving the previous version and
+output. First version `0.1` runs the full pipeline; later versions run an explicitly
+selected affected subset, showing untouched steps as skipped. `kandoo-issue` diagnoses
+a **concrete defect**, preserves reproduction and expected/actual results, resolves its
+owner, then fixes and verifies only that scope; a closed version is never edited to
+hide a defect. All floating commands apply the four-domain check and certainty protocol.
+
+Give each step a brief, consistent handoff (what changed, what evidence exists, what
+remains pending) without repeating long boilerplate on small turns. The final block of
+**every assistant reply**, including intermediate replies, is a progress block in the
+conversation language from `profile.md`. Translate step labels and state words; do not
+mix Persian and English prose. Paths and command identifiers retain their spelling.
+Show all steps in order with done, one current/next, skipped optional/unaffected steps
+and remaining states. Include waiting-for-questions or waiting-for-living-review on the
+current step when applicable. At completion mark all finished steps done and show the
+terminal state; do not invent a current step.
 
 Bootstrap source: start, Job definition, first Project workflow, using status.
 Project source: the ordered `job.md` pipeline plus the active Project's version and
-step state, mirrored in shared status. Never hardcode a starter's pipeline in the bar.
-For an issue/shared task, identify that active scope alongside the saved Project bar.
-The **last line** gives a single concrete next action (exact file to answer/review,
-exact command, or host close/reopen followed by the first command). Do not offer a
+step state, mirrored in shared status (recording the current installed Job revision
+separately from an older Project's execution revision). Never hardcode a starter's
+pipeline in the bar. For an issue/shared task, identify that active scope alongside the
+saved Project bar. The **last line** gives a single concrete next action (an exact `.md`
+file inside `docs/` to answer/review, a live `http://` preview URL paired with its `.md`
+review file in `docs/`, an exact command, or host close/reopen followed by the first
+command). Never refer the participant to a non-`.md` file or a file outside `docs/`
+(except pasting into `projects/ID/existing/` or `projects/ID/design/`). Do not offer a
 menu of next tasks or put any prose after the block.
 
 Before sending **each** reply, including after interruptions and context compaction,
@@ -107,12 +148,12 @@ English completed example:
 
 ```text
 Progress: [done] Idea · [done] Build · [skipped: local delivery] Deploy · Complete
-Next step: Open projects/001-demo/dist/index.html for the final reading.
+Next step: Read docs/projects/001-demo/living/status.md for the delivery summary and preview link.
 ```
 
-Persian review example (English command identifiers remain unchanged):
+Persian review example (English command identifiers and `docs/` Markdown paths remain unchanged):
 
 ```text
 پیشرفت: [انجام شد] ایده · [گام جاری: منتظر بازبینی] ساخت · [مانده] تحویل
-گام بعد: فایل projects/001-demo/dist/index.html را بازبینی کنید و نتیجه را بنویسید.
+گام بعد: نتیجهٔ بازبینی را در docs/projects/001-demo/versions/0.1/02-review.md بنویسید، ذخیره کنید و بگویید «نوشتم».
 ```

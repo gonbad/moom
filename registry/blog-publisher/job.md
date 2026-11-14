@@ -2,7 +2,7 @@
 
 Create independently designed articles, guides, papers or presentations with verified offline packages and optional shared hosting.
 
-Job revision: 0.2
+Job revision: 0.4
 
 This is an adaptable initial base. Change any step, format or style to fit the
 participant’s exact work, including while doing a real Project. No fixed schema,
@@ -13,9 +13,11 @@ orientation, toolkit or bundled runtime limits the result. Start with the real i
 | Step | Persian label | Command | Condition |
 | --- | --- | --- | --- |
 | Idea and scope | ایده و دامنه | [job-idea](commands/job-idea.md) | Adapt to actual needs |
-| Story and content | روایت و محتوا | [job-content](commands/job-content.md) | Adapt to actual needs |
-| Layout | صفحه‌آرایی | [job-layout](commands/job-layout.md) | Adapt to actual needs |
-| Build and package | ساخت و بسته‌بندی | [job-build](commands/job-build.md) | Adapt to actual needs |
+| Editorial brief | بریف و زاویه دید | [job-brief](commands/job-brief.md) | Adapt to actual needs |
+| Story structure | ساختار روایت و رئوس | [job-story](commands/job-story.md) | Adapt to actual needs |
+| Content authoring | نگارش متن و محتوا | [job-content](commands/job-content.md) | Adapt to actual needs |
+| Layout and styling | صفحه‌آرایی و گرافیک | [job-layout](commands/job-layout.md) | Adapt to actual needs |
+| Build and package | ساخت و بسته‌بندی پکیج | [job-build](commands/job-build.md) | Adapt to actual needs |
 | Publish or deliver | انتشار یا تحویل | [job-deploy](commands/job-deploy.md) | Local delivery may skip hosting |
 
 For version 0.1 follow the chosen full pipeline. Later versions use only affected
@@ -32,6 +34,8 @@ and ends with dynamic localized progress plus one exact next action.
 
 ## Retained workshop work
 
-Brief/story/content become idea/content; layout remains post-specific; build/check/
-package are performed by job-build; deploy preserves explicit release selection and rollback.
-Project code and any browser verifier belong to that Project; shared publishers to kandoo/.
+The pipeline preserves the unmerged editorial stages: idea and scope in idea;
+thesis and angle in brief; narrative progression and section hierarchy in story;
+full prose and code listings in content; typography and visual diagrams in layout;
+static compilation, link validation and offline packaging in build; and journal
+release propagation in deploy.

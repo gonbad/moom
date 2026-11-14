@@ -11,6 +11,8 @@ The coding assistant reads the procedures and works with your computer's native 
    with local Git and pending backup. You can explicitly skip any setup step.
 2. Open that folder in Claude Code, OpenCode, Codex or Antigravity. Open its `docs/`
    subfolder as an Obsidian vault; [the vault home](docs/README.md) explains the layout.
+   Every file you read or write lives as Markdown inside `docs/` (the only folder
+   exception is pasting an existing codebase or external design files when requested).
 3. Run `/moom-start` (Codex CLI: `$moom-start`; desktop slash/dollar picker;
    Antigravity: select or mention the skill). Ordinary language
    also works. The assistant collects languages, checks Git and backup, and asks
@@ -26,7 +28,7 @@ The coding assistant reads the procedures and works with your computer's native 
 Claude Code and OpenCode read `.claude/commands/NAME.md` and
 `.opencode/commands/NAME.md`. Codex and Antigravity share
 `.agents/skills/NAME/SKILL.md`. These are identical copies of canonical Markdown,
-including `name` and `description` frontmatter. The five `kandoo-*` workspace commands
+including `name` and `description` frontmatter. The six `kandoo-*` workspace commands
 are pre-synced too, and become usable when setup is complete. Job commands are installed
 at finalization. Codex CLI uses `$NAME`, and Codex desktop accepts slash/dollar selection.
 Claude Code/OpenCode use `/NAME`. Antigravity uses skill selection or mentions, with
@@ -34,7 +36,8 @@ Claude Code/OpenCode use `/NAME`. Antigravity uses skill selection or mentions, 
 recovery handoffs and never reinstall the catalog.
 
 Later, `/kandoo-new-project` creates and selects the next independent Project;
-`/kandoo-switch` resumes one; `/kandoo-iterate` opens a planned version;
+`/kandoo-switch` resumes one; `/kandoo-add-idea` banks an idea for the Project, Kandoo
+or both without interrupting work; `/kandoo-iterate` opens a planned version;
 `/kandoo-issue` handles a defect; `/kandoo-server` adds or changes shared infrastructure.
 The Job can evolve during real work. Every response has progress and one next action.
 

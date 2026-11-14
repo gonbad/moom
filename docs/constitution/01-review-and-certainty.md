@@ -45,10 +45,17 @@ confirmed choice, explain the conflict and request the specific change; do not
 silently downgrade it. When revising a delegated choice, record the new facts and
 explain the change in the next relevant round and living decision summary.
 
-Delegation lets specification work proceed. It never supplies missing credentials,
-account consent, spending authority, deployment permission or human acceptance.
-Respect explicit authorization already given; avoid repeated approvals for reversible
-implementation work. A recommendation cannot authorize an otherwise unauthorized
-external operation. Review complete outputs separately from question submission.
-Record functional checks, fidelity, human acceptance and public deployment separately,
-with their actual evidence. A passing test is never an invented human approval.
+Delegation lets specification work proceed. When a procedure gates on a specification
+document being "approved", that specification is ready to advance once its open question
+round (if any) has been submitted—producing Confirmed or Delegated/Provisional decisions
+in the living document—with no unsubmitted round pending; do not invent a redundant
+second approval ceremony for every specification stage. By contrast, visual designs,
+interactive prototypes, authored narratives, presentations and integrated products
+require explicit human artifact acceptance on the reviewed revision. Delegation never
+supplies missing credentials, account consent, spending authority, deployment permission
+or human artifact acceptance. Respect explicit authorization already given; avoid
+repeated approvals for reversible implementation work. A recommendation cannot authorize
+an otherwise unauthorized external operation. Every review sheet, question round and
+status summary presented to the participant is a `.md` file inside `docs/`. Record
+functional checks, fidelity, human acceptance and public deployment separately, with
+their actual evidence. A passing test is never an invented human approval.

@@ -1,19 +1,30 @@
-# Verify the bot's transitions and real platform round trips
+# Simulated harness checks, turn scenarios and live platform round trips
 
-Derive a scenario matrix from every state transition, including invalid input, edit,
-cancel, back, duplicate events, stale callbacks, timeout, restart and competing users.
-Use the actual PostgreSQL schema and dispatch path with isolated test data. Prove one
-mutation per idempotency key and no cross-caller state access. Verify timezone/expiry
-behavior without relying on a periodic cleanup job having run.
+Build a self-contained in-process test harness inside `projects/ID/tests/` that feeds
+normalized `Event` fixtures (slash commands, text, opaque callback tokens, contact/media
+payloads and optional payment events) into the FSM dispatcher against isolated test
+database transactions while capturing outgoing `SendText`, `ShowMenu` and
+`answer_callback` calls in memory—requiring zero external repositories or live network
+calls.
 
-Fixture tests establish adapter mappings; run a bounded live message/callback/reply
-round trip separately on each selected platform. Exercise platform rate/auth failures
-and offline recovery. Confirm that only one polling/webhook consumer is active after
-cutover and that outbox retries do not repeat business effects. Payment checks cover
-receipt/provisional/settled distinctions and provider event replay.
+## Concrete turn-scenario mini-example
 
-Review Persian prompts, native button labels, help/back/cancel paths and useful error
-messages with the owner. Record safe transport evidence and revision IDs; redact raw
-payloads, tokens, phone numbers and customer receipts. A mock response does not prove
-live connectivity. Delivery readiness, payment settlement, functional checks and human
-acceptance stay separate; explicit skips remain visible without blocking unrelated work.
+- **Scenario B-04 (Stale button tap after cancellation):** Precondition: synthetic caller
+  `tg:900011` is in `review` with callback token `cb_8f2a`. Turn 1: caller taps
+  `«انصراف»` → bot releases draft reservation, transitions to `idle` and shows main menu.
+  Turn 2: caller taps the old inline button carrying `cb_8f2a` from message history →
+  bot answers callback gracefully without crash or 500 error, performs zero state or DB
+  mutation, and replies that the previous draft was already canceled.
+
+Verify every state transition, invalid input, edit/back/cancel path, duplicate
+`update_key` replay, stale/wrong-caller callback token, expiry derived at read time,
+simulated process restart mid-dialog and competing users. Include payment state
+(`receipt_received`, `provisional`, `settled`, `rejected`) and duplicate provider-event
+checks **only when payments are part of the chosen bot**; otherwise mark payment checks
+`not applicable`.
+
+Fixture harness tests prove deterministic engine rules; run a bounded live rehearsal
+separately in `/job-test` on each selected messenger using an isolated test bot token
+from `docs/projects/ID/secrets/credentials.md`. Redact raw tokens, phone numbers and
+receipts in all logs and `.md` reports. Keep automated test results, live messenger
+evidence and human owner acceptance separate.

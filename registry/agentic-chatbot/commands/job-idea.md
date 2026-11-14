@@ -1,26 +1,34 @@
 ---
 name: job-idea
-description: Assess whether model-directed tools are justified for this task.
+description: Assess agent suitability, explain cost/security risks, scope core capability and boundaries.
 ---
 
 # /job-idea
 
-Read `AGENTS.md`, the four `docs/constitution/` documents and the living profile,
-Job, server and status. Resolve the active Project/version from status; all paths here
-are workspace-root paths. Read only the installed references named below and current
-Project inputs/answers. Preserve earlier outputs and authorization.
+Read `AGENTS.md`, the four `docs/constitution/` documents and `docs/kandoo/living/profile.md`,
+`job.md`, `server.md` and `status.md`. Resolve the active Project `ID` and `VERSION` from
+status; all paths are workspace-root paths. Read only the installed reference
+`docs/kandoo/living/references/workflow.md`, the selected-version input recorded in `docs/projects/ID/living/status.md`,
+and submitted rounds in that version. Preserve earlier outputs and authorization.
 
-Read installed workflow/authority references. Compare the real need with a deterministic
-bot or ordinary app, explaining cost, latency, semantic mistakes and action scope.
-Identify variable decisions that justify model-directed tools, expected users and one
-concrete success scenario. A scheduled agent needs a trusted run principal, not a
-fictional chat interface. Inventory existing systems and data.
+Inspect `projects/ID/existing/` if the participant pasted an existing codebase (a
+permitted drop folder outside `docs/`). **Suitability Gate:** Explain the tradeoffs of
+model-directed tool loops versus a deterministic bot (`bot-builder`) or ordinary web app
+(`web-app-builder`): latency, recurring token cost, semantic mistakes and prompt
+injection risk. Confirm with the owner via `NN-questions.md` that autonomous tool
+selection genuinely adds value here.
 
-Write `living/idea.md` with rationale, scope/exclusions, candidate capabilities and
-acceptance outcomes. Record consequential choices in the open version. Keep serving
-model authority distinct from this coding host. Next is `job-prd`.
+Identify the narrow version `0.1` capability, caller personas, channel (messenger, web
+or scheduled job), whether payments apply or are `not applicable`, and external systems.
+Bank secondary tools and future scope in `docs/projects/ID/living/roadmap.md`.
 
-Apply the file-review/certainty protocol and assess updates to the Job, shared Kandoo,
-active Project and write-only creator feedback. Persist this step's outcome, pending
-review and next action in Project status and mirror shared status. Finish every reply
-with all ordered steps localized and one exact next action; never invent acceptance.
+Always write and maintain `docs/projects/ID/living/idea.md`—never substitute a
+version-only filename. Resolve open questions via
+`docs/projects/ID/versions/VERSION/NN-questions.md` in Obsidian; once submitted, hand
+off directly to `/job-prd`.
+
+Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
+to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what
+changed, evidence, pending review and next action in `docs/projects/ID/living/status.md`
+and mirror `docs/kandoo/living/status.md`. Finish every reply with the current Job's full ordered
+steps localized and one exact next action (`/job-prd` or the pending `.md` question file).

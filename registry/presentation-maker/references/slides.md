@@ -21,10 +21,10 @@ single title-and-bullets layout. Keep speaker notes separate from audience text.
 HTML example structure, generated in the Project only when appropriate:
 
 ```text
-src/index.html        semantic sections and slide IDs
-src/deck.css          theme tokens, RTL, mobile and print styles
-src/deck.js           navigation and local interaction state
-src/assets/           fonts, images and their licenses
+projects/ID/src/index.html        semantic sections and slide IDs
+projects/ID/src/deck.css          theme tokens, RTL, mobile and print styles
+projects/ID/src/deck.js           navigation and local interaction state
+projects/ID/src/assets/           fonts, images and their licenses
 ```
 
 Use stable slide IDs in the URL hash. Arrow/Page keys move predictably; Home/End and

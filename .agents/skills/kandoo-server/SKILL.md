@@ -25,9 +25,11 @@ if it is closed, open a new shared version without changing Project versions. Ke
 confirmed choices and delegated recommendations distinct. Do not invent access or
 verification evidence. Pending provider/account/DNS work remains explicitly pending.
 
-Record shared non-secret facts and port allocations in `server.md`; credentials stay
-in ignored secrets. Generate root `kandoo/` code/configuration only if useful for
-shared repeatable operations. Assess effects on the Job, shared docs/code, active
+Record shared non-secret facts and port allocations in `docs/kandoo/living/server.md`;
+participant-entered or participant-read credentials stay in gitignored
+`docs/kandoo/secrets/credentials.md`, never in chat, question files or non-`.md` files
+referred to the participant. Generate root `kandoo/` code/configuration only if useful
+for shared repeatable operations. Assess effects on the Job, shared docs/code, active
 Project and inert feedback. Individual Projects inherit the shared server and record
 only their own allocations or explicit overrides.
 

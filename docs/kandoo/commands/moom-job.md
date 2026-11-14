@@ -52,8 +52,10 @@ submitted blank. Once the specification choices are resolved, finalize these out
    its progress plus one next action. Create directories and `cp` each canonical
    file byte-for-byte into `.claude/commands/`, `.opencode/commands/`, and
    `.agents/skills/NAME/SKILL.md` (shared by Codex and Antigravity). Do the same for
-   the five permanent `kandoo-*` commands in `docs/kandoo/commands/`. Detect collisions
-   and preserve unrelated user procedures. Check all copies for equality.
+   the six permanent `kandoo-*` commands (`kandoo-new-project`, `kandoo-switch`,
+   `kandoo-add-idea`, `kandoo-iterate`, `kandoo-issue`, `kandoo-server`) in
+   `docs/kandoo/commands/`. Detect collisions and preserve unrelated user procedures.
+   Check all copies for equality.
 3. **Project 1, before cleanup.** Persist lifecycle `finalizing` and a restart-safe
    checklist in shared status: installed Job/references, command equality, Project 1
    paths and prefilled input, local reference/remote cleanup, final consistency check,
@@ -62,13 +64,16 @@ submitted blank. Once the specification choices are resolved, finalize these out
    Allocate `001-<slug>` across both Project trees without overwriting
    anything. If resuming interrupted finalization reuse the already-created first
    Project instead of allocating a duplicate. Create `docs/projects/ID/living/`,
-   `docs/projects/ID/versions/0.1/` and `projects/ID/`. Prefill
-   `versions/0.1/00-idea-input.md` with **all first-project information already supplied**
-   in intake/rounds, clearly separating facts from unresolved or delegated choices;
-   invite edits rather than asking for the same story again. Write `living/idea.md`
-   and `living/status.md` (version `0.1`, current Job revision, ordered step states,
+   `docs/projects/ID/versions/0.1/` and `projects/ID/`, plus `docs/kandoo/living/roadmap.md`
+   if absent. Prefill `docs/projects/ID/versions/0.1/00-idea-input.md` with **all
+   first-project information already supplied** in intake/rounds, clearly separating
+   facts from unresolved or delegated choices; invite edits rather than asking for the
+   same story again. Write `docs/projects/ID/living/idea.md`, `living/roadmap.md` and
+   `living/status.md` (version `0.1`, current Job revision, ordered step states,
    current first step, pending review, readiness/acceptance/deployment evidence and
-   one next action). Select this Project in shared status automatically. No separate
+   one next action). Select this Project in shared status automatically, recording
+   `Current input: docs/projects/ID/versions/0.1/00-idea-input.md` in its status and
+   installed Job revision and active Project Job revision separately. No separate
    new-project command is needed. Append a sanitized feedback note if useful.
 4. **Verify, then detach.** First verify Project 1 paths, prefilled facts, selected
    status, Constitution pointers and byte equality of every installed Job/permanent

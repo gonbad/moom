@@ -5,26 +5,33 @@ description: Assemble public output, offline ZIPs and verified downloads.
 
 # /job-build
 
-Read `AGENTS.md`, the four `docs/constitution/` documents and the living profile,
-Job, server and status. Resolve the active Project/version from status; all paths here
-are workspace-root paths. Read only the installed references named below and current
-Project inputs/answers. Preserve earlier outputs and authorization.
+Read `AGENTS.md`, the four `docs/constitution/` documents and `docs/kandoo/living/profile.md`,
+`job.md`, `server.md` and `status.md`. Resolve the active Project `ID` and `VERSION` from
+status; all paths are workspace-root paths. Read only the installed references
+`docs/kandoo/living/references/workflow.md`, `distribution.md` and `quality.md`, plus
+`docs/projects/ID/living/idea.md`, `layout.md`, `publication.md` (when present) and
+submitted rounds in `docs/projects/ID/versions/VERSION/`. Preserve earlier outputs and
+authorization.
 
-Read installed distribution/quality references and the Project's explicit source and
-release selection. Use or generate only needed Kandoo/Project build helpers. Stage
-public files from their allowlisted source; exclude inputs, secrets, docs and history.
-An unfinished unrelated draft must not break a publication build. A preview can include
-the selected draft but must remain marked as preview-only and undeployable.
+Gate: `docs/projects/ID/living/layout.md` and public source under `projects/ID/` are
+ready. Use or generate only needed Kandoo (`kandoo/`) or Project (`projects/ID/`) build
+helpers. Stage public files strictly from the allowlisted source directory, excluding
+inputs, secrets, `docs/` and version history. Unfinished unrelated drafts must never
+break a build; a draft preview build remains marked preview-only and undeployable.
 
-Imported materials are local checksum-pinned artifacts. Never invoke sibling template
-sources, parent maintainer scripts or upstream updates during a post build. Produce
-compiled web output, standalone ZIPs, file hashes and an explicit release inventory.
-Verify references/archives and open exact offline artifacts with networking disabled.
-Run browser checks with Project-owned dependencies and durable evidence paths. Replace
-output after verification, preserve the previous release, and route to `job-deploy`
-with separate build, fidelity and acceptance evidence.
+Imported materials are local checksum-pinned artifacts; never invoke sibling template
+sources, parent maintainer tools or network fetches during a build. Produce compiled web
+output, standalone offline ZIPs, SHA-256 inventories and extracted network-disabled
+verification (including paths with spaces or non-Latin characters). Run browser checks
+with Project-owned dependencies under `projects/ID/checks/` when available; if a browser
+binary or package download is unavailable, preserve the verified static/archive output,
+use the prepared local check fallback and record blocked browser evidence honestly in a
+`.md` verification report under `docs/projects/ID/versions/VERSION/`. Never refer the
+participant to non-`.md` files outside `docs/`. Route to `/job-deploy` with separate
+technical build, source fidelity and human acceptance states.
 
-Apply the file-review/certainty protocol and assess updates to the Job, shared Kandoo,
-active Project and write-only creator feedback. Persist this step's outcome, pending
-review and next action in Project status and mirror shared status. Finish every reply
-with all ordered steps localized and one exact next action; never invent acceptance.
+Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
+to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what
+changed, evidence, pending review and next action in `docs/projects/ID/living/status.md`
+and mirror `docs/kandoo/living/status.md`. Finish every reply with the current Job's full ordered
+steps localized and one exact next action (`/job-deploy` or the `.md` review file in `docs/`).

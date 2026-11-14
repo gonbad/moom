@@ -1,40 +1,40 @@
-# Tool contracts and participant-selected confirmation
+# Tool contracts and owner-selected per-action confirmation
 
-Bind caller identity from authenticated transport/session context, never a model's
-`user_id` argument. Each tool contract should state:
+Bind caller identity strictly from authenticated transport/session context—never from a
+model-supplied `user_id` argument. Use one consistent capability schema across
+`capabilities.md`, `prompts/`, reference-monitor code and tests:
 
-| Field | Example |
-| --- | --- |
-| Purpose and parameters | `reserve_slot(slot_handle)`; no caller/price override |
-| Resource scope | Only this caller's eligible appointments |
-| Return schema | Typed success, unavailable, expired, denied, retryable |
-| Eligibility and idempotency | Capacity/deadline inside service transaction; request key |
-| Sensitive values | Opaque typed handle, expiry, permitted resolver/sink |
-| Action policy | read, direct, soft confirmation or hard confirmation |
-| Audit/failure | Safe event ID, timeout/unknown-outcome behavior |
+| Execution Mode | Confirmation Policy | Meaning and runtime enforcement |
+| --- | --- | --- |
+| `read` | `none` | Caller-scoped read-only query executed directly within budget |
+| `direct` | `none` | Caller-scoped mutation executed directly with eligibility and idempotency checks |
+| `direct` | `soft` | Conversational confirmation: offer delivered first, caller reply interpreted in context, deterministic provenance/caller/expiry/one-use checks enforced |
+| `confirm` | `hard` | Proposal-only to the model: raw executor excluded from model tools; independent trusted UI/callback/token approval bound to `caller + action + args_hash` required before execution |
 
-Explain policy tradeoffs per action and preserve the owner's selection. Direct and
-soft confirmation both grant execution authority; soft adds conversational behavior,
-not an independent security boundary. Do not impose hard approval universally from
-an older research framework. All policies retain caller scope and business validation.
+Never mix `soft_confirm` as a separate execution mode. Explain the concrete security and
+usability tradeoffs for each action and **preserve the owner's explicit per-action
+selection**—there is no global rule forbidding `direct + soft` or `direct + none` on
+financial, deletion or high-privilege actions when the owner deliberately chooses it.
+Conversely, never describe `direct + soft` as an independent security boundary, and
+whenever the owner selects `confirm + hard`, model text or `confirmed=true` arguments
+can never satisfy or bypass that gate.
 
-For soft confirmation, persist the exact offered action only after its question was
-successfully delivered. Consume a later caller reply with full context, including
-refusal, correction and ambiguity. The model interprets language; deterministic code
-checks provenance, caller, expiry, exact bound resource and one-use execution. Avoid
-keyword regexes for nuanced names/consent or pretending that fixture strings prove
-semantic quality. Exercise real configured-model multi-turn conversations when available.
+Regardless of confirmation policy, every tool enforces authenticated caller scope,
+backend transactional eligibility, idempotency keys and atomic budget caps. Receipt OCR
+or image interpretation never marks an order settled.
 
-For hard confirmation, the model sees proposal tools only. Trusted UI/code renders
-bound arguments and verifies authenticated, expiring, one-use approval for that
-caller/action/argument hash. Changed arguments require a new proposal. Raw executors,
-aliases, generic HTTP/shell dispatch and bypasses stay outside the model registry.
-Model text and `confirmed=true` cannot manufacture approval. Keep gates on fallback,
-callbacks, retries and bridges. A text-only channel requires a real trusted code flow
-if hard approval is selected; do not advertise unsupported buttons.
+For `direct + soft`, persist the offered action only after its prompt is delivered;
+check caller, expiry, bound resource and one-use execution in deterministic code while
+using the configured model (not brittle keyword regexes) for natural replies.
 
-Resolve sensitive handles only at reviewed sinks after caller/type/ownership/expiry
-checks. Redact traces and history. Test wrong-caller handles, replay, altered arguments,
-expired proposals and direct executor reachability; assert no protected mutation.
-Library deferred-tool support is an implementation option, not proof of this full
-boundary: [Pydantic AI deferred tools](https://ai.pydantic.dev/deferred-tools/).
+For `confirm + hard`, expose only `propose_<action>` to the model; render bound
+arguments via trusted code and require authenticated, expiring, one-use approval.
+Changed arguments require a fresh proposal. Keep raw executors, shell/HTTP sinks and
+admin endpoints unreachable from model tool registries, fallbacks and retries.
+
+Store sensitive user attributes in a handle vault as typed opaque handles (`[h_card_1]`,
+`[h_national_id_2]`), resolving them only inside reviewed backend sinks after caller,
+type, ownership and expiry checks. Durable audit logs store redacted metadata and handle
+IDs, never raw secrets or unmasked PII. Reference library support such as
+[Pydantic AI deferred tools](https://ai.pydantic.dev/deferred-tools/) is an
+implementation aid, not a substitute for verifying this boundary.
