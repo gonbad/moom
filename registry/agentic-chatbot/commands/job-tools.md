@@ -18,7 +18,10 @@ pending. Author `docs/projects/ID/living/tools.md` inside `docs/` so every contr
 reviewed by the participant stays in Obsidian Markdown:
 1. **Service Classification & Fallbacks:** Classify each dependency (`existing_api`,
    `owned_backend`, `api_bridge`), record ranked fallbacks, and mark payments `not
-   applicable` when outside scope.
+   applicable` when outside scope. Before authoring a platform bridge, inspect the
+   optional API repository identified in the installed `services.md` reference.
+   Record source/revision, capability fit, provenance/license findings, verification
+   gaps and the reuse/adapt/reject decision; do not assume a gateway is production-ready.
 2. **Model-Visible Tools vs Internal Service APIs:** Separate raw backend/admin APIs
    from caller-scoped tools exposed to the model (never exposing SQL, shell, generic
    HTTP or caller-override arguments).

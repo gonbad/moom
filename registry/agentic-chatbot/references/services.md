@@ -8,6 +8,33 @@ Inventory every integration in `docs/projects/ID/living/tools.md`:
 | `owned_backend` | Project domain state, transactions and REST API | Real service, migrations and contract tests |
 | `api_bridge` | Scoped adapter over a non-API system | Real integration, session restore and supported controls |
 
+## Inspect existing bridges before building one
+
+For a messaging/personal-account integration, inspect
+[gonbad/api](https://github.com/gonbad/api) for a suitable existing gateway or client;
+its Eitaa project is a candidate example. Inspect the repository at the time of use,
+not an assumed deployment or a sibling checkout. Record in the consumer Project's
+`living/tools.md`: source URL and selected commit/tag, required versus supported actions,
+authentication/session/event capabilities, provenance/license terms for adopted code,
+verification gaps, and the reuse/adapt/reject decision with its reason. Do not assume
+a root license describes every imported component or that a handshake proves readiness.
+If unavailable or unsuitable, record that finding and evaluate the next alternative.
+
+Adopt only the needed client/service, with recorded provenance, under this Project's
+artifact root. When the agent needs its own gateway, deploy an isolated service
+alongside it, using participant-owned credentials, volumes and ports. Do not use the
+author's accounts or assume a public endpoint is a participant service. Never clone
+another Kandoo over this workspace, add an API starter merely for this dependency, or
+require the Moom template/source at runtime. This optional product reference may remain
+in the installed Job after detachment. Its code is generated or imported only into a
+real Project, never bundled inside the Markdown-only starter.
+
+Verify the adopted revision's required calls, inbound events/webhooks, authorization,
+session restoration and restart behavior through the agent's scoped tool boundary.
+Saved upstream claims and a URL alone are not deployment or acceptance evidence.
+
+## Project ownership and wiring
+
 Generate all code and machine schemas inside the Project's artifact root `projects/ID/`
 (never unscoped `docs/contracts/`):
 

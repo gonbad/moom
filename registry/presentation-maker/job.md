@@ -1,8 +1,8 @@
 # presentation-maker
 
-Create presentations in the participant’s chosen orientation, format and style, including rich interactive or offline outputs.
+Create speaker-led, horizontal presentations with left/right navigation and downloadable offline delivery by default; hosting is optional.
 
-Job revision: 0.3
+Job revision: 0.4
 
 This is an adaptable initial base. Change any step, format or style to fit the
 participant’s exact work, including while doing a real Project. No fixed schema,
@@ -33,3 +33,11 @@ and ends with dynamic localized progress plus one exact next action.
 The idea/outline/build/delivery commands retain narrative planning, editable visual
 source, interactive navigation, offline exports and speaker review within those steps.
 There is no separate review command.
+
+## Default audience and delivery contract
+
+Assume a live speaker supplies part of the explanation. Use horizontal slides with
+left/right navigation and speaker notes; deliver a downloadable artifact that works
+without the network. Hosting is secondary and explicitly selected. Keep navigation
+out of focused inputs/dialogs and verify the actual download. Portrait layouts,
+self-guided formats or other delivery modes remain valid explicit overrides.

@@ -20,7 +20,8 @@ and licenses locally under `projects/ID/` with zero runtime CDN dependency. If a
 package download is blocked, use the configured proxy or a clean local system fallback
 font and record the fallback honestly.
 
-For HTML, implement stable slide IDs, keyboard/touch navigation, focus restoration,
+For HTML, default to horizontal slides and left/right navigation, then implement
+stable slide IDs, keyboard/touch navigation, focus restoration,
 overview/deep links and browser history without marking skipped slides visited or
 trapping keys inside inputs. Check mixed Persian/LTR text, reduced motion, desktop/mobile
 overflow, notes, print/PDF export and network-disabled opening from a path with spaces.

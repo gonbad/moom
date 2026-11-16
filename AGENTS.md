@@ -18,10 +18,18 @@ to a non-`.md` file or a file path outside `docs/`, except when asking them to p
 existing product into `projects/ID/existing/` or external design files into
 `projects/ID/design/`. The assistant operates technical tools using the actual OS and
 verifies outcomes. Preserve participant files, choices and existing authorization.
-Record questions and non-obvious decisions in numbered open-version files. Submitted
+During `/moom-start`, ask setup preferences in chat, one question at a time, with the
+bilingual conversation-language question first. Save answers without requiring a setup
+question file or summary submission. Credentials still belong only in ignored Markdown.
+After setup, record unresolved questions and non-obvious decisions in numbered
+open-version files; apply and record explicit setting requests without asking again. Submitted
 blanks delegate a provisional recommendation; they allow specification steps to advance
 without redundant approval rounds, but never certify artifact acceptance or grant new
 external permissions. Unsubmitted blanks remain pending.
+
+Detect the current AI host without asking for a host preference. Install every supported
+command copy and resume from saved state when the person switches hosts. Shared settings
+use `/kandoo-settings`; settings work preserves the selected Project and its progress.
 
 Expand active Project paths explicitly: artifact root `projects/ID/`, document root
 `docs/projects/ID/` (always maintaining `living/idea.md` and `living/status.md`), and
@@ -34,7 +42,10 @@ in `projects/ID/`. Secrets stay ignored and out of chat, logs and public docs.
 
 Give each step a brief handoff (what changed, what evidence exists, what remains
 pending) and finish every reply with the language-appropriate progress block and one
-exact next action, using the current state rather than a fixed example. Keep technical
+exact next action, using the current state rather than a fixed example. Use the visual states
+✅ completed, 🔵 current, ⬜ remaining and ⏭️ skipped from the workflow constitution.
+Follow its naming/source-intake contract and the review constitution's shared numeric
+sequence and bold question/answer examples. Keep technical
 evidence, source fidelity, human acceptance and deployment evidence separate.
 Before sending, mentally check that every ordered step and pending review is shown,
 there is at most one current step, and labels/states are all in the conversation

@@ -16,3 +16,8 @@ Record technical evidence with artifact hashes; ask for the speaker's acceptance
 that same revision. Delivery packages exclude private notes unless intentionally
 included. Keep unapproved changes marked as awaiting review; local delivery can be
 complete without hosting, a domain or a server.
+
+Default to a speaker-led horizontal deck with left/right navigation and a
+verified downloadable offline artifact. Record an explicit override when the requested
+format differs. Online hosting is secondary; a self-contained reading article normally
+belongs to the blog workflow. Preserve keyboard focus inside interactive controls.

@@ -43,3 +43,8 @@ path with spaces and Persian characters while network access is disabled. Bundle
 runtime fonts, scripts and images locally; navigation must not require fetch of local
 JSON under file restrictions. A single-file artifact can inline assets when useful.
 Offer editable source and the chosen viewing/export format, not a forced JSON schema.
+
+Default to a speaker-led horizontal deck with left/right navigation and a
+verified downloadable offline artifact. Record an explicit override when the requested
+format differs. Online hosting is secondary; a self-contained reading article normally
+belongs to the blog workflow. Preserve keyboard focus inside interactive controls.

@@ -53,7 +53,7 @@ submitted blank. Once the specification choices are resolved, finalize these out
    file byte-for-byte into `.claude/commands/`, `.opencode/commands/`, and
    `.agents/skills/NAME/SKILL.md` (shared by Codex and Antigravity). Do the same for
    the six permanent `kandoo-*` commands (`kandoo-new-project`, `kandoo-switch`,
-   `kandoo-add-idea`, `kandoo-iterate`, `kandoo-issue`, `kandoo-server`) in
+   `kandoo-add-idea`, `kandoo-iterate`, `kandoo-issue`, `kandoo-settings`) in
    `docs/kandoo/commands/`. Detect collisions and preserve unrelated user procedures.
    Check all copies for equality.
 3. **Project 1, before cleanup.** Persist lifecycle `finalizing` and a restart-safe
@@ -68,7 +68,10 @@ submitted blank. Once the specification choices are resolved, finalize these out
    if absent. Prefill `docs/projects/ID/versions/0.1/00-idea-input.md` with **all
    first-project information already supplied** in intake/rounds, clearly separating
    facts from unresolved or delegated choices; invite edits rather than asking for the
-   same story again. Write `docs/projects/ID/living/idea.md`, `living/roadmap.md` and
+   same story again. Apply the workflow constitution naming/material-intake contract:
+   use the known topic for the slug; explain any provisional name; create/reuse the
+   selected dossier's `sources/notes.md` and `living/sources.md` inventory, and explain
+   `projects/ID/existing/` for an existing product. Read supplied files before questions. Write `docs/projects/ID/living/idea.md`, `living/roadmap.md` and
    `living/status.md` (version `0.1`, current Job revision, ordered step states,
    current first step, pending review, readiness/acceptance/deployment evidence and
    one next action). Select this Project in shared status automatically, recording
@@ -78,10 +81,12 @@ submitted blank. Once the specification choices are resolved, finalize these out
 4. **Verify, then detach.** First verify Project 1 paths, prefilled facts, selected
    status, Constitution pointers and byte equality of every installed Job/permanent
    command. Verify that Job references are local and self-contained. Rewrite the
-   README and living onboarding for this Kandoo. Remove template upstream remotes
+   README and living onboarding for this Kandoo, linking `docs/kandoo/maintenance.md`. Remove template upstream remotes
    (SSH/HTTPS/fetch/push variants), preserving participant remotes, branches and work;
    pending or user-skipped remote backup is allowed. Keep Git history and license.
-   Resolve active upstream paths/URLs and stale references; retain historical inputs
+   Resolve active template-source/update paths/URLs and stale references; retain
+   selected product/API dependency references, which are not template dependencies.
+   Retain historical inputs
    and answers as records rather than erasing work to pass a scan.
    Only after these checks pass, replace installed `moom-start` and `moom-job` host
    copies with small, host-only **recovery procedures**, preserving their names and

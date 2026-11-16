@@ -17,7 +17,7 @@ PostgreSQL/Redis volumes, loopback ports, service user and public route in
    ```
 2. **Deferred server on macOS or Linux:** Run isolated PostgreSQL locally via Docker if
    available, or continue specifications/prototype work while marking live DB checks
-   pending until a server is configured via `/kandoo-server`.
+   pending until a server is configured via `/kandoo-settings`.
 3. **Last resort—no server AND Windows (`job-plan` only):** Only when `server.md` is
    `none`/deferred **and** the participant is on Windows, `/job-plan` may offer
    project-scoped SQLite under `projects/ID/data/` as an explicit last-resort local

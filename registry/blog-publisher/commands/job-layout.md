@@ -17,7 +17,8 @@ resolved. Choose a layout suited to this post's format rather than copying every
 post's theme. Use the real text from `content.md` to design typography, reading density,
 diagrams, navigation and narrow-screen behavior. Set language/direction deliberately and
 isolate code, paths and identifiers as LTR; preserve accessible labels, focus, contrast,
-reduced motion, print and offline behavior.
+reduced motion and print behavior. Default to vertical scrolling and self-contained
+reading; no global slide keys or scroll interception. Respect focus within widgets.
 
 Record layout decisions and public/private source boundaries in
 `docs/projects/ID/living/layout.md`, and generate the public source files under

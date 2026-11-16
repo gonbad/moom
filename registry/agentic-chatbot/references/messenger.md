@@ -16,6 +16,15 @@ Rubika needs explicit mapping of its update and button models. Consult current A
 [Telegram](https://core.telegram.org/bots/api), [Bale](https://docs.bale.ai/),
 [Rubika](https://rubika.ir/botapi). Do not assume a common API from similar button names.
 
+If the selected task needs an Eitaa personal-account integration, inspect the candidate
+gateway/client in [gonbad/api](https://github.com/gonbad/api) through the installed
+`services.md` reuse procedure before implementing a replacement. Distinguish personal
+account sessions from official bot interfaces. Map actual authenticated incoming events,
+outgoing actions and caller/session identifiers to this envelope; validate the selected
+revision instead of assuming it implements another messenger's API or every operation.
+The gateway is an optional participant-owned service, not permission to use the author's
+endpoint/accounts. Keep raw gateway/session-admin methods behind scoped model tools.
+
 Use durable event deduplication, one active consumer and a per-caller run policy.
 Acknowledge callbacks promptly; preserve incoming events while inference is delayed.
 On a send timeout distinguish outcome-unknown from rejection. Record that an offer

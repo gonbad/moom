@@ -5,20 +5,33 @@ A configured workspace is a Kandoo: one current method, several independent Proj
 There is no bundled runtime, Python CLI, script installer or machine-readable state.
 The coding assistant reads the procedures and works with your computer's native tools.
 
-1. Fork [the template](https://github.com/gonbad/moom), clone your fork into a fresh
-   folder, or extract the workshop ZIP and choose your own repository during setup.
-   A participant-owned Git remote is recommended; offline/local-only work can start
-   with local Git and pending backup. You can explicitly skip any setup step.
+1. On [the template](https://github.com/gonbad/moom), choose **Use this template →
+   Create a new repository** under your account. Choose public or private visibility
+   (private is a useful default for unpublished work), then clone **your new repository's
+   HTTPS URL** into a fresh folder. Public HTTPS clones need no repository login;
+   private clones and pushes use supported authentication, such as a credential
+   manager or GitHub CLI with browser login. SSH keys are not a prerequisite, and
+   your GitHub account password cannot authenticate Git. See
+   [GitHub's credential setup](https://docs.github.com/en/get-started/git-basics/caching-your-github-credentials-in-git).
+   Existing forks remain valid. Alternatively, extract the workshop ZIP and let setup
+   initialize Git and connect your repository. Offline/local-only work can continue
+   with backup pending, and you can explicitly skip any setup step.
 2. Open that folder in Claude Code, OpenCode, Codex or Antigravity. Open its `docs/`
    subfolder as an Obsidian vault; [the vault home](docs/README.md) explains the layout.
    Every file you read or write lives as Markdown inside `docs/` (the only folder
    exception is pasting an existing codebase or external design files when requested).
 3. Run `/moom-start` (Codex CLI: `$moom-start`; desktop slash/dollar picker;
    Antigravity: select or mention the skill). Ordinary language
-   also works. The assistant collects languages, checks Git and backup, and asks
-   about a server immediately. No server is a valid answer. With one, setup verifies
-   SSH, a domain or free `nip.io` hostname, public HTTPS and an authenticated proxy.
-4. Run `/moom-job`. Describe your repeated work in the provided file, save it, then
+   also works. Answer setup preferences **in chat, one question at a time**: first
+   conversation language in English/Persian (English recommended), then document
+   language in your chosen chat language. The assistant detects tools and reuses Git
+   identity/access; you need not choose a single AI host. Early in setup it creates
+   the optional ignored server-credentials Markdown file before referring you to it.
+   Leaving a fresh scaffold empty means no server for now and allows work to continue.
+   With a server, setup verifies SSH, a domain or free `nip.io` hostname, public HTTPS
+   and an authenticated proxy. Secrets always stay out of chat.
+4. Run `/moom-job`; **file-based intake begins here**. Describe your repeated work
+   in the provided file, save it, then
    say `done` / `نوشتم`. Use, adapt or replace any [starter](registry/README.md).
    Question rounds distinguish your confirmed choices from provisional delegation.
 5. The assistant installs your Job, creates and verifies Project 1 from your input,
@@ -34,11 +47,14 @@ at finalization. Codex CLI uses `$NAME`, and Codex desktop accepts slash/dollar 
 Claude Code/OpenCode use `/NAME`. Antigravity uses skill selection or mentions, with
 `/NAME` where its UI exposes the skill. Retained bootstrap host entries become local
 recovery handoffs and never reinstall the catalog.
+You may perform different steps in different hosts. Each session resumes the saved
+preferences and Project state; it does not repeat setup or regenerate the Job.
 
 Later, `/kandoo-new-project` creates and selects the next independent Project;
 `/kandoo-switch` resumes one; `/kandoo-add-idea` banks an idea for the Project, Kandoo
 or both without interrupting work; `/kandoo-iterate` opens a planned version;
-`/kandoo-issue` handles a defect; `/kandoo-server` adds or changes shared infrastructure.
+`/kandoo-issue` handles a defect; `/kandoo-settings` changes languages, workspace
+preferences, Git backup or shared infrastructure while preserving Project progress.
 The Job can evolve during real work. Every response has progress and one next action.
 
 This source contains only Markdown and a root `.gitignore`, apart from Git metadata.
@@ -51,3 +67,6 @@ Host discovery references: [Claude Code](https://code.claude.com/docs/en/slash-c
 and [Antigravity skills](https://antigravity.google/docs/skills/).
 
 [License](LICENSE.md)
+
+[Workspace maintenance](docs/kandoo/maintenance.md) explains naming, existing-material
+intake, shared settings, Git remote changes, domains, unlisting and unpublishing.

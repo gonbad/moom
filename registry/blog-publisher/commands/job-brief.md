@@ -21,8 +21,8 @@ pending. Author `docs/projects/ID/living/brief.md`:
 3. **Key Arguments & Differentiation:** Supporting pillars, counterexamples or limits
    acknowledged, and how this piece stays faithful to the actor/action boundary in `idea.md`.
 4. **Deliverable Constraints & Acceptance Expectations:** Target length, format, code
-   listings, diagrams or tables, offline/local requirements, and what constitutes faithful
-   completion.
+   listings, diagrams or tables, web/mobile reading requirements and any explicit
+   delivery overrides. The page must explain itself without a speaker.
 
 Put consequential unresolved angles or tradeoffs in
 `docs/projects/ID/versions/VERSION/NN-questions.md` for review in Obsidian. Once any

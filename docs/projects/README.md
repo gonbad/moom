@@ -12,3 +12,8 @@ pending review and one next action; `living/idea.md` is always maintained with c
 understood scope. Never reuse another Project's input, prompts, contracts, credentials,
 Git tags, deployment ports or output. Shared server details belong to Kandoo unless
 this Project overrides them.
+
+The initial idea input links the selected dossier's `sources/notes.md` and
+`living/sources.md` inventory. Reuse source files already supplied. A provisional
+slug is explained at creation and resolved during idea review without changing the
+numeric identity. All numbered records share one sequence across that dossier.

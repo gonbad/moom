@@ -13,7 +13,8 @@ status; all paths are workspace-root paths. Read only the installed references
 verification record in `docs/projects/ID/versions/VERSION/`. Preserve earlier outputs and
 authorization.
 
-There is no separate `job-review` command: resolve speaker review and requested
+Deliver the verified downloadable offline artifact as the primary output; hosting
+is secondary unless explicitly overridden. There is no separate `job-review` command: resolve speaker review and requested
 corrections through `.md` review notes in `docs/projects/ID/versions/VERSION/` while
 keeping technical readiness and human speaker acceptance distinct. Preserve previous
 delivered versions. Verify that the exact delivered HTML/ZIP/PDF outputs under

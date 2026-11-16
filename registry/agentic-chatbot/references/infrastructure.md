@@ -13,7 +13,7 @@ Compose project name, PostgreSQL/Redis volumes and service users in
    forwarding (`-R`) behind Caddy for webhooks.
 2. **Deferred server on macOS or Linux:** Run isolated PostgreSQL/Redis locally via
    Docker when available, or mark live VPS persistence checks pending until configured
-   via `/kandoo-server`.
+   via `/kandoo-settings`.
 3. **Last resort—no server AND Windows (`job-plan` only):** Only when `server.md` is
    `none`/deferred **and** the participant is on Windows, `/job-plan` may offer
    project-scoped SQLite under `projects/ID/data/` as an explicit last-resort local

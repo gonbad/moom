@@ -24,7 +24,9 @@ and never include credentials or private account details.
 
 Present manageable sections if needed, then invite a complete reading of
 `docs/projects/ID/living/content.md` in Obsidian. Reconcile omissions and cross-section
-contradictions against `idea.md`, `brief.md` and `story.md`. A paper, handbook or
+contradictions against `idea.md`, `brief.md` and `story.md`. Read the page as an
+independent reader: add missing context or explanations that would otherwise require
+a speaker. Keep editorial audit tables out of public prose unless requested. A paper, handbook or
 presentation may adapt structure in the Job rather than flattening into generic prose.
 Record editorial review status separately from technical readiness and route to
 `/job-layout`.

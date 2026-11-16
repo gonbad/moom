@@ -10,11 +10,15 @@ Read `AGENTS.md`, the four `docs/constitution/` documents and `docs/kandoo/livin
 status; all paths are workspace-root paths. Read only the installed references
 `docs/kandoo/living/references/workflow.md` and `distribution.md` plus
 the selected-version input recorded in `docs/projects/ID/living/status.md` and submitted rounds in that version.
-Preserve earlier outputs and authorization.
+Preserve earlier outputs and authorization. Apply the workflow constitution's
+naming/source-intake contract: inspect user-created files in the active docs/artifact
+roots and selected dossier, read relevant source notes before questions, maintain
+`docs/projects/ID/living/sources.md`, and resolve a provisional slug once the topic is known.
 
 Identify the intended reader, reader problem, desired outcome, actual actor/action
-sequence, format, language and delivery route (local private draft vs authorized public
-post). Inventory supplied sources and creator corrections in order; distinguish primary
+sequence, format and language. Default to a standalone reading article, vertical
+scrolling and an authorized public URL after review; keep work private while drafting.
+Do not add a routine download/ZIP requirement. Record any explicit format/delivery override. Inventory supplied sources and creator corrections in order; distinguish primary
 facts, quotations and inference. Inspect any existing assets under `projects/ID/` before
 replacing anything. Bank out-of-scope or future post ideas in
 `docs/projects/ID/living/roadmap.md`.

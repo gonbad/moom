@@ -36,3 +36,8 @@ outline, visual system or export. Rebuild only affected artifacts while checking
 whole navigation sequence, preserving the previous delivered deck and editable source.
 A participant may replace slides with a portrait story, print handout or other format;
 change the Job, its commands and progress labels to match that real work.
+
+Default to a speaker-led horizontal deck with left/right navigation and a
+verified downloadable offline artifact. Record an explicit override when the requested
+format differs. Online hosting is secondary; a self-contained reading article normally
+belongs to the blog workflow. Preserve keyboard focus inside interactive controls.

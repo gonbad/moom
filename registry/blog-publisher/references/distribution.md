@@ -1,51 +1,51 @@
-# Public sources, offline packages and detached builds
+# Public web sources and detached builds
 
 ## Publication contract
 
-Keep an explicit Project-owned public source directory (`projects/ID/src/`,
-`projects/ID/site/` or an adapted path) separate from inputs, historical versions, secrets and private editorial notes.
-Record source, public URL path, version and release selection in living Markdown.
-A new Project is a draft by default and needs no `project.json` to exist or be edited.
-A builder can read a small documented release table; it must skip unfinished drafts
-and preview one on request without accidentally making it publicly deployable.
+Keep a Project-owned public source directory (`projects/ID/src/`, `projects/ID/site/`
+or an adapted path) separate from inputs, version records, secrets and editorial
+notes. Record source, public URL path, version and release selection in living Markdown.
+A new Project is private by default and needs no machine manifest. Skip incomplete
+unselected drafts; an explicit draft preview must remain undeployable.
 
-Generate helpers only for this Kandoo's actual publication needs. Shared publishing
-code belongs in root `kandoo/`; a post-specific renderer or verifier belongs in that
-Project. Do not install a workflow engine or fetch the original template at build time.
-HTML/CSS/JS assets can be authored independently per post. A static build may minimize
-HTML while preserving scripts, code blocks and SVG semantics. Never ship a design CDN
-as an offline runtime dependency. Keep fonts/assets and their license notices local.
+A blog's default deliverable is a web page that explains itself, uses vertical scrolling
+and is shared by URL. Do not create a standalone post ZIP or a download procedure by
+default. An explicit request may add one later. Intentional editorial materials, such
+as a workshop kit, remain independently selected content.
 
-## Build and archive
+Generate shared publishing helpers under `kandoo/` only for real needs; Project
+renderers/checks belong to their Project. Build without fetching the source template
+or reading sibling maintainer tools. Keep source and runtime assets explicit. Bundled
+assets and license notices are useful for reliable web delivery; removing article ZIPs
+is not a request to introduce external runtime dependencies.
 
-1. Build to a staging directory. Validate every public path and reject private files,
-   symlinks and traversal before copying. Avoid copying a whole Project root.
-2. Check local HTML/CSS/JS references, correct RTL/LTR behavior and every download link.
-   Treat a user-clicked external citation differently from a remote runtime asset.
-3. Make a standalone post ZIP with its own index and all runtime assets. Adapt links
-   to the publication home and online-only downloads for offline use. The ZIP never
-   includes itself. Record a file inventory and SHA-256 values.
-4. Extract that exact ZIP into a path with spaces; open its index with networking
-   disabled. Verify interactions, print and required fonts rather than only ZIP CRCs.
-5. After all checks pass replace compiled `dist/` atomically; retain rollback output.
-   A deployment uploads only files in the verified release inventory, never source.
+## Build and verify
 
-## Imported workshop downloads
+1. Stage only the declared public source and intentional materials. Reject private
+   files, symlinks and traversal before copying; never copy the entire Project root.
+2. Verify HTML/CSS/JS references, RTL/mobile reading, actual interactions, the authored
+   index and every provided material link. Separate external citations from runtime assets.
+3. Record the exact file inventory and SHA-256 values. Static structure checks, browser
+   interaction, source fidelity and human acceptance are separate evidence.
+4. Replace compiled output only after verification, retaining known rollback output.
+   Deployment uploads only the verified release inventory.
 
-A publication may distribute a template as editorial material. Import a prebuilt,
-reviewed ZIP into the owning Project, record its version/hash/provenance, and commit
-it or another durable offline copy. The build reads and verifies this local artifact;
-it does not look for sibling source/tool directories, use a template runtime, or
-silently fetch a moving branch. Keep current compatibility aliases byte-identical to their declared current kit.
-Retained versioned releases keep their original bytes and separate checksum pins.
-A maintainer export happens outside the Journal build. Missing or tampered material
-is an actionable build failure, not a reason to reattach the publication to upstream.
+## Intentional workshop downloads
+
+A post may distribute a reviewed template or other editorial material. Import it into
+the owning Project and record version, checksum and provenance in living Markdown.
+Commit the required public artifact or another durable local copy. Ordinary builds
+verify and consume that copy without locating the template source or fetching a moving
+branch. Retained versioned kits keep their original bytes and checksum pins; only an
+explicitly rolling compatibility alias follows the current kit. Missing or tampered
+material is an actionable failure, not permission to rebuild it from upstream.
 
 ## Publication and rollback
 
-Validate the aggregate release and preview-only flag before deployment. Use only the
-known authorized origin, service identity and paths. Verify HTTPS entry pages, release
-hashes and offline downloads, then preserve an immutable receipt in the current shared
-version dossier. Host-specific configuration is recorded in shared living docs; do
-not test unrelated private services or require an organizer's network. Never relabel
-a preview or a passing local check as a live publication or editorial acceptance.
+Use the shared authorized origin and supported aliases, service identity and paths.
+Verify public HTTPS pages, assets, release hashes and intentional downloads at every
+supported hostname; preserve an immutable receipt in the shared version dossier.
+Record DNS, routing and TLS changes in shared settings. Do not treat a preview or
+local check as live deployment or human acceptance. An explicit hosting deferral is
+valid and retains the working local preview. Unlisting, unpublishing and deleting
+source are distinct operations described in the workspace maintenance guide.

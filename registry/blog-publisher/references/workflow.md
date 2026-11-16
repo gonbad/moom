@@ -1,6 +1,8 @@
 # An authored publication, one Project per post
 
-A post may be an article, handbook, paper, presentation or interactive explanation.
+A post is normally an article, handbook, paper or interactive explanation that a
+reader understands without a speaker. Default to vertical scrolling and an online URL.
+Existing or explicitly adapted formats remain valid. No default article ZIP is produced.
 Ask what the reader should understand or do, the evidence available, language, desired
 format and delivery route. Preserve the creator's actual actor/action sequence: an
 article about what the reader does must not quietly become instructions to an AI.
@@ -20,14 +22,14 @@ files under `projects/ID/` and serves local `http://` previews when needed.
 | `job-story` | `docs/projects/ID/living/brief.md` | `docs/projects/ID/living/story.md` | `workflow.md`, `quality.md` | Ordered section hierarchy, actor sequence and evidence map resolved | `job-content` |
 | `job-content` | `docs/projects/ID/living/story.md`, `brief.md`, `idea.md` | `docs/projects/ID/living/content.md` | `workflow.md`, `quality.md` | Complete narrative written with claim-to-source traceability | `job-layout` |
 | `job-layout` | `docs/projects/ID/living/content.md` | `docs/projects/ID/living/layout.md`, `projects/ID/src/` | `workflow.md`, `distribution.md`, `quality.md` | Typography, RTL/LTR isolation and layout built on real text | `job-build` |
-| `job-build` | `docs/projects/ID/living/layout.md`, `projects/ID/src/` | Compiled output, standalone ZIP, `.md` verification note in version dossier | `workflow.md`, `distribution.md`, `quality.md` | Local build, links, hashes and network-disabled ZIP verified | `job-deploy` |
-| `job-deploy` | Verified output and `docs/kandoo/living/server.md` | Delivery summary in `docs/projects/ID/living/status.md` or live receipt | `workflow.md`, `distribution.md`, `infrastructure.md`, `quality.md` | Local delivery recorded or authorized public release verified | Complete |
+| `job-build` | `docs/projects/ID/living/layout.md`, `projects/ID/src/` | Verified web output, `.md` verification note in version dossier | `workflow.md`, `distribution.md`, `quality.md` | Web build, links, hashes and browser behavior verified | `job-deploy` |
+| `job-deploy` | Verified output and `docs/kandoo/living/server.md` | Delivery summary in `docs/projects/ID/living/status.md` or live receipt | `workflow.md`, `distribution.md`, `infrastructure.md`, `quality.md` | Public origin/aliases verified or explicit hosting deferral recorded | Complete |
 
 ## Why Idea, Brief, Story and Content stay distinct (mini-example)
 
 - **Idea (`idea.md`):** "Write a short private Persian guide for workshop participants whose server is unavailable, using only this Kandoo's verified local-workflow rules; exclude unverified cloud workarounds."
 - **Brief (`brief.md`):** "Reader: non-developer builder on laptop without VPS. Outcome: finish specifications, prototype and offline review cleanly while keeping live server checks marked pending. Tone: calm, practical, zero hype."
-- **Story (`story.md`):** "1. Recognize the trap (faking a pass vs freezing everything) → 2. Record `server: none` honestly in setup → 3. Complete local specs and preview → 4. What waits for `/kandoo-server` later, with table mapping each claim to its constitution rule."
+- **Story (`story.md`):** "1. Recognize the trap (faking a pass vs freezing everything) → 2. Record `server: none` honestly in setup → 3. Complete local specs and preview → 4. What waits for `/kandoo-settings` later, with table mapping each claim to its constitution rule."
 - **Content (`content.md`):** The full Persian prose implementing those exact four sections in order, with concrete examples and source traceability.
 
 Keep living summaries in `docs/projects/ID/living/` and raw requests plus numbered

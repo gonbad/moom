@@ -10,7 +10,11 @@
 - Verification evidence and pending work: none yet
 
 `none` is a completed, valid answer for local-only work: set server, DNS, TLS and proxy
-to `none` together. Later additions reuse the shared infrastructure procedure.
+to `none` together, with dependent checks not needed. A fresh optional credentials
+scaffold left empty with no supplied/promised server has the same meaning. Partial
+credentials or a promised server remain pending; an empty file on a configured
+checkout never erases existing server facts. Later additions use `/kandoo-settings`
+and reuse the shared infrastructure procedure.
 
 ## Deployment and port ledger
 

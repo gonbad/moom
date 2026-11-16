@@ -9,7 +9,10 @@ Read `AGENTS.md`, the four `docs/constitution/` documents and `docs/kandoo/livin
 `job.md`, `server.md` and `status.md`. Resolve the active Project `ID` and `VERSION` from
 status; all paths are workspace-root paths. Read only the installed reference
 `docs/kandoo/living/references/workflow.md`, the selected-version input recorded in `docs/projects/ID/living/status.md`,
-and submitted rounds in that version. Preserve earlier outputs and authorization.
+and submitted rounds in that version. Preserve earlier outputs and authorization. Apply the workflow constitution's
+naming/source-intake contract: inspect user-created files in the active docs/artifact
+roots and selected dossier, read relevant source notes before questions, maintain
+`docs/projects/ID/living/sources.md`, and resolve a provisional slug once the topic is known.
 
 Inspect `projects/ID/existing/` if the participant pasted an existing codebase (a
 permitted drop folder outside `docs/`). Clarify the product's core intent: a

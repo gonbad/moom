@@ -26,7 +26,11 @@ Markdown deliverables inside `docs/`:
    - *Handle Vault & Redacted Auditing:* Caller-scoped `[h_*]` vault, sink resolution
      rules and redacted audit metadata schema matching `privacy.md`.
    - *Owned Services & Contracts:* `projects/ID/services/` and
-     `projects/ID/contracts/<service>/openapi.yaml`.
+     `projects/ID/contracts/<service>/openapi.yaml`. For an adopted bridge, carry forward
+     the reviewed source/revision and provenance from `tools.md`; plan its isolated
+     deployment beside the agent, credentials, session storage, ports and required
+     restart/event/authorization checks. Use scoped calls, never a sibling checkout,
+     the author's accounts or an assumed public gateway.
    - *Database & Persistence Route:* Follow `infrastructure.md` and `server.md`: use
      PostgreSQL and Redis on the participant's VPS via Docker Compose with native OpenSSH
      forwarding and isolated test/production data (or local Docker on macOS/Linux when

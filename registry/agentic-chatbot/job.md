@@ -2,7 +2,7 @@
 
 Build model-directed conversational tools only when a simpler bot is insufficient, with caller-scoped authority, explicit policies and enforced budgets.
 
-Job revision: 0.4
+Job revision: 0.5
 
 This is an adaptable initial base. Change any step, format or style to fit the
 participant’s exact work, including while doing a real Project. No fixed schema,
@@ -37,7 +37,7 @@ and ends with dynamic localized progress plus one exact next action.
 - [workflow](references/workflow.md): Read for state, review and every step handoff.
 - [authority](references/authority.md): Read for tool design, selected confirmations, build and tests.
 - [budgets](references/budgets.md): Read for usage policy, implementation, outages and tests.
-- [services](references/services.md): Read for business tools, bridges and live integration.
+- [services](references/services.md): Read for business tools, inspection/reuse of existing API bridges and live integration.
 - [messenger](references/messenger.md): Read for each selected platform/integration.
 - [payments](references/payments.md): Read only when payments are included.
 - [infrastructure](references/infrastructure.md): Read when connecting services or deploying.

@@ -11,6 +11,7 @@
 - Current step: start
 - Review state: none
 - Pending round: none
+- Pending setup question: conversation language (unless explicitly supplied)
 - Technical readiness: unchecked
 - Human acceptance: unrequested
 - Deployment: none
@@ -18,3 +19,6 @@
 
 When configured, mirror the active Project's own living status here and retain shared
 scope/version separately. Persist changes before handoff so another session can resume.
+During setup, save each answered preference and the single next question/check. Clear
+the pending setup question when setup completes; do not use a numbered question file
+for setup or repeat completed questions when changing hosts.

@@ -10,13 +10,17 @@ Read `AGENTS.md`, the four `docs/constitution/` documents and `docs/kandoo/livin
 status; all paths are workspace-root paths. Read only the installed references
 `docs/kandoo/living/references/workflow.md` and `slides.md` plus
 the selected-version input recorded in `docs/projects/ID/living/status.md` and submitted rounds in that version.
-Preserve earlier outputs and authorization.
+Preserve earlier outputs and authorization. Apply the workflow constitution's
+naming/source-intake contract: inspect user-created files in the active docs/artifact
+roots and selected dossier, read relevant source notes before questions, maintain
+`docs/projects/ID/living/sources.md`, and resolve a provisional slug once the topic is known.
 
 Identify the audience's starting knowledge, setting, available time and one concrete
 action they should take afterward. Extract the speaker's actual argument and sources
 before proposing visuals; inspect any existing material pasted into `projects/ID/existing/`
-if supplied. Confirm or provisionally record orientation, dimensions, HTML/print/export
-format and whether the artifact is spoken over or read alone. Portrait and non-slide
+if supplied. Default to a live speaker, horizontal slides, left/right navigation and
+a downloadable offline artifact; online hosting is secondary. Record orientation,
+dimensions and viewing/export format, asking only about meaningful unresolved choices. Portrait and non-slide
 outputs are valid. Bank out-of-scope topics in `docs/projects/ID/living/roadmap.md`.
 
 Always write and maintain `docs/projects/ID/living/idea.md` with the talk promise,

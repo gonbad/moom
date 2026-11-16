@@ -4,11 +4,36 @@ The assistant runs technical commands on the participant's actual OS. Detect Git
 native OpenSSH and task-specific tools before use; do not assume Bash on Windows.
 Use native tools and shell quoting, installing dependencies only as actually needed.
 Python, WSL, Docker Desktop and a local database are not universal prerequisites.
-Use repository-local Git identity; never change the participant's global identity.
+Reuse effective Git identity, including inherited settings; write only necessary
+overrides locally. Never change the participant's global identity.
 
 A participant-owned remote is strongly recommended, including without a server. It
-can be a fork, another hosted repository or an owned SSH bare repository. Inspect a
-clone before changing it; for a ZIP, initialize local Git and identity when available.
+normally comes from GitHub **Use this template → Create a new repository**, choosing
+public or private visibility, then cloning the participant's HTTPS URL. Existing forks,
+other hosted repositories and owned SSH bare repositories are valid too. Inspect a
+clone before changing it; for a ZIP, initialize local Git when available. Reuse valid
+local/inherited `user.name` and `user.email` without another question. Fill missing
+fields from trustworthy supplied or authenticated account facts, respecting email
+privacy; ask only for a still-unknown field. Authentication does not itself configure
+commit identity. Do not infer an author from the remote owner or template history,
+and do not create separate identities for individual Projects.
+
+Public HTTPS cloning does not require repository authentication. Private clones and
+pushes require supported authentication: reuse a working credential manager, GitHub
+CLI with HTTPS/browser login, or existing SSH access. GitHub account passwords cannot
+authenticate Git. Check/install the needed tooling and request only unavoidable account
+consent; bare Git does not guarantee browser login. Never embed credentials in clone
+URLs, copied commands or prompts. Keep working HTTPS access while optional SSH setup
+is pending. For GitHub SSH setup, reuse a suitable key or generate one, provide only its
+public key in a Markdown note inside `docs/`, guide account installation and verify
+access before changing remotes. Keep GitHub and server keys distinct.
+
+Sources: [GitHub templates](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template),
+[authentication](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github),
+[credential managers](https://docs.github.com/en/get-started/git-basics/caching-your-github-credentials-in-git),
+[Git name](https://docs.github.com/en/get-started/git-basics/setting-your-username-in-git)
+and [commit email](https://docs.github.com/en/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address).
+
 Verify ownership and authenticated read/write backup when connected. Never push to the
 template upstream, force-push, replace unrelated history or put credentials in URLs.
 Read access alone does not prove backup works. Offline or local-only work may proceed
@@ -17,13 +42,51 @@ insists on skipping any setup step, record the skipped check and its concrete co
 then continue with the work. Never turn a deferred check into a success claim or a
 bootstrap deadlock. Preserve existing commits; revisit pending setup when relevant.
 
-Ask about a server during initial setup. If the answer is no, record `none` for server,
-DNS, TLS and proxy and continue. Never require a server purchase for local-only work.
-When a later Project needs one, use `kandoo-server`. With a server, perform this same
-sequence during initial setup and on infrastructure changes:
+## Optional server intake
+
+Address server availability early in setup, after the language questions and before
+Job selection. Before any credentials handoff, create or preserve
+`docs/kandoo/secrets/credentials.md`. Verify ignore coverage with `git check-ignore`
+when Git is available, inspect ignore rules otherwise and record that check pending;
+apply owner-only permissions or equivalent Windows ACLs. Never overwrite an existing
+file, even when it appears incomplete. Create a new file in the document language with
+empty fields and this meaning (example scaffold, not real credentials):
+
+```markdown
+# Optional shared access
+
+Leave these fields empty if you have no server for now; setup will continue.
+If you have a server, enter its access details here, never in chat or a review file.
+
+- Host / public IPv4:
+- SSH user:
+- SSH port:
+- Initial access method:
+- Initial credential or local key reference:
+```
+
+Explain the optional-file convention before continuing: when the participant continues
+with an untouched scaffold and no supplied/promised server, set server, DNS, TLS and
+proxy to `none`, with checks not needed. No file-submission gate or repeated prompts
+are required, and a request to continue is sufficient. Merely creating a blank file
+does not answer a question the person has not yet seen. An explicit deferral is also valid. If a
+server is promised or partially supplied, retain that intent and mark missing access
+pending; ask only for what is needed or continue independent work. A missing/empty
+file in a configured workspace does not remove saved server facts or deployed services.
+This convention does not turn other silence, unsubmitted reviews or failed checks into
+success. Never require a server purchase for local-only work. Use `/kandoo-settings`
+to supply access or change infrastructure later. Create the scaffold during actual
+setup, never as participant state shipped inside the pristine template.
+
+## Server verification and later changes
+
+With a newly supplied server, perform this sequence. Later settings changes reuse
+verified facts and execute only affected checks; a domain-only change does not need
+new keys, a new proxy or unrelated Project deployment:
 
 1. Collect host, actual public IPv4, SSH user/port and initial access method. Have the
-   participant record credentials only in gitignored `docs/kandoo/secrets/credentials.md`,
+   participant record credentials only in the already-created, gitignored
+   `docs/kandoo/secrets/credentials.md`,
    never in a question file, logs or chat. Verify the
    host fingerprint through trusted provider information; do not disable host checking.
    Prove login, provision a dedicated local SSH key if needed, install only its public

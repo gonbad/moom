@@ -41,14 +41,17 @@ reopen the AI host**. This is mandatory after Job definition. The `/NAME` notati
 labels the workflow commands. Codex CLI uses `$NAME` or its skill picker; Codex desktop
 supports slash/dollar selection. Claude Code/OpenCode use `/NAME`. Antigravity selects
 or mentions the shared skill (or `/NAME` when exposed by its UI). Give the exact
-invocation appropriate to the person's host when handing off.
+invocation appropriate to the current host when handing off. Detect it from the session;
+never ask the person to commit to one host or install only that host's commands. A
+profile's detected-host field is advisory and may be stale. On a host switch, read the
+same saved preferences, pending setup question and Project progress without restarting.
 
 During setup, create Project 1 and verify its state before removing registry or any
 canonical bootstrap source under `docs/`. Retain the installed bootstrap host copies
 as recovery entry points; on a configured workspace they route to saved status without
 reading deleted canonical sources or reinstalling a catalog. Ordinary tasks use the
 six `kandoo-*` commands (`kandoo-new-project`, `kandoo-switch`, `kandoo-add-idea`,
-`kandoo-iterate`, `kandoo-issue`, `kandoo-server`) and the current `job-*` commands.
+`kandoo-iterate`, `kandoo-issue`, `kandoo-settings`) and the current `job-*` commands.
 Never delete the executing host command to clean up setup.
 
 Expand three plain-language path aliases consistently for every active Project:
@@ -99,13 +102,22 @@ a **concrete defect**, preserves reproduction and expected/actual results, resol
 owner, then fixes and verifies only that scope; a closed version is never edited to
 hide a defect. All floating commands apply the four-domain check and certainty protocol.
 
+`kandoo-settings` handles shared preferences, Git and infrastructure using existing
+facts and only affected checks. Apply explicit requests directly; unresolved non-obvious
+choices use the shared file-review protocol. Preserve the active Project and its
+pipeline, and resume its saved action after the settings work.
+
 Give each step a brief, consistent handoff (what changed, what evidence exists, what
 remains pending) without repeating long boilerplate on small turns. The final block of
 **every assistant reply**, including intermediate replies, is a progress block in the
 conversation language from `profile.md`. Translate step labels and state words; do not
 mix Persian and English prose. Paths and command identifiers retain their spelling.
-Show all steps in order with done, one current/next, skipped optional/unaffected steps
-and remaining states. Include waiting-for-questions or waiting-for-living-review on the
+Before a language is selected, the first setup question and short bootstrap progress
+labels may be bilingual English/Persian. After the answer, use only the chosen language.
+Use visual states: ✅ completed, 🔵 current, ⬜ remaining and ⏭️ skipped. Show
+all steps once in order; add a short localized waiting/review/skip reason when needed.
+Use ordinary Markdown with readable wrapping, not bracketed `[todo]` state words or
+a clickable-checkbox dependency. Keep at most one current/next step. Include waiting-for-questions or waiting-for-living-review on the
 current step when applicable. At completion mark all finished steps done and show the
 terminal state; do not invent a current step.
 
@@ -115,7 +127,8 @@ step state, mirrored in shared status (recording the current installed Job revis
 separately from an older Project's execution revision). Never hardcode a starter's
 pipeline in the bar. For an issue/shared task, identify that active scope alongside the
 saved Project bar. The **last line** gives a single concrete next action (an exact `.md`
-file inside `docs/` to answer/review, a live `http://` preview URL paired with its `.md`
+file inside `docs/` to answer/review, a reply to the single setup chat question,
+an unavoidable account/access action, a live `http://` preview URL paired with its `.md`
 review file in `docs/`, an exact command, or host close/reopen followed by the first
 command). Never refer the participant to a non-`.md` file or a file outside `docs/`
 (except pasting into `projects/ID/existing/` or `projects/ID/design/`). Do not offer a
@@ -127,33 +140,61 @@ in order; at most one is current; pending reviews and skips match actual evidenc
 all prose labels and state words use the conversation language; one final action ends
 the reply. Command names, paths and identifiers alone may keep their original spelling.
 Never copy an example's step names as state, omit the block on a short answer, use
-`[done]`/`[current]` inside a Persian bar, or append offers/sign-offs after the action.
+bracketed English state words inside a Persian bar, or append offers/sign-offs after the action.
 This is an instruction discipline, not a script or host-hook requirement.
 
-English example:
+English example (use the actual saved steps and state):
 
-```text
-Progress: [done] Idea · [current: awaiting file answers] Plan · [todo] Build
-Next step: Answer docs/projects/001-demo/versions/0.1/01-questions.md, save, then say done.
-```
+> **Progress:** ✅ Idea · 🔵 Plan (waiting for answers) · ⬜ Build
+>
+> **Next step:** Answer `docs/projects/001-demo/versions/0.1/02-questions.md`, save, then say `done`.
 
 Persian example:
 
-```text
-پیشرفت: [انجام شد] ایده · [گام جاری: منتظر پاسخ فایل] برنامه · [مانده] ساخت
-گام بعد: پاسخ‌ها را در فایل مشخص‌شده بنویسید، ذخیره کنید و بگویید «نوشتم».
-```
+> **پیشرفت:** ✅ ایده · 🔵 برنامه (منتظر پاسخ فایل) · ⬜ ساخت
+>
+> **گام بعد:** پاسخ‌ها را در فایل مشخص‌شده بنویسید، ذخیره کنید و بگویید «نوشتم».
 
-English completed example:
+Completed example:
 
-```text
-Progress: [done] Idea · [done] Build · [skipped: local delivery] Deploy · Complete
-Next step: Read docs/projects/001-demo/living/status.md for the delivery summary and preview link.
-```
+> **Progress:** ✅ Idea · ✅ Build · ⏭️ Deploy (local delivery) · Complete
+>
+> **Next step:** Read `docs/projects/001-demo/living/status.md` for the delivery summary.
 
-Persian review example (English command identifiers and `docs/` Markdown paths remain unchanged):
+Review example:
 
-```text
-پیشرفت: [انجام شد] ایده · [گام جاری: منتظر بازبینی] ساخت · [مانده] تحویل
-گام بعد: نتیجهٔ بازبینی را در docs/projects/001-demo/versions/0.1/02-review.md بنویسید، ذخیره کنید و بگویید «نوشتم».
-```
+> **پیشرفت:** ✅ ایده · 🔵 ساخت (منتظر بازبینی) · ⬜ تحویل
+>
+> **گام بعد:** نتیجهٔ بازبینی را در فایل بازبینی مشخص‌شده بنویسید، ذخیره کنید و بگویید «نوشتم».
+
+## Project naming and material intake
+
+Apply this contract both when bootstrap creates Project 1 and for every later Project.
+Use a supplied topic/name immediately; accept it alongside a command or in ordinary
+conversation. For example: `kandoo-new-project — an interactive astronomy article`.
+If no topic is known, use a provisional slug and explain in the first handoff that
+idea review will resolve it. Keep the numeric prefix stable and record the display
+title separately. Once the idea is known, derive a descriptive ASCII slug; review only
+non-obvious choices in the existing question round. Before renaming, check collisions
+across both trees. Update both roots, current input/status, living references and
+relevant tools together; preserve submitted records with an old-to-new mapping.
+A published URL needs an explicit compatibility decision before a rename changes it.
+
+The idea input must explain where existing work goes. Create or reuse a Markdown
+source note under the selected dossier (normally `sources/notes.md`) and an inventory
+in `docs/projects/ID/living/sources.md`. Link supplied material there instead of asking
+for a duplicate paste. Explain `projects/ID/existing/` for an existing product or
+binary bundle; create it when needed. This folder is the permitted participant drop
+exception outside `docs/`. Keep raw inputs separate from public source. Inspect the
+active document/artifact roots and current dossier before asking editorial questions;
+read relevant user-created sources, while unsubmitted review answers remain pending.
+The first handoff explains the provisional/final name and source locations, then gives
+one exact next action. Do not require another approval just to provide intake folders.
+
+## Shared maintenance
+
+Use [the maintenance guide](../kandoo/maintenance.md) to route Git remote changes,
+languages, domains, method changes and publication removal. `/kandoo-settings` handles
+preferences, Git and infrastructure; ordinary language is also sufficient.
+Shared work preserves the selected Project and its saved pipeline; only affected
+checks and artifacts are changed. Previously granted authorization remains valid.
