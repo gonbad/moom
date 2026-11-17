@@ -1,9 +1,16 @@
 # Runtime identities, PostgreSQL policy and service deployment
 
-Read `docs/kandoo/living/server.md`, `docs/kandoo/living/profile.md` and
-`docs/constitution/03-infrastructure-and-secrets.md`. Allocate Project-specific ports,
-Compose project name, PostgreSQL/Redis volumes and service users in
-`docs/kandoo/living/server.md` without disturbing existing Projects.
+Read `docs/constitution/03-infrastructure-and-secrets.md`, the profile, and
+`docs/projects/ID/living/server.md`. `/architecture` owns initial intake: offer an
+identified existing server, a new Project-specific server or local deferral. Reuse a
+saved explicit choice. Resolve shared facts/credentials from `docs/kandoo/living/server.md`
+only when the Project selected that target. New Project-server facts and credentials
+stay in its own `living/server.md` and ignored `secrets/credentials.md` inside `docs/`.
+For an explicitly selected prior Project target, follow the Constitution's reuse
+procedure: link its owning facts/secret reference and update only its allocation ledger.
+Record unique deployment identity, Compose name, ports, volumes, service user and
+public routes in the selected target's ledger and Project architecture. Never replace
+the shared target or another Project's access while configuring this one.
 
 ## Coherent database route
 
@@ -13,9 +20,9 @@ Compose project name, PostgreSQL/Redis volumes and service users in
    forwarding (`-R`) behind Caddy for webhooks.
 2. **Deferred server on macOS or Linux:** Run isolated PostgreSQL/Redis locally via
    Docker when available, or mark live VPS persistence checks pending until configured
-   via `/kandoo-settings`.
-3. **Last resort—no server AND Windows (`job-plan` only):** Only when `server.md` is
-   `none`/deferred **and** the participant is on Windows, `/job-plan` may offer
+   via `/preferences`.
+3. **Last resort—no server AND Windows (`architecture` only):** Only when the Project server selection is
+   `none`/deferred **and** the participant is on Windows, `/architecture` may offer
    project-scoped SQLite under `projects/ID/data/` as an explicit last-resort local
    fallback, recording that PostgreSQL migration and live VPS verification remain
    pending; never substitute SQLite on a production VPS.

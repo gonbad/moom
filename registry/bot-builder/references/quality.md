@@ -24,7 +24,7 @@ checks **only when payments are part of the chosen bot**; otherwise mark payment
 `not applicable`.
 
 Fixture harness tests prove deterministic engine rules; run a bounded live rehearsal
-separately in `/job-test` on each selected messenger using an isolated test bot token
+separately in `/test` on each selected messenger using an isolated test bot token
 from `docs/projects/ID/secrets/credentials.md`. Redact raw tokens, phone numbers and
 receipts in all logs and `.md` reports. Keep automated test results, live messenger
 evidence and human owner acceptance separate.

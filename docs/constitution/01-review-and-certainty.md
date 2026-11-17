@@ -1,14 +1,14 @@
 # File review and certainty
 
 The certainty and evidence rules apply to every task. File-based intake/review starts
-with `/moom-job` and applies to later Job steps, planned iterations, issue fixes,
+with `/job` and applies to later Job steps, planned iterations, issue fixes,
 shared infrastructure, ordinary requests and method changes, with the setup exception
 below. Read the owning living docs and current open version before asking again;
 prior answers and authorization persist.
 
 ## Initial setup uses chat
 
-During `/moom-start`, ask one unanswered question at a time in chat. The first is the
+During `/start`, ask one unanswered question at a time in chat. The first is the
 English/Persian conversation-language question with English recommended; once answered,
 use the selected language and ask document language separately. Reuse supplied facts;
 never ask for an AI-host preference. Save each answer and the next unresolved item in
@@ -16,10 +16,14 @@ the living profile/status and an assistant-written `docs/kandoo/versions/0.1/set
 summary. Do not create a participant setup questionnaire or require summary submission.
 Explicit answers are Confirmed; explicit delegation selects a Provisional recommendation;
 silence remains pending. Credentials remain in ignored Markdown, never in chat.
-The optional server scaffold's blank-input convention is defined in the infrastructure
-constitution and does not extend to other unanswered questions or review files.
+Universal setup has no server question or credentials scaffold. Infrastructure
+intake occurs only at the installed Job's declared stage or an explicit settings request.
 
-From `/moom-job` onward, use the file workflow below. A direct settings request already
+`/job IDENTIFIER` installs an exact prepared starter without Job-definition intake
+or a question round. Its first Project step begins normal Project intake. `/job`
+without an identifier retains the custom file workflow below. This exception removes
+redundant method questions; it never implies acceptance of a produced artifact.
+From Project intake onward, use the file workflow below. A direct settings request already
 supplies its answer: apply and record it without another approval form. Unresolved,
 non-obvious settings choices use the shared numbered review; infrastructure changes
 retain their actual access, verification and authorization requirements.

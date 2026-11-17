@@ -1,6 +1,6 @@
 # Shared server
 
-- Server choice: unasked
+- Shared server choice: unselected
 - Host / public IPv4 / SSH user and port: unset
 - SSH fingerprint and dedicated key login: unverified
 - Domain choice / DNS evidence: unset
@@ -9,17 +9,19 @@
 - Ignored secret file references: none
 - Verification evidence and pending work: none yet
 
-`none` is a completed, valid answer for local-only work: set server, DNS, TLS and proxy
-to `none` together, with dependent checks not needed. A fresh optional credentials
-scaffold left empty with no supplied/promised server has the same meaning. Partial
-credentials or a promised server remain pending; an empty file on a configured
-checkout never erases existing server facts. Later additions use `/kandoo-settings`
-and reuse the shared infrastructure procedure.
+Universal setup leaves this record unselected. A Job owns the stage that asks about
+infrastructure. Each Project records its choice in `docs/projects/ID/living/server.md`:
+reuse an identified existing server, configure a server for this Project, or none/deferred.
+Unselected is not a refusal. Empty/missing credentials are not a choice or a verified
+connection. A local Project never clears shared facts. `/preferences` can change an
+explicitly selected shared or Project scope later.
 
 ## Deployment and port ledger
 
-| Owner | Deployment ID | Purpose | Remote address/port | Local forwarding port | Volume/site | Evidence |
-| --- | --- | --- | --- | --- | --- | --- |
+| Server identity | Owner | Deployment ID | Purpose | Remote address/port | Local forwarding port | Volume/site | Evidence |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 
-Do not guess free ports or reuse another Project's deployment. Record the proxy and
-shared web service here, followed by each Project allocation. Credentials stay ignored.
+Inventory before allocation. Record shared services and allocations for Projects that
+explicitly select this server. Project-owned servers maintain their own facts/ledger;
+check local forwarding ports across active targets too. Keep credentials ignored and
+preserve other Projects' deployments and explicit target choices.

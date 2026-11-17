@@ -33,7 +33,7 @@ unauthorized state mutation:
   if `refund_order` was explicitly chosen as `direct + soft`, execution still blocks
   because no prior offer was delivered to and confirmed by the authenticated caller.
 
-In `/job-wire` and `/job-test`, run multi-turn conversations on the real configured
+In `/wire` and `/test`, run multi-turn conversations on the real configured
 provider and selected messenger/interface covering Persian/Latin inputs, corrections,
 ambiguous refusals, injection payloads, stale history and budget exhaustion. When a live
 provider or messenger is deferred, record that gap honestly.

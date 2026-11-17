@@ -18,7 +18,7 @@ to a non-`.md` file or a file path outside `docs/`, except when asking them to p
 existing product into `projects/ID/existing/` or external design files into
 `projects/ID/design/`. The assistant operates technical tools using the actual OS and
 verifies outcomes. Preserve participant files, choices and existing authorization.
-During `/moom-start`, ask setup preferences in chat, one question at a time, with the
+During `/start`, ask setup preferences in chat, one question at a time, with the
 bilingual conversation-language question first. Save answers without requiring a setup
 question file or summary submission. Credentials still belong only in ignored Markdown.
 After setup, record unresolved questions and non-obvious decisions in numbered
@@ -29,7 +29,7 @@ external permissions. Unsubmitted blanks remain pending.
 
 Detect the current AI host without asking for a host preference. Install every supported
 command copy and resume from saved state when the person switches hosts. Shared settings
-use `/kandoo-settings`; settings work preserves the selected Project and its progress.
+use `/preferences`; settings work preserves the selected Project and its progress.
 
 Expand active Project paths explicitly: artifact root `projects/ID/`, document root
 `docs/projects/ID/` (always maintaining `living/idea.md` and `living/status.md`), and
@@ -53,3 +53,10 @@ language. Never omit the block on short replies or after resuming. Never use Eng
 state words in a Persian bar; command identifiers and paths may remain unchanged.
 Do not append any prose after the single next-action line. Use the examples in the
 workflow constitution; no progress validator or host hook is required.
+
+Universal setup is local: no server questions or credentials scaffold. `/start`
+shows the actual catalog; `/job IDENTIFIER` installs its exact starter without method
+Q&A. Custom `/job` keeps file intake. Read `docs/kandoo/command-names.md` before
+authoring/renaming commands. Infrastructure intake and target choice belong to the
+Job's declared stage. Enforce the Constitution's audience-facing-output rule in every
+Job and review exported channels separately from internal preview controls.

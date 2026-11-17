@@ -59,11 +59,11 @@ inventing new styles. Route all UI data through `projects/ID/frontend/src/api/` 
 realistic synthetic fixtures shaped like `data-model.md`.
 
 Maintain **two distinct visual fidelity gates** with separate `.md` evidence records:
-1. **Gate 1 (`job-prototype`, HTML → React):** Compare authoritative HTML in
+1. **Gate 1 (`prototype`, HTML → React):** Compare authoritative HTML in
    `projects/ID/design/` with the running React prototype at matching desktop/mobile
    viewports, local fonts, data and empty/error/filled states before freezing
    `project/ID/prototype/VERSION` (or an immutable local snapshot if Git is deferred).
-2. **Gate 2 (`job-test`, Frozen Prototype → Integrated Application):** Run the frozen
+2. **Gate 2 (`test`, Frozen Prototype → Integrated Application):** Run the frozen
    prototype from a separate worktree/copy on a free port beside the integrated app and
    verify pixel/layout parity plus zero runtime CDN requests.
 

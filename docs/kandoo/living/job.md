@@ -9,7 +9,8 @@
 - Current commands and installed references: none
 
 During definition replace this file with the participant's evolving Job, its outputs,
-scope, ordered steps, translated labels, optional-step conditions and short `job-*`
-commands. Keep canonical commands in child `commands/` and required references in
+scope, ordered steps, translated labels, optional-step conditions, infrastructure
+intake stage (or none), and descriptive unprefixed step commands. Check
+`docs/kandoo/command-names.md` before authoring them. Keep canonical commands in child `commands/` and required references in
 child `references/`. Do not retain dependencies on a starter directory. Distinguish
 Job revision from the shared version and every Project's own version.

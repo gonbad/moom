@@ -17,9 +17,9 @@ cross-user resource denial and session expiry recovery.
   and screen transitions to confirmation state matching `design-system.md`.
 
 Keep the **two visual comparisons** separate in `docs/projects/ID/versions/VERSION/`:
-1. **HTML vs React Prototype (`job-prototype`):** Verified at matching viewports, fonts
+1. **HTML vs React Prototype (`prototype`):** Verified at matching viewports, fonts
    and empty/error/filled states before freezing `project/ID/prototype/VERSION`.
-2. **Frozen Prototype vs Integrated App (`job-test`):** Verified side-by-side by running
+2. **Frozen Prototype vs Integrated App (`test`):** Verified side-by-side by running
    the frozen prototype copy on a free port alongside the full-stack app, confirming
    layout parity and zero runtime CDN requests (`cdn.tailwindcss.com` absent).
 

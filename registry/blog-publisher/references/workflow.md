@@ -17,19 +17,19 @@ files under `projects/ID/` and serves local `http://` previews when needed.
 
 | Command | Input artifact | Output artifact | Installed references | Exit evidence | Next |
 | --- | --- | --- | --- | --- | --- |
-| `job-idea` | Selected-version input recorded in `docs/projects/ID/living/status.md` | `docs/projects/ID/living/idea.md`, `roadmap.md` | `workflow.md`, `distribution.md` | Scope, reader problem and source boundaries resolved | `job-brief` |
-| `job-brief` | `docs/projects/ID/living/idea.md` | `docs/projects/ID/living/brief.md` | `workflow.md`, `quality.md` | Audience, thesis, angle and constraints resolved | `job-story` |
-| `job-story` | `docs/projects/ID/living/brief.md` | `docs/projects/ID/living/story.md` | `workflow.md`, `quality.md` | Ordered section hierarchy, actor sequence and evidence map resolved | `job-content` |
-| `job-content` | `docs/projects/ID/living/story.md`, `brief.md`, `idea.md` | `docs/projects/ID/living/content.md` | `workflow.md`, `quality.md` | Complete narrative written with claim-to-source traceability | `job-layout` |
-| `job-layout` | `docs/projects/ID/living/content.md` | `docs/projects/ID/living/layout.md`, `projects/ID/src/` | `workflow.md`, `distribution.md`, `quality.md` | Typography, RTL/LTR isolation and layout built on real text | `job-build` |
-| `job-build` | `docs/projects/ID/living/layout.md`, `projects/ID/src/` | Verified web output, `.md` verification note in version dossier | `workflow.md`, `distribution.md`, `quality.md` | Web build, links, hashes and browser behavior verified | `job-deploy` |
-| `job-deploy` | Verified output and `docs/kandoo/living/server.md` | Delivery summary in `docs/projects/ID/living/status.md` or live receipt | `workflow.md`, `distribution.md`, `infrastructure.md`, `quality.md` | Public origin/aliases verified or explicit hosting deferral recorded | Complete |
+| `idea` | Selected-version input recorded in `docs/projects/ID/living/status.md` | `docs/projects/ID/living/idea.md`, `roadmap.md` | `workflow.md`, `distribution.md` | Scope, reader problem and source boundaries resolved | `brief` |
+| `brief` | `docs/projects/ID/living/idea.md` | `docs/projects/ID/living/brief.md` | `workflow.md`, `quality.md` | Audience, thesis, angle and constraints resolved | `story` |
+| `story` | `docs/projects/ID/living/brief.md` | `docs/projects/ID/living/story.md` | `workflow.md`, `quality.md` | Ordered section hierarchy, actor sequence and evidence map resolved | `content` |
+| `content` | `docs/projects/ID/living/story.md`, `brief.md`, `idea.md` | `docs/projects/ID/living/content.md` | `workflow.md`, `quality.md` | Complete narrative written with claim-to-source traceability | `layout` |
+| `layout` | `docs/projects/ID/living/content.md` | `docs/projects/ID/living/layout.md`, `projects/ID/src/` | `workflow.md`, `distribution.md`, `quality.md` | Typography, RTL/LTR isolation and layout built on real text | `build` |
+| `build` | `docs/projects/ID/living/layout.md`, `projects/ID/src/` | Verified web output, `.md` verification note in version dossier | `workflow.md`, `distribution.md`, `quality.md` | Web build, links, hashes and browser behavior verified | `deploy` |
+| `deploy` | Verified output and `docs/projects/ID/living/server.md` | Delivery summary in `docs/projects/ID/living/status.md` or live receipt | `workflow.md`, `distribution.md`, `infrastructure.md`, `quality.md` | Public origin/aliases verified or explicit hosting deferral recorded | Complete |
 
 ## Why Idea, Brief, Story and Content stay distinct (mini-example)
 
 - **Idea (`idea.md`):** "Write a short private Persian guide for workshop participants whose server is unavailable, using only this Kandoo's verified local-workflow rules; exclude unverified cloud workarounds."
 - **Brief (`brief.md`):** "Reader: non-developer builder on laptop without VPS. Outcome: finish specifications, prototype and offline review cleanly while keeping live server checks marked pending. Tone: calm, practical, zero hype."
-- **Story (`story.md`):** "1. Recognize the trap (faking a pass vs freezing everything) → 2. Record `server: none` honestly in setup → 3. Complete local specs and preview → 4. What waits for `/kandoo-settings` later, with table mapping each claim to its constitution rule."
+- **Story (`story.md`):** "1. Identify the reader's local task → 2. Complete local specs and preview → 3. Record explicit deferral when the Job reaches infrastructure intake → 4. What waits for `/preferences` later, with each claim tied to its constitution rule."
 - **Content (`content.md`):** The full Persian prose implementing those exact four sections in order, with concrete examples and source traceability.
 
 Keep living summaries in `docs/projects/ID/living/` and raw requests plus numbered

@@ -21,3 +21,10 @@ Default to a speaker-led horizontal deck with left/right navigation and a
 verified downloadable offline artifact. Record an explicit override when the requested
 format differs. Online hosting is secondary; a self-contained reading article normally
 belongs to the blog workflow. Preserve keyboard focus inside interactive controls.
+
+Before full assembly, verify the asset plan, required variants/transitions and accepted
+gallery baseline. Compare the original SVG/CSS and representative slide side by side;
+check group pivots and that a slide wrapper did not change accepted behavior. Preserve
+source hashes and any necessary namespacing map. Review final public text and exports
+for unsupported facts, stale time-sensitive copy, placeholders and internal discussion.
+Apply the Constitution's audience-facing-output rule to notes, slides and downloads.

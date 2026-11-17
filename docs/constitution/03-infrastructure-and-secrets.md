@@ -42,21 +42,60 @@ insists on skipping any setup step, record the skipped check and its concrete co
 then continue with the work. Never turn a deferred check into a success claim or a
 bootstrap deadlock. Preserve existing commits; revisit pending setup when relevant.
 
-## Optional server intake
+## Job-owned infrastructure intake
 
-Address server availability early in setup, after the language questions and before
-Job selection. Before any credentials handoff, create or preserve
-`docs/kandoo/secrets/credentials.md`. Verify ignore coverage with `git check-ignore`
-when Git is available, inspect ignore rules otherwise and record that check pending;
-apply owner-only permissions or equivalent Windows ACLs. Never overwrite an existing
-file, even when it appears incomplete. Create a new file in the document language with
-empty fields and this meaning (example scaffold, not real credentials):
+Universal `/start`, `/job` and `/new-project` do not ask about a server, create a
+credentials scaffold or provision infrastructure. Each installed Job declares an
+intake stage: software Jobs use `/architecture`, the publication Job uses `/deploy`,
+and local content Jobs require none. A presentation asks only if hosting is explicitly
+selected at delivery. An explicit `/preferences` request can configure access sooner.
+Earlier stages may record supplied constraints without starting a server questionnaire.
+
+At the owned stage, read `docs/projects/ID/living/server.md` and shared
+`docs/kandoo/living/server.md`. Resolve the Project's target before choosing a database
+route, reading credentials or connecting. Reuse an already explicit selection on resume.
+If unselected, offer in the Project's current numbered review (unless already answered):
+
+- **Reuse an existing configured server**, naming its non-secret identity and current
+  verified/pending capabilities and owner. Read its existing secret reference only
+  after selection; do not ask the participant to copy credentials or silently inherit
+  another Project's target.
+- **Use a new server for this Project.** Record non-secret facts and its ledger in
+  `docs/projects/ID/living/server.md`; use the Project's ignored credentials file.
+  Keep shared facts and other Projects unchanged. Promoting a target to shared scope
+  requires an explicit scope choice; the first Project is not automatically shared.
+- **Continue locally / defer hosting.** Record this Project's `none`/deferred choice
+  and pending dependent work, leaving every shared/live target intact. Never require
+  a server purchase for independent local work.
+
+For reuse discovery, inspect only non-secret current server records, including a
+prior Project's `living/server.md`; do not scan its inputs, historical versions or
+credentials. Offer identified existing targets with their owner. After explicit
+selection, link to that owner's facts, ledger and existing secret reference instead
+of copying secrets. A Project-owned target may be reused by another Project only with
+that explicit choice; this does not promote it to shared scope or change its routes.
+Each consumer records its own allocations, and the target owner's ledger tracks all
+consumers so ports/volumes remain unique. Never mutate an owning Project's other work.
+
+Only offer reuse when a real identified target exists. A review's submitted blank may
+delegate local deferral or a recommendation, but cannot authorize remote access or
+deployment. `unselected` is not `none`; merely finding an empty credential file is not
+an answer. Partial/promised access stays pending. Record target identity, ownership
+(`shared` or an identified owning Project), secret-reference path, selected delivery mode and actual
+verification evidence. Keep setup permission and live deployment permission distinct.
+
+Create or preserve the correctly scoped ignored Markdown file **only when access is
+needed and the person is being asked to supply it**: `docs/kandoo/secrets/credentials.md`
+for explicit shared scope, or `docs/projects/ID/secrets/credentials.md` for Project scope.
+Verify `git check-ignore` when available (otherwise inspect rules and mark verification
+pending), apply owner-only permissions/Windows ACLs, and preserve existing content.
+Use empty fields in the document language; never put secrets in chat or question rounds:
 
 ```markdown
-# Optional shared access
+# Selected server access
 
-Leave these fields empty if you have no server for now; setup will continue.
-If you have a server, enter its access details here, never in chat or a review file.
+Enter access details only for the server selected in the owning living server document.
+Missing fields mean access is pending. Ask to defer if local work should continue.
 
 - Host / public IPv4:
 - SSH user:
@@ -65,37 +104,34 @@ If you have a server, enter its access details here, never in chat or a review f
 - Initial credential or local key reference:
 ```
 
-Explain the optional-file convention before continuing: when the participant continues
-with an untouched scaffold and no supplied/promised server, set server, DNS, TLS and
-proxy to `none`, with checks not needed. No file-submission gate or repeated prompts
-are required, and a request to continue is sufficient. Merely creating a blank file
-does not answer a question the person has not yet seen. An explicit deferral is also valid. If a
-server is promised or partially supplied, retain that intent and mark missing access
-pending; ask only for what is needed or continue independent work. A missing/empty
-file in a configured workspace does not remove saved server facts or deployed services.
-This convention does not turn other silence, unsubmitted reviews or failed checks into
-success. Never require a server purchase for local-only work. Use `/kandoo-settings`
-to supply access or change infrastructure later. Create the scaffold during actual
-setup, never as participant state shipped inside the pristine template.
+A missing local file on a configured checkout means missing local access, not removal
+of the server or permission to overwrite a working credential. `/preferences` uses
+this same scoped procedure. No participant secret file ships in the pristine template.
 
 ## Server verification and later changes
 
-With a newly supplied server, perform this sequence. Later settings changes reuse
+With an explicitly selected newly supplied server, perform this sequence within
+existing authorization. Resolve choices in the owning version's file review; do not
+re-ask supplied answers. Perform DNS/TLS when a public route is needed and the forward
+proxy when needed for access; record not-needed capabilities honestly. Later settings changes reuse
 verified facts and execute only affected checks; a domain-only change does not need
 new keys, a new proxy or unrelated Project deployment:
 
 1. Collect host, actual public IPv4, SSH user/port and initial access method. Have the
    participant record credentials only in the already-created, gitignored
-   `docs/kandoo/secrets/credentials.md`,
+   shared or Project `docs/.../secrets/credentials.md` selected above,
    never in a question file, logs or chat. Verify the
    host fingerprint through trusted provider information; do not disable host checking.
    Prove login, provision a dedicated local SSH key if needed, install only its public
    key, and test unattended login with that identity before retiring initial access.
    Preserve existing authorized keys and access. Retain that key for future operations.
 2. Inventory services, firewalls and occupied ports before changing anything. Record
-   shared server facts and a port/deployment ledger in `docs/kandoo/living/server.md`.
-   Every Project uses distinct deployment IDs, ports and persistent volumes. Project
-   docs describe its allocations and only explicit overrides of the shared server.
+   facts and a port/deployment ledger in the selected target's owning living server
+   document. Every Project uses distinct deployment IDs, ports and persistent volumes.
+   For a reused server, link its identity and record this Project's allocations
+   in both its own selection record and the target owner's ledger. For a new
+   Project-owned server, retain its full facts locally. Inventory the actual host and active local forwarding
+   ports; different aliases for one host do not create separate port namespaces.
 3. Ask whether the person has a domain. With one, verify the intended A record points
    to the actual IPv4; fix DNS through scoped Cloudflare access or provide exact manual
    type/name/value instructions. Check conflicting AAAA records and propagation.
@@ -134,7 +170,7 @@ every level using `**/secrets/`, `*.local.md`, `.env*` and key patterns. Apply o
 permissions or equivalent Windows ACLs. Participant-entered or participant-read secrets
 live in gitignored Markdown files inside `docs/`: `docs/kandoo/secrets/credentials.md`
 for shared infrastructure and `docs/projects/ID/secrets/credentials.md` for Project
-tokens, test identities and admin access notes (never unscoped `docs/secrets/`). The
+server access, tokens, test identities and admin access notes (never unscoped `docs/secrets/`). The
 assistant generates runtime `.env` or key files inside `projects/ID/` as needed without
 referring the participant to non-`.md` files or paths outside `docs/`, and never prints
 secret values in chat, question files or logs. Living docs contain non-secret variable
@@ -150,7 +186,7 @@ addresses. Software Jobs default to PostgreSQL/Redis on the participant's VPS us
 Compose (or local Docker on macOS/Linux when server setup is deferred), native SSH
 forwarding for local development and reverse SSH for webhooks when supported. Never
 offer SQLite on a production server or when PostgreSQL is available; **only when the
-participant brought no server (`none`/deferred) AND is on Windows** may `job-plan`
+Project explicitly selected no server (`none`/deferred) AND the participant is on Windows** may `architecture`
 offer project-scoped SQLite (`projects/ID/data/`) as an explicit last-resort local
 fallback, recording that PostgreSQL migration and live DB verification remain pending
 before any server deployment. When an external dependency fails (design chat, package

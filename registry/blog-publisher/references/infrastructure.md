@@ -1,10 +1,20 @@
 # Static publication infrastructure
 
-Read shared `docs/kandoo/living/server.md` and the infrastructure/secrets Constitution.
-Local-only delivery requires no server. For hosting, reuse verified SSH identity, DNS,
-HTTPS and proxy facts; record only this publication's allocations and overrides.
-Inventory existing sites first. Use a dedicated release directory and service identity;
-serve only compiled public output with a known origin and immutable release receipts.
+At `/deploy`, read `docs/projects/ID/living/server.md`, the infrastructure/secrets
+Constitution and relevant publication records. If hosting is selected and target is
+unselected, offer reuse of an identified existing server, a new Project-specific server,
+or local deferral. Reuse settled choices; earlier local stages do not ask about servers.
+Shared access facts/credentials remain in Kandoo docs; Project-owned access facts and
+credentials remain in that Project's docs. Inventory actual sites/ports before allocation.
+
+Resolve **publication scope** too: participation in a shared Journal uses its existing
+origin/index/release rules; an independent Project site uses its own origin and includes
+only selected public files. A new Project-specific target cannot silently replace the
+shared origin, publish the entire Journal or move other Projects. If the existing build
+only supports a combined Journal, keep it private until a scoped build/receipt exists
+or the owner explicitly selects the shared publication target. Record origin-dependent
+links and re-run build verification if choosing the target changes their values.
+Serve only compiled output under a dedicated release directory and service identity.
 
 A typical release tree is `releases/RELEASE_ID/` plus an atomic `current` symlink.
 Upload the verified file inventory, compare hashes, switch, then verify public entry

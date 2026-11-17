@@ -7,18 +7,21 @@ the only folder exception outside `docs/` is pasting an existing product into
 `projects/ID/existing/` or external design files into `projects/ID/design/`). Save file
 edits, then say `done` / `نوشتم` in chat.
 
-Initial `/moom-start` preferences are the exception: answer one question at a time in
+Initial `/start` preferences are the exception: answer one question at a time in
 chat, beginning with conversation language, then document language. The assistant
 saves the answers; no setup-question file or summary submission is required. The
-optional server credentials file is created before you are asked to use it, and a
-fresh empty scaffold permits setup without a server. Never send credentials in chat.
-File-based intake begins with `/moom-job`. Change shared settings later through
-`/kandoo-settings`; explicit setting requests need no repeated answer form.
+available starter catalog is shown after setup. `/job IDENTIFIER` installs a prepared
+Job directly; `/job` without an identifier begins custom file-based definition.
+The first Project step collects its actual subject. Infrastructure questions and ignored
+credential files occur only at the Job's declared stage or an explicit settings request.
+Never send credentials in chat. Change settings later through
+`/preferences`; explicit setting requests need no repeated answer form.
 
 - [Current status and next action](kandoo/living/status.md)
 - [Profile and language preferences](kandoo/living/profile.md)
 - [Shared server and proxy status](kandoo/living/server.md)
 - [The current Job](kandoo/living/job.md)
+- [Command names and collision checks](kandoo/command-names.md)
 - [Initial Job input](kandoo/versions/0.1/00-job-input.md)
 - [Project dossiers](projects/README.md)
 - [Binding Constitution](constitution/00-kandoo-principles.md),

@@ -7,10 +7,14 @@ Per-Project `living/status.md` retains its selected version, Job revision, progr
 review state and next action; shared status mirrors the active Project only.
 
 Canonical workspace commands are `docs/kandoo/commands/NAME.md`; canonical Job
-commands are `docs/kandoo/living/commands/job-STEP.md`. Every file begins with YAML
+commands are `docs/kandoo/living/commands/STEP.md`. Every file begins with YAML
 frontmatter containing `name: NAME` and a concise `description`, followed by Markdown.
-There is one current Job, so names are short `job-STEP`, not Job-name-qualified and
-never unprefixed names such as `model`. All procedure paths mean workspace-root
+There is one current Job, so commands have descriptive unprefixed names such as
+`idea`, `visuals` and `architecture`. Do not add a framework or Job prefix.
+Before creating or renaming a command, read `docs/kandoo/command-names.md`: exclude
+the union of all supported hosts' native names, all core workspace names and installed
+user/plugin commands. `model`, `plan`, `design` and `settings` are reserved collisions,
+not valid Job names. Save any chosen safe mapping in the living Job. All procedure paths mean workspace-root
 paths, independent of the host file's directory. Route supporting references through
 the installed Job so copying commands does not break relative links.
 
@@ -28,13 +32,14 @@ The assistant runs native `mkdir` and `cp` or `New-Item` / `Copy-Item` equivalen
 no wrapper generator is needed. For example, from the workspace root:
 
 ```sh
-mkdir -p .claude/commands .opencode/commands .agents/skills/job-idea
-cp docs/kandoo/living/commands/job-idea.md .claude/commands/job-idea.md
-cp docs/kandoo/living/commands/job-idea.md .opencode/commands/job-idea.md
-cp docs/kandoo/living/commands/job-idea.md .agents/skills/job-idea/SKILL.md
+mkdir -p .claude/commands .opencode/commands .agents/skills/idea
+cp docs/kandoo/living/commands/idea.md .claude/commands/idea.md
+cp docs/kandoo/living/commands/idea.md .opencode/commands/idea.md
+cp docs/kandoo/living/commands/idea.md .agents/skills/idea/SKILL.md
 ```
 
-Check equality afterwards. Remove only owned obsolete command copies on a rename;
+Check equality afterwards; keep already identical files unchanged. Synchronize only
+missing or changed owned copies. Remove only owned obsolete command copies on a rename;
 preserve unrelated user commands and resolve a collision before overwriting it.
 After installing, renaming or deleting commands, instruct the person to **close and
 reopen the AI host**. This is mandatory after Job definition. The `/NAME` notation
@@ -50,8 +55,8 @@ During setup, create Project 1 and verify its state before removing registry or 
 canonical bootstrap source under `docs/`. Retain the installed bootstrap host copies
 as recovery entry points; on a configured workspace they route to saved status without
 reading deleted canonical sources or reinstalling a catalog. Ordinary tasks use the
-six `kandoo-*` commands (`kandoo-new-project`, `kandoo-switch`, `kandoo-add-idea`,
-`kandoo-iterate`, `kandoo-issue`, `kandoo-settings`) and the current `job-*` commands.
+six permanent workspace commands (`new-project`, `switch-project`, `add-idea`,
+`iterate`, `issue`, `preferences`) and the current Job step commands.
 Never delete the executing host command to clean up setup.
 
 Expand three plain-language path aliases consistently for every active Project:
@@ -76,9 +81,12 @@ Projects use `00-idea-input.md`; planned iterations use `00-iteration-input.md`;
 repair version may use its `NN-issue.md`. Job commands read that recorded input and
 the current living summaries, never require a first-version input file in a later
 version, and never scan closed versions to find one. Existing versions without this
-field resolve it from their selected dossier once and save the path. Follow only the
-affected steps selected for an iteration, preserving the current Job's full ordered
-progress display with reasons for unaffected steps.
+field resolve it from their selected dossier once and save the path. Follow the affected steps selected for an iteration and assess each downstream
+dependency before reusing it. Record `invalidated`, `satisfied by existing evidence`
+or `not applicable` with reasons; rebuild only invalidated work. Preserve the full
+ordered progress display with reasons for unaffected steps. A method change reports
+the changed rule/revision, affected Project(s), invalidated evidence and next action;
+it does not imply rebuilding other Projects or erasing their accepted outputs.
 
 Qualify Git prototype and release tags by Project and version (for example
 `project/001-demo/prototype/0.1` and `project/001-demo/release/0.1`) and never replace
@@ -91,18 +99,18 @@ hashes in Project status, with its acceptance evidence. If refinement creates a 
 baseline, update that record after acceptance; later comparisons resolve this record
 instead of constructing a tag from the Project version or using an earlier baseline.
 
-`kandoo-add-idea`, `kandoo-iterate` and `kandoo-issue` accept conversational intake in
+`add-idea`, `iterate` and `issue` accept conversational intake in
 chat and resolve scope across Active Project, Kandoo/Job, or Both (creating linked
-items with distinct ownership when Both applies). `kandoo-add-idea` banks ideas into
+items with distinct ownership when Both applies). `add-idea` banks ideas into
 `roadmap.md` without changing the active step or implying implementation approval.
-`kandoo-iterate` opens a **planned new version**, preserving the previous version and
+`iterate` opens a **planned new version**, preserving the previous version and
 output. First version `0.1` runs the full pipeline; later versions run an explicitly
-selected affected subset, showing untouched steps as skipped. `kandoo-issue` diagnoses
+selected affected subset, showing untouched steps as skipped. `issue` diagnoses
 a **concrete defect**, preserves reproduction and expected/actual results, resolves its
 owner, then fixes and verifies only that scope; a closed version is never edited to
 hide a defect. All floating commands apply the four-domain check and certainty protocol.
 
-`kandoo-settings` handles shared preferences, Git and infrastructure using existing
+`preferences` handles shared preferences, Git and explicitly scoped infrastructure using existing
 facts and only affected checks. Apply explicit requests directly; unresolved non-obvious
 choices use the shared file-review protocol. Preserve the active Project and its
 pipeline, and resume its saved action after the settings work.
@@ -171,7 +179,7 @@ Review example:
 
 Apply this contract both when bootstrap creates Project 1 and for every later Project.
 Use a supplied topic/name immediately; accept it alongside a command or in ordinary
-conversation. For example: `kandoo-new-project — an interactive astronomy article`.
+conversation. For example: `new-project — an interactive astronomy article`.
 If no topic is known, use a provisional slug and explain in the first handoff that
 idea review will resolve it. Keep the numeric prefix stable and record the display
 title separately. Once the idea is known, derive a descriptive ASCII slug; review only
@@ -194,7 +202,14 @@ one exact next action. Do not require another approval just to provide intake fo
 ## Shared maintenance
 
 Use [the maintenance guide](../kandoo/maintenance.md) to route Git remote changes,
-languages, domains, method changes and publication removal. `/kandoo-settings` handles
+languages, domains, method changes and publication removal. `/preferences` handles
 preferences, Git and infrastructure; ordinary language is also sufficient.
 Shared work preserves the selected Project and its saved pipeline; only affected
 checks and artifacts are changed. Previously granted authorization remains valid.
+
+## Setup catalog exception
+
+At the end of `/start`, show the actual available named-starter invocations and the
+custom `/job` option. This selection menu is required and precedes the progress block;
+the single last action asks the person to select one. Other handoffs retain one concrete
+next action. Never list planned starters or restore a registry after finalization.

@@ -15,10 +15,10 @@ artifacts under `projects/ID/` and serves local `http://` previews when needed.
 
 | Command | Input artifact | Output artifact | Installed references | Exit evidence | Next |
 | --- | --- | --- | --- | --- | --- |
-| `job-idea` | Selected-version input recorded in `docs/projects/ID/living/status.md` | `docs/projects/ID/living/idea.md`, `roadmap.md` | `workflow.md`, `slides.md` | Audience, talk promise, format and sources resolved | `job-outline` |
-| `job-outline` | `docs/projects/ID/living/idea.md` | `docs/projects/ID/living/outline.md`, `design.md` | `workflow.md`, `slides.md` | Beat sequence, timings, notes and visual system resolved | `job-build` |
-| `job-build` | `docs/projects/ID/living/outline.md`, `design.md` | `projects/ID/src/`, `projects/ID/dist/`, `.md` check summary in version dossier | `workflow.md`, `slides.md`, `quality.md` | Local/offline deck built and navigation/typography verified | `job-deploy` |
-| `job-deploy` | Verified deck and `docs/kandoo/living/server.md` | Delivery summary in `docs/projects/ID/living/status.md` or live receipt | `workflow.md`, `quality.md` | Speaker review resolved; local delivery or authorized hosting verified | Complete |
+| `idea` | Selected-version input recorded in `docs/projects/ID/living/status.md` | `docs/projects/ID/living/idea.md`, `roadmap.md` | `workflow.md`, `slides.md` | Audience, talk promise, format and sources resolved | `outline` |
+| `outline` | `docs/projects/ID/living/idea.md` | `docs/projects/ID/living/outline.md`, `design.md`, `assets.md` | `workflow.md`, `slides.md`, `visuals.md` | Beat sequence, timings, notes, asset plan and visual system resolved | `build` |
+| `build` | `docs/projects/ID/living/outline.md`, `design.md`, `assets.md` | `projects/ID/src/`, `projects/ID/dist/`, `.md` check summary in version dossier | `workflow.md`, `slides.md`, `visuals.md`, `quality.md` | Required assets/gallery and representative slide accepted; local/offline deck and navigation verified | `deploy` |
+| `deploy` | Verified deck; Project server selection only for explicit hosting | Delivery summary in `docs/projects/ID/living/status.md` or live receipt | `workflow.md`, `quality.md` | Speaker review resolved; local delivery or authorized hosting verified | Complete |
 
 ## Why Idea and Outline stay distinct (mini-example)
 

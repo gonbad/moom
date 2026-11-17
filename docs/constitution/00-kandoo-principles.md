@@ -51,3 +51,26 @@ existing evidence` or `not applicable` with concrete reasons. Never retrospectiv
 mark new steps accepted or rebuild old outputs automatically. Preserve accepted output.
 Job revisions, Project versions, shared Kandoo versions and question-round numbers are
 independent. Keep authorization, technical readiness and human acceptance separate.
+
+## Audience-facing output
+
+Every Job produces public text, screens, slides, narration, subtitles and captions
+from the current accepted brief and source facts. The result must stand alone for its
+audience. Keep rejected alternatives, agent conversations, approval mechanics, internal
+revision history, private notes and irrelevant implementation details in the owning
+Project docs. Do not explain a new decision by announcing what an earlier draft said
+(for example, a two-day event is simply described by its current schedule). A change
+history belongs in the output only when that history is itself part of the requested
+subject. Practical product details stay when they help the audience use or decide.
+
+Track claims such as dates, prices, names, registration windows, availability and URLs
+to supplied evidence. Unresolved placeholders may exist in a marked internal preview,
+but cannot pass as final publishable copy. Keep on-screen copy, narration, subtitles,
+speaker notes and post captions as distinct channels with deliberate approved overlap.
+Review each exported channel, not only the development preview.
+
+Promote general lessons into the Job; keep a Project's characters, brand, event facts
+and format choices in that Project unless explicitly adopted as a reusable method.
+Review source fidelity, technical correctness, human artifact acceptance and actual
+delivery separately. Preserve earlier accepted artifacts and record what a revision
+invalidates before replacing a release.

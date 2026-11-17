@@ -1,7 +1,7 @@
 # Independent Project dossiers
 
 The first Project is created and selected automatically when the Job is installed.
-Use `kandoo-new-project` for later instances and `kandoo-switch` to resume another.
+Use `new-project` for later instances and `switch-project` to resume another.
 
 Each `ID` owns document root `docs/projects/ID/` (`living/`, selected version dossier
 `versions/VERSION/` starting at `versions/0.1/00-idea-input.md`, and gitignored
@@ -10,8 +10,10 @@ vault for code, pasted `existing/` or `design/` bundles, data and compiled outpu
 `living/status.md` retains selected version, recorded Job revision, ordered step states,
 pending review and one next action; `living/idea.md` is always maintained with current
 understood scope. Never reuse another Project's input, prompts, contracts, credentials,
-Git tags, deployment ports or output. Shared server details belong to Kandoo unless
-this Project overrides them.
+Git tags, deployment ports or output. `living/server.md` records this Project's
+explicit target selection. Shared servers retain shared facts; a Project-owned server
+retains its own facts and credentials. A new Project starts unselected for hosting
+or none for a wholly local Job, without silently inheriting another target.
 
 The initial idea input links the selected dossier's `sources/notes.md` and
 `living/sources.md` inventory. Reuse source files already supplied. A provisional

@@ -20,28 +20,28 @@ The coding assistant reads the procedures and works with your computer's native 
    subfolder as an Obsidian vault; [the vault home](docs/README.md) explains the layout.
    Every file you read or write lives as Markdown inside `docs/` (the only folder
    exception is pasting an existing codebase or external design files when requested).
-3. Run `/moom-start` (Codex CLI: `$moom-start`; desktop slash/dollar picker;
+3. Run `/start` (Codex CLI: `$start`; desktop slash/dollar picker;
    Antigravity: select or mention the skill). Ordinary language
    also works. Answer setup preferences **in chat, one question at a time**: first
    conversation language in English/Persian (English recommended), then document
    language in your chosen chat language. The assistant detects tools and reuses Git
-   identity/access; you need not choose a single AI host. Early in setup it creates
-   the optional ignored server-credentials Markdown file before referring you to it.
-   Leaving a fresh scaffold empty means no server for now and allows work to continue.
-   With a server, setup verifies SSH, a domain or free `nip.io` hostname, public HTTPS
-   and an authenticated proxy. Secrets always stay out of chat.
-4. Run `/moom-job`; **file-based intake begins here**. Describe your repeated work
-   in the provided file, save it, then
-   say `done` / `نوشتم`. Use, adapt or replace any [starter](registry/README.md).
-   Question rounds distinguish your confirmed choices from provisional delegation.
+   identity/access; you need not choose a single AI host. Setup finishes by listing
+   the actual available starters with their exact selection commands. Server intake
+   belongs only to the Job stage that needs it; local content work needs none.
+4. Choose a prepared Job directly, for example `/job motion-maker` or
+   `/job presentation-maker` (Codex: `$job motion-maker`). This installs the exact
+   starter without Job-definition questions. Or run `/job` without an identifier
+   to describe repeated work in the provided Markdown input, save it and say
+   `done` / `نوشتم`. That custom path can use, adapt or replace any
+   [starter](registry/README.md), with confirmed choices and provisional delegation.
 5. The assistant installs your Job, creates and verifies Project 1 from your input,
    removes the catalog and canonical bootstrap documents, and replaces this README with
-   your Kandoo's guide. Close and reopen the AI host, then run its first `job-*` step.
+   your Kandoo's guide. Close and reopen the AI host, then run its first Job step.
 
 Claude Code and OpenCode read `.claude/commands/NAME.md` and
 `.opencode/commands/NAME.md`. Codex and Antigravity share
 `.agents/skills/NAME/SKILL.md`. These are identical copies of canonical Markdown,
-including `name` and `description` frontmatter. The six `kandoo-*` workspace commands
+including `name` and `description` frontmatter. The six permanent workspace commands
 are pre-synced too, and become usable when setup is complete. Job commands are installed
 at finalization. Codex CLI uses `$NAME`, and Codex desktop accepts slash/dollar selection.
 Claude Code/OpenCode use `/NAME`. Antigravity uses skill selection or mentions, with
@@ -50,11 +50,14 @@ recovery handoffs and never reinstall the catalog.
 You may perform different steps in different hosts. Each session resumes the saved
 preferences and Project state; it does not repeat setup or regenerate the Job.
 
-Later, `/kandoo-new-project` creates and selects the next independent Project;
-`/kandoo-switch` resumes one; `/kandoo-add-idea` banks an idea for the Project, Kandoo
-or both without interrupting work; `/kandoo-iterate` opens a planned version;
-`/kandoo-issue` handles a defect; `/kandoo-settings` changes languages, workspace
+Later, `/new-project` creates and selects the next independent Project;
+`/switch-project` resumes one; `/add-idea` banks an idea for the Project, Kandoo
+or both without interrupting work; `/iterate` opens a planned version;
+`/issue` handles a defect; `/preferences` changes languages, workspace
 preferences, Git backup or shared infrastructure while preserving Project progress.
+Commands are unprefixed; [reserved names](docs/kandoo/command-names.md) prevent
+collisions with host commands. `/architecture` is a technical planning step and
+`/visuals` is visual design; host-native commands keep their own meanings.
 The Job can evolve during real work. Every response has progress and one next action.
 
 This source contains only Markdown and a root `.gitignore`, apart from Git metadata.

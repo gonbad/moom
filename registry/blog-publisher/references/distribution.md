@@ -42,10 +42,16 @@ material is an actionable failure, not permission to rebuild it from upstream.
 
 ## Publication and rollback
 
-Use the shared authorized origin and supported aliases, service identity and paths.
+Resolve the explicitly selected publication scope and server target. A shared Journal
+uses its authorized shared origin/index and release selection; an independent Project
+site uses its own origin and only its verified public inventory. Never deploy the whole
+Journal to a new Project-specific server or overwrite the shared origin implicitly.
+Use the selected origin and supported aliases, service identity and paths.
 Verify public HTTPS pages, assets, release hashes and intentional downloads at every
-supported hostname; preserve an immutable receipt in the shared version dossier.
-Record DNS, routing and TLS changes in shared settings. Do not treat a preview or
+supported hostname; preserve an immutable receipt in the owning shared or Project dossier.
+Record DNS, routing and TLS changes with the selected target's owner. If choosing the
+target changes canonical URLs or build selection, rebuild and verify before activation.
+Do not treat a preview or
 local check as live deployment or human acceptance. An explicit hosting deferral is
 valid and retains the working local preview. Unlisting, unpublishing and deleting
 source are distinct operations described in the workspace maintenance guide.
