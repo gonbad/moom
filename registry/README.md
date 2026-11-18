@@ -5,7 +5,8 @@ new Job. These paths are equal during custom definition. `/job IDENTIFIER` inste
 copies the selected prepared starter exactly, with no method-definition questions. Desired format, orientation, style, output and step
 changes always take precedence over examples. Evolve the method during real Projects.
 All procedures are Markdown; no scripts, manifests, assets or source-repository origin
-metadata are required. Install/adapt every needed command and reference into the
+metadata are required. Each starter has reusable English and Persian idea pages in `project-input/`.
+Install its method, references and both intake pages locally in the
 Kandoo before deleting this entire bootstrap catalog.
 
 - [film-maker](film-maker/job.md): Guide a first-time filmmaker from script, editable narration prompt and recording per sequence through a voiced storyboard and representative shot to finished sequences and a verified MP4.

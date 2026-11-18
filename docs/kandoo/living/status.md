@@ -5,6 +5,7 @@
 - Bootstrap Job definition: todo
 - Job selection mode: unselected
 - Selected starter identifier / revision / source hashes: none
+- Reserved first Project ID: none
 - Finalization checklist: not started
 - Active scope: bootstrap start
 - Shared open version: 0.1

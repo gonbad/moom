@@ -87,7 +87,9 @@ make Job selection current.
 ## Show the available choices
 
 Read the actual local `registry/README.md` and enumerate immediate starter directories
-that have a readable `job.md` and all commands/references it requires. Cross-check the
+that have a readable `job.md`, its declared commands and references, and both
+`project-input/en.md` and `project-input/fa.md`. Check that the shared Project forms
+are present before offering a named install. Cross-check the
 catalog against those files. Show each available identifier, a one-line description
 from its Job, and the exact invocation for the current host. Never hardcode a starter
 count or show a planned/missing starter as available. Report a damaged entry separately;
