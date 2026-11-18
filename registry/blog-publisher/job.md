@@ -2,7 +2,7 @@
 
 Publish self-contained articles, guides and papers for independent readers, with online URLs and vertical scrolling by default.
 
-Job revision: 0.6
+Job revision: 0.7
 
 This is an adaptable initial base. Change any step, format or style to fit the
 participant’s exact work, including while doing a real Project. No fixed schema,
@@ -59,3 +59,5 @@ a new Project-specific server, or local/private deferral, using the infrastructu
 Constitution. Drafting and local build need no server. A Project-specific target does
 not replace the shared publication origin or move any other Project. Record an explicit
 publication scope and corresponding origin before preparing a public release.
+
+Use the [Project intake guide](bootstrap.md) to prepare a new Project and explain where to put its idea and materials.

@@ -44,7 +44,7 @@ bootstrap deadlock. Preserve existing commits; revisit pending setup when releva
 
 ## Job-owned infrastructure intake
 
-Universal `/start`, `/job` and `/new-project` do not ask about a server, create a
+Universal `/start`, `/pick-job`, `/create-job` and `/new-project` do not ask about a server, create a
 credentials scaffold or provision infrastructure. Each installed Job declares an
 intake stage: software Jobs use `/architecture`, the publication Job uses `/deploy`,
 and local content Jobs require none. A presentation asks only if hosting is explicitly

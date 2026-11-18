@@ -2,7 +2,7 @@
 
 Create speaker-led, horizontal presentations with left/right navigation and downloadable offline delivery by default; hosting is optional.
 
-Job revision: 0.5
+Job revision: 0.6
 
 This is an adaptable initial base. Change any step, format or style to fit the
 participant’s exact work, including while doing a real Project. No fixed schema,
@@ -51,3 +51,5 @@ Keep the four visible stages; visual preparation is explicit work inside build.
 Reuse accepted SVG/CSS exactly and verify source-to-slide fidelity. No server intake
 belongs to idea, outline or local build/delivery. Only an explicit hosting choice at
 `/deploy` invokes the scoped infrastructure procedure.
+
+Use the [Project intake guide](bootstrap.md) to prepare a new Project and explain where to put its idea and materials.

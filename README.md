@@ -28,15 +28,16 @@ The coding assistant reads the procedures and works with your computer's native 
    identity/access; you need not choose a single AI host. Setup finishes by listing
    the actual available starters with their exact selection commands. Server intake
    belongs only to the Job stage that needs it; local content work needs none.
-4. Choose a prepared Job directly, for example `/job motion-maker` or
-   `/job presentation-maker` (Codex: `$job motion-maker`). This installs the exact
-   starter without Job-definition questions. Or run `/job` without an identifier
+4. Choose a prepared Job directly, for example `/pick-job motion-maker` or
+   `/pick-job presentation-maker` (Codex: `$pick-job motion-maker`). This installs the exact
+   starter without Job-definition questions. Or run `/create-job`
    to describe repeated work in the provided Markdown input, save it and say
    `done` / `نوشتم`. That custom path can use, adapt or replace any
    [starter](registry/README.md), with confirmed choices and provisional delegation.
 5. The assistant installs your Job, creates and verifies Project 1 from your input,
    removes the catalog and canonical bootstrap documents, and replaces this README with
-   your Kandoo's guide. Close and reopen the AI host, then run its first Job step.
+   your Kandoo's guide. Use the idea page and optional material locations it shows
+   you. Once saved, close and reopen the same workspace, then run the first Job step.
 
 Claude Code and OpenCode read `.claude/commands/NAME.md` and
 `.opencode/commands/NAME.md`. Codex and Antigravity share

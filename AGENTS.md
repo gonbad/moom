@@ -55,8 +55,8 @@ Do not append any prose after the single next-action line. Use the examples in t
 workflow constitution; no progress validator or host hook is required.
 
 Universal setup is local: no server questions or credentials scaffold. `/start`
-shows the actual catalog; `/job IDENTIFIER` installs its exact starter without method
-Q&A. Custom `/job` keeps file intake. Read `docs/kandoo/command-names.md` before
+shows the actual catalog; `/pick-job IDENTIFIER` installs its exact starter without method
+Q&A. Use the installed bootstrap to show intake paths before restart. Custom `/create-job` keeps file intake. Read `docs/kandoo/command-names.md` before
 authoring/renaming commands. Infrastructure intake and target choice belong to the
 Job's declared stage. Enforce the Constitution's audience-facing-output rule in every
 Job and review exported channels separately from internal preview controls.

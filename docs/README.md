@@ -4,15 +4,17 @@ Open this `docs/` folder as an Obsidian vault; open its parent in the AI host.
 The assistant runs technical operations. Everything you open, read or write is a `.md`
 file inside `docs/` (including gitignored `secrets/credentials.md` folders when needed;
 the only folder exception outside `docs/` is pasting an existing product into
-`projects/ID/existing/` or external design files into `projects/ID/design/`). Save file
-edits, then say `done` / `نوشتم` in chat.
+`projects/ID/existing/` or external design files into `projects/ID/design/`). Submit a numbered review or custom Job intake by saving it and saying
+`done` / `نوشتم` in chat. For the initial Project idea, save and invoke the first Job
+command when ready.
 
 Initial `/start` preferences are the exception: answer one question at a time in
 chat, beginning with conversation language, then document language. The assistant
 saves the answers; no setup-question file or summary submission is required. The
-available starter catalog is shown after setup. `/job IDENTIFIER` installs a prepared
-Job directly; `/job` without an identifier begins custom file-based definition.
-The first Project step collects its actual subject. Infrastructure questions and ignored
+available starter catalog is shown after setup. `/pick-job IDENTIFIER` installs a prepared
+Job directly; `/create-job` begins custom file-based definition.
+Save the Project idea and optional materials in the locations shown before reopening
+the host and invoking the first step. Supplied material carries forward. Infrastructure questions and ignored
 credential files occur only at the Job's declared stage or an explicit settings request.
 Never send credentials in chat. Change settings later through
 `/preferences`; explicit setting requests need no repeated answer form.

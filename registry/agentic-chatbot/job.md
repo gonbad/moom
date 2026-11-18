@@ -2,7 +2,7 @@
 
 Build model-directed conversational tools only when a simpler bot is insufficient, with caller-scoped authority, explicit policies and enforced budgets.
 
-Job revision: 0.6
+Job revision: 0.7
 
 This is an adaptable initial base. Change any step, format or style to fit the
 participant’s exact work, including while doing a real Project. No fixed schema,
@@ -62,3 +62,5 @@ route. Offer reuse of an identified existing target, a new Project-specific serv
 local deferral using the infrastructure Constitution. Earlier steps need no server
 question. Resume the saved Project selection on later commands; `/deploy` verifies
 that selected target and its authorization, never inferring it from another Project.
+
+Use the [Project intake guide](bootstrap.md) to prepare a new Project and explain where to put its idea and materials.

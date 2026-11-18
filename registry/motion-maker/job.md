@@ -3,7 +3,7 @@
 Create a short motion graphic from a scene-by-scene story, reviewed reusable visuals
 and an accepted local HTML animation, then render and dub only when requested.
 
-Job revision: 0.1
+Job revision: 0.2
 
 This is an evolving method, not a fixed visual style or a particular event campaign.
 Keep characters, brand, language, aspect ratio, duration and publishing facts in each
@@ -55,3 +55,5 @@ exports are generated inside `projects/ID/`. The assistant serves local previews
 performs technical work. Source fidelity, functional tests, human acceptance and
 delivery each have their own evidence. Do not promise a finished workshop-quality
 result until a real representative Project has been rehearsed and accepted.
+
+Use the [Project intake guide](bootstrap.md) to prepare a new Project and explain where to put its idea and materials.

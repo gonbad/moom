@@ -1,7 +1,7 @@
 # File review and certainty
 
 The certainty and evidence rules apply to every task. File-based intake/review starts
-with `/job` and applies to later Job steps, planned iterations, issue fixes,
+with `/create-job` and applies to later Job steps, planned iterations, issue fixes,
 shared infrastructure, ordinary requests and method changes, with the setup exception
 below. Read the owning living docs and current open version before asking again;
 prior answers and authorization persist.
@@ -19,9 +19,11 @@ silence remains pending. Credentials remain in ignored Markdown, never in chat.
 Universal setup has no server question or credentials scaffold. Infrastructure
 intake occurs only at the installed Job's declared stage or an explicit settings request.
 
-`/job IDENTIFIER` installs an exact prepared starter without Job-definition intake
-or a question round. Its first Project step begins normal Project intake. `/job`
-without an identifier retains the custom file workflow below. This exception removes
+`/pick-job IDENTIFIER` installs an exact prepared starter without Job-definition intake
+or a question round. After preparing Project 1, show its intake locations before
+restart. Invoking its first command requests reading the initial idea and sources.
+Numbered rounds still require explicit submission. `/create-job` retains the
+custom file workflow below. This exception removes
 redundant method questions; it never implies acceptance of a produced artifact.
 From Project intake onward, use the file workflow below. A direct settings request already
 supplies its answer: apply and record it without another approval form. Unresolved,

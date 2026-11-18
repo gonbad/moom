@@ -42,7 +42,8 @@ Check equality afterwards; keep already identical files unchanged. Synchronize o
 missing or changed owned copies. Remove only owned obsolete command copies on a rename;
 preserve unrelated user commands and resolve a collision before overwriting it.
 After installing, renaming or deleting commands, instruct the person to **close and
-reopen the AI host**. This is mandatory after Job definition. The `/NAME` notation
+reopen the AI host**. At Job installation show the material locations first so
+the participant can save their initial input before the required restart. The `/NAME` notation
 labels the workflow commands. Codex CLI uses `$NAME` or its skill picker; Codex desktop
 supports slash/dollar selection. Claude Code/OpenCode use `/NAME`. Antigravity selects
 or mentions the shared skill (or `/NAME` when exposed by its UI). Give the exact
@@ -137,8 +138,8 @@ pipeline in the bar. For an issue/shared task, identify that active scope alongs
 saved Project bar. The **last line** gives a single concrete next action (an exact `.md`
 file inside `docs/` to answer/review, a reply to the single setup chat question,
 an unavoidable account/access action, a live `http://` preview URL paired with its `.md`
-review file in `docs/`, an exact command, or host close/reopen followed by the first
-command). Never refer the participant to a non-`.md` file or a file outside `docs/`
+review file in `docs/`, an exact command, or an initial idea-file handoff with restart and the first command
+after saving). Never refer the participant to a non-`.md` file or a file outside `docs/`
 (except pasting into `projects/ID/existing/` or `projects/ID/design/`). Do not offer a
 menu of next tasks or put any prose after the block.
 
@@ -192,12 +193,29 @@ The idea input must explain where existing work goes. Create or reuse a Markdown
 source note under the selected dossier (normally `sources/notes.md`) and an inventory
 in `docs/projects/ID/living/sources.md`. Link supplied material there instead of asking
 for a duplicate paste. Explain `projects/ID/existing/` for an existing product or
-binary bundle; create it when needed. This folder is the permitted participant drop
+binary bundle; prepare each offered folder before displaying its path. This folder is the permitted participant drop
 exception outside `docs/`. Keep raw inputs separate from public source. Inspect the
 active document/artifact roots and current dossier before asking editorial questions;
 read relevant user-created sources, while unsubmitted review answers remain pending.
 The first handoff explains the provisional/final name and source locations, then gives
 one exact next action. Do not require another approval just to provide intake folders.
+
+## Read the first Project input
+
+On the first invocation, read the active Project’s recorded input, supplied chat
+facts, living idea, source notes/inventory and relevant files in the offered drop
+folder. Use the installed Job’s bootstrap for the types of material to expect.
+An empty folder, copied prompts, headings, bound paths, a provisional slug or a
+starter default supply no premise. If all you find is scaffolding, give the exact
+idea page, invite one free-form description and wait. Keep the first step current.
+Do not open a numbered questionnaire or recommend creative choices at that point.
+
+When material exists, carry explicit constraints forward and work from it. If an
+artifact alone leaves the requested goal ambiguous, ask one focused question about
+that artifact. With enough information, begin the first step immediately. Invoking
+the command requests reading initial input. It never submits an open numbered
+review, delegates unanswered choices or records human acceptance. On later versions
+use the recorded current input and existing facts instead of restarting intake.
 
 ## Shared maintenance
 
@@ -210,6 +228,6 @@ checks and artifacts are changed. Previously granted authorization remains valid
 ## Setup catalog exception
 
 At the end of `/start`, show the actual available named-starter invocations and the
-custom `/job` option. This selection menu is required and precedes the progress block;
+custom `/create-job` option. This selection menu is required and precedes the progress block;
 the single last action asks the person to select one. Other handoffs retain one concrete
 next action. Never list planned starters or restore a registry after finalization.

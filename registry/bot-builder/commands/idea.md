@@ -5,6 +5,10 @@ description: Scope deterministic messenger bot, target platforms, core flow and 
 
 # /idea
 
+For initial intake follow the workflow constitution’s “Read the first Project input”
+section and the installed `docs/kandoo/living/bootstrap.md`. If there is only template
+text, invite the participant to describe their idea in their own words and wait.
+
 Read `AGENTS.md`, the four `docs/constitution/` documents and `docs/kandoo/living/profile.md`,
 `job.md`, `server.md` and `status.md`. Resolve the active Project `ID` and `VERSION` from
 status; all paths are workspace-root paths. Read only the installed reference

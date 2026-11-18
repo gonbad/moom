@@ -5,6 +5,10 @@ description: Define the motion audience, purpose, sources and delivery contract.
 
 # /idea
 
+For initial intake follow the workflow constitution’s “Read the first Project input”
+section and the installed `docs/kandoo/living/bootstrap.md`. If there is only template
+text, invite the participant to describe their idea in their own words and wait.
+
 Read `AGENTS.md`, all four `docs/constitution/` documents and the living profile,
 Job and status under `docs/kandoo/living/`. Resolve active `ID` and `VERSION` from
 status. Read the Project's living status, recorded Current input and relevant submitted

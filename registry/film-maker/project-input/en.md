@@ -1,6 +1,6 @@
 # Film idea
 
-Who do we follow, what do they want, and who is the film for?
+Tell the story you have in mind, in your own words. A voice transcription or unfinished scene is welcome.
 
 ## My idea
 

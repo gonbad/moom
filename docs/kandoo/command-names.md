@@ -22,15 +22,15 @@ audit; keep each host's identifier list on one table row.
 
 ## Core workspace names
 
-These eight names are also unavailable to Job commands, including after bootstrap
-detachment: `start`, `job`, `new-project`, `switch-project`, `iterate`, `issue`,
-`preferences`, `add-idea`. The first two remain host-only recovery entry points.
+These nine names are also unavailable to Job commands, including after bootstrap
+detachment: `start`, `pick-job`, `create-job`, `new-project`, `switch-project`, `iterate`, `issue`,
+`preferences`, `add-idea`. The first three remain host-only recovery entry points.
 
 ## Authoring and installation procedure
 
 1. Derive short descriptive names from the method. Use lowercase ASCII words separated
    by hyphens, at most 64 characters. Do not add a framework or Job prefix.
-2. Compare every proposed name against the union of the native table, all eight core
+2. Compare every proposed name against the union of the native table, all nine core
    names and other proposed names. Inspect existing canonical files, all supported host
    locations, and available plugin/user catalogs. Reserve names case-insensitively.
    Do not run a native command just to test whether a name is free.

@@ -87,7 +87,7 @@ make Job selection current.
 ## Show the available choices
 
 Read the actual local `registry/README.md` and enumerate immediate starter directories
-that have a readable `job.md`, its declared commands and references, and both
+that have a readable `job.md` and `bootstrap.md`, its declared commands and references, and both
 `project-input/en.md` and `project-input/fa.md`. Check that the shared Project forms
 are present before offering a named install. Cross-check the
 catalog against those files. Show each available identifier, a one-line description
@@ -96,13 +96,12 @@ count or show a planned/missing starter as available. Report a damaged entry sep
 do not offer a command that will fail. If the whole catalog is missing in a template
 checkout, report the incomplete checkout without fetching or inventing entries.
 
-For Claude Code/OpenCode use `/job IDENTIFIER`; for Codex use `$job IDENTIFIER` or
-select the job skill and send the identifier; for Antigravity select/mention the job
-skill and send the identifier as its request. Do not assume every host has an argument
-parser: the same ordinary request, “Use the job procedure with starter IDENTIFIER,”
-must route to the fast path. Include the no-argument custom option (`/job`, `$job`,
-or select the job skill without a starter) for defining/adapting a method through
-file intake. Known-starter selection does not require Job-definition questions.
+For Claude Code/OpenCode show `/pick-job IDENTIFIER` and `/create-job`. For
+Codex show `$pick-job IDENTIFIER` and `$create-job` (or the matching picker entries).
+For Antigravity, select/mention the pick-job skill with the identifier, or the
+create-job skill to design a method. An ordinary-language request to install one
+named starter follows the pick route. Picking without an identifier displays the
+available starters. Custom design starts only when requested.
 
 This actual catalog is the deliberate setup-menu exception to the single-action rule.
 End with localized bootstrap progress and one action: choose one displayed starter
