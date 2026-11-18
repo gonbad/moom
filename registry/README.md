@@ -8,6 +8,7 @@ All procedures are Markdown; no scripts, manifests, assets or source-repository 
 metadata are required. Install/adapt every needed command and reference into the
 Kandoo before deleting this entire bootstrap catalog.
 
+- [film-maker](film-maker/job.md): Guide a first-time filmmaker from script, editable narration prompt and recording per sequence through a voiced storyboard and representative shot to finished sequences and a verified MP4.
 - [motion-maker](motion-maker/job.md): Create reviewed visual assets and local HTML motion, then explicitly requested silent video and optional dubbing.
 - [presentation-maker](presentation-maker/job.md): Create speaker-led, horizontal presentations with left/right navigation and downloadable offline delivery by default; hosting is optional.
 - [blog-publisher](blog-publisher/job.md): Publish self-contained articles, guides and papers for independent readers, with online URLs and vertical scrolling by default.
