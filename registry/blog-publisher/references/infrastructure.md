@@ -1,11 +1,6 @@
 # Static publication infrastructure
 
-At `/deploy`, read `docs/projects/ID/living/server.md`, the infrastructure/secrets
-Constitution and relevant publication records. If hosting is selected and target is
-unselected, offer reuse of an identified existing server, a new Project-specific server,
-or local deferral. Reuse settled choices; earlier local stages do not ask about servers.
-Shared access facts/credentials remain in Kandoo docs; Project-owned access facts and
-credentials remain in that Project's docs. Inventory actual sites/ports before allocation.
+Follow the workflow server mode and local server instructions. Read project-owned `docs/living/server.md` and its protected access file only when the stage needs access. Inspect the actual target before allocating resources. Preserve other deployments.
 
 Resolve **publication scope** too: participation in a shared Journal uses its existing
 origin/index/release rules; an independent Project site uses its own origin and includes

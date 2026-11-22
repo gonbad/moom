@@ -1,6 +1,3 @@
-# Claude Code entry point
+# Kandoo method workspace
 
-Read and enforce [AGENTS.md](AGENTS.md) and every document in
-[docs/constitution/](docs/constitution/) before acting. Read the current profile,
-status and installed Job, apply the review/certainty protocol, and end each reply
-with the prescribed progress and next action. Commands use workspace-root paths.
+Follow the constitution in `kandoo_docs/constitution/` for commands and ordinary conversation. Read the living profile, status, mission and workflow under `kandoo_docs/living/`. Canonical Kandoo procedures are in `kandoo_docs/commands/`. Resume from the saved method state. Projects run in their own sessions.

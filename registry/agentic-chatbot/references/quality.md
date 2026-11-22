@@ -1,11 +1,11 @@
 # Structural gate tests, natural model dialogues and live effects
 
-Maintain three separate evidence columns in `docs/projects/ID/versions/VERSION/`:
+Maintain three separate evidence columns in `docs/versions/VERSION/`:
 deterministic harness/gate tests, real configured-model dialogues, and live
 transport/service round trips. Never count a scripted fixture as a live model rehearsal
 or passing tests as owner acceptance.
 
-## Self-contained deterministic gate test suite (`projects/ID/tests/`)
+## Self-contained deterministic gate test suite (`./tests/`)
 
 Feed scripted model tool-call turns into the reference monitor against isolated test
 transactions without network access, asserting both the typed error/outcome and zero

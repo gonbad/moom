@@ -22,7 +22,7 @@ inside `docs/`; the assistant creates technical artifacts and serves preview URL
 Put review instructions and check evidence in the current version dossier, using its
 next unused numeric prefix for each question/review/issue round. Link local `http://`
 previews from those Markdown files; do not ask the participant to inspect source files
-outside the vault. External design output may be dropped into `projects/ID/design/`.
+outside the vault. External design output may be dropped into `./design/`.
 For audio/media supplied later, provide an attachment workflow or an assistant import
 from a participant-supplied location; do not invent another required non-vault editing
 task. Record the imported identity and provenance in Markdown.
@@ -30,20 +30,16 @@ task. Record the imported identity and provenance in Markdown.
 ## Iteration and method evolution
 
 `/add-idea` records a future idea without changing the current step. `/iterate` plans
-a new version; `/issue` handles an observed defect. A request can address the Project,
-the reusable Job, or Both. Honor an explicit scope without re-asking. When a scene
-defect exposes a general method gap, propose/apply the authorized method fix and link
-its own issue to the Project repair. Keep Project-specific story facts out of the Job.
+a new version; `/issue` handles an observed defect. A project repair that exposes a reusable method gap also gets a method note.
 
 After a change, record the revised rule, affected outputs, invalidated acceptance and
 next action. A story timing change may invalidate scene animation, rendered picture,
 subtitles and audio alignment; a caption correction may need no new picture. Walk the
 downstream dependency chain and reuse unchanged evidence with reasons. Preserve the
-previous accepted release. Do not rebuild other Projects when evolving this Job.
+previous accepted release.
 
 Use short stage handoffs with actual evidence, pending review and one next action.
-Maintain Project `living/status.md` and shared active status, distinguishing installed
-Job revision from the revision under which a Project ran. Show all ordered localized
+Maintain `docs/living/status.md` and the version under which each deliverable was produced. Show all ordered localized
 steps, at most one current step, and deliberate skipped states. No automatic render,
 external publishing, host-session creation or infrastructure provisioning is hidden
 in the handoff. Record slow operations by purpose, start/end and result when diagnosing

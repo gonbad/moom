@@ -6,19 +6,19 @@ Reuse supplied research and the speaker's phrasing; do not convert a request for
 argument into a catalog of definitions.
 
 Expand three Project paths consistently from the workspace root: artifact root
-`projects/ID/`, document root `docs/projects/ID/`, and selected version dossier
-`docs/projects/ID/versions/VERSION/`. Every file the participant is asked to open, read
+`./`, document root `docs/`, and selected version dossier
+`docs/versions/VERSION/`. Every file the participant is asked to open, read
 or edit must be a `.md` file inside `docs/`; the assistant generates HTML/CSS/JS/PDF
-artifacts under `projects/ID/` and serves local `http://` previews when needed.
+artifacts under `./` and serves local `http://` previews when needed.
 
 ## Authoritative four-stage handoff
 
 | Command | Input artifact | Output artifact | Installed references | Exit evidence | Next |
 | --- | --- | --- | --- | --- | --- |
-| `idea` | Selected-version input recorded in `docs/projects/ID/living/status.md` | `docs/projects/ID/living/idea.md`, `roadmap.md` | `workflow.md`, `slides.md` | Audience, talk promise, format and sources resolved | `outline` |
-| `outline` | `docs/projects/ID/living/idea.md` | `docs/projects/ID/living/outline.md`, `design.md`, `assets.md` | `workflow.md`, `slides.md`, `visuals.md` | Beat sequence, timings, notes, asset plan and visual system resolved | `build` |
-| `build` | `docs/projects/ID/living/outline.md`, `design.md`, `assets.md` | `projects/ID/src/`, `projects/ID/dist/`, `.md` check summary in version dossier | `workflow.md`, `slides.md`, `visuals.md`, `quality.md` | Required assets/gallery and representative slide accepted; local/offline deck and navigation verified | `deploy` |
-| `deploy` | Verified deck; Project server selection only for explicit hosting | Delivery summary in `docs/projects/ID/living/status.md` or live receipt | `workflow.md`, `quality.md` | Speaker review resolved; local delivery or authorized hosting verified | Complete |
+| `idea` | Selected-version input recorded in `docs/living/status.md` | `docs/living/idea.md`, `roadmap.md` | `workflow.md`, `slides.md` | Audience, talk promise, format and sources resolved | `outline` |
+| `outline` | `docs/living/idea.md` | `docs/living/outline.md`, `design.md`, `assets.md` | `workflow.md`, `slides.md`, `visuals.md` | Beat sequence, timings, notes, asset plan and visual system resolved | `build` |
+| `build` | `docs/living/outline.md`, `design.md`, `assets.md` | `./src/`, `./dist/`, `.md` check summary in version dossier | `workflow.md`, `slides.md`, `visuals.md`, `quality.md` | Required assets/gallery and representative slide accepted; local/offline deck and navigation verified | `deploy` |
+| `deploy` | Verified deck; Project server selection only for explicit hosting | Delivery summary in `docs/living/status.md` or live receipt | `workflow.md`, `quality.md` | Speaker review resolved; local delivery or authorized hosting verified | Complete |
 
 ## Why Idea and Outline stay distinct (mini-example)
 
@@ -28,14 +28,14 @@ artifacts under `projects/ID/` and serves local `http://` previews when needed.
 Specification stages (`idea`, `outline`) advance once any open question round is
 submitted without adding an extra approval round; a submitted question file is never
 speaker acceptance of the built deck. Record speaker acceptance only for the revision
-reviewed. Qualify any Git release tag by Project (`project/ID/release/VERSION`), or
+reviewed. Qualify any Git release tag by Project (`release/VERSION`), or
 record an immutable local snapshot hash when Git was deferred.
 
 For a later iteration identify whether the request changes the audience, claim,
 outline, visual system or export. Rebuild only affected artifacts while checking the
 whole navigation sequence, preserving the previous delivered deck and editable source.
 A participant may replace slides with a portrait story, print handout or other format;
-change the Job, its commands and progress labels to match that real work.
+record the local delivery decision and its revised gates.
 
 Default to a speaker-led horizontal deck with left/right navigation and a
 verified downloadable offline artifact. Record an explicit override when the requested

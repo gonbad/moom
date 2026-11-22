@@ -27,7 +27,7 @@ price/window/URL from another Project. Resolve placeholders before final deliver
 
 Preserve editable sources and previous accepted exports. Record output paths/hashes,
 duration/dimensions, source baseline, review results, known limits and delivery mode in
-`living/delivery.md`. Preview and delivery are local by default. Public upload needs
+`docs/living/delivery.md`. Preview and delivery are local by default. Public upload needs
 the already-authorized target or a specific remaining authorization; do not ask again
 when authorization already exists. No hosting, server or automatic publishing is part
 of this starter's default pipeline.

@@ -8,32 +8,32 @@ format and delivery route. Preserve the creator's actual actor/action sequence: 
 article about what the reader does must not quietly become instructions to an AI.
 
 Expand three Project paths consistently from the workspace root: artifact root
-`projects/ID/`, document root `docs/projects/ID/`, and selected version dossier
-`docs/projects/ID/versions/VERSION/`. Every file the participant is asked to open, read
+`./`, document root `docs/`, and selected version dossier
+`docs/versions/VERSION/`. Every file the participant is asked to open, read
 or edit must be a `.md` file inside `docs/`; the assistant manages HTML/CSS/JS/ZIP build
-files under `projects/ID/` and serves local `http://` previews when needed.
+files under `./` and serves local `http://` previews when needed.
 
 ## Authoritative seven-stage handoff
 
 | Command | Input artifact | Output artifact | Installed references | Exit evidence | Next |
 | --- | --- | --- | --- | --- | --- |
-| `idea` | Selected-version input recorded in `docs/projects/ID/living/status.md` | `docs/projects/ID/living/idea.md`, `roadmap.md` | `workflow.md`, `distribution.md` | Scope, reader problem and source boundaries resolved | `brief` |
-| `brief` | `docs/projects/ID/living/idea.md` | `docs/projects/ID/living/brief.md` | `workflow.md`, `quality.md` | Audience, thesis, angle and constraints resolved | `story` |
-| `story` | `docs/projects/ID/living/brief.md` | `docs/projects/ID/living/story.md` | `workflow.md`, `quality.md` | Ordered section hierarchy, actor sequence and evidence map resolved | `content` |
-| `content` | `docs/projects/ID/living/story.md`, `brief.md`, `idea.md` | `docs/projects/ID/living/content.md` | `workflow.md`, `quality.md` | Complete narrative written with claim-to-source traceability | `layout` |
-| `layout` | `docs/projects/ID/living/content.md` | `docs/projects/ID/living/layout.md`, `projects/ID/src/` | `workflow.md`, `distribution.md`, `quality.md` | Typography, RTL/LTR isolation and layout built on real text | `build` |
-| `build` | `docs/projects/ID/living/layout.md`, `projects/ID/src/` | Verified web output, `.md` verification note in version dossier | `workflow.md`, `distribution.md`, `quality.md` | Web build, links, hashes and browser behavior verified | `deploy` |
-| `deploy` | Verified output and `docs/projects/ID/living/server.md` | Delivery summary in `docs/projects/ID/living/status.md` or live receipt | `workflow.md`, `distribution.md`, `infrastructure.md`, `quality.md` | Public origin/aliases verified or explicit hosting deferral recorded | Complete |
+| `idea` | Selected-version input recorded in `docs/living/status.md` | `docs/living/idea.md`, `roadmap.md` | `workflow.md`, `distribution.md` | Scope, reader problem and source boundaries resolved | `brief` |
+| `brief` | `docs/living/idea.md` | `docs/living/brief.md` | `workflow.md`, `quality.md` | Audience, thesis, angle and constraints resolved | `story` |
+| `story` | `docs/living/brief.md` | `docs/living/story.md` | `workflow.md`, `quality.md` | Ordered section hierarchy, actor sequence and evidence map resolved | `content` |
+| `content` | `docs/living/story.md`, `brief.md`, `idea.md` | `docs/living/content.md` | `workflow.md`, `quality.md` | Complete narrative written with claim-to-source traceability | `layout` |
+| `layout` | `docs/living/content.md` | `docs/living/layout.md`, `./src/` | `workflow.md`, `distribution.md`, `quality.md` | Typography, RTL/LTR isolation and layout built on real text | `build` |
+| `build` | `docs/living/layout.md`, `./src/` | Verified web output, `.md` verification note in version dossier | `workflow.md`, `distribution.md`, `quality.md` | Web build, links, hashes and browser behavior verified | `deploy` |
+| `deploy` | Verified output and `docs/living/server.md` | Delivery summary in `docs/living/status.md` or live receipt | `workflow.md`, `distribution.md`, `infrastructure.md`, `quality.md` | Public origin/aliases verified or explicit hosting deferral recorded | Complete |
 
 ## Why Idea, Brief, Story and Content stay distinct (mini-example)
 
 - **Idea (`idea.md`):** "Write a short private Persian guide for workshop participants whose server is unavailable, using only this Kandoo's verified local-workflow rules; exclude unverified cloud workarounds."
 - **Brief (`brief.md`):** "Reader: non-developer builder on laptop without VPS. Outcome: finish specifications, prototype and offline review cleanly while keeping live server checks marked pending. Tone: calm, practical, zero hype."
-- **Story (`story.md`):** "1. Identify the reader's local task → 2. Complete local specs and preview → 3. Record explicit deferral when the Job reaches infrastructure intake → 4. What waits for `/preferences` later, with each claim tied to its constitution rule."
+- **Story (`story.md`):** "1. Identify the reader's local task → 2. Complete local specs and preview → 3. Record explicit deferral when the Job reaches infrastructure intake → 4. Which delivery checks remain pending, with each claim tied to its constitution rule."
 - **Content (`content.md`):** The full Persian prose implementing those exact four sections in order, with concrete examples and source traceability.
 
-Keep living summaries in `docs/projects/ID/living/` and raw requests plus numbered
-review rounds in `docs/projects/ID/versions/VERSION/`. Specification steps (`idea`,
+Keep living summaries in `docs/living/` and raw requests plus numbered
+review rounds in `docs/versions/VERSION/`. Specification steps (`idea`,
 `brief`, `story`) advance once review closes without adding an
 extra approval ceremony; editorial narrative acceptance, browser verification and live
 deployment remain separate facts. New posts start private/draft and need no machine

@@ -25,7 +25,7 @@ frame proportions, expression/pose names, semantic SVG groups and pivot location
 duration/easing for transitions, still holds and reduced-motion behavior. Request
 readable source, no hidden remote content and no generic idle wobble. Provide feedback
 on this one visual until accepted; do not generate a cast of unreviewed approximations.
-The assistant imports supplied bundles from `projects/ID/design/`, inventories source
+The assistant imports supplied bundles from `./design/`, inventories source
 files/dependencies, serves them locally and records revision/hash plus acceptance.
 
 ## SVG first, with a bounded fallback
@@ -43,7 +43,7 @@ instead of pretending an illustration is rigged.
 
 Preserve imported originals. Build the asset gallery by importing or extracting the
 **same** SVG paths, group hierarchy, IDs, CSS selectors, colors and keyframes. Record
-source-to-gallery and gallery-to-scene mappings in `living/assets.md`; preserve hashes
+source-to-gallery and gallery-to-scene mappings in `docs/living/assets.md`; preserve hashes
 of accepted originals and any derived files. Namespacing duplicate IDs/selectors is
 allowed only where technically necessary, with a documented mapping and visual
 equivalence checks. Do not recreate appearance from memory, use an approximate redraw

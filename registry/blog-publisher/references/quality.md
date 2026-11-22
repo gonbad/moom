@@ -14,7 +14,7 @@ boundary and error states, comparing expected results against independent refere
 when calculations matter. An HTML string/ID check does not execute a widget or prove
 mathematical correctness. Record browser behavior, console/network errors and visual
 observations separately from static checks and hashes. Keep reproducible dependencies
-and commands under `projects/ID/checks/` and evidence in the owning version dossier.
+and commands under `./checks/` and evidence in the owning version dossier.
 
 Check the exact web release inventory and its authored index, links and private/public
 boundary. Ordinary blog posts do not require an offline archive. If a downloadable

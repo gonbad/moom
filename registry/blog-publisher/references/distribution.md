@@ -2,7 +2,7 @@
 
 ## Publication contract
 
-Keep a Project-owned public source directory (`projects/ID/src/`, `projects/ID/site/`
+Keep a Project-owned public source directory (`./src/`, `./site/`
 or an adapted path) separate from inputs, version records, secrets and editorial
 notes. Record source, public URL path, version and release selection in living Markdown.
 A new Project is private by default and needs no machine manifest. Skip incomplete
@@ -13,8 +13,7 @@ and is shared by URL. Do not create a standalone post ZIP or a download procedur
 default. An explicit request may add one later. Intentional editorial materials, such
 as a workshop kit, remain independently selected content.
 
-Generate shared publishing helpers under `kandoo/` only for real needs; Project
-renderers/checks belong to their Project. Build without fetching the source template
+Keep publishing helpers, renderers and checks in the project. Build without fetching the source template
 or reading sibling maintainer tools. Keep source and runtime assets explicit. Bundled
 assets and license notices are useful for reliable web delivery; removing article ZIPs
 is not a request to introduce external runtime dependencies.
@@ -48,10 +47,10 @@ site uses its own origin and only its verified public inventory. Never deploy th
 Journal to a new Project-specific server or overwrite the shared origin implicitly.
 Use the selected origin and supported aliases, service identity and paths.
 Verify public HTTPS pages, assets, release hashes and intentional downloads at every
-supported hostname; preserve an immutable receipt in the owning shared or Project dossier.
+supported hostname; preserve an immutable receipt in the owning Project dossier.
 Record DNS, routing and TLS changes with the selected target's owner. If choosing the
 target changes canonical URLs or build selection, rebuild and verify before activation.
 Do not treat a preview or
 local check as live deployment or human acceptance. An explicit hosting deferral is
 valid and retains the working local preview. Unlisting, unpublishing and deleting
-source are distinct operations described in the workspace maintenance guide.
+source are distinct operations described in the project publication record.

@@ -1,6 +1,6 @@
 # Presentation visuals and exact source reuse
 
-During outline, create `docs/projects/ID/living/assets.md`: map each slide/beat to
+During outline, create `docs/living/assets.md`: map each slide/beat to
 its required diagram, character, photo or video; identify states, transitions, purpose,
 source/license, editable format and acceptance criteria. Design only visuals the story
 needs. Keep speaker notes and full narration separate from audience-facing copy.
@@ -19,8 +19,8 @@ SVG is the first attempt for appropriate vector graphics. If focused iteration m
 the intent, offer an external image-generation prompt or a participant-supplied image
 with usable provenance/rights. Explain raster/layer limitations; do not call an image
 embedded in SVG an editable vector design. Import supplied output from
-`projects/ID/design/`, preserving originals and source hashes. Record the source and
-approval identity in `living/assets.md`; never ask for duplicate content already supplied.
+`./design/`, preserving originals and source hashes. Record the source and
+approval identity in `docs/living/assets.md`; never ask for duplicate content already supplied.
 
 Serve a local gallery with controls for the planned variants/transitions; link it from
 a Markdown review in `docs/`. Verify relevant semantic groups/pivots, typography,

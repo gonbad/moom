@@ -7,29 +7,29 @@ business services separate so supporting Bale alongside Telegram or Rubika never
 duplicates business logic.
 
 Expand three Project paths consistently from the workspace root: artifact root
-`projects/ID/`, document root `docs/projects/ID/`, and selected version dossier
-`docs/projects/ID/versions/VERSION/`. Every file the participant is asked to open, read
+`./`, document root `docs/`, and selected version dossier
+`docs/versions/VERSION/`. Every file the participant is asked to open, read
 or edit must be a `.md` file inside `docs/` (including gitignored
-`docs/projects/ID/secrets/credentials.md` for tokens; the only folder exception outside
-`docs/` is pasting an existing codebase into `projects/ID/existing/`).
+`docs/secrets/credentials.md` for tokens; the only folder exception outside
+`docs/` is pasting an existing codebase into `./existing/`).
 
 ## Authoritative eleven-stage handoff
 
 | Command | Input artifact | Output artifact | Installed references | Exit evidence | Next |
 | --- | --- | --- | --- | --- | --- |
-| `idea` | Selected-version input recorded in `docs/projects/ID/living/status.md`, optional `projects/ID/existing/` | `docs/projects/ID/living/idea.md`, `roadmap.md`, `external-services.md` | `workflow.md` | Core journey, target platforms and payment applicability resolved | `prd` |
-| `prd` | `docs/projects/ID/living/idea.md` | `docs/projects/ID/living/prd.md` | `workflow.md` | Personas, slash/menu commands and non-goals resolved | `flow` |
-| `flow` | `docs/projects/ID/living/prd.md` | `docs/projects/ID/living/flow.md` | `workflow.md`, `fsm.md` | FSM transition table, keyboards and message templates resolved | `data-model` |
-| `data-model` | `docs/projects/ID/living/flow.md` | `docs/projects/ID/living/data-model.md` | `workflow.md`, `fsm.md` | User, session, domain and optional payment entities resolved | `integrations` |
-| `integrations` | `docs/projects/ID/living/data-model.md` | `docs/projects/ID/living/integrations.md` | `workflow.md`, `messenger.md`, conditional `payments.md` | Selected platform adapters, token variable names and conditional payment policy resolved | `edge-cases` |
-| `edge-cases` | `docs/projects/ID/living/integrations.md`, `flow.md` | `docs/projects/ID/living/edge-cases.md` | `workflow.md`, `fsm.md`, `messenger.md` | Deduplication, stale callbacks, unexpected inputs and expiry resolved | `scenarios` |
-| `scenarios` | `flow.md`, `integrations.md`, `edge-cases.md` | `docs/projects/ID/living/test-scenarios.md` | `workflow.md`, `quality.md` | Turn-by-turn synthetic scenarios and failure cases specified | `architecture` |
-| `architecture` | Living specs, `test-scenarios.md`, `docs/projects/ID/living/server.md` | `docs/projects/ID/living/architecture.md`, version `checklist.md` and `handoff.md` | `workflow.md`, `fsm.md`, `messenger.md`, `infrastructure.md`, `quality.md` | DB route, adapter interfaces and build checklist complete | `build` |
-| `build` | `architecture.md`, `checklist.md`, `handoff.md` | `projects/ID/app/`, `projects/ID/tests/` | `workflow.md`, `fsm.md`, `messenger.md`, conditional `payments.md`, `infrastructure.md`, `quality.md` | Engine, adapters and local simulated harness tests pass | `test` |
-| `test` | Running bot + test token, `test-scenarios.md` | `docs/projects/ID/versions/VERSION/NN-test-round.md` | `workflow.md`, `messenger.md`, `quality.md` | Live messenger rehearsal and owner acceptance recorded | `deploy` |
-| `deploy` | Owner acceptance, `docs/projects/ID/living/server.md` | `docs/projects/ID/versions/VERSION/deploy-notes.md`, `project/ID/release/VERSION` | `workflow.md`, `messenger.md`, `infrastructure.md`, `quality.md` | Production webhook/poller and restart verified, or local delivery recorded | Complete |
+| `idea` | Selected-version input recorded in `docs/living/status.md`, optional `./existing/` | `docs/living/idea.md`, `roadmap.md`, `external-services.md` | `workflow.md` | Core journey, target platforms and payment applicability resolved | `prd` |
+| `prd` | `docs/living/idea.md` | `docs/living/prd.md` | `workflow.md` | Personas, slash/menu commands and non-goals resolved | `flow` |
+| `flow` | `docs/living/prd.md` | `docs/living/flow.md` | `workflow.md`, `fsm.md` | FSM transition table, keyboards and message templates resolved | `data-model` |
+| `data-model` | `docs/living/flow.md` | `docs/living/data-model.md` | `workflow.md`, `fsm.md` | User, session, domain and optional payment entities resolved | `integrations` |
+| `integrations` | `docs/living/data-model.md` | `docs/living/integrations.md` | `workflow.md`, `messenger.md`, conditional `payments.md` | Selected platform adapters, token variable names and conditional payment policy resolved | `edge-cases` |
+| `edge-cases` | `docs/living/integrations.md`, `flow.md` | `docs/living/edge-cases.md` | `workflow.md`, `fsm.md`, `messenger.md` | Deduplication, stale callbacks, unexpected inputs and expiry resolved | `scenarios` |
+| `scenarios` | `flow.md`, `integrations.md`, `edge-cases.md` | `docs/living/test-scenarios.md` | `workflow.md`, `quality.md` | Turn-by-turn synthetic scenarios and failure cases specified | `architecture` |
+| `architecture` | Living specs, `test-scenarios.md`, `docs/living/server.md` | `docs/living/architecture.md`, version `checklist.md` and `handoff.md` | `workflow.md`, `fsm.md`, `messenger.md`, `infrastructure.md`, `quality.md` | DB route, adapter interfaces and build checklist complete | `build` |
+| `build` | `architecture.md`, `checklist.md`, `handoff.md` | `./app/`, `./tests/` | `workflow.md`, `fsm.md`, `messenger.md`, conditional `payments.md`, `infrastructure.md`, `quality.md` | Engine, adapters and local simulated harness tests pass | `test` |
+| `test` | Running bot + test token, `test-scenarios.md` | `docs/versions/VERSION/NN-test-round.md` | `workflow.md`, `messenger.md`, `quality.md` | Live messenger rehearsal and owner acceptance recorded | `deploy` |
+| `deploy` | Owner acceptance, `docs/living/server.md` | `docs/versions/VERSION/deploy-notes.md`, `release/VERSION` | `workflow.md`, `messenger.md`, `infrastructure.md`, `quality.md` | Production webhook/poller and restart verified, or local delivery recorded | Complete |
 
-Keep living specs in `docs/projects/ID/living/` (`idea.md`, `prd.md`, `flow.md`,
+Keep living specs in `docs/living/` (`idea.md`, `prd.md`, `flow.md`,
 `data-model.md`, `integrations.md`, `edge-cases.md`, `test-scenarios.md`,
 `architecture.md`, `roadmap.md`, `external-services.md`, `status.md`). Not every bot is
 a payment bot: when payments are outside scope, mark payment sections `not applicable`

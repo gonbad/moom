@@ -1,16 +1,6 @@
 # Runtime identities, PostgreSQL policy and service deployment
 
-Read `docs/constitution/03-infrastructure-and-secrets.md`, the profile, and
-`docs/projects/ID/living/server.md`. `/architecture` owns initial intake: offer an
-identified existing server, a new Project-specific server or local deferral. Reuse a
-saved explicit choice. Resolve shared facts/credentials from `docs/kandoo/living/server.md`
-only when the Project selected that target. New Project-server facts and credentials
-stay in its own `living/server.md` and ignored `secrets/credentials.md` inside `docs/`.
-For an explicitly selected prior Project target, follow the Constitution's reuse
-procedure: link its owning facts/secret reference and update only its allocation ledger.
-Record unique deployment identity, Compose name, ports, volumes, service user and
-public routes in the selected target's ledger and Project architecture. Never replace
-the shared target or another Project's access while configuring this one.
+Follow the workflow server mode and local server instructions. Read project-owned `docs/living/server.md` and its protected access file only when the stage needs access. Inspect the actual target before allocating resources. Preserve other deployments.
 
 ## Coherent database route
 
@@ -20,17 +10,17 @@ the shared target or another Project's access while configuring this one.
    forwarding (`-R`) behind Caddy for webhooks.
 2. **Deferred server on macOS or Linux:** Run isolated PostgreSQL/Redis locally via
    Docker when available, or mark live VPS persistence checks pending until configured
-   via `/preferences`.
+   at its declared infrastructure stage.
 3. **Last resort—no server AND Windows (`architecture` only):** Only when the Project server selection is
    `none`/deferred **and** the participant is on Windows, `/architecture` may offer
-   project-scoped SQLite under `projects/ID/data/` as an explicit last-resort local
+   project-scoped SQLite under `./data/` as an explicit last-resort local
    fallback, recording that PostgreSQL migration and live VPS verification remain
    pending; never substitute SQLite on a production VPS.
 
 Deploy the agent worker, owned backends and optional bridges with separate scoped
 credentials; the inference worker never receives coding-host or SSH deployment keys.
-Read Project secrets from gitignored `docs/projects/ID/secrets/credentials.md` (synced
-by the assistant to `projects/ID/.env`, never printed in chat or telemetry). Apply the
+Read Project secrets from gitignored `docs/secrets/credentials.md` (synced
+by the assistant to `./.env`, never printed in chat or telemetry). Apply the
 configured forward proxy per service when external model or messenger endpoints require
 it; if an upstream provider or tunnel is unreachable, preserve local harness verification
 and mark live checks blocked/pending honestly.

@@ -1,6 +1,6 @@
 # Simulated harness checks, turn scenarios and live platform round trips
 
-Build a self-contained in-process test harness inside `projects/ID/tests/` that feeds
+Build a self-contained in-process test harness inside `./tests/` that feeds
 normalized `Event` fixtures (slash commands, text, opaque callback tokens, contact/media
 payloads and optional payment events) into the FSM dispatcher against isolated test
 database transactions while capturing outgoing `SendText`, `ShowMenu` and
@@ -25,6 +25,6 @@ checks **only when payments are part of the chosen bot**; otherwise mark payment
 
 Fixture harness tests prove deterministic engine rules; run a bounded live rehearsal
 separately in `/test` on each selected messenger using an isolated test bot token
-from `docs/projects/ID/secrets/credentials.md`. Redact raw tokens, phone numbers and
+from `docs/secrets/credentials.md`. Redact raw tokens, phone numbers and
 receipts in all logs and `.md` reports. Keep automated test results, live messenger
 evidence and human owner acceptance separate.
