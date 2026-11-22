@@ -32,9 +32,8 @@ exclusions, explicit public source folder (`projects/ID/src/` or `site/`), priva
 boundaries, output format and acceptance examples. New posts remain private drafts unless
 publication is deliberately selected in `docs/projects/ID/living/publication.md`; never
 require `project.json`, an engine or a server to start writing. Put open editorial or
-delivery questions in `docs/projects/ID/versions/VERSION/NN-questions.md`. Once any open
-question round is submitted (Confirmed or Delegated/Provisional), hand off directly to
-`/brief`; a technical check or delegated blank never certifies source fidelity.
+delivery questions in `docs/projects/ID/versions/VERSION/NN-questions.md`. Once review closes, hand off directly to
+`/brief`; a technical check or blank answer never certifies source fidelity.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

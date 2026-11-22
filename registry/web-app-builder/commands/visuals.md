@@ -12,8 +12,7 @@ status; all paths are workspace-root paths. Read only the installed references
 `docs/projects/ID/living/prd.md`, `data-model.md`, `ux.md` and submitted rounds in
 `docs/projects/ID/versions/VERSION/`. Preserve earlier outputs and authorization.
 
-Gate: `docs/projects/ID/living/prd.md`, `data-model.md` and `ux.md` exist with no
-unsubmitted question round pending. Write a ready-to-copy external design prompt into
+Gate: `docs/projects/ID/living/prd.md`, `data-model.md` and `ux.md` exist with a closed review. Write a ready-to-copy external design prompt into
 `docs/projects/ID/versions/VERSION/NN-design-prompt.md` in Obsidian, instructing the
 participant to attach `prd.md`, `data-model.md` and `ux.md` in Claude Web Chat or Claude
 Design using the strongest suitable model and high-effort mode available to them (never

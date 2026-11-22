@@ -12,8 +12,7 @@ status; all paths are workspace-root paths. Read only the installed references
 `docs/projects/ID/living/idea.md`, `outline.md`, `design.md`, `assets.md` and submitted rounds in
 `docs/projects/ID/versions/VERSION/`. Preserve earlier outputs and authorization.
 
-Gate: `docs/projects/ID/living/outline.md` and `design.md` exist with no unsubmitted
-question round pending. Follow `visuals.md` first: prepare one visual at a time,
+Gate: `docs/projects/ID/living/outline.md` and `design.md` exist with a closed review. Follow `visuals.md` first: prepare one visual at a time,
 support external interactive HTML/SVG design, review its states/transitions, then serve
 and accept the required asset gallery. Preserve originals and exact SVG/CSS source
 identities. Build and compare one representative slide before assembling the full deck;

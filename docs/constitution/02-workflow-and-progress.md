@@ -183,7 +183,7 @@ Use a supplied topic/name immediately; accept it alongside a command or in ordin
 conversation. For example: `new-project — an interactive astronomy article`.
 If no topic is known, use a provisional slug and explain in the first handoff that
 idea review will resolve it. Keep the numeric prefix stable and record the display
-title separately. Once the idea is known, derive a descriptive ASCII slug; review only
+title separately. During `/idea`, finalize the Project slug before handing off. If the existing slug is provisional, derive a descriptive ASCII slug from the reviewed title or topic and apply the rename; review only
 non-obvious choices in the existing question round. Before renaming, check collisions
 across both trees. Update both roots, current input/status, living references and
 relevant tools together; preserve submitted records with an old-to-new mapping.

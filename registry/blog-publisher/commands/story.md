@@ -12,8 +12,7 @@ status; all paths are workspace-root paths. Read only the installed references
 `docs/projects/ID/living/brief.md`, and submitted rounds in `docs/projects/ID/versions/VERSION/`.
 Preserve earlier outputs and authorization.
 
-Gate: `docs/projects/ID/living/brief.md` exists and has no unsubmitted question round
-pending. Author `docs/projects/ID/living/story.md`:
+Gate: `docs/projects/ID/living/brief.md` exists and has a closed review. Author `docs/projects/ID/living/story.md`:
 1. **Narrative Arc & Actor Sequence:** Progression from concrete reader hook/problem
    through worked steps or evidence to actionable takeaway, explicitly preserving who
    performs each step (reader vs assistant vs system).
@@ -26,8 +25,7 @@ pending. Author `docs/projects/ID/living/story.md`:
 
 Use `docs/projects/ID/versions/VERSION/NN-questions.md` for non-obvious structural
 choices, ordering tradeoffs or missing prerequisites. Invite the owner to inspect
-`docs/projects/ID/living/story.md` in Obsidian; once submitted choices/edits are
-resolved, hand off to `/content`.
+`docs/projects/ID/living/story.md` in Obsidian; once review closes, hand off to `/content`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

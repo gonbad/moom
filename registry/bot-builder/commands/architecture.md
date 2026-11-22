@@ -21,7 +21,7 @@ or local deferral. Preserve previous selections and ask only for missing facts. 
 not treat unselected as no server or create credentials before a target is chosen.
 
 Gate: `prd.md`, `flow.md`, `data-model.md`, `integrations.md`, `edge-cases.md` and
-`test-scenarios.md` exist with no unsubmitted question round pending. Execute this
+`test-scenarios.md` exist with a closed review. Execute this
 planning step on the **strongest available reasoning model**, writing three Markdown
 deliverables inside `docs/`:
 1. **`docs/projects/ID/living/architecture.md`:**
@@ -48,7 +48,7 @@ deliverables inside `docs/`:
    `projects/ID/`.
 
 Resolve non-obvious architectural choices via
-`docs/projects/ID/versions/VERSION/NN-questions.md`; once submitted, hand off to `/build`.
+`docs/projects/ID/versions/VERSION/NN-questions.md`; once review closes, hand off to `/build`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

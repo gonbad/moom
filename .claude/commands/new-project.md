@@ -15,7 +15,7 @@ Save the previous Project's current progress. Determine the next unused numeric 
 from **both** `docs/projects/` and `projects/` (including gaps, using maximum + 1),
 with a nonempty lowercase ASCII slug derived from the person's request. Never reuse
 an ID or overwrite a folder. Surface non-obvious scope/slug choices in the new version's
-first numbered round without blocking on a submitted blank. Apply the naming and
+first numbered round and resolve them under the shared review protocol. Apply the naming and
 material-intake contract in the workflow constitution: use a supplied topic immediately,
 otherwise use the provisional slug from the installed Job’s bootstrap and explain the name and revisit it at idea review with the same number.
 

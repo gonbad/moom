@@ -22,7 +22,7 @@ intake occurs only at the installed Job's declared stage or an explicit settings
 `/pick-job IDENTIFIER` installs an exact prepared starter without Job-definition intake
 or a question round. After preparing Project 1, show its intake locations before
 restart. Invoking its first command requests reading the initial idea and sources.
-Numbered rounds still require explicit submission. `/create-job` retains the
+A request to finish the reviewed work or proceed to the next step also closes a numbered round under the rules below. `/create-job` retains the
 custom file workflow below. This exception removes
 redundant method questions; it never implies acceptance of a produced artifact.
 From Project intake onward, use the file workflow below. A direct settings request already
@@ -72,47 +72,19 @@ Do not bury choices in a finished deliverable. Keep rounds manageable and let th
 person write or voice-transcribe in Obsidian, save, then say `done` / `نوشتم` or an
 equivalent explicit submission. Continue unrelated authorized work while awaiting it.
 
-After a submitted round, append a resolution section without changing the questions
-or user answers. For each item record selected choice, evidence of submission,
-certainty and reason:
+## Closing a review
 
-| User response on submission | Certainty | Behavior |
-| --- | --- | --- |
-| Explicit answer or explicit endorsement of the recommendation | Confirmed (`قطعی`) | Treat as settled unless the participant changes it |
-| Answer left blank | Delegated / Provisional (`پیش‌فرض موقت`) | Apply the recommendation immediately; revisit if later facts improve it |
-| No submission yet | Pending | Do not interpret silence as delegation or approval |
+At handoff, link the living document and its numbered review. Invite the participant to answer questions, confirm or override proposed assumptions, edit the document directly, or leave an inline `COMMENT` or `نظر`. They may use any combination and submit in chat, including a request to process the comments alone.
 
-A blanket `done` submits the file; it does not explicitly confirm every blank.
-An explicit “accept all recommendations” confirms them. If facts contradict a
-confirmed choice, explain the conflict and request the specific change; do not
-silently downgrade it. When revising a delegated choice, record the new facts and
-explain the change in the next relevant round and living decision summary.
+On every submission or resumption, reread the current living document(s) under review together with the open round and the participant's latest message. Preserve direct edits. Record each submitted comment with its location, wording and disposition in the numbered dossier. Apply clear corrections wherever they affect the current work. Remove a marker from the living text only after incorporating its resolution and preserving the feedback. If its meaning conflicts with another instruction or remains unclear, retain the marker and ask the specific outstanding question.
 
-Delegation lets specification work proceed. When a procedure gates on a specification
-document being "approved", that specification is ready to advance once its open question
-round (if any) has been submitted—producing Confirmed or Delegated/Provisional decisions
-in the living document—with no unsubmitted round pending; do not invent a redundant
-second approval ceremony for every specification stage. By contrast, visual designs,
-interactive prototypes, authored narratives, presentations and integrated products
-require explicit human artifact acceptance on the reviewed revision. Delegation never
-supplies missing credentials, account consent, spending authority, deployment permission
-or human artifact acceptance. Respect explicit authorization already given; avoid
-repeated approvals for reversible implementation work. A recommendation cannot authorize
-an otherwise unauthorized external operation. Every review sheet, question round and
-status summary presented to the participant is a `.md` file inside `docs/`. Record
-functional checks, fidelity, human acceptance and public deployment separately, with
-their actual evidence. A passing test is never an invented human approval.
+When processing a submission, a request to finish, or a request to advance, append resolutions without filling in the participant’s answer fields. Record the selected choice, its certainty and the evidence for each item. An explicit selection of the recommendation, a different answer, an override, or “accept all listed recommendations” is **Explicit confirmation**. When an answer or confirmation is absent, adopt the stated recommendation and record **Soft confirmation**. A bare `done` submits the work with soft defaults. A later explicit choice supersedes the default. For a new review, write a concrete recommended choice that can actually be adopted.
 
-## Example resolutions after submission
+Apply the same distinction to the reviewed revision. Record explicit acceptance only when the participant actually accepts that revision. Otherwise record soft confirmation for continuing the work. A direction to proceed authorizes the handoff while preserving this distinction. Keep the participant’s words, comments and direct edits ahead of conflicting defaults. Follow up on unresolved comments or missing facts that a recommendation cannot supply. Close the review once each item has a recorded resolution and the reviewed living documents have no unresolved comment markers. Keep technical evidence and authorization for external actions separate from review certainty.
 
-Keep the question and answer unchanged, then append the resolution:
-
-| Item | Submitted answer | Selected choice | Certainty and evidence |
-| --- | --- | --- | --- |
-| 1 | A | Reuse supplied notes | Confirmed; explicit A in the submitted round |
-| 2 | Blank | Recommended short introduction | Delegated / Provisional; file submitted with `done` |
-
-Before submission, item 2 remains pending. These specification resolutions do not
-prove that the owner accepted the finished article or authorized publication.
-Use bold field labels, separate option bullets and a visible blank answer area in
-every new round. Do not prefill the answer with the recommendation.
+| Review input | Decision record |
+| --- | --- |
+| “Use A” when A is recommended | A, explicit confirmation, participant selected A |
+| Blank when A is recommended | A, soft confirmation, recommendation applied |
+| “Continue” without endorsing the revision | Revision soft-confirmed for the next step |
+| Inline correction | Participant’s words, the applied change and the affected revision, or an open question if clarification is needed |

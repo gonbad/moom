@@ -35,7 +35,7 @@ schemas belong under `projects/ID/`.
 | `test` | Wired agent, `capabilities.md`, `edge-cases.md` | `docs/projects/ID/versions/VERSION/adversarial-report.md`, `NN-test-round.md` | `workflow.md`, `authority.md`, `budgets.md`, `quality.md` | Adversarial boundary probes and owner acceptance recorded | `deploy` |
 | `deploy` | Owner acceptance, `docs/projects/ID/living/server.md` | `docs/projects/ID/versions/VERSION/deploy-notes.md`, `project/ID/release/VERSION` | `workflow.md`, `budgets.md`, `infrastructure.md`, `quality.md` | VPS daemon, HTTPS/poller and budget caps verified, or local delivery recorded | Complete |
 
-Specification stages advance once open question rounds are submitted without adding
+Specification stages advance once review closes without adding
 redundant approval ceremonies; structural harness tests, live model dialogues, owner
 acceptance and live deployment remain separate evidence columns. Not every agent uses a
 messenger or processes payments—mark unused channels or payment sections `not applicable`.

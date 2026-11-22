@@ -12,8 +12,7 @@ status; all paths are workspace-root paths. Read only the installed references
 and submitted rounds in `docs/projects/ID/versions/VERSION/`. Preserve earlier outputs
 and authorization.
 
-Gate: `docs/projects/ID/living/idea.md` exists and has no unsubmitted question round
-pending. Build an argument from recognizable problem through worked example, model,
+Gate: `docs/projects/ID/living/idea.md` exists and has a closed review. Build an argument from recognizable problem through worked example, model,
 counterexample and audience action. Write `docs/projects/ID/living/outline.md` with
 sections, assertion beat/claim, source, visual treatment, speaker notes (kept separate
 from audience text) and realistic time budget including exercises and questions. Flag
@@ -27,8 +26,7 @@ fallbacks. Assets are planned here and reviewed before full deck assembly in bui
 Write `docs/projects/ID/living/design.md` specifying typography, palette, diagram
 vocabulary, RTL/LTR rules and navigation controls. Check the whole arc for duplicated
 setup, missing transitions and unsupported conclusions. Record non-obvious format or
-narrative tradeoffs in `docs/projects/ID/versions/VERSION/NN-questions.md`; once any
-open round is submitted, route to `/build`.
+narrative tradeoffs in `docs/projects/ID/versions/VERSION/NN-questions.md`; once review closes, route to `/build`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

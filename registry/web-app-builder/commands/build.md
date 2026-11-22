@@ -13,8 +13,7 @@ status; all paths are workspace-root paths. Read only the installed references
 and `docs/projects/ID/versions/VERSION/checklist.md` and `handoff.md`. Preserve earlier
 outputs and authorization.
 
-Gate: `architecture.md`, `checklist.md` and `handoff.md` exist with no unsubmitted
-question round pending. Implement inside `projects/ID/`:
+Gate: `architecture.md`, `checklist.md` and `handoff.md` exist with a closed review. Implement inside `projects/ID/`:
 1. **Backend & Database (`projects/ID/backend/`):**
    - Implement models, migrations, transactional ownership checks and API routes matching
      `architecture.md`.

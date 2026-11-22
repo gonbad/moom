@@ -24,7 +24,7 @@ an immutable local snapshot identity for the previous version without reading un
 history. Write the new `00-iteration-input.md` inside `docs/` with the supplied goal,
 retained constraints, change scope and acceptance criteria. Use numbered `.md` question
 files inside `docs/` for choices and non-obvious proposed decisions, preserving
-Confirmed versus Delegated certainty on submission.
+explicit decisions, soft-confirmed recommendations and unresolved comments.
 Record this new input's full path as `Current input` in the owning status; subsequent
 Job steps consume it and living summaries without requiring `00-idea-input.md` in the
 new version or restarting first-Project intake.

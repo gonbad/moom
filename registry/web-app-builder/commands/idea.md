@@ -34,7 +34,7 @@ store actual keys only in gitignored `docs/projects/ID/secrets/credentials.md`).
 Always write and maintain `docs/projects/ID/living/idea.md` with actors, problem,
 differentiator, fallbacks and the `0.1` boundary—never use an alternative version-only
 filename instead of `living/idea.md`. Resolve open choices via
-`docs/projects/ID/versions/VERSION/NN-questions.md` in Obsidian; once submitted, hand
+`docs/projects/ID/versions/VERSION/NN-questions.md` in Obsidian; once review closes, hand
 off directly to `/prd`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates

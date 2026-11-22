@@ -12,8 +12,7 @@ status; all paths are workspace-root paths. Read only the installed references
 `docs/projects/ID/living/flow.md`, `data-model.md`, `integrations.md` and submitted
 rounds in `docs/projects/ID/versions/VERSION/`. Preserve earlier outputs and authorization.
 
-Gate: `docs/projects/ID/living/integrations.md` exists and has no unsubmitted question
-round pending. Author `docs/projects/ID/living/edge-cases.md`:
+Gate: `docs/projects/ID/living/integrations.md` exists and has a closed review. Author `docs/projects/ID/living/edge-cases.md`:
 1. **Transport & Outbox Failures:** Polling timeout backoff, duplicate webhook delivery
    deduplication (`update_key`), send-timeout unknown outcomes without blind mutation
    replay, and invalid-token circuit breaking without logging secret values.
@@ -25,7 +24,7 @@ round pending. Author `docs/projects/ID/living/edge-cases.md`:
    background cron having run, plus explicit `«انصراف»` cleanup.
 
 Resolve open questions via `docs/projects/ID/versions/VERSION/NN-questions.md` in
-Obsidian; once submitted, hand off to `/scenarios`.
+Obsidian; once review closes, hand off to `/scenarios`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

@@ -12,8 +12,7 @@ status; all paths are workspace-root paths. Read only the installed reference
 and submitted rounds in `docs/projects/ID/versions/VERSION/`. Preserve earlier outputs
 and authorization.
 
-Gate: `docs/projects/ID/living/prd.md` exists and has no unsubmitted question round
-pending. Author `docs/projects/ID/living/data-model.md` as a plain-language business
+Gate: `docs/projects/ID/living/prd.md` exists and has a closed review. Author `docs/projects/ID/living/data-model.md` as a plain-language business
 domain specification—strictly forbidding SQL, table names, foreign keys, indexes or ERD
 syntax (those belong later in `architecture.md`):
 1. **Entity Inventory:** Every business thing («چیز») the product remembers, one line each.
@@ -27,7 +26,7 @@ syntax (those belong later in `architecture.md`):
 
 `/ux` may refine this document in place if screen design exposes missing fields.
 Resolve open questions via `docs/projects/ID/versions/VERSION/NN-questions.md` in
-Obsidian; once submitted, hand off to `/ux`.
+Obsidian; once review closes, hand off to `/ux`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

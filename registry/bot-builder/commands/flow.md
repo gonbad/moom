@@ -12,8 +12,7 @@ status; all paths are workspace-root paths. Read only the installed references
 `prd.md` and submitted rounds in `docs/projects/ID/versions/VERSION/`. Preserve earlier
 outputs and authorization.
 
-Gate: `docs/projects/ID/living/prd.md` exists and has no unsubmitted question round
-pending. Author `docs/projects/ID/living/flow.md` (always named `flow.md`):
+Gate: `docs/projects/ID/living/prd.md` exists and has a closed review. Author `docs/projects/ID/living/flow.md` (always named `flow.md`):
 1. **FSM State Transition Table:** Complete tabular mapping of every state (`idle`,
    domain draft states, confirmation, and conditional payment states only when payments
    are in scope), expected input (command, text, reply button, opaque callback token,
@@ -26,7 +25,7 @@ pending. Author `docs/projects/ID/living/flow.md` (always named `flow.md`):
    the persona.
 
 Resolve open questions via `docs/projects/ID/versions/VERSION/NN-questions.md` in
-Obsidian; once submitted, hand off to `/data-model`.
+Obsidian; once review closes, hand off to `/data-model`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

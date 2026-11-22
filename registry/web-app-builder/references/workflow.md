@@ -25,7 +25,7 @@ or external design HTML/assets into `projects/ID/design/`.
 | `deploy` | Owner acceptance, `docs/projects/ID/living/server.md` | `docs/projects/ID/versions/VERSION/deploy-notes.md`, `project/ID/release/VERSION` | `workflow.md`, `infrastructure.md`, `quality.md` | Live HTTPS/DB restart verified, or local delivery recorded | Complete |
 
 Specification stages (`idea`, `prd`, `data-model`, `ux`, `scenarios`, `plan`) advance
-once any open question round is submitted without inventing a second approval round.
+once review closes without inventing a second approval round.
 Human artifact acceptance is required separately at `visuals`, `prototype` (HTML
 versus React) and `test` (frozen prototype versus integrated application). Keep
 mock-data and live-data calls behind `projects/ID/frontend/src/api/` so backend wiring

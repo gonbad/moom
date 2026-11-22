@@ -13,8 +13,7 @@ status; all paths are workspace-root paths. Read only the installed references
 `edge-cases.md` and submitted rounds in `docs/projects/ID/versions/VERSION/`. Preserve
 earlier outputs and authorization.
 
-Gate: `docs/projects/ID/living/edge-cases.md` exists and has no unsubmitted question
-round pending. Author the reviewed prompt specifications as Markdown inside the Project's
+Gate: `docs/projects/ID/living/edge-cases.md` exists and has a closed review. Author the reviewed prompt specifications as Markdown inside the Project's
 document root `docs/projects/ID/living/prompts/` (never unscoped `docs/prompts/`):
 1. **System Prompt (`docs/projects/ID/living/prompts/system.md`):** Role identity, SOP
    enforcement, tool invocation boundaries, `[h_*]` opaque handle rules (never guessing
@@ -30,7 +29,7 @@ document root `docs/projects/ID/living/prompts/` (never unscoped `docs/prompts/`
    - Refusal of prompt injection and out-of-scope requests.
 
 Invite review or non-obvious question resolution via
-`docs/projects/ID/versions/VERSION/NN-questions.md` in Obsidian; once submitted, hand
+`docs/projects/ID/versions/VERSION/NN-questions.md` in Obsidian; once review closes, hand
 off to `/architecture`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates

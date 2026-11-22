@@ -12,8 +12,7 @@ status; all paths are workspace-root paths. Read only the installed reference
 `external-services.md` and submitted rounds in `docs/projects/ID/versions/VERSION/`.
 Preserve earlier outputs and authorization.
 
-Gate: `docs/projects/ID/living/idea.md` exists and has no unsubmitted question round
-pending. Author `docs/projects/ID/living/prd.md`:
+Gate: `docs/projects/ID/living/idea.md` exists and has a closed review. Author `docs/projects/ID/living/prd.md`:
 1. **User Personas:** Detailed profiles for actors (visitor, customer, administrator,
    support operator), their mobile messenger habits, language preferences and expected
    turnaround times.
@@ -24,7 +23,7 @@ pending. Author `docs/projects/ID/living/prd.md`:
 4. **Non-Goals:** Capabilities explicitly excluded from this version.
 
 Resolve open questions via `docs/projects/ID/versions/VERSION/NN-questions.md` in
-Obsidian; once submitted, hand off to `/flow`.
+Obsidian; once review closes, hand off to `/flow`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

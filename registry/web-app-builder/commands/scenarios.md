@@ -35,7 +35,7 @@ fidelity, freeze a new non-colliding prototype reference (such as
 the changed revision. Update the baseline and acceptance evidence in Project status,
 preserve the prior baseline, and invalidate stale checks.
 Resolve open questions via `docs/projects/ID/versions/VERSION/NN-questions.md` in
-Obsidian; once submitted, route to `/architecture`.
+Obsidian; once review closes, route to `/architecture`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

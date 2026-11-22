@@ -22,10 +22,7 @@ During `/start`, ask setup preferences in chat, one question at a time, with the
 bilingual conversation-language question first. Save answers without requiring a setup
 question file or summary submission. Credentials still belong only in ignored Markdown.
 After setup, record unresolved questions and non-obvious decisions in numbered
-open-version files; apply and record explicit setting requests without asking again. Submitted
-blanks delegate a provisional recommendation; they allow specification steps to advance
-without redundant approval rounds, but never certify artifact acceptance or grant new
-external permissions. Unsubmitted blanks remain pending.
+open-version files; apply and record explicit setting requests without asking again. Participants may answer questions, confirm or override assumptions, edit living documents or leave inline COMMENTs. Resolve living comments and follow the review constitution. Record explicit selections as explicit confirmation and apply unanswered recommendations as soft confirmation when processing the review or advancing.
 
 Detect the current AI host without asking for a host preference. Install every supported
 command copy and resume from saved state when the person switches hosts. Shared settings

@@ -21,8 +21,7 @@ not treat unselected as no server or create credentials before a target is chose
 
 Gate: `prd.md`, `data-model.md`, `ux.md`, `design-system.md`, `test-scenarios.md` and
 the accepted prototype baseline recorded in `docs/projects/ID/living/status.md` are
-all in place with no unsubmitted
-question round pending. Execute this planning step on the **strongest available reasoning
+all in place with a closed review. Execute this planning step on the **strongest available reasoning
 model**, producing three Markdown deliverables inside `docs/`:
 1. **`docs/projects/ID/living/architecture.md`:**
    - *Database & Persistence Route:* Follow `infrastructure.md` and the selected Project server record: use
@@ -52,7 +51,7 @@ model**, producing three Markdown deliverables inside `docs/`:
    API seam.
 
 Resolve any non-obvious architectural choices via
-`docs/projects/ID/versions/VERSION/NN-questions.md`; once submitted, hand off to `/build`.
+`docs/projects/ID/versions/VERSION/NN-questions.md`; once review closes, hand off to `/build`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

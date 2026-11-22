@@ -12,8 +12,7 @@ status; all paths are workspace-root paths. Read only the installed reference
 and submitted rounds in `docs/projects/ID/versions/VERSION/`. Preserve earlier outputs
 and authorization.
 
-Gate: `docs/projects/ID/living/tools.md` exists and has no unsubmitted question round
-pending. Author `docs/projects/ID/living/sops.md`:
+Gate: `docs/projects/ID/living/tools.md` exists and has a closed review. Author `docs/projects/ID/living/sops.md`:
 1. **Stage Progression:** For each multi-step capability, define ordered stages
    (discovery → slot collection → parameter validation → policy-gated tool invocation →
    outcome summary).
@@ -23,7 +22,7 @@ pending. Author `docs/projects/ID/living/sops.md`:
    corrections or topic switches, and canceling an in-progress workflow cleanly.
 
 Resolve open questions via `docs/projects/ID/versions/VERSION/NN-questions.md` in
-Obsidian; once submitted, hand off to `/data-model`.
+Obsidian; once review closes, hand off to `/data-model`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

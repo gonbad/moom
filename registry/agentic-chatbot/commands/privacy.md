@@ -12,8 +12,7 @@ status; all paths are workspace-root paths. Read only the installed references
 `docs/projects/ID/living/tools.md`, `data-model.md` and submitted rounds in
 `docs/projects/ID/versions/VERSION/`. Preserve earlier outputs and authorization.
 
-Gate: `docs/projects/ID/living/data-model.md` exists and has no unsubmitted question
-round pending. Author `docs/projects/ID/living/privacy.md`:
+Gate: `docs/projects/ID/living/data-model.md` exists and has a closed review. Author `docs/projects/ID/living/privacy.md`:
 1. **Sensitive Data Classification:** Enumerate every sensitive attribute (national IDs,
    phone numbers, card/IBAN numbers, passwords, API/session tokens, customer receipts).
 2. **Handle Envelope Architecture (`[h_*]`):** Specify how the harness intercepts
@@ -27,7 +26,7 @@ round pending. Author `docs/projects/ID/living/privacy.md`:
    for prompts/tool payloads, and retention/purge schedules.
 
 Resolve open questions via `docs/projects/ID/versions/VERSION/NN-questions.md` in
-Obsidian; once submitted, hand off to `/capabilities`.
+Obsidian; once review closes, hand off to `/capabilities`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

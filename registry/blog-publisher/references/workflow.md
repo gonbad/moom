@@ -34,7 +34,7 @@ files under `projects/ID/` and serves local `http://` previews when needed.
 
 Keep living summaries in `docs/projects/ID/living/` and raw requests plus numbered
 review rounds in `docs/projects/ID/versions/VERSION/`. Specification steps (`idea`,
-`brief`, `story`) advance once any open question round is submitted without adding an
+`brief`, `story`) advance once review closes without adding an
 extra approval ceremony; editorial narrative acceptance, browser verification and live
 deployment remain separate facts. New posts start private/draft and need no machine
 manifest or upstream repository.

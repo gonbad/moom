@@ -25,7 +25,7 @@ Maintain `docs/projects/ID/living/idea.md`, `sources.md` and `roadmap.md`. Track
 source evidence, confirmed facts and delegated assumptions separately. For time-sensitive
 copy record intended publication time/timezone and the relevant event/registration facts;
 leave missing facts pending. Do not ask for a server or voice API credentials.
-Once any specification question round is submitted, hand off to `/outline`.
+During /idea, finalize the Project slug from the reviewed topic and apply the workflow constitution’s rename procedure if the slug is provisional. Once review closes, hand off to `/outline`.
 
 Apply file-review/certainty rules and the four-domain check: Job, shared Kandoo,
 active Project and write-only feedback. Preserve explicit authorization and accepted

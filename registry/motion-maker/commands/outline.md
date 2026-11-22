@@ -19,7 +19,7 @@ may communicate better than constant movement. Note asset complexity and reuse.
 
 Keep the core story feasible for the chosen duration and workshop/time budget. Do not
 start polished drawing or rendering. Resolve non-obvious narrative choices through the
-current numbered review; submitted specification blanks apply provisional recommendations.
+current numbered review, including assumptions and comments on the living outline.
 Proceed to `/story` when the outline questions are resolved.
 
 Apply file-review/certainty rules and the four-domain check: Job, shared Kandoo,

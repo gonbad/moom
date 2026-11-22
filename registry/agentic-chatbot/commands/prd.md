@@ -12,8 +12,7 @@ status; all paths are workspace-root paths. Read the installed reference
 is selected), `docs/projects/ID/living/idea.md`, `roadmap.md` and submitted rounds in
 `docs/projects/ID/versions/VERSION/`. Preserve earlier outputs and authorization.
 
-Gate: `docs/projects/ID/living/idea.md` exists and has no unsubmitted question round
-pending. Author `docs/projects/ID/living/prd.md`:
+Gate: `docs/projects/ID/living/idea.md` exists and has a closed review. Author `docs/projects/ID/living/prd.md`:
 1. **Caller Personas & Trusted Context:** Profiles for human callers or scheduled run
    principals, language habits, expectations and authentication boundaries.
 2. **Agent Persona & Refusal Boundaries:** Role, linguistic tone, domain limits and
@@ -23,7 +22,7 @@ pending. Author `docs/projects/ID/living/prd.md`:
 4. **Non-Goals:** Actions or integrations excluded from this version.
 
 Resolve open questions via `docs/projects/ID/versions/VERSION/NN-questions.md` in
-Obsidian; once submitted, hand off to `/tools`.
+Obsidian; once review closes, hand off to `/tools`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

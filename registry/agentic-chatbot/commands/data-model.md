@@ -12,8 +12,7 @@ status; all paths are workspace-root paths. Read only the installed references
 `docs/projects/ID/living/prd.md`, `tools.md`, `sops.md` and submitted rounds in
 `docs/projects/ID/versions/VERSION/`. Preserve earlier outputs and authorization.
 
-Gate: `docs/projects/ID/living/sops.md` exists and has no unsubmitted question round
-pending. Author `docs/projects/ID/living/data-model.md` in plain business terms without
+Gate: `docs/projects/ID/living/sops.md` exists and has a closed review. Author `docs/projects/ID/living/data-model.md` in plain business terms without
 raw SQL:
 1. **Business Entities:** Domain nouns read or mutated by owned services (marking payment
    entities `not applicable` if payments are outside scope).
@@ -28,7 +27,7 @@ raw SQL:
    `docs/projects/ID/living/privacy.md`.
 
 Resolve open questions via `docs/projects/ID/versions/VERSION/NN-questions.md` in
-Obsidian; once submitted, hand off to `/privacy`.
+Obsidian; once review closes, hand off to `/privacy`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

@@ -12,8 +12,7 @@ status; all paths are workspace-root paths. Read only the installed references
 `flow.md` and submitted rounds in `docs/projects/ID/versions/VERSION/`. Preserve earlier
 outputs and authorization.
 
-Gate: `docs/projects/ID/living/flow.md` exists and has no unsubmitted question round
-pending. Author `docs/projects/ID/living/data-model.md` in plain business terms without
+Gate: `docs/projects/ID/living/flow.md` exists and has a closed review. Author `docs/projects/ID/living/data-model.md` in plain business terms without
 raw SQL:
 1. **Users & Identities:** Caller keys (`platform`, `bot_id`, `caller_id`, private vs
    group `chat_id`), contact/profile fields and timestamps.
@@ -28,7 +27,7 @@ raw SQL:
    outbox delivery status and redacted operator/event metadata (never storing raw tokens).
 
 Resolve open questions via `docs/projects/ID/versions/VERSION/NN-questions.md` in
-Obsidian; once submitted, hand off to `/integrations`.
+Obsidian; once review closes, hand off to `/integrations`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

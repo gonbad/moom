@@ -13,8 +13,7 @@ status; all paths are workspace-root paths. Read only the installed references
 `edge-cases.md` and submitted rounds in `docs/projects/ID/versions/VERSION/`. Preserve
 earlier outputs and authorization.
 
-Gate: `docs/projects/ID/living/edge-cases.md` exists and has no unsubmitted question
-round pending. Author `docs/projects/ID/living/test-scenarios.md` using **synthetic
+Gate: `docs/projects/ID/living/edge-cases.md` exists and has a closed review. Author `docs/projects/ID/living/test-scenarios.md` using **synthetic
 caller IDs and synthetic test data** (never real customer phone numbers or live payment
 cards):
 1. **Scenario Structure:** Scenario ID/title, preconditions/seeds, turn-by-turn sequence
@@ -26,7 +25,7 @@ cards):
    verification and replay (otherwise mark payment scenarios `not applicable`).
 
 Resolve open questions via `docs/projects/ID/versions/VERSION/NN-questions.md` in
-Obsidian; once submitted, hand off to `/architecture`.
+Obsidian; once review closes, hand off to `/architecture`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

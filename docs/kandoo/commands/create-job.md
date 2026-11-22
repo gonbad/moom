@@ -25,10 +25,7 @@ need because it differs from a starter (portrait slides are a simple example).
 
 Use consecutive numbered question files in the same `0.1` folder for missing choices
 and non-obvious AI decisions. Every item has context, concrete options, an explicit
-AI Recommendation and a blank answer field. Submitted explicit choices are Confirmed
-(`قطعی`); submitted blanks apply the recommendation immediately as Delegated /
-Provisional (`پیش‌فرض موقت`). Unsubmitted blanks remain pending. Preserve resolution
-evidence and carry confirmed versus delegated choices into living summaries.
+AI Recommendation and a blank answer field. Resolve the method using the shared review protocol, including edits and inline comments on living documents.
 
 Keep the workflow useful for the actual work. Decide deliverables, ordered steps,
 translated display labels, optional conditions, quality criteria, first-project facts,

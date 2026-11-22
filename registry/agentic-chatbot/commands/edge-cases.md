@@ -13,8 +13,7 @@ status; all paths are workspace-root paths. Read the installed references
 and submitted rounds in `docs/projects/ID/versions/VERSION/`. Preserve earlier outputs
 and authorization.
 
-Gate: `docs/projects/ID/living/capabilities.md` exists and has no unsubmitted question
-round pending. Author `docs/projects/ID/living/edge-cases.md`:
+Gate: `docs/projects/ID/living/capabilities.md` exists and has a closed review. Author `docs/projects/ID/living/edge-cases.md`:
 1. **Prompt Injection & Stale History:** Defenses against indirect injection from
    tool/document payloads, role-switching prompts and stale chat history attempting to
    reuse expired offers or manufacture approval.
@@ -29,7 +28,7 @@ round pending. Author `docs/projects/ID/living/edge-cases.md`:
    normal runs, recovering only after a customer-data-free provider probe succeeds.
 
 Resolve open questions via `docs/projects/ID/versions/VERSION/NN-questions.md` in
-Obsidian; once submitted, hand off to `/prompts`.
+Obsidian; once review closes, hand off to `/prompts`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

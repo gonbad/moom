@@ -13,8 +13,7 @@ status; all paths are workspace-root paths. Read the installed references
 `prd.md` and submitted rounds in `docs/projects/ID/versions/VERSION/`. Preserve earlier
 outputs and authorization.
 
-Gate: `docs/projects/ID/living/prd.md` exists and has no unsubmitted question round
-pending. Author `docs/projects/ID/living/tools.md` inside `docs/` so every contract
+Gate: `docs/projects/ID/living/prd.md` exists and has a closed review. Author `docs/projects/ID/living/tools.md` inside `docs/` so every contract
 reviewed by the participant stays in Obsidian Markdown:
 1. **Service Classification & Fallbacks:** Classify each dependency (`existing_api`,
    `owned_backend`, `api_bridge`), record ranked fallbacks, and mark payments `not
@@ -35,7 +34,7 @@ reviewed by the participant stays in Obsidian Markdown:
    or non-`.md` files.
 
 Resolve open questions via `docs/projects/ID/versions/VERSION/NN-questions.md` in
-Obsidian; once submitted, hand off to `/sops`.
+Obsidian; once review closes, hand off to `/sops`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

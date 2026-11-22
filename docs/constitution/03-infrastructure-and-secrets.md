@@ -77,9 +77,7 @@ that explicit choice; this does not promote it to shared scope or change its rou
 Each consumer records its own allocations, and the target owner's ledger tracks all
 consumers so ports/volumes remain unique. Never mutate an owning Project's other work.
 
-Only offer reuse when a real identified target exists. A review's submitted blank may
-delegate local deferral or a recommendation, but cannot authorize remote access or
-deployment. `unselected` is not `none`; merely finding an empty credential file is not
+Only offer reuse when a real identified target exists. Record an unanswered target recommendation as a soft planning choice. Remote access and deployment require their own authorization. `unselected` is not `none`; merely finding an empty credential file is not
 an answer. Partial/promised access stays pending. Record target identity, ownership
 (`shared` or an identified owning Project), secret-reference path, selected delivery mode and actual
 verification evidence. Keep setup permission and live deployment permission distinct.

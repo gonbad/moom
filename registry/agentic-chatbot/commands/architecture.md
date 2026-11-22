@@ -21,8 +21,7 @@ or local deferral. Preserve previous selections and ask only for missing facts. 
 not treat unselected as no server or create credentials before a target is chosen.
 
 Gate: `prd.md`, `tools.md`, `sops.md`, `data-model.md`, `privacy.md`, `capabilities.md`,
-`edge-cases.md` and `docs/projects/ID/living/prompts/` exist with no unsubmitted question
-round pending. Execute on the **strongest available reasoning model**, writing three
+`edge-cases.md` and `docs/projects/ID/living/prompts/` exist with a closed review. Execute on the **strongest available reasoning model**, writing three
 Markdown deliverables inside `docs/`:
 1. **`docs/projects/ID/living/architecture.md`:**
    - *Harness & Reference Monitor (`projects/ID/app/`):* Intercepts every model tool call,
@@ -55,7 +54,7 @@ Markdown deliverables inside `docs/`:
    `projects/ID/`.
 
 Resolve non-obvious architectural choices via
-`docs/projects/ID/versions/VERSION/NN-questions.md`; once submitted, hand off to `/build`.
+`docs/projects/ID/versions/VERSION/NN-questions.md`; once review closes, hand off to `/build`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

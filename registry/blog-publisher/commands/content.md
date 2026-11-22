@@ -13,8 +13,7 @@ status; all paths are workspace-root paths. Read only the installed references
 `docs/projects/ID/living/story.md`, the selected-version input recorded in `docs/projects/ID/living/status.md`
 and submitted current-version rounds. Preserve earlier outputs and authorization.
 
-Gate: `docs/projects/ID/living/story.md` exists and has no unsubmitted question round
-pending. Draft the complete narrative in `docs/projects/ID/living/content.md` by
+Gate: `docs/projects/ID/living/story.md` exists and has a closed review. Draft the complete narrative in `docs/projects/ID/living/content.md` by
 implementing the exact section order, actor/action sequence and evidence map in
 `story.md` (reflecting any owner edits to `story.md`). Build and maintain a
 claim-to-source map in `docs/projects/ID/living/content.md` or a companion `.md` note

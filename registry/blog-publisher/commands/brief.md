@@ -12,8 +12,7 @@ status; all paths are workspace-root paths. Read only the installed references
 and submitted rounds in `docs/projects/ID/versions/VERSION/`. Preserve earlier outputs
 and authorization.
 
-Gate: `docs/projects/ID/living/idea.md` exists and has no unsubmitted question round
-pending. Author `docs/projects/ID/living/brief.md`:
+Gate: `docs/projects/ID/living/idea.md` exists and has a closed review. Author `docs/projects/ID/living/brief.md`:
 1. **Target Reader & Tone:** Primary audience, starting context, language/script needs,
    and analytical or practical tone.
 2. **Agreed Reader Outcome & Thesis:** What the reader will understand or do afterward,
@@ -25,8 +24,7 @@ pending. Author `docs/projects/ID/living/brief.md`:
    delivery overrides. The page must explain itself without a speaker.
 
 Put consequential unresolved angles or tradeoffs in
-`docs/projects/ID/versions/VERSION/NN-questions.md` for review in Obsidian. Once any
-open question round is submitted, record Confirmed versus Delegated/Provisional choices
+`docs/projects/ID/versions/VERSION/NN-questions.md` for review in Obsidian. Once review closes, record the confirmed choices
 without adding an extra approval round, and hand off to `/story`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates

@@ -12,8 +12,7 @@ status; all paths are workspace-root paths. Read the installed references
 payments apply), `docs/projects/ID/living/tools.md`, `privacy.md` and submitted rounds in
 `docs/projects/ID/versions/VERSION/`. Preserve earlier outputs and authorization.
 
-Gate: `docs/projects/ID/living/privacy.md` exists and has no unsubmitted question round
-pending. Author `docs/projects/ID/living/capabilities.md` using one consistent two-column
+Gate: `docs/projects/ID/living/privacy.md` exists and has a closed review. Author `docs/projects/ID/living/capabilities.md` using one consistent two-column
 capability schema shared across specification, prompts, harness and tests:
 1. **Capability Partition Table:**
    | Action | Execution Mode | Confirmation Policy | Plain Parameters | Envelope Parameters | Outage / Fallback |
@@ -39,7 +38,7 @@ capability schema shared across specification, prompts, harness and tests:
    handle-sink validation, budget checks and separate payment settlement remain mandatory
    under every policy.
 
-Once the question round is submitted, record Confirmed vs Delegated/Provisional selections
+Once review closes, record confirmed selections
 in `capabilities.md` and hand off to `/edge-cases`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates

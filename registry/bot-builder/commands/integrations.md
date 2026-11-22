@@ -13,8 +13,7 @@ when payments are in scope), `docs/projects/ID/living/prd.md`, `flow.md`,
 `data-model.md`, `external-services.md` and submitted rounds in
 `docs/projects/ID/versions/VERSION/`. Preserve earlier outputs and authorization.
 
-Gate: `docs/projects/ID/living/data-model.md` exists and has no unsubmitted question
-round pending. Author `docs/projects/ID/living/integrations.md` (always named
+Gate: `docs/projects/ID/living/data-model.md` exists and has a closed review. Author `docs/projects/ID/living/integrations.md` (always named
 `integrations.md`):
 1. **Messenger Adapter Normalization:** Specify only the selected platform(s) (Telegram,
    Bale, Rubika), webhook vs polling mode, button/contact capabilities, and text fallbacks
@@ -31,7 +30,7 @@ round pending. Author `docs/projects/ID/living/integrations.md` (always named
    non-`.md` files referred to the participant.
 
 Resolve open questions via `docs/projects/ID/versions/VERSION/NN-questions.md` in
-Obsidian; once submitted, hand off to `/edge-cases`.
+Obsidian; once review closes, hand off to `/edge-cases`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what

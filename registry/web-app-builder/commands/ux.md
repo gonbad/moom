@@ -12,8 +12,7 @@ status; all paths are workspace-root paths. Read only the installed references
 `data-model.md` and submitted rounds in `docs/projects/ID/versions/VERSION/`. Preserve
 earlier outputs and authorization.
 
-Gate: `docs/projects/ID/living/data-model.md` exists and has no unsubmitted question
-round pending. Author `docs/projects/ID/living/ux.md`:
+Gate: `docs/projects/ID/living/data-model.md` exists and has a closed review. Author `docs/projects/ID/living/ux.md`:
 1. **Screens Inventory:** Name every screen explicitly (reused across design, prototype
    and scenarios), stating its content plus its **loading**, **empty** and **error** states.
 2. **Primary Key Screen:** Identify the single screen that best expresses the product's
@@ -25,7 +24,7 @@ round pending. Author `docs/projects/ID/living/ux.md`:
 
 If walking screens reveals missing fields or PRD gaps, update `data-model.md` and
 `prd.md` in place and note the change. Resolve open questions via
-`docs/projects/ID/versions/VERSION/NN-questions.md` in Obsidian; once submitted, hand
+`docs/projects/ID/versions/VERSION/NN-questions.md` in Obsidian; once review closes, hand
 off to `/visuals`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates

@@ -33,7 +33,7 @@ The coding assistant reads the procedures and works with your computer's native 
    starter without Job-definition questions. Or run `/create-job`
    to describe repeated work in the provided Markdown input, save it and say
    `done` / `نوشتم`. That custom path can use, adapt or replace any
-   [starter](registry/README.md), with confirmed choices and provisional delegation.
+   [starter](registry/README.md), with explicit decisions and editable living-document reviews.
 5. The assistant installs your Job, creates and verifies Project 1 from your input,
    removes the catalog and canonical bootstrap documents, and replaces this README with
    your Kandoo's guide. Use the idea page and optional material locations it shows

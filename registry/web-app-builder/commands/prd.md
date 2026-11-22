@@ -12,8 +12,7 @@ status; all paths are workspace-root paths. Read only the installed reference
 `external-services.md` and submitted rounds in `docs/projects/ID/versions/VERSION/`.
 Preserve earlier outputs and authorization.
 
-Gate: `docs/projects/ID/living/idea.md` exists and has no unsubmitted question round
-pending. Author `docs/projects/ID/living/prd.md`:
+Gate: `docs/projects/ID/living/idea.md` exists and has a closed review. Author `docs/projects/ID/living/prd.md`:
 1. **User Personas:** For each actor (visitor, customer, administrator, operator), write
    a concrete persona covering context, digital literacy, primary viewport (mobile vs
    desktop), Persian/Latin language habits, what success looks like in two minutes,
@@ -24,8 +23,7 @@ pending. Author `docs/projects/ID/living/prd.md`:
    build stages do not drift.
 
 Put open product questions and non-obvious tradeoffs in
-`docs/projects/ID/versions/VERSION/NN-questions.md` in Obsidian. Once any open round is
-submitted (Confirmed or Delegated/Provisional), record decisions without adding a
+`docs/projects/ID/versions/VERSION/NN-questions.md` in Obsidian. Once review closes, record decisions without adding a
 duplicate approval round, commit if local Git is active (or record Git deferred), and
 hand off to `/data-model`.
 

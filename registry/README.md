@@ -9,7 +9,7 @@ metadata are required. Each starter has a `bootstrap.md` intake guide and reusab
 Install its method, bootstrap, references and both intake pages locally in the
 Kandoo before deleting this entire bootstrap catalog.
 
-- [film-maker](film-maker/job.md): Guide a first-time filmmaker from script, editable narration prompt and recording per sequence through a voiced storyboard and representative shot to finished sequences and a verified MP4.
+- [film-maker](film-maker/job.md): Guide a first-time filmmaker from reviewed prose and voice choices to a scene script with camera positions. Review prompts by sequence, record by speaking turn, jointly performed scene or continuous solo narration, then build the storyboard and deliver a verified MP4.
 - [motion-maker](motion-maker/job.md): Create reviewed visual assets and local HTML motion, then explicitly requested silent video and optional dubbing.
 - [presentation-maker](presentation-maker/job.md): Create speaker-led, horizontal presentations with left/right navigation and downloadable offline delivery by default; hosting is optional.
 - [blog-publisher](blog-publisher/job.md): Publish self-contained articles, guides and papers for independent readers, with online URLs and vertical scrolling by default.

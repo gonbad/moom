@@ -33,7 +33,7 @@ non-secret credential variable names in `docs/projects/ID/living/external-servic
 
 Always write and maintain `docs/projects/ID/living/idea.md`—never substitute a
 version-only filename. Resolve open questions via
-`docs/projects/ID/versions/VERSION/NN-questions.md` in Obsidian; once submitted, hand
+`docs/projects/ID/versions/VERSION/NN-questions.md` in Obsidian; once review closes, hand
 off directly to `/prd`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates

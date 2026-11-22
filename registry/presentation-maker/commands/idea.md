@@ -32,7 +32,7 @@ audience, source inventory, scope, recurring worked example and measurable accep
 criteria. Put consequential uncertain choices in
 `docs/projects/ID/versions/VERSION/NN-questions.md` for Obsidian review; reuse answered
 facts instead of interviewing again, and do not generate an entire generic deck from a
-title. Once any open question round is submitted, route directly to `/outline`.
+title. Once review closes, route directly to `/outline`.
 
 Apply the file-review/certainty protocol on `.md` files inside `docs/` and assess updates
 to the Job, shared Kandoo, active Project and write-only creator feedback. Persist what
