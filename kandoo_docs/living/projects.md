@@ -4,3 +4,7 @@ Paths are absolute and percent-encoded. Decode before opening. Only the assistan
 
 | Slug | Path | Remote | Installed Kandoo version |
 | --- | --- | --- | --- |
+
+## Note receipts
+
+Record project slug, note filename, SHA256, disposition and dossier as a bullet per processed note.

@@ -1,6 +1,9 @@
 # Project status
 
-Version: 0.1
+Product version: 0.1
+Installed Kandoo version: unset
+Completed steps: none
+Skipped steps: none
 Current step: /idea
 Current input: docs/versions/0.1/00-user-idea-input.md
 Review: none

@@ -30,3 +30,8 @@ dist/
 build/
 *.log
 *.zip
+
+/samples/*
+!/samples/README.md
+/projects/
+.scaffold.lock/

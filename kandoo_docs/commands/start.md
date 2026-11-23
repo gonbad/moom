@@ -1,6 +1,6 @@
 ---
 name: start
-description: Set up a fresh workspace through one chat question at a time, with Git backup and an actual starter catalog.
+description: Set up a fresh workspace through one chat question at a time, with optional Git backup and routine intake.
 ---
 
 # /start
@@ -80,8 +80,5 @@ pending. Leave server state unselected unless an explicit request already suppli
 Mark bootstrap start done when required preferences are answered or explicitly
 delegated and intended checks are resolved or deferred. Record verified, pending,
 user-skipped and not-needed checks separately. Clear the pending setup question and
-make Job selection current.
-
-## Show the available choices
-
-Read `registry/README.md` and list every complete starter (mission, workflow, declared step bodies and references). Give a short purpose and exact host invocation for each. Offer the custom `/create-job` branch alongside them, with the exact kandoo_docs/versions/0.1/00-job-input.md path where the participant can describe their routine beforehand. Use `$pick-job ID` in Codex CLI, slash commands in Claude Code and OpenCode, or the host skill picker. End with both setup branches visible and one action to choose. Later settings changes can be made in chat.
+make /job current. Check ancestor Git roots and host instructions. For intentional nesting offer a local Git exclude for the Kandoo in its enclosing repository. Preserve unrelated rules.
+Compare the input bytes (normalize CRLF to LF) with Job guide SHA256 in status. If they match, localize the untouched 00-job-input.md guide into the document language, preserving any participant edits. Announce the input path, samples/ for example outputs and existing/ for code, documents or assets to adopt. Create these folders if missing. Invite free-form input and end with the exact /job invocation. Save the localized guide hash in status before participant edits so an untouched guide never counts as user input.

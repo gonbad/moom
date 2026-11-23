@@ -1,10 +1,18 @@
 ---
 name: workflow
-description: Write the ordered project steps, gates and method-specific infrastructure policy.
+description: Define ordered stages, actors, handoffs and delivery criteria.
 ---
 
 # /workflow
 
-Start from the reviewed mission and open version. In kandoo_docs/living/workflow.md declare exactly one line `Server mode: none`, `Server mode: dedicated` or `Server mode: shared`. Specify the responsible stage and local deferral for methods needing infrastructure. Dedicated methods receive a project /server helper. Shared methods hand down connection instructions when creating a project; the project owns all port/domain/volume allocation and verification.
+Translate the reviewed mission into living/workflow.md. Preserve explicit exclusions. Offer omission for optional terminal actions. A manual upload outside the agreed deliverable goes on the roadmap. Use this table format, with /idea first. Older four-column tables imply ai.
 
-Write a Markdown pipeline table like a registry workflow: begin each stage row with "| `/idea` |" (substitute its command for later rows), followed by English and document-language labels and its exit condition. The first stage is always /idea. Define inputs, outputs, handoff and gates for each stage, including a representative pilot before full production when relevant. Put each complete command in kandoo_docs/living/steps/NAME.md with YAML name and description on separate lines. Add needed standalone references in living/references/ and cite their eventual project paths under docs/references/. Validate names against command-names.md and installed commands. Make paths relative to the project root. Plan reusable code and regression checks in template/ when the method requires them. Record review, step mapping and next action /apply.
+| Command | Mode | Stage | فارسی | Exit or condition |
+| --- | --- | --- | --- | --- |
+| `/idea` | ai | Brief | ایده | Accepted input |
+| — | human | External generation | تولید دستی | Returned media verified |
+| `/produce` | tool | Produce | تولید | Verified delivery |
+
+Use ai, tool, human and api. Each command has a complete living/steps/NAME.md body with YAML name and description. A human row has a unique stage label, a handoff specifying exact outbound files, external action, return folder, and resume cue. Detect a single new matching return by name and hash since the prior take. Ask when several match. For an API record provider, inputs, result, credential scope, retry and error behavior. Give each stage inputs, output, prerequisites and observable exit evidence. Add domain and server facts to living/context/. Keep starter reference paths usable under docs/references/. Record one Server mode line (none, shared or dedicated). Review each optional stage and respect the latest explicit edits. Continue to /topology.
+
+For media routines write raw/ and intermediate file patterns in template/docs/method/project-ignore.md, one Git ignore pattern per line. Record filenames and digests in receipts. Keep small reviewed final deliveries and reusable assets tracked under the agreed policy.

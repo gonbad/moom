@@ -21,7 +21,7 @@ audit; keep each host's identifier list on one table row.
 
 ## Core workspace names
 
-Reserve these Kandoo names: `start`, `pick-job`, `create-job`, `mission`, `workflow`, `apply`, `new-project`, `inspect`, `new-version`, `migrate`, `report-moom`.
+Reserve these Kandoo names: `start`, `job`, `topology`, `shared-code`, `floating-commands`, `testing`, `mission`, `workflow`, `apply`, `new-project`, `inspect`, `new-version`, `migrate`, `report-moom`.
 
 ## Authoring
 

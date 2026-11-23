@@ -1,9 +1,9 @@
 # Moom
 
-Moom version: 0.10.0
+Moom version: 0.11.0
 
-Use this template to create a personal repository, or extract the kit into its own folder. Open that folder in your AI host and open `kandoo_docs/` as the method vault in Obsidian. Run `/start` (Codex CLI: `$start`; Antigravity: select the skill). Choose a prepared routine or describe your own. The assistant operates Git and the bundled Python 3.9+ helper.
+Use this template to create a personal repository, or extract the kit into its own folder. Open that folder in your AI host and open `kandoo_docs/` as the method vault in Obsidian. Run `/start` (Codex CLI: `$start`; Antigravity: select the skill). Describe the task you repeat. /job can adapt an internal example. Review mission, workflow, topology, shared code, floating commands and testing before /apply. The assistant operates Git and the bundled Python 3.9+ helper.
 
-Once the template is ready, describe an output to `/new-project`. Open the resulting project directory in a second AI session and its `docs/` in a separate Obsidian window. Write your idea in the blank input and run `/idea`. Each project keeps its own repository and can continue after the method workspace is closed or moved.
+Once the template is ready, describe an output to `/new-project`. Open the resulting project directory in a second AI session and its `docs/` in a separate Obsidian window. Write your idea in the editable job-specific guide and run `/idea`. The topology records where the project and any shared dependencies live.
 
 See the [method vault](kandoo_docs/README.md) and [prepared starters](registry/README.md).
