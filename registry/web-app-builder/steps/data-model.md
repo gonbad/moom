@@ -20,5 +20,5 @@ syntax (those belong later in `architecture.md`):
 5. **Intentionally Omitted Data:** Nouns or fields excluded from this version.
 
 `/ux` may refine this document in place if screen design exposes missing fields.
-Resolve open questions via `docs/versions/VERSION/NN-questions.md` in
+Resolve open questions via `docs/versions/VERSION/NN-analysis-data-model.md` in
 Obsidian; once review closes, hand off to `/ux`.

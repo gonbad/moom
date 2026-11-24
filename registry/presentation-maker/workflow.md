@@ -1,16 +1,18 @@
-# presentation-maker workflow
+# Speaker-led presentation workflow
 
-Server mode: dedicated
-
-Deliver offline by default. Only a request for hosting at /deploy invokes /server for this project.
+Server mode: none
 
 | Command | Mode | Stage | فارسی | Exit or condition |
 | --- | --- | --- | --- | --- |
-| `/idea` | ai | Idea | ایده | Audience, talk promise, format and sources resolved |
-| `/outline` | ai | Outline | طرح ارائه | Beat sequence, timings, notes, asset plan and visual system resolved |
-| `/build` | tool | Build | ساخت | Required assets/gallery and representative slide accepted; local/offline deck and navigation verified |
-| `/deploy` | ai | Deliver | تحویل | Speaker review resolved; local delivery or authorized hosting verified |
+| `/idea` | ai | Idea and research | ایده و پژوهش | Audience, speaker's thesis and supporting material resolved |
+| `/structure` | ai | Chapters | فصل‌بندی | Sections, chapters and navigable milestones agreed |
+| `/outline` | ai | Slide outline | طرح اسلایدها | Stable IDs, claims, notes and interaction outcomes specified |
+| `/styling` | ai | Visual style | سبک | Representative typography, layout and direction reviewed |
+| `/assets` | ai | Assets | دارایی‌ها | Local assets identified and any external prompts prepared |
+| — | human | External assets | تولید دستی | Requested media returned and matched, or skipped when all assets are local |
+| `/build` | tool | Build | ساخت | Accepted representative slide and working offline deck |
+| `/deliver` | ai | Deliver | تحویل | Transferred folder checked, speaker rehearsal and any remaining venue checks recorded |
 
-For the initial version follow these stages in order. Read each installed procedure for its inputs, outputs and exit evidence. Review only affected stages and prerequisites during later iterations.
+For external assets, provide the prompt and expected result in docs/living/assets.md, ask the participant to save returns in design/, and resume on “assets ready”. Match returns by content hash, retain previous takes, and record an explicit skip when there is no external work. Each step uses the analysis rounds in docs/constitution/general.md.
 
-References in `docs/references/`: `intake.md`, `quality.md`, `slides.md`, `visuals.md`, `workflow.md`.
+References in `docs/references/`: `intake.md`, `workflow.md`, `slides.md`, `visuals.md`, `quality.md`.

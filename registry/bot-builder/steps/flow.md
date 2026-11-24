@@ -19,5 +19,5 @@ Gate: `docs/living/prd.md` exists and has a closed review. Author `docs/living/f
    confirmations and help messages, written in natural Persian/chosen language suited to
    the persona.
 
-Resolve open questions via `docs/versions/VERSION/NN-questions.md` in
+Resolve open questions via `docs/versions/VERSION/NN-analysis-flow.md` in
 Obsidian; once review closes, hand off to `/data-model`.

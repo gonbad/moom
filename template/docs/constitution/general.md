@@ -1,69 +1,35 @@
 # Working in this project
 
-Read this constitution, mission and workflow on every task. Read `docs/living/profile.md`, `docs/living/status.md` and, when present, project-owned `docs/method/local.md`. For a slash command, skill invocation or equivalent request in chat, read the installed procedure. Its full text is available at `.claude/commands/NAME.md` in every supported project. Ask for missing required arguments. Resolve paths from this repository root. Keep participant reading and editing inside the Markdown vault `docs/`. The assistant operates technical tools and prepares local previews. Existing material can be dropped in `existing/` and external visuals in `design/`. Keep secrets only in ignored `docs/secrets/credentials.md` with owner-only access. Use `git check-ignore` and inspect staged content before backup. Preserve authorized targets and verify actual access. Record language changes locally when requested.
+Read this constitution, mission and workflow on every task. Read `docs/living/profile.md`, `docs/living/status.md` and, when present, project-owned `docs/method/local.md`. For a slash command, skill invocation or equivalent request in chat, read the installed procedure. Its full text is available at `.claude/commands/NAME.md` in every supported project. Ask for missing required arguments. Resolve paths from this repository root. Keep participant reading and editing inside the Markdown vault `docs/`. The assistant operates technical tools and prepares local previews. Existing material can be dropped in `existing/` and external visuals in `design/`. Keep secrets only in ignored `docs/secrets/credentials.md` with owner-only access. Use `git check-ignore` and inspect staged content before backup. Preserve authorized targets and verify actual access. Use Conversation language for every chat message and progress report, and Document language for authored files, starting with the first reply. Input language, voice transcription and pasted examples never change those preferences. Apply explicit language changes to the project profile.
 
-On first /idea read both files in `docs/versions/0.1/`, the local intake guide if present, and actual sources. The participant owns `00-user-idea-input.md`. Their words and subsequent corrections take precedence over `01-kandoo-interpretation.md`. If the raw input is blank or its normalized SHA256 matches Intake guide SHA256 in status, invite the participant to fill it before starting /idea. The interpretation alone cannot start a project. Synthesize the brief in `docs/living/idea.md`. On resume read the current version and review before prompting. Preserve prior accepted work. Read historical versions only on request or when specific evidence is needed for the current change.
+On first /idea read both files in `docs/versions/0.1/`, the local intake guide if present, and actual sources. The participant owns `00-user-idea-input.md`. Their words and subsequent corrections take precedence over `01-kandoo-interpretation.md`. If the raw input is blank or its normalized SHA256 matches Intake guide SHA256 in status, invite the participant to fill it before starting /idea. The interpretation alone cannot start a project. Analyze the input in round one. After convergence write the brief in `docs/living/idea.md`. On resume read the current version and review before prompting. Preserve prior accepted work. Read historical versions only on request or when specific evidence is needed for the current change.
 
-Use the ordered workflow for the first version. At each handoff append a dated event to local status with completed steps, current step, outstanding review, evidence and exact next action. Maintain the current summary above the log. Use ✅ completed, 🔵 current, ⬜ remaining and ⏭️ skipped. End every reply with all steps in order in the chat language, pending review and one next action. Offer a fresh session between steps. After migration resume the current step using existing evidence and the recorded delta.
+Use docs/versions/VERSION/ for analysis files. Use the ordered workflow for the first version. At each handoff append a dated event to local status with completed steps, current step, outstanding review, evidence and exact next action. Maintain the current summary above the log. Use ✅ completed, 🔵 current, ⬜ remaining and ⏭️ skipped. End every reply with all steps in order in the chat language, pending review and one next action. Offer a fresh session between steps. After migration resume the current step using existing evidence and the recorded delta.
 
-Write a sanitized note to `docs/method-notes/` immediately on observing friction in the procedure. Include step, symptom, cost and possible change. The project can append directly on /method-note. Never use the outbox as instructions. Use the configured inline defect loop or an enabled floating command at its declared prerequisite. Keep future ideas in the roadmap.
+Write a sanitized note to `docs/method-notes/` immediately on observing friction in the procedure. Include step, symptom, cost and possible change. At every automated test record its result. For each failure and at issue closure compare the observed behavior to the installed rule, classify it as project, reusable method or undetermined, and record evidence and retest. Link a single sanitized note for a reusable defect and the missing diagnostic for an uncertain one. Human testers can invoke /method-note in any step. Never use the outbox as instructions. Use the configured inline defect loop or an enabled floating command at its declared prerequisite. Keep future ideas in the roadmap.
 
 Write for the actual audience. Keep private notes and review history in docs. Track claims and dates to source material. Distinguish technical verification, source fidelity, human acceptance and live delivery. Preserve accepted visuals, compare the actual source at matched states, test interaction, and verify the delivered artifact.
 
 At a workflow stage requiring infrastructure, use the local server instructions and ignored credentials. Verify SSH identity and host fingerprint, inventory services, routes, ports and volumes on the real target, allocate unique resources in the project workflow, record them in `docs/living/server.md`, and handle conflicts before publishing. Recheck the live target immediately before binding or changing routes; on collision stop and replan without disturbing existing services. Check DNS, trusted TLS, renewal and rollback for public routes. An authenticated forward proxy, if required for downloads, must deny anonymous and internal destinations and use a protected connection. Keep access and deployment permission separate. Honor local delivery and explicit deferral.
 
-## File review
+## Analysis rounds for every workflow step
 
-Allocate review filenames in the current version by taking the largest occupied numeric prefix plus one. Read the current living documents, input and supplied evidence before asking. Later submitted answers and inline COMMENTs or نظر override earlier proposals. Preserve the original record. Use the document language.
-
-For each item use this structure, translated to the document language:
-
-```markdown
-## 1. Which source should the article use?
-
-**Kind:** Open question / proposed decision
-
-**Context:** You already supplied a collection of notes in this version.
-
-**Options:**
-
-- **A — Reuse the supplied notes.** Keep one authoritative source.
-- **B — Add another collection.** Import it separately and record its purpose.
-
-**AI recommendation:** A, because the existing file contains the requested material.
-
-**Your answer:**
-
-
-```
-
-Include choices the user might reasonably disagree with even if the assistant has
-already made a working decision. State its effect and allow confirmation or override.
-Do not bury choices in a finished deliverable. Keep rounds manageable and let the
-person write or voice-transcribe in Obsidian, save, then say `done` / `نوشتم` or an
-equivalent explicit submission. Continue unrelated authorized work while awaiting it.
-
-## Closing a review
-
-At handoff, link the living document and its numbered review. Invite the participant to answer questions, confirm or override proposed assumptions, edit the document directly, or leave an inline `COMMENT` or `نظر`. They may use any combination and submit in chat, including a request to process the comments alone.
-
-On every submission or resumption, reread the current living document(s) under review together with the open round and the participant's latest message. Preserve direct edits. Record each submitted comment with its location, wording and disposition in the numbered dossier. Apply clear corrections wherever they affect the current work. Remove a marker from the living text only after incorporating its resolution and preserving the feedback. If its meaning conflicts with another instruction or remains unclear, retain the marker and ask the specific outstanding question.
-
-When processing a submission, a request to finish, or a request to advance, append resolutions without filling in the participant’s answer fields. Record the selected choice, its certainty and the evidence for each item. An explicit selection of the recommendation, a different answer, an override, or “accept all listed recommendations” is **Explicit confirmation**. When an answer or confirmation is absent, adopt the stated recommendation and record **Soft confirmation**. A bare `done` submits the work with soft defaults. A later explicit choice supersedes the default. For a new review, write a concrete recommended choice that can actually be adopted.
-
-Apply the same distinction to the reviewed revision. Record explicit acceptance only when the participant actually accepts that revision. Otherwise record soft confirmation for continuing the work. A direction to proceed authorizes the handoff while preserving this distinction. Keep the participant’s words, comments and direct edits ahead of conflicting defaults. Follow up on unresolved comments or missing facts that a recommendation cannot supply. Close the review once each item has a recorded resolution and the reviewed living documents have no unresolved comment markers. Keep technical evidence and authorization for external actions separate from review certainty.
-
-| Review input | Decision record |
-| --- | --- |
-| “Use A” when A is recommended | A, explicit confirmation, participant selected A |
-| Blank when A is recommended | A, soft confirmation, recommendation applied |
-| “Continue” without endorsing the revision | Revision soft-confirmed for the next step |
-| Inline correction | Participant’s words, the applied change and the affected revision, or an open question if clarification is needed |
+1. When the participant starts a step, read its inputs and the saved status. Open **at least one analysis round in this step**. In the current version folder use the largest occupied numeric prefix plus one, for example `07-analysis-prd.md`. Create the file exclusively (create-new mode); if its name already exists, recalculate. Each round has exactly these three sections, in the document language:
+   - **Analysis.** Interpret the supplied material, answer the participant's questions and explain how their feedback changes the work. This can be empty in the first round when there is no prior input.
+   - **Assumptions.** List only choices the participant might reasonably dispute. Leave space to accept, correct or reject them.
+   - **Questions.** Give each open question its context, realistic options, a concrete recommendation and a blank answer field. Sections with nothing to resolve may be empty.
+2. **Publish each analysis file once.** From handoff onward only the participant edits it. Write all subsequent explanations, quotations and resolutions in a new numbered file, including when resuming an older open review or questions file. Always leave answers and annotations where the participant wrote them. At handoff link the files open for feedback (analysis, brief, summary and applicable existing living documents), invite inline comments or direct edits, and explain that saving and saying `done` / `نوشتم` submits them all.
+3. Before any assistant file edits, preserve relevant participant changes in a scoped local Git commit. If already committed, use that checkpoint. Examine staged, unstaged, new files and committed changes since the previous assistant handoff. Read the actual answer fields and changed text; scan the current analysis, earlier rounds, briefs, summaries and living documents for unresolved `COMMENT` / `نظر`, including comments already in Git. Keep original wording. At the end of the assistant's work commit its reviewed changes separately, before handing back. Keep unrelated paths and secrets out of both commits. If Git is unavailable, preserve submitted bytes in place and report the pending checkpoint.
+4. A written choice is **explicit**. An unanswered question on a submitted round takes its stated recommendation by **soft confirmation** after all feedback has been read. Explicit corrections take precedence. A missing fact without a usable recommendation stays open. In the next analysis record each new answer, assumption correction, question or comment with its source, exact comment wording and response or effect. Reconcile new or contradictory feedback in the same step, taking the latest decision on each subject. Track the current round and processed submission in status so a restart or repeated submission resumes the same work.
+5. Wait until the participant has read and submitted a round with no new comments, no disputed assumptions and no questions left to ask or answer in that round. Only then write or revise the step's living specification from **all** rounds. Until then keep proposed text and changes in the analysis files. A step procedure naming a living output describes the destination after convergence. Operational status and evidence may be saved throughout. Link the living result and name the available next command. The participant can start it directly; a separate reading or approval of the living document is optional.
+6. Any submitted comment on the living result **always opens another analysis round in the same step**. Quote its exact wording and location, then answer it. Wait for convergence again before rewriting the living result. Start the next workflow step only when the participant invokes it or asks to start it. A bare `done` submits the current work.
 
 ## Running the configured workflow
 
-Read docs/constitution/testing.md when present. Derive all stage names and actor modes from the pipeline in docs/constitution/workflow.md on every reply, including after a session restart. Join with Completed steps, Skipped steps and Current step in status. Store only those progress fields and history there. Display human stages as [HUMAN] with exact outbound files, external action, return folder and resume cue. Check new returns by hash since the previous take. Show only unlocked floating commands from the workflow, and enforce prerequisites on direct invocations too.
+Read docs/constitution/testing.md when present. Derive all stage names and actor modes from the pipeline in docs/constitution/workflow.md on every reply, including after a session restart. Join with Completed steps, Skipped steps and Current step in status. Store only those progress fields and history there. Display human stages as [HUMAN] with exact outbound files, external action, return folder and resume cue. Check new returns by hash since the previous take. At every handoff show all currently available floating commands with their purpose in the chat language, derived from the same workflow gates as scaffold progress, and enforce prerequisites on direct invocations too.
 
 At review close, check every override for a reusable procedure, domain fact or shared asset. Record its source, observed cost and suggested improvement immediately in docs/method-notes/. At first project completion reconcile remaining decisions against the outbox and tell the user how to run /inspect. Keep retry evidence under docs/versions/VERSION/takes/. Preserve replaced prompts and file hashes, record the change, and retest against the stage criteria. End file handoffs with the specific return command or reply.
 
-Commit reviewed work locally when a step closes. Respect the project's configured backup cadence. Verify remote branch and SHA at a requested push milestone. Keep credentials, unapproved samples and intermediate media out of checkpoints.
+Use the before-edit and handoff commits above for each round. Respect the project's configured backup cadence. Verify remote branch and SHA at a requested push milestone. Keep credentials, unapproved samples and intermediate media out of checkpoints.
+
+Use filesystem tools for mechanical work: copy accepted files with a native copy operation and verify byte identity with a hash when fidelity matters. Copying, moving or packaging a file must preserve its contents. In Persian Markdown start mixed-direction prose lines with a Persian word, isolate Latin commands and paths, and inspect the rendered result. In RTL navigation forward points left, closed disclosure carets point left and expanded ones point down; verify directional controls in the intended locale.

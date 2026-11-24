@@ -1,43 +1,7 @@
-# From a real talk to a usable presentation
+# From speaker input to rehearsal
 
-Start with the actual audience, setting, duration and desired audience action. A deck
-for a live speaker, a document read alone and a workshop exercise need different pacing.
-Reuse supplied research and the speaker's phrasing; do not convert a request for an
-argument into a catalog of definitions.
+Research the talk before choosing chapter boundaries. In the outline, record slide-level claims and sources, timings if constrained, speaker notes and real interaction outcomes. Review styling before preparing assets. Reuse an accepted diagram or widget in a representative slide, then check the full offline deck. Each living document follows the numbered analysis rounds for that step.
 
-Expand three Project paths consistently from the workspace root: artifact root
-`./`, document root `docs/`, and selected version dossier
-`docs/versions/VERSION/`. Every file the participant is asked to open, read
-or edit must be a `.md` file inside `docs/`; the assistant generates HTML/CSS/JS/PDF
-artifacts under `./` and serves local `http://` previews when needed.
+For example, a speaker's claim that the same procedure works on two inputs can form a chapter. The outline maps the first input, changed input and observed results to stable IDs. An exercise lets the audience vary one value. A private note cues the speaker to pause before revealing the result. The rehearsal route can visit these slides using the same IDs as the full deck.
 
-## Authoritative four-stage handoff
-
-| Command | Input artifact | Output artifact | Installed references | Exit evidence | Next |
-| --- | --- | --- | --- | --- | --- |
-| `idea` | Selected-version input recorded in `docs/living/status.md` | `docs/living/idea.md`, `roadmap.md` | `workflow.md`, `slides.md` | Audience, talk promise, format and sources resolved | `outline` |
-| `outline` | `docs/living/idea.md` | `docs/living/outline.md`, `design.md`, `assets.md` | `workflow.md`, `slides.md`, `visuals.md` | Beat sequence, timings, notes, asset plan and visual system resolved | `build` |
-| `build` | `docs/living/outline.md`, `design.md`, `assets.md` | `./src/`, `./dist/`, `.md` check summary in version dossier | `workflow.md`, `slides.md`, `visuals.md`, `quality.md` | Required assets/gallery and representative slide accepted; local/offline deck and navigation verified | `deploy` |
-| `deploy` | Verified deck; Project server selection only for explicit hosting | Delivery summary in `docs/living/status.md` or live receipt | `workflow.md`, `quality.md` | Speaker review resolved; local delivery or authorized hosting verified | Complete |
-
-## Why Idea and Outline stay distinct (mini-example)
-
-- **Idea (`idea.md`):** "20-minute Persian workshop deck for first-time builders: audience leaves able to separate one reusable Job from independent Projects; 16:9 offline HTML; recurring exam-formatting example."
-- **Outline (`outline.md` + `design.md`):** "Section 1 (3 min): teacher rewriting formatting prompts every week → Section 2 (6 min): worked contrast of raw chat vs Kandoo Job → Section 3 (6 min): live exercise splitting Project vs Kandoo scope → Section 4 (5 min): Q&A and takeaway; warm paper palette, Estedad + monospace LTR code blocks."
-
-Specification stages (`idea`, `outline`) advance once any open question round is
-submitted without adding an extra approval round; a submitted question file is never
-speaker acceptance of the built deck. Record speaker acceptance only for the revision
-reviewed. Qualify any Git release tag by Project (`release/VERSION`), or
-record an immutable local snapshot hash when Git was deferred.
-
-For a later iteration identify whether the request changes the audience, claim,
-outline, visual system or export. Rebuild only affected artifacts while checking the
-whole navigation sequence, preserving the previous delivered deck and editable source.
-A participant may replace slides with a portrait story, print handout or other format;
-record the local delivery decision and its revised gates.
-
-Default to a speaker-led horizontal deck with left/right navigation and a
-verified downloadable offline artifact. Record an explicit override when the requested
-format differs. Online hosting is secondary; a self-contained reading article normally
-belongs to the blog workflow. Preserve keyboard focus inside interactive controls.
+A method note captures a repeatable failure in navigation, slide counts, or an asset handoff. A one-off correction to the talk stays in the project. On revision, rerun checks for affected slides and the navigation connecting them. Preserve the previous delivery.

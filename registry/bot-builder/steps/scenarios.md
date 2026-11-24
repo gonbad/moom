@@ -18,5 +18,5 @@ cards):
    mid-flow, restart mid-dialog, and—**only if payments are in scope**—payment/receipt
    verification and replay (otherwise mark payment scenarios `not applicable`).
 
-Resolve open questions via `docs/versions/VERSION/NN-questions.md` in
+Resolve open questions via `docs/versions/VERSION/NN-analysis-scenarios.md` in
 Obsidian; once review closes, hand off to `/architecture`.

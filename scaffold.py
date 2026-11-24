@@ -31,7 +31,7 @@ def require(condition, message):
 
 
 def version_dir(version):
-    require(re.fullmatch(r'\d+\.\d+', version), 'Expected a numeric Kandoo version')
+    require(re.fullmatch(r'\d+\.\d+(?:\.\d+)?', version), 'Expected a numeric Kandoo version')
     return DOCS / 'versions' / version
 
 
@@ -148,13 +148,18 @@ def pipeline(workflow):
     return stages
 
 
-def utility_gates(workflow, stages):
+def floating_commands(workflow, stages):
     section = workflow.partition('## Floating commands')[2].partition('\n## ')[0]
     if not section:
         # Previous four-column workflows used the built-in project utilities.
-        defaults = dict.fromkeys(UTILITIES, 'always')
+        defaults = {
+            'issue': ('always', 'Repair a project defect'),
+            'iterate': ('always', 'Start a revision'),
+            'add-idea': ('always', 'Save an idea'),
+            'method-note': ('always', 'Record method feedback'),
+        }
         if server_mode(workflow) == 'dedicated':
-            defaults['server'] = 'always'
+            defaults['server'] = ('always', 'Configure project hosting')
         return defaults
     gates = {}
     for line in section.splitlines():
@@ -164,8 +169,8 @@ def utility_gates(workflow, stages):
         require(len(cells) == 3 and re.fullmatch(r'`/' + IDENTIFIER + r'`', cells[0]), 'Invalid floating command row')
         name, gate = cells[0][2:-1], cells[1].strip('`')
         require(name not in gates and gate in {'always', 'complete', *stages}, f'Invalid prerequisite for {name}')
-        gates[name] = gate
-    require(gates.get('method-note') == 'always', '/method-note must be available always')
+        gates[name] = (gate, cells[2])
+    require('method-note' in gates and gates['method-note'][0] == 'always', '/method-note must be available always')
     require(server_mode(workflow) != 'dedicated' or 'server' in gates, 'Dedicated server needs /server')
     return gates
 
@@ -211,7 +216,7 @@ def snapshot(*, legacy=False):
         payload.update({'docs/context/' + k: v for k, v in read_tree(context).items()})
     stages = pipeline(workflow)
     steps = {key[1:] for key in stages if key.startswith('/')}
-    gates = utility_gates(workflow, stages)
+    gates = floating_commands(workflow, stages)
     bodies = read_tree(LIVING / 'steps')
     require(set(bodies) == {s + '.md' for s in steps}, 'Step sources must match workflow')
     policy = (DOCS / 'command-names.md').read_text(encoding='utf-8')
@@ -410,6 +415,15 @@ def create(slug, destination, interpretation=None, shared_access=False):
         other = Path(unquote(cells[1])).resolve()
         require(cells[0] != slug and dest != other, 'Project slug or path already registered')
         require(other not in dest.parents and dest not in other.parents, 'Registered project roots overlap')
+    profile_path = 'docs/living/profile.md'
+    project_profile = files[profile_path].decode()
+    method_profile = (LIVING / 'profile.md').read_text(encoding='utf-8')
+    for name in ('Conversation language', 'Document language'):
+        # Older profiles use a Markdown bullet; keep the project fields machine-readable.
+        value = field(method_profile, name) or field(method_profile, '- ' + name)
+        if value and value.lower() != 'unset':
+            project_profile = set_field(project_profile, name, value)
+    files[profile_path] = project_profile.encode()
     if interpretation:
         files[INTERPRETATION] = interpretation.read_bytes()
     mode = server_mode(files['docs/constitution/workflow.md'].decode())
@@ -524,10 +538,11 @@ def progress(project):
     for key, mode in stages.items():
         marker = '✅' if key in completed else '⏭️' if key in skipped else '🔵' if key == current else '⬜'
         print(f'{marker} [{mode.upper()}] {key}')
-    gates = utility_gates(workflow, stages)
-    print('Available:', ' '.join('/' + name for name, gate in gates.items()
-                                 if gate == 'always' or gate in completed or
-                                 (gate == 'complete' and current == 'complete')))
+    gates = floating_commands(workflow, stages)
+    print('Available:')
+    for name, (gate, purpose) in gates.items():
+        if gate == 'always' or gate in completed or (gate == 'complete' and current == 'complete'):
+            print(f'  /{name} — {purpose}')
     print('Next:', field(status, 'Next action'))
 
 

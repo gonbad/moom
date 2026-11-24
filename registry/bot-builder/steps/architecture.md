@@ -23,7 +23,7 @@ deliverables inside `docs/`:
      native OpenSSH forwarding and isolated test/production data (or local Docker
      PostgreSQL on macOS/Linux when server setup was deferred). **Only if the Project explicitly
      selected no server (`none`/deferred) AND is on Windows**, offer project-scoped SQLite
-     (`./data/`) as an explicit last-resort local fallback via `NN-questions.md`,
+     (`./data/`) as an explicit last-resort local fallback via `NN-analysis-architecture.md`,
      recording that PostgreSQL migration and live VPS verification remain pending before
      any server deployment.
    - *Transport & Allocations:* Webhook reverse-tunnel/Caddy path or supported poller,
@@ -37,4 +37,4 @@ deliverables inside `docs/`:
    `./`.
 
 Resolve non-obvious architectural choices via
-`docs/versions/VERSION/NN-questions.md`; once review closes, hand off to `/build`.
+`docs/versions/VERSION/NN-analysis-architecture.md`; once review closes, hand off to `/build`.

@@ -7,7 +7,7 @@ description: Review one sequence of editable recording prompts.
 
 Read the project constitution and current status. Use the following references from `docs/references/`: `production.md`.
 
-Use the explicitly or softly confirmed script and voice plan. Write one numbered review document for the sequence. List prompts in script order and choose their scope from how the voices will be recorded.
+Use the explicitly or softly confirmed script and voice plan. Draft the sequence in the analysis section of a numbered round. Use a fresh numbered file for each revised draft or response. List prompts in script order and choose their scope from how the voices will be recorded.
 
 - **Separate voices or TTS.** Write one independently copyable prompt per uninterrupted speaking turn, including each narrator passage in a mixed scene. Keep consecutive sentences or questions together when the speaker carries one thought through them. Link the turn to its dialogue shot and any reaction shots it spans.
 - **Actors performing together.** Give them one scene prompt containing the speaker-labelled exchange and cues for pauses, interruptions and overlap. Keep the individual turns linked to their shot IDs for editing.

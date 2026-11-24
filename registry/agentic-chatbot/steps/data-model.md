@@ -21,5 +21,5 @@ raw SQL:
    exact permitted fields, access limits and retention windows are finalized in
    `docs/living/privacy.md`.
 
-Resolve open questions via `docs/versions/VERSION/NN-questions.md` in
+Resolve open questions via `docs/versions/VERSION/NN-analysis-data-model.md` in
 Obsidian; once review closes, hand off to `/privacy`.

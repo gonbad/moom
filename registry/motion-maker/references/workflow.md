@@ -20,7 +20,7 @@ inside `docs/`; the assistant creates technical artifacts and serves preview URL
 | `dubb` | Script, chosen delivery and reviewed picture | `delivery.md`, `caption.md` | Audio alignment if selected, final review and delivered artifact identity |
 
 Put review instructions and check evidence in the current version dossier, using its
-next unused numeric prefix for each question/review/issue round. Link local `http://`
+next unused numeric prefix for each analysis or issue round. Link local `http://`
 previews from those Markdown files; do not ask the participant to inspect source files
 outside the vault. External design output may be dropped into `./design/`.
 For audio/media supplied later, provide an attachment workflow or an assistant import

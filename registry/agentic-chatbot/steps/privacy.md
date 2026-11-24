@@ -20,5 +20,5 @@ Gate: `docs/living/data-model.md` exists and has a closed review. Author `docs/l
    audit logs vs short-lived protected diagnostics, who can access them, redaction rules
    for prompts/tool payloads, and retention/purge schedules.
 
-Resolve open questions via `docs/versions/VERSION/NN-questions.md` in
+Resolve open questions via `docs/versions/VERSION/NN-analysis-privacy.md` in
 Obsidian; once review closes, hand off to `/capabilities`.

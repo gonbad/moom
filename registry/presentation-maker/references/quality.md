@@ -8,6 +8,9 @@
 | Interaction | Keyboard, pointer and touch journey | Overlay focus loss, skipped sections counted visited |
 | History/resume | Deep link, back/forward, reload | Wrong slide or stale overview state |
 | Offline/export | Network-disabled opening of delivered files | CDN font, missing media, broken PDF page breaks |
+| Count and references | Generate the overview, totals and feedback targets from the same stable IDs as the browser | A report counts a milestone twice or cites a moved slide |
+| Private notes | Change slides in the audience window and check the speaker window | Notes appear on the projected slide or show the previous slide |
+| RTL | Check closed ◂ and open ▾ on an actual chapter, forward/back keys and caret movement in an editor | A disclosure points backward or typing moves the deck |
 
 Review a representative dense slide and diagram before polishing every slide. Then
 walk the entire deck in order and rehearse the talk duration, including transitions.
@@ -18,7 +21,7 @@ included. Keep unapproved changes marked as awaiting review; local delivery can 
 complete without hosting, a domain or a server.
 
 Default to a speaker-led horizontal deck with left/right navigation and a
-verified downloadable offline artifact. Record an explicit override when the requested
+verified transferable offline folder. Record an explicit override when the requested
 format differs. Online hosting is secondary; a self-contained reading article normally
 belongs to the blog workflow. Preserve keyboard focus inside interactive controls.
 

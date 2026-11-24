@@ -15,10 +15,10 @@ facts, quotations and inference. Inspect any existing assets under `./` before
 replacing anything. Bank out-of-scope or future post ideas in
 `docs/living/roadmap.md`.
 
-Always write and maintain `docs/living/idea.md` with scope, source contract,
+After analysis converges, write and maintain `docs/living/idea.md` with scope, source contract,
 exclusions, explicit public source folder (`./src/` or `site/`), private input
 boundaries, output format and acceptance examples. New posts remain private drafts unless
 publication is deliberately selected in `docs/living/publication.md`; never
 require `project.json`, an engine or a server to start writing. Put open editorial or
-delivery questions in `docs/versions/VERSION/NN-questions.md`. Once review closes, hand off directly to
+delivery questions in `docs/versions/VERSION/NN-analysis-idea.md`. Once review closes, hand off directly to
 `/brief`; a technical check or blank answer never certifies source fidelity.

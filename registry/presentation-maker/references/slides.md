@@ -45,6 +45,6 @@ JSON under file restrictions. A single-file artifact can inline assets when usef
 Offer editable source and the chosen viewing/export format, not a forced JSON schema.
 
 Default to a speaker-led horizontal deck with left/right navigation and a
-verified downloadable offline artifact. Record an explicit override when the requested
+verified transferable offline folder. Record an explicit override when the requested
 format differs. Online hosting is secondary; a self-contained reading article normally
 belongs to the blog workflow. Preserve keyboard focus inside interactive controls.

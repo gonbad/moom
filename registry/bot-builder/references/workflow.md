@@ -34,5 +34,5 @@ Keep living specs in `docs/living/` (`idea.md`, `prd.md`, `flow.md`,
 `architecture.md`, `roadmap.md`, `external-services.md`, `status.md`). Not every bot is
 a payment bot: when payments are outside scope, mark payment sections `not applicable`
 in `data-model.md`, `integrations.md`, `test-scenarios.md` and `build` rather than
-inventing invoices. Specification steps advance once review closes;
+inventing invoices. Specification steps are ready for the participant to advance after analysis converges;
 live messenger product acceptance at `test` remains an explicit human sign-off.

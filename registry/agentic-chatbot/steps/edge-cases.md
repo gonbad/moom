@@ -21,5 +21,5 @@ Gate: `docs/living/capabilities.md` exists and has a closed review. Author `docs
    pending state and enforcing the exact same caller scope and `confirm + hard` gates as
    normal runs, recovering only after a customer-data-free provider probe succeeds.
 
-Resolve open questions via `docs/versions/VERSION/NN-questions.md` in
+Resolve open questions via `docs/versions/VERSION/NN-analysis-edge-cases.md` in
 Obsidian; once review closes, hand off to `/prompts`.

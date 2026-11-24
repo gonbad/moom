@@ -21,5 +21,5 @@ raw SQL:
 5. **Deduplication & Redacted Audit Metadata:** Inbound `update_key` deduplication,
    outbox delivery status and redacted operator/event metadata (never storing raw tokens).
 
-Resolve open questions via `docs/versions/VERSION/NN-questions.md` in
+Resolve open questions via `docs/versions/VERSION/NN-analysis-data-model.md` in
 Obsidian; once review closes, hand off to `/integrations`.

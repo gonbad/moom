@@ -1,47 +1,15 @@
-# File review
+# Working with analysis files
 
-Allocate review filenames in the current version by taking the largest occupied numeric prefix plus one. Read the current living documents, input and supplied evidence before asking. Later submitted answers and inline COMMENTs or نظر override earlier proposals. Preserve the original record. Use the document language.
+## Analysis rounds for every workflow step
 
-For each item use this structure, translated to the document language:
+1. When the participant starts a step, read its inputs and the saved status. Open **at least one analysis round in this step**. In the current version folder use the largest occupied numeric prefix plus one, for example `07-analysis-prd.md`. Create the file exclusively (create-new mode); if its name already exists, recalculate. Each round has exactly these three sections, in the document language:
+   - **Analysis.** Interpret the supplied material, answer the participant's questions and explain how their feedback changes the work. This can be empty in the first round when there is no prior input.
+   - **Assumptions.** List only choices the participant might reasonably dispute. Leave space to accept, correct or reject them.
+   - **Questions.** Give each open question its context, realistic options, a concrete recommendation and a blank answer field. Sections with nothing to resolve may be empty.
+2. **Publish each analysis file once.** From handoff onward only the participant edits it. Write all subsequent explanations, quotations and resolutions in a new numbered file, including when resuming an older open review or questions file. Always leave answers and annotations where the participant wrote them. At handoff link the files open for feedback (analysis, brief, summary and applicable existing living documents), invite inline comments or direct edits, and explain that saving and saying `done` / `نوشتم` submits them all.
+3. Before any assistant file edits, preserve relevant participant changes in a scoped local Git commit. If already committed, use that checkpoint. Examine staged, unstaged, new files and committed changes since the previous assistant handoff. Read the actual answer fields and changed text; scan the current analysis, earlier rounds, briefs, summaries and living documents for unresolved `COMMENT` / `نظر`, including comments already in Git. Keep original wording. At the end of the assistant's work commit its reviewed changes separately, before handing back. Keep unrelated paths and secrets out of both commits. If Git is unavailable, preserve submitted bytes in place and report the pending checkpoint.
+4. A written choice is **explicit**. An unanswered question on a submitted round takes its stated recommendation by **soft confirmation** after all feedback has been read. Explicit corrections take precedence. A missing fact without a usable recommendation stays open. In the next analysis record each new answer, assumption correction, question or comment with its source, exact comment wording and response or effect. Reconcile new or contradictory feedback in the same step, taking the latest decision on each subject. Track the current round and processed submission in status so a restart or repeated submission resumes the same work.
+5. Wait until the participant has read and submitted a round with no new comments, no disputed assumptions and no questions left to ask or answer in that round. Only then write or revise the step's living specification from **all** rounds. Until then keep proposed text and changes in the analysis files. A step procedure naming a living output describes the destination after convergence. Operational status and evidence may be saved throughout. Link the living result and name the available next command. The participant can start it directly; a separate reading or approval of the living document is optional.
+6. Any submitted comment on the living result **always opens another analysis round in the same step**. Quote its exact wording and location, then answer it. Wait for convergence again before rewriting the living result. Start the next workflow step only when the participant invokes it or asks to start it. A bare `done` submits the current work.
 
-```markdown
-## 1. Which source should the article use?
-
-**Kind:** Open question / proposed decision
-
-**Context:** You already supplied a collection of notes in this version.
-
-**Options:**
-
-- **A — Reuse the supplied notes.** Keep one authoritative source.
-- **B — Add another collection.** Import it separately and record its purpose.
-
-**AI recommendation:** A, because the existing file contains the requested material.
-
-**Your answer:**
-
-
-```
-
-Include choices the user might reasonably disagree with even if the assistant has
-already made a working decision. State its effect and allow confirmation or override.
-Do not bury choices in a finished deliverable. Keep rounds manageable and let the
-person write or voice-transcribe in Obsidian, save, then say `done` / `نوشتم` or an
-equivalent explicit submission. Continue unrelated authorized work while awaiting it.
-
-## Closing a review
-
-At handoff, link the living document and its numbered review. Invite the participant to answer questions, confirm or override proposed assumptions, edit the document directly, or leave an inline `COMMENT` or `نظر`. They may use any combination and submit in chat, including a request to process the comments alone.
-
-On every submission or resumption, reread the current living document(s) under review together with the open round and the participant's latest message. Preserve direct edits. Record each submitted comment with its location, wording and disposition in the numbered dossier. Apply clear corrections wherever they affect the current work. Remove a marker from the living text only after incorporating its resolution and preserving the feedback. If its meaning conflicts with another instruction or remains unclear, retain the marker and ask the specific outstanding question.
-
-When processing a submission, a request to finish, or a request to advance, append resolutions without filling in the participant’s answer fields. Record the selected choice, its certainty and the evidence for each item. An explicit selection of the recommendation, a different answer, an override, or “accept all listed recommendations” is **Explicit confirmation**. When an answer or confirmation is absent, adopt the stated recommendation and record **Soft confirmation**. A bare `done` submits the work with soft defaults. A later explicit choice supersedes the default. For a new review, write a concrete recommended choice that can actually be adopted.
-
-Apply the same distinction to the reviewed revision. Record explicit acceptance only when the participant actually accepts that revision. Otherwise record soft confirmation for continuing the work. A direction to proceed authorizes the handoff while preserving this distinction. Keep the participant’s words, comments and direct edits ahead of conflicting defaults. Follow up on unresolved comments or missing facts that a recommendation cannot supply. Close the review once each item has a recorded resolution and the reviewed living documents have no unresolved comment markers. Keep technical evidence and authorization for external actions separate from review certainty.
-
-| Review input | Decision record |
-| --- | --- |
-| “Use A” when A is recommended | A, explicit confirmation, participant selected A |
-| Blank when A is recommended | A, soft confirmation, recommendation applied |
-| “Continue” without endorsing the revision | Revision soft-confirmed for the next step |
-| Inline correction | Participant’s words, the applied change and the affected revision, or an open question if clarification is needed |
+Use kandoo_docs/versions/VERSION/ for the current method dossier. Initial language and machine setup questions are asked one at a time in chat using /start. Save these operational settings immediately.

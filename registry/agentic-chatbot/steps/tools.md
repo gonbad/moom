@@ -27,5 +27,5 @@ reviewed by the participant stays in Obsidian Markdown:
    gitignored `docs/secrets/credentials.md`
    or non-`.md` files.
 
-Resolve open questions via `docs/versions/VERSION/NN-questions.md` in
+Resolve open questions via `docs/versions/VERSION/NN-analysis-tools.md` in
 Obsidian; once review closes, hand off to `/sops`.

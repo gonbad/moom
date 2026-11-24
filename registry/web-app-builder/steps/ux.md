@@ -19,5 +19,5 @@ Gate: `docs/living/data-model.md` exists and has a closed review. Author `docs/l
 
 If walking screens reveals missing fields or PRD gaps, update `data-model.md` and
 `prd.md` in place and note the change. Resolve open questions via
-`docs/versions/VERSION/NN-questions.md` in Obsidian; once review closes, hand
+`docs/versions/VERSION/NN-analysis-ux.md` in Obsidian; once review closes, hand
 off to `/visuals`.

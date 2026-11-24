@@ -14,6 +14,4 @@ beat. Explain why any character or motion is needed; a diagram or deliberate sti
 may communicate better than constant movement. Note asset complexity and reuse.
 
 Keep the core story feasible for the chosen duration and workshop/time budget. Do not
-start polished drawing or rendering. Resolve non-obvious narrative choices through the
-current numbered review, including assumptions and comments on the living outline.
-Proceed to `/story` when the outline questions are resolved.
+start polished drawing or rendering. Resolve non-obvious narrative choices through numbered analysis rounds. Write the living outline after convergence and offer `/story`.

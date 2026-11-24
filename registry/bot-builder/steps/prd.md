@@ -17,5 +17,5 @@ Gate: `docs/living/idea.md` exists and has a closed review. Author `docs/living/
    windows, support/operator handoff, and whether payments apply to this version.
 4. **Non-Goals:** Capabilities explicitly excluded from this version.
 
-Resolve open questions via `docs/versions/VERSION/NN-questions.md` in
+Resolve open questions via `docs/versions/VERSION/NN-analysis-prd.md` in
 Obsidian; once review closes, hand off to `/flow`.

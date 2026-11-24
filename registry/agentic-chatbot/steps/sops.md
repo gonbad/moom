@@ -16,5 +16,5 @@ Gate: `docs/living/tools.md` exists and has a closed review. Author `docs/living
 3. **Conversational Recovery:** Rules for disambiguating vague requests, handling
    corrections or topic switches, and canceling an in-progress workflow cleanly.
 
-Resolve open questions via `docs/versions/VERSION/NN-questions.md` in
+Resolve open questions via `docs/versions/VERSION/NN-analysis-sops.md` in
 Obsidian; once review closes, hand off to `/data-model`.

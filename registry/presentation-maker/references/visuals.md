@@ -1,11 +1,11 @@
 # Presentation visuals and exact source reuse
 
-During outline, create `docs/living/assets.md`: map each slide/beat to
+During the assets step, create `docs/living/assets.md`: map each slide/beat to
 its required diagram, character, photo or video; identify states, transitions, purpose,
 source/license, editable format and acceptance criteria. Design only visuals the story
 needs. Keep speaker notes and full narration separate from audience-facing copy.
 
-Build begins with visual preparation, before full slide assembly. For a new reusable
+Prepare and accept assets before representative-slide integration. For a new reusable
 visual, write a copyable Markdown prompt in the selected dossier. Support interactive
 Claude Design/artifacts when available, or a free web/desktop chatbot capable of
 returning HTML. Work on one visual at a time, requesting a complete HTML with embedded
@@ -42,5 +42,4 @@ assets instead of manufacturing an empty gallery ritual.
 See [Claude artifacts](https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them)
 for interactive output, [SVG groups](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/g)
 for transform boundaries, and [SVG-as-image restrictions](https://developer.mozilla.org/en-US/docs/Web/SVG/Guides/SVG_as_an_image)
-when choosing between inline source and a static image. This four-stage Job embeds
-visual preparation/review in build; it does not install an extra command.
+when choosing between inline source and a static image. The assets step preserves the approved originals for build.

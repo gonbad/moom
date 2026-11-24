@@ -20,7 +20,7 @@ non-secret credential variable names in `docs/living/external-services.md`
 (instructing the owner to store actual tokens only in gitignored
 `docs/secrets/credentials.md`).
 
-Always write and maintain `docs/living/idea.md`—never substitute a
+After analysis converges, write and maintain `docs/living/idea.md`—never substitute a
 version-only filename. Resolve open questions via
-`docs/versions/VERSION/NN-questions.md` in Obsidian; once review closes, hand
+`docs/versions/VERSION/NN-analysis-idea.md` in Obsidian; once review closes, hand
 off directly to `/prd`.

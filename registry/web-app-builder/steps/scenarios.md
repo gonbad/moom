@@ -29,5 +29,5 @@ fidelity, freeze a new non-colliding prototype reference (such as
 `project/prototype/VERSION-r2` or a new snapshot path/hash) after the owner accepts
 the changed revision. Update the baseline and acceptance evidence in Project status,
 preserve the prior baseline, and invalidate stale checks.
-Resolve open questions via `docs/versions/VERSION/NN-questions.md` in
+Resolve open questions via `docs/versions/VERSION/NN-analysis-scenarios.md` in
 Obsidian; once review closes, route to `/architecture`.

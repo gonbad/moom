@@ -18,5 +18,5 @@ Gate: `docs/living/integrations.md` exists and has a closed review. Author `docs
 4. **Expiry & Cancellation:** Read-time draft/reservation expiry without relying on a
    background cron having run, plus explicit `«انصراف»` cleanup.
 
-Resolve open questions via `docs/versions/VERSION/NN-questions.md` in
+Resolve open questions via `docs/versions/VERSION/NN-analysis-edge-cases.md` in
 Obsidian; once review closes, hand off to `/scenarios`.

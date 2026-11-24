@@ -16,5 +16,5 @@ Gate: `docs/living/idea.md` exists and has a closed review. Author `docs/living/
    forcing a chat UI on a scheduled task).
 4. **Non-Goals:** Actions or integrations excluded from this version.
 
-Resolve open questions via `docs/versions/VERSION/NN-questions.md` in
+Resolve open questions via `docs/versions/VERSION/NN-analysis-prd.md` in
 Obsidian; once review closes, hand off to `/tools`.

@@ -20,8 +20,8 @@ non-secret credential variable names in `docs/living/external-services.md`
 (recording domestic versus foreign network constraints and instructing the owner to
 store actual keys only in gitignored `docs/secrets/credentials.md`).
 
-Always write and maintain `docs/living/idea.md` with actors, problem,
+After analysis converges, write and maintain `docs/living/idea.md` with actors, problem,
 differentiator, fallbacks and the `0.1` boundary—never use an alternative version-only
 filename instead of `docs/living/idea.md`. Resolve open choices via
-`docs/versions/VERSION/NN-questions.md` in Obsidian; once review closes, hand
+`docs/versions/VERSION/NN-analysis-idea.md` in Obsidian; once review closes, hand
 off directly to `/prd`.

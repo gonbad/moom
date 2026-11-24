@@ -23,5 +23,5 @@ document root `docs/living/prompts/` (never unscoped `docs/prompts/`):
    - Refusal of prompt injection and out-of-scope requests.
 
 Invite review or non-obvious question resolution via
-`docs/versions/VERSION/NN-questions.md` in Obsidian; once review closes, hand
+`docs/versions/VERSION/NN-analysis-prompts.md` in Obsidian; once review closes, hand
 off to `/architecture`.

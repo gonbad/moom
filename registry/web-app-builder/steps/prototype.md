@@ -25,7 +25,7 @@ under `./frontend/` on an allocated free local port (`http://127.0.0.1:PORT`):
 4. **First Visual Fidelity Gate (HTML vs React):** Compare the authoritative HTML screens
    with the running React prototype at matching desktop/mobile viewports, fonts, synthetic
    data and empty/loading/error/filled states. Record comparison results in
-   `docs/versions/VERSION/NN-prototype-review.md` and apply owner refinements
+   `docs/versions/VERSION/NN-analysis-prototype.md` and apply owner refinements
    until the owner explicitly accepts the prototype; never refer the participant to edit
    non-`.md` files outside `docs/`.
 5. **Freeze Project-Qualified Baseline:** Fold any agreed UX/field refinements back into

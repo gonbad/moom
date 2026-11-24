@@ -23,5 +23,5 @@ Gate: `docs/living/data-model.md` exists and has a closed review. Author `docs/l
    `docs/secrets/credentials.md`—keep them out of
    non-`.md` files referred to the participant.
 
-Resolve open questions via `docs/versions/VERSION/NN-questions.md` in
+Resolve open questions via `docs/versions/VERSION/NN-analysis-integrations.md` in
 Obsidian; once review closes, hand off to `/edge-cases`.

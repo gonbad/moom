@@ -34,7 +34,7 @@ files under `./` and serves local `http://` previews when needed.
 
 Keep living summaries in `docs/living/` and raw requests plus numbered
 review rounds in `docs/versions/VERSION/`. Specification steps (`idea`,
-`brief`, `story`) advance once review closes without adding an
+`brief`, `story`) are ready for the participant to advance after analysis converges without adding an
 extra approval ceremony; editorial narrative acceptance, browser verification and live
 deployment remain separate facts. New posts start private/draft and need no machine
 manifest or upstream repository.

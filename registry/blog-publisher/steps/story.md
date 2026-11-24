@@ -18,6 +18,6 @@ Gate: `docs/living/brief.md` exists and has a closed review. Author `docs/living
    the open version to a specific section, naming the exact source fact, worked example,
    diagram, table or code listing that supports it, and flagging any missing source fact.
 
-Use `docs/versions/VERSION/NN-questions.md` for non-obvious structural
+Use `docs/versions/VERSION/NN-analysis-story.md` for non-obvious structural
 choices, ordering tradeoffs or missing prerequisites. Invite the owner to inspect
 `docs/living/story.md` in Obsidian; once review closes, hand off to `/content`.

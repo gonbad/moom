@@ -24,8 +24,7 @@ or external design HTML/assets into `./design/`.
 | `test` | Running app, frozen prototype copy, `test-scenarios.md` | `docs/versions/VERSION/NN-test-round.md` | `workflow.md`, `design.md`, `quality.md` | Prototype-to-app comparison and owner scenario acceptance recorded | `deploy` |
 | `deploy` | Owner acceptance, `docs/living/server.md` | `docs/versions/VERSION/deploy-notes.md`, `release/VERSION` | `workflow.md`, `infrastructure.md`, `quality.md` | Live HTTPS/DB restart verified, or local delivery recorded | Complete |
 
-Specification stages (`idea`, `prd`, `data-model`, `ux`, `scenarios`, `plan`) advance
-once review closes without inventing a second approval round.
+Specification stages (`idea`, `prd`, `data-model`, `ux`, `scenarios`, `plan`) are ready for the participant to advance after analysis converges without inventing a second approval round.
 Human artifact acceptance is required separately at `visuals`, `prototype` (HTML
 versus React) and `test` (frozen prototype versus integrated application). Keep
 mock-data and live-data calls behind `./frontend/src/api/` so backend wiring

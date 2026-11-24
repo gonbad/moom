@@ -26,7 +26,7 @@ capability schema shared across specification, prompts, harness and tests:
      model dialogue or `confirmed=true`).
 3. **Owner Per-Action Choice (No Blanket Global Override):**
    Explain the concrete security and UX consequences for each action in
-   `docs/versions/VERSION/NN-questions.md` and **preserve the owner's
+   `docs/versions/VERSION/NN-analysis-capabilities.md` and **preserve the owner's
    explicit per-action selection**—do not impose a global rule forbidding `direct` +
    `soft` or `direct` + `none` on financial, deletion or high-privilege actions when the
    owner chooses them. Caller identity, backend business eligibility, idempotency,

@@ -19,5 +19,5 @@ Gate: `docs/living/idea.md` exists and has a closed review. Author `docs/living/
    delivery overrides. The page must explain itself without a speaker.
 
 Put consequential unresolved angles or tradeoffs in
-`docs/versions/VERSION/NN-questions.md` for review in Obsidian. Once review closes, record the confirmed choices
+`docs/versions/VERSION/NN-analysis-brief.md` for review in Obsidian. Once review closes, record the confirmed choices
 without adding an extra approval round, and hand off to `/story`.
